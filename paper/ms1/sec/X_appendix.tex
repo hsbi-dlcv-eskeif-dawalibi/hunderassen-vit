@@ -63,13 +63,6 @@ Staffordshire Bull Terrier, Boxer) machen 16\,\% der Testbilder und 59\,\% aller
 aus (Accuracy 84,9\,\% gegenüber 98,2\,\% bei den übrigen Rassen). 71 Testbilder sind in allen drei
 Seeds falsch klassifiziert.
 
-\begin{figure*}[p]
-  \centering
-  \resultfigureh{explain/contrastive_convnext_t.png}{19cm}{Kontrastive Karten}
-  \caption{Warum Rasse $A$ und nicht $B$? Für die häufigsten Verwechslungen: Grad-CAM für $A$ und $B$,
-  kontrastive Karte $A-B$ und Occlusion für $A$ (ConvNeXt-T, Testbilder).}
-  \label{fig:contrastive}
-\end{figure*}
 
 \section{Warum diese Rasse und nicht die andere?}
 \label{sec:explain}
@@ -91,16 +84,12 @@ die häufigsten Verwechslungen.
 
 
 
-\section{Klassenverteilung}
-\label{sec:breeds}
-\Cref{fig:class_counts} zeigt die Zahl der Bilder pro Rasse (\texttt{trainval} und \texttt{test}); die Klassen
-sind nahezu balanciert.
-
-\begin{figure}[h]
+\begin{figure}[t]
   \centering
-  \resultfigure{data_quality/class_counts.png}{\linewidth}{Bilder pro Rasse}
-  \caption{Zahl der Bilder pro Rasse (trainval und test).}
-  \label{fig:class_counts}
+  \resultfigure{explain/contrastive_convnext_t.png}{\linewidth}{Kontrastive Karten}
+  \caption{Warum Rasse $A$ und nicht $B$? Für die häufigsten Verwechslungen: Grad-CAM für $A$ und $B$,
+  kontrastive Karte $A-B$ und Occlusion für $A$ (ConvNeXt-T, Testbilder).}
+  \label{fig:contrastive}
 \end{figure}
 
 \section{Software und KI-Hilfsmittel}
