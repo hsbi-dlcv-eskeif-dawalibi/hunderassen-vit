@@ -2,13 +2,13 @@
 \begin{abstract}
 Vortrainierte Vision Transformer (ViTs) lassen sich gut auf neue Aufgaben übertragen, doch alle
 Parameter anzupassen ist teuer. Wir untersuchen, wie effizient sich ein vortrainierter ViT-B/16 an die
-Klassifikation der 25 Hunderassen von Oxford-IIIT Pet anpassen lässt. Mit einem einheitlichen Protokoll
+Klassifikation der 25 Hunderassen von Oxford-IIIT Pet anpassen lässt. Mit einheitlichem Protokoll
 und drei Seeds vergleichen wir Linear Probing, Low-Rank Adaptation (LoRA) mit verschiedenen Rängen und
-Ziel-Layern, volles Fine-Tuning und zwei CNNs (ResNet-50, ConvNeXt-T). LoRA mit Rang 8 erreicht die
-höchste Test-Accuracy (96,2\,\%) bei 0,36\,\% trainierbaren Parametern, doch Linear Probing mit nur
+Ziel-Layern, volles Fine-Tuning und zwei CNNs. LoRA mit Rang 8 erreicht die
+höchste Test-Accuracy (96,2\,\%; die auf Validation gewählte Variante $r=4$ 96,1\,\%) bei 0,36\,\% trainierbaren Parametern, doch Linear Probing mit nur
 0,02\,\% ist innerhalb der Seed-Streuung gleich gut. Volles Fine-Tuning liegt 0,8 Prozentpunkte darunter,
-das beste CNN 1,4 Punkte unter dem besten ViT. Zusatzexperimente erklären die hohe Genauigkeit: 22 der 25
-Rassen sind ImageNet-Klassen, und die ursprünglichen ImageNet-Köpfe erkennen sie bei Auswahl unter diesen
-22 Rassen ganz ohne Training zu 96--97\,\%. Für Daten so nah an der Pretraining-Verteilung ist ein neuer
-linearer Kopf die effizienteste Anpassung.
+das beste CNN 1,4 Punkte unter dem besten ViT. Zusatzexperimente liefern Hinweise auf die hohe Genauigkeit: 22 der 25
+Rassen sind ImageNet-Klassen, und die ursprünglichen ImageNet-Köpfe erkennen sie ganz ohne Training zu
+96--97\,\% (Auswahl unter diesen 22). Bei Daten so nah am Pretraining ist ein neuer linearer Kopf die
+effizienteste Anpassung.
 \end{abstract}
