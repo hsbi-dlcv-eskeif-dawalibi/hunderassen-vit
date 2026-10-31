@@ -45,7 +45,14 @@ der Seed-Streuung.
 \paragraph{Trainingsverlauf.}
 Linear Probing erreicht seine beste Validation-Accuracy nach $3{,}7\pm1{,}2$ Epochen, die
 LoRA-Varianten nach 5,3--6,7 Epochen, volles Fine-Tuning nach $6{,}3\pm1{,}2$ und die CNNs nach 5--6
-Epochen (\cref{fig:curves} im Anhang).
+Epochen (\cref{fig:curves}).
+
+\begin{figure}[h]
+  \centering
+  \resultfigure{ms1/validation_curves.png}{\linewidth}{Lernkurven}
+  \caption{Validation-Accuracy über den Epochen für alle Methoden (Mittelwert über 3 Seeds).}
+  \label{fig:curves}
+\end{figure}
 
 \paragraph{Augmentierung.}
 Für LoRA $r=8$ ergibt \emph{light} $96{,}21\pm0{,}24$\,\%, \emph{none} $95{,}99\pm0{,}16$\,\% und

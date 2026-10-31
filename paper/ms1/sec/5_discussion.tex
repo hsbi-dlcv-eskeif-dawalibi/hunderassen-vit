@@ -11,7 +11,7 @@ LoRA $r=8$ ist nominell die beste Methode (96,21\,\%), doch Linear Probing (96,0
 ($-0{,}82$\,pp) und die CNNs ($-1{,}42$ und $-1{,}99$\,pp) sind klar schlechter. Die Zusatzexperimente
 (\cref{sec:why}) legen nahe, warum ein eingefrorener Backbone genügt: Die vortrainierten Merkmale
 trennen die Rassen bereits. Eine logistische Regression auf eingefrorenen ViT-B/16-Merkmalen erreicht
-95,9\,\%, mit nur einem Bild pro Rasse schon 84,7\,\%. Zudem sind 22 unserer 25 Rassen
+95,9\,\%, mit nur einem Bild pro Rasse schon 84,7\,\% (\cref{fig:fewshot}). Zudem sind 22 unserer 25 Rassen
 ImageNet-1k-Klassen~\cite{russakovsky2015imagenet} (Zuordnung im Anhang); bei Auswahl unter diesen 22 Rassen erreichen die
 ursprünglichen ImageNet-Köpfe 96,2--96,8\,\%, ohne ein einziges Bild unseres Trainingssatzes gesehen zu
 haben. Die Anpassung muss also keine Rassenmerkmale lernen, sondern vor allem vorhandene Merkmale auf
@@ -22,6 +22,21 @@ Kumar \etal\ den Schaden vor allem außerhalb der Trainingsverteilung feststelle
 ein ähnliches Muster: Eingefrorene Merkmale mit Linear Probe erreichen 96,1\,\%, das vollständig
 feinjustierte Netz 94,2\,\% (ein Lauf der Probe gegenüber drei Fine-Tuning-Seeds und ein anderes
 Trainingsverfahren, der Vergleich ist daher nur ein Hinweis).
+
+\begin{figure}[h]
+  \centering
+  \resultfigure{why/fewshot_curves.png}{\linewidth}{Few-Shot-Kurven}
+  \caption{Linear Probe auf eingefrorenen Merkmalen über der Zahl der Trainingsbilder pro Rasse
+  (Mittelwert $\pm$ Std über 3 Ziehungen).}
+  \label{fig:fewshot}
+\end{figure}
+
+\begin{figure}[t]
+  \centering
+  \resultfigure{explain/head_examples.png}{\linewidth}{Kopf-Box und Grad-CAM}
+  \caption{Grad-CAM-Karten und annotierte Kopf-Box (weiß) auf Validierungsbildern; Zeilen: Modelle (siehe Anhang~\ref{sec:explain}).}
+  \label{fig:head}
+\end{figure}
 
 \paragraph{Lohnt sich LoRA? (A1, A2)}
 A1 ist bestätigt: Mit 0,19--0,70\,\% trainierbaren Parametern ist LoRA nie schlechter als volles

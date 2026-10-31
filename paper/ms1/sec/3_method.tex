@@ -31,7 +31,7 @@ Wir haben alle 4\,978 Bilder geprüft (\texttt{make data-report}). Die Klassen s
 (189--200 Bilder pro Rasse). Alle Dateien liegen als RGB vor; 33 davon haben grauen Inhalt (identische
 Kanäle). Die Bildgröße liegt im Median bei $500\times375$\,px; 133 Bilder haben eine kürzere Seite unter
 224\,px und werden hochskaliert. Der Hund bedeckt im Mittel 40\,\% des Bildes, in 123 Bildern weniger als
-10\,\%. Exakte Duplikate gibt es nicht, daher wurde kein Bild entfernt. \Cref{fig:examples} im Anhang zeigt ein
+10\,\%. Exakte Duplikate gibt es nicht, daher wurde kein Bild entfernt. \Cref{fig:examples} zeigt ein
 Beispiel pro Rasse.
 
 \paragraph{Augmentierung.}
@@ -41,6 +41,13 @@ Fellfarbe Rassemerkmale sind, und halten die Augmentierung beim Fine-Tuning eine
 moderat (nur das Preset \emph{strong} enthält über RandAugment Farboperationen). \emph{strong} ergänzt
 RandAugment~\cite{cubuk2020randaugment} und Random Erasing~\cite{zhong2020erasing}; \emph{none} nutzt
 nur Skalierung und zentralen Zuschnitt.
+
+\begin{figure}[t]
+  \centering
+  \resultfigure{data_quality/examples.png}{\linewidth}{Beispiel pro Rasse mit Maskenumriss}
+  \caption{Ein Trainingsbild pro Rasse (25 Hunderassen); gelb: Umriss der Segmentierungsmaske.}
+  \label{fig:examples}
+\end{figure}
 
 \subsection{Modelle und Training}
 Alle Modelle sind auf ImageNet~\cite{deng2009imagenet,russakovsky2015imagenet} vortrainiert und werden mit Hugging Face
@@ -90,4 +97,23 @@ optimiert (größer bei weniger trainierbaren Parametern). Unsere ersten CNN-Lä
 ViT-Lernrate $5\cdot10^{-5}$ und waren deutlich untertrainiert (Validation-Loss 1,35 bei ResNet-50). Daher
 haben wir die CNN-Lernrate auf dem \emph{Validierungssplit} aus $\{5\cdot10^{-5}, 2\cdot10^{-4},
 5\cdot10^{-4}, 10^{-3}\}$ mit je drei Seeds gewählt; $2\cdot10^{-4}$ war für beide CNNs am besten
-(\cref{tab:lr} im Anhang).
+(\cref{tab:lr}).
+
+\begin{table}[h]
+  \centering
+  \caption{Wahl der CNN-Lernrate auf dem Validierungssplit (Mittelwert $\pm$ Std über 3 Seeds;
+  \texttt{make ms1-cnn-lr}). Der Testsplit wurde nicht verwendet.}
+  \label{tab:lr}
+  \small
+  \resizebox{\linewidth}{!}{\begin{tabular}{lcccc}
+    \toprule
+    & \multicolumn{2}{c}{ResNet-50} & \multicolumn{2}{c}{ConvNeXt-T} \\
+    Lernrate & Val.-Acc.\ (\%) & Val.-Loss & Val.-Acc.\ (\%) & Val.-Loss \\
+    \midrule
+    $5\cdot10^{-5}$ & $91{,}47\pm1{,}29$ & 1,349 & $96{,}40\pm0{,}69$ & 0,303 \\
+    $2\cdot10^{-4}$ & $\mathbf{97{,}47\pm0{,}46}$ & 0,146 & $\mathbf{97{,}47\pm0{,}46}$ & 0,112 \\
+    $5\cdot10^{-4}$ & $96{,}40\pm1{,}06$ & 0,110 & $96{,}13\pm0{,}83$ & 0,157 \\
+    $10^{-3}$ & $96{,}13\pm1{,}80$ & 0,154 & $94{,}80\pm0{,}80$ & 0,190 \\
+    \bottomrule
+  \end{tabular}}
+\end{table}
