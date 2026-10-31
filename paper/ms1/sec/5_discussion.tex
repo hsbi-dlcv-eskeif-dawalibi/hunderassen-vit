@@ -46,16 +46,20 @@ Fine-Tuning könnte den Rückstand verkleinern.
 
 \begin{figure}[t]
   \centering
-  \resultfigure{why/fewshot_curves.png}{\linewidth}{Few-Shot-Kurven}
-  \caption{Linear Probe auf eingefrorenen Merkmalen über der Zahl der Trainingsbilder pro Rasse
-  (Mittelwert $\pm$ Std über 3 Ziehungen).}
+  \resultfigure{paper/fewshot.png}{\linewidth}{Few-Shot-Kurven}
+  \caption{Linear Probe (logistische Regression) auf eingefrorenen ImageNet-Merkmalen über der Zahl der
+  Trainingsbilder pro Rasse (Mittelwert $\pm$ Std.\ über 3 Ziehungen; ganz rechts: alle Trainingsbilder, etwa
+  90 pro Rasse; die y-Achse beginnt bei 80\,\%, Zufall wäre 4\,\%). Schon ein Bild pro Rasse genügt für
+  85--87\,\%.}
   \label{fig:fewshot}
 \end{figure}
 
 \begin{figure}[t]
   \centering
-  \resultfigure{explain/head_examples.png}{\linewidth}{Kopf-Box und Grad-CAM}
-  \caption{Grad-CAM-Karten und annotierte Kopf-Box (weiß) auf Validierungsbildern; Zeilen: Modelle (siehe Anhang~\ref{sec:explain}).}
+  \resultfigure{paper/gradcam.png}{\linewidth}{Kopf-Box und Grad-CAM}
+  \caption{Grad-CAM-Karten dreier Modelle (Zeilen) auf denselben sechs Validierungsbildern. Rot: Bereiche, die
+  die Entscheidung stark beeinflussen; weißer Rahmen: annotierte Kopf-Box. ResNet-50 und ConvNeXt-T
+  konzentrieren sich meist auf den Kopf, die Karte des ViT ist verrauscht (Anhang~\ref{sec:explain}).}
   \label{fig:head}
 \end{figure}
 
@@ -64,8 +68,7 @@ LoRA mit weniger als 1\,\% trainierbaren Parametern ist nie schlechter als volle
 von $r=8$ liegt nur knapp über der Schwelle und sollte nicht überbewertet werden. Linear Probing trainiert
 16-mal weniger Parameter als LoRA $r=8$ bei gleicher Accuracy; die Trainingszeiten (0,3 gegenüber 0,5\,min)
 unterscheiden sich im Bereich der Messstreuung, sodass wir den Vorteil nur über die Parameterzahl begründen.
-Gegenüber Adaptern~\cite{houlsby2019adapter} hat LoRA den Vorteil, dass die Änderung in die Gewichte
-eingerechnet wird. Ein höherer Rang und mehr angepasste Layer bringen nichts: Zusätzliche Kapazität bleibt
+Ein höherer Rang und mehr angepasste Layer bringen nichts: Zusätzliche Kapazität bleibt
 vermutlich ungenutzt, wenn die eingefrorenen Merkmale schon gut sind, in Analogie zum niedrigen
 intrinsischen Rang, den Hu \etal~\cite{hu2022lora} für Sprachmodelle berichten.
 
@@ -74,9 +77,8 @@ Der Abstand von 1,42\,pp zwischen bestem ViT und ConvNeXt-T ist klein, aber grö
 misst die Kombination aus Architektur, Größe (86 gegenüber 24--28\,M Parameter) und Pretraining
 (ImageNet-21k und -1k~\cite{deng2009imagenet} gegenüber nur -1k), nicht Architektur allein. Auf
 eingefrorenen Merkmalen sind ResNet-50 (96,1\,\%) und ViT-B/16 (95,9\,\%) gleich gut; der Abstand
-entsteht also beim Fine-Tuning der CNNs und nicht durch besseres Pretraining des ViT. Eine methodische
-Lehre betrifft die Lernrate: Mit der ViT-Lernrate war ResNet-50 untertrainiert (Validation-Loss 1,35); erst
-eine pro Architektur auf Validation gewählte Lernrate macht den Vergleich fair (\cref{tab:lr}).
+entsteht also beim Fine-Tuning der CNNs und nicht durch besseres Pretraining des ViT. Mit der ViT-Lernrate war ResNet-50 untertrainiert; erst die pro Architektur auf
+Validation gewählte Lernrate (\cref{tab:lr}) macht den Vergleich fair.
 
 \paragraph{Auf welchen Daten würde eine andere Methode gewinnen?}
 Wie nah ImageNet liegt, erklärt unsere Ergebnisse nur teilweise. Die drei Rassen ohne ImageNet-Klasse
@@ -85,13 +87,10 @@ American Bulldog (86\,\%); Havanese (97\,\%) und Shiba Inu (99\,\%) sind so leic
 Der American Bulldog gehört zudem zu den Bully-Rassen, die auch ImageNet-Rassen untereinander verwechseln
 (s.\,u.). Ob eingefrorene Merkmale auch weiter von ImageNet entfernt genügen, haben wir nicht geprüft;
 für andere Domänen oder deutlich größere Datensätze erwarten wir, dass LoRA oder volles Fine-Tuning
-aufholen, wie es Kornblith \etal~\cite{kornblith2019transfer} für Autos und Flugzeuge beobachten. Ohne
-Pretraining erreicht ViT-B/16 nur 11,2\,\% und ResNet-50 31,1\,\%; der Vorsprung des CNN geht vermutlich auf
-die induktive Verzerrung der Faltungen zurück.
+aufholen, wie es Kornblith \etal~\cite{kornblith2019transfer} für Autos und Flugzeuge beobachten.
 
 \paragraph{Augmentierung, Datenqualität und Fehler.}
-\emph{none}, \emph{light} und \emph{strong} unterscheiden sich um höchstens 0,3\,pp, innerhalb des Rauschens;
-bei so guten Merkmalen gibt es wenig Overfitting, das Augmentierung verhindern könnte. Die Daten sind
+\emph{none}, \emph{light} und \emph{strong} unterscheiden sich um höchstens 0,3\,pp, innerhalb des Rauschens. Die Daten sind
 balanciert und enthalten keine exakten Duplikate; 8,6\,\% der Testbilder haben ein sehr ähnliches
 Trainingsbild (CLIP-Ähnlichkeit $\geq0{,}95$), ohne sie sinkt die Accuracy um 0,34\,pp, die Ergebnisse sind
 also höchstens leicht geschönt. Die vier Bully-Rassen machen 16\,\% der Testbilder, aber 59\,\% der Fehler
@@ -112,9 +111,7 @@ sie ist daher nur ein grober Stellvertreter für Test, und die Modellauswahl fü
 Gleichstand. Drei Seeds begrenzen die Auflösung kleiner Unterschiede; unsere Schwelle ist konservativer als
 ein gepaarter Vergleich je Seed, der auch die kleinen Rückstände von LoRA $r=16$ und von LoRA auf allen
 Layern gegenüber $r=8$ (0,24 und 0,39\,pp) als konsistent einstufen würde, an den Schlussfolgerungen aber
-nichts ändert. Absolute Werte sind nicht mit Kornblith \etal~\cite{kornblith2019transfer} vergleichbar
-(37 Rassen, mittlere Accuracy pro Klasse, Fine-Tuning dort ebenfalls nur klein auf Pets). Die
-Trainingszeiten stammen von einer einzigen GPU.
+nichts ändert. Absolute Werte sind nicht mit denen von Kornblith \etal~\cite{kornblith2019transfer} (37 Rassen) vergleichbar.
 
 \paragraph{Fazit und Ausblick.}
 Für einen kleinen feinkörnigen Datensatz nahe an ImageNet erreicht ein neuer linearer Kopf auf einem

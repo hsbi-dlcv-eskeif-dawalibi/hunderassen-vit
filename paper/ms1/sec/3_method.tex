@@ -12,7 +12,7 @@ Training und Validation geteilt (10\,\% pro Klasse, stratifiziert, fester Split-
 
 \begin{table}[t]
   \centering
-  \caption{Splits der 25 Hunderassen (Zahlen in \texttt{runs/<name>/README.md}).}
+  \caption{Aufteilung der 25 Hunderassen in Training, Validation und Test.}
   \label{tab:splits}
   \small
   \begin{tabular}{lrl}
@@ -44,8 +44,10 @@ nur Skalierung und zentralen Zuschnitt.
 
 \begin{figure}[t]
   \centering
-  \resultfigure{data_quality/examples.png}{\linewidth}{Beispiel pro Rasse mit Maskenumriss}
-  \caption{Ein Trainingsbild pro Rasse (25 Hunderassen); gelb: Umriss der Segmentierungsmaske.}
+  \resultfigure{paper/beispiele.png}{\linewidth}{Beispiel pro Rasse mit Maskenumriss}
+  \caption{Je ein Trainingsbild der 25 Hunderassen (das erste der Rasse im Trainingssplit). Gelb: Umriss der
+  Segmentierungsmaske des Tieres. Manche Rassen sehen sich sehr ähnlich, etwa American Pit Bull Terrier und
+  Staffordshire Bull Terrier.}
   \label{fig:examples}
 \end{figure}
 

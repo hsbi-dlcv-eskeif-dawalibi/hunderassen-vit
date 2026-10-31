@@ -30,9 +30,10 @@ RTX~5090.
 
 \begin{figure}[t]
   \centering
-  \resultfigure{ms1/efficiency.png}{\linewidth}{Accuracy über trainierbaren Parametern}
-  \caption{Test-Accuracy über der Zahl trainierbarer Parameter (logarithmisch); Kreise: ViT,
-  Quadrate: CNNs.}
+  \resultfigure{paper/effizienz.png}{\linewidth}{Accuracy über trainierbaren Parametern}
+  \caption{Test-Accuracy über der Zahl trainierbarer Parameter (logarithmische Skala). Punkte: Mittelwert über
+  3 Seeds, Balken: $\pm$ eine Standardabweichung. Mit weniger trainierbaren Parametern bleibt die Accuracy
+  gleich oder höher; volles Fine-Tuning und die CNNs liegen darunter.}
   \label{fig:efficiency}
 \end{figure}
 
@@ -49,8 +50,10 @@ Epochen (\cref{fig:curves}).
 
 \begin{figure}[h]
   \centering
-  \resultfigure{ms1/validation_curves.png}{\linewidth}{Lernkurven}
-  \caption{Validation-Accuracy über den Epochen für alle Methoden (Mittelwert über 3 Seeds).}
+  \resultfigure{paper/lernkurven.png}{\linewidth}{Lernkurven}
+  \caption{Validation-Accuracy je Epoche (Mittelwert über 3 Seeds; die y-Achse beginnt bei 68\,\%). Linear
+  Probing liegt schon nach einer Epoche bei 94\,\%. Die CNNs starten niedriger (ResNet-50: 70\,\%) und
+  bleiben nach dem Aufholen unter den LoRA-Varianten.}
   \label{fig:curves}
 \end{figure}
 

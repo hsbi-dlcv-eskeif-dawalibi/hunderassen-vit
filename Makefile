@@ -34,7 +34,7 @@ AUG_CONFIG = vit_b16_lora_r8
 EXTRA = pos_embedding_none pos_embedding_shuffled conv_stem swin_t
 
 .PHONY: help setup all smoke station1 install data data-report debug \
-	ms1 ms1-vit ms1-augment ms1-cnn-lr ms1-benchmark report-ms1 best-models why explain extra cue-conflict analysis summary pack paper tag \
+	ms1 ms1-vit ms1-augment ms1-cnn-lr ms1-benchmark report-ms1 best-models why explain extra cue-conflict analysis summary pack paper-figures paper tag \
 	test lint format clean
 
 help:            ## Show this help
@@ -138,6 +138,9 @@ summary:         ## Aggregate all runs into results/summary.{csv,md}
 
 pack:            ## Bundle all results without model weights -> results_bundle_<date>.tar.gz
 	bash scripts/pack_results.sh $(RUNS)
+
+paper-figures:   ## German, column-sized figures for the paper -> results/paper/
+	$(PYTHON) scripts/paper_figures.py
 
 paper:           ## Build the station 1 paper (CVPR 2026 template) -> paper/ms1/main.pdf
 	cd paper/ms1 && $(LATEX)

@@ -91,9 +91,10 @@ die häufigsten Verwechslungen.
 
 \begin{figure}[t]
   \centering
-  \resultfigure{explain/contrastive_convnext_t.png}{\linewidth}{Kontrastive Karten}
-  \caption{Warum Rasse $A$ und nicht $B$? Für die häufigsten Verwechslungen: Grad-CAM für $A$ und $B$,
-  kontrastive Karte $A-B$ und Occlusion für $A$ (ConvNeXt-T, Testbilder).}
+  \resultfigure{paper/kontrastiv.png}{\linewidth}{Kontrastive Karten}
+  \caption{Warum Rasse $A$ und nicht $B$? Jede Zeile zeigt ein Testbild der Rasse $A$, das mit $B$ verwechselt
+  wird (Rassen über dem Bild). Spalten: Grad-CAM für $A$, Grad-CAM für $B$, Differenz $A-B$ (rot: spricht für
+  $A$ und gegen $B$) und Occlusion für $A$ (ConvNeXt-T).}
   \label{fig:contrastive}
 \end{figure}
 
