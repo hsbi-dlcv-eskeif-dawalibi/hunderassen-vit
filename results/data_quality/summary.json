@@ -1,0 +1,31 @@
+{
+  "images": 4978,
+  "breeds": 25,
+  "per_split": {
+    "trainval": 2492,
+    "test": 2486
+  },
+  "balance": {
+    "min": 189,
+    "max": 200,
+    "ratio_max_min": 1.0582010582010581
+  },
+  "modes": {
+    "RGB": 4978
+  },
+  "gray_content": 33,
+  "size": {
+    "width_median": 500.0,
+    "height_median": 375.0,
+    "short_side_min": 117,
+    "short_side_below_224": 133
+  },
+  "pet_fraction": {
+    "mean": 0.4017386338599219,
+    "min": 0.0,
+    "below_0.1": 123
+  },
+  "duplicates": [],
+  "duplicates_across_splits": [],
+  "duplicates_with_different_labels": []
+}

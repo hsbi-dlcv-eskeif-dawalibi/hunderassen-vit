@@ -1,0 +1,31 @@
+# Tests and lint on every push (CPU only, no dataset download; the tests use tiny models).
+name: CI
+
+on:
+  push:
+    branches: [main, meilenstein-1]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false   # figures are not needed for the tests
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install (CPU PyTorch)
+        run: |
+          python -m pip install --upgrade pip
+          pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+          pip install -e ".[dev]"
+      - name: Lint
+        run: |
+          ruff check src scripts tests
+          ruff format --check src scripts tests
+      - name: Tests
+        run: pytest

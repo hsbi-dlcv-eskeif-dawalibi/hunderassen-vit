@@ -1,0 +1,2487 @@
+test_index,max_similarity,neighbour_split,neighbour_position,test_breed,neighbour_breed
+0,0.89550173,train,192,American Bulldog,Boxer
+1,0.9250326,train,1173,American Bulldog,American Bulldog
+2,0.89794767,validation,122,American Bulldog,American Bulldog
+3,0.9160777,train,1150,American Bulldog,American Bulldog
+4,0.96509516,train,1168,American Bulldog,American Bulldog
+5,0.9375373,train,6,American Bulldog,American Bulldog
+6,0.943278,train,1173,American Bulldog,American Bulldog
+7,0.90227884,validation,120,American Bulldog,American Bulldog
+8,0.93434674,train,1168,American Bulldog,American Bulldog
+9,0.9487768,train,1173,American Bulldog,American Bulldog
+10,0.9115737,train,1174,American Bulldog,American Bulldog
+11,0.9714607,train,1174,American Bulldog,American Bulldog
+12,0.906793,validation,2,American Bulldog,American Bulldog
+13,0.9726613,train,1169,American Bulldog,American Bulldog
+14,0.9518515,train,1172,American Bulldog,American Bulldog
+15,0.9363939,train,1150,American Bulldog,American Bulldog
+16,0.9089053,train,12,American Bulldog,American Bulldog
+17,0.9547876,train,1136,American Bulldog,American Bulldog
+18,0.9382263,validation,2,American Bulldog,American Bulldog
+19,0.929486,validation,2,American Bulldog,American Bulldog
+20,0.900015,validation,3,American Bulldog,American Bulldog
+21,0.91498286,train,25,American Bulldog,American Bulldog
+22,0.9242674,validation,2,American Bulldog,American Bulldog
+23,0.91276705,validation,2,American Bulldog,American Bulldog
+24,0.9022393,train,1169,American Bulldog,American Bulldog
+25,0.93261755,validation,2,American Bulldog,American Bulldog
+26,0.90612376,train,29,American Bulldog,American Bulldog
+27,0.9332582,train,1133,American Bulldog,American Bulldog
+28,0.9505666,validation,2,American Bulldog,American Bulldog
+29,0.925094,validation,2,American Bulldog,American Bulldog
+30,0.93187773,train,39,American Bulldog,American Bulldog
+31,0.9060976,validation,2,American Bulldog,American Bulldog
+32,0.93198043,train,189,American Bulldog,Boxer
+33,0.9112314,train,10,American Bulldog,American Bulldog
+34,0.896055,train,37,American Bulldog,American Bulldog
+35,0.82790256,train,8,American Bulldog,American Bulldog
+36,0.8860967,train,11,American Bulldog,American Bulldog
+37,0.9261601,train,1136,American Bulldog,American Bulldog
+38,0.9089588,train,1157,American Bulldog,American Bulldog
+39,0.9131885,train,18,American Bulldog,American Bulldog
+40,0.92710584,train,19,American Bulldog,American Bulldog
+41,0.90319157,train,2119,American Bulldog,Staffordshire Bull Terrier
+42,0.8836715,train,1325,American Bulldog,Boxer
+43,0.93523085,train,25,American Bulldog,American Bulldog
+44,0.9442539,train,1133,American Bulldog,American Bulldog
+45,0.9427278,train,1133,American Bulldog,American Bulldog
+46,0.9148886,train,11,American Bulldog,American Bulldog
+47,0.89851785,train,1167,American Bulldog,American Bulldog
+48,0.899494,train,220,American Bulldog,Boxer
+49,0.9298839,train,2,American Bulldog,American Bulldog
+50,0.932212,train,1924,American Bulldog,Saint Bernard
+51,0.91109926,train,1924,American Bulldog,Saint Bernard
+52,0.9231287,train,4,American Bulldog,American Bulldog
+53,0.94445413,train,1325,American Bulldog,Boxer
+54,0.9269825,train,1161,American Bulldog,American Bulldog
+55,0.94714665,train,1133,American Bulldog,American Bulldog
+56,0.89638263,train,1150,American Bulldog,American Bulldog
+57,0.9399644,train,6,American Bulldog,American Bulldog
+58,0.9042361,train,1268,American Bulldog,Beagle
+59,0.88518375,train,2112,American Bulldog,Staffordshire Bull Terrier
+60,0.89032274,train,1133,American Bulldog,American Bulldog
+61,0.92666906,train,1133,American Bulldog,American Bulldog
+62,0.896578,train,1322,American Bulldog,Boxer
+63,0.9517304,validation,3,American Bulldog,American Bulldog
+64,0.8728901,train,1160,American Bulldog,American Bulldog
+65,0.8904015,train,121,American Bulldog,Basset Hound
+66,0.880296,train,8,American Bulldog,American Bulldog
+67,0.9434605,train,1133,American Bulldog,American Bulldog
+68,0.9646267,train,1133,American Bulldog,American Bulldog
+69,0.90774834,train,1163,American Bulldog,American Bulldog
+70,0.9295573,validation,2,American Bulldog,American Bulldog
+71,0.937089,train,6,American Bulldog,American Bulldog
+72,0.935572,train,11,American Bulldog,American Bulldog
+73,0.87758434,train,9,American Bulldog,American Bulldog
+74,0.9113869,train,1154,American Bulldog,American Bulldog
+75,0.94096816,train,1924,American Bulldog,Saint Bernard
+76,0.92342865,train,1136,American Bulldog,American Bulldog
+77,0.9154768,train,24,American Bulldog,American Bulldog
+78,0.9065801,train,35,American Bulldog,American Bulldog
+79,0.9065115,train,862,American Bulldog,Saint Bernard
+80,0.942734,train,1133,American Bulldog,American Bulldog
+81,0.94124365,validation,2,American Bulldog,American Bulldog
+82,0.9145136,train,59,American Bulldog,American Pit Bull Terrier
+83,0.9598856,train,1133,American Bulldog,American Bulldog
+84,0.94163305,train,1133,American Bulldog,American Bulldog
+85,0.9561049,train,6,American Bulldog,American Bulldog
+86,0.930581,train,1133,American Bulldog,American Bulldog
+87,0.91666114,validation,2,American Bulldog,American Bulldog
+88,0.8820663,train,35,American Bulldog,American Bulldog
+89,0.905267,train,1169,American Bulldog,American Bulldog
+90,0.90858114,train,1186,American Bulldog,American Pit Bull Terrier
+91,0.9266816,train,8,American Bulldog,American Bulldog
+92,0.94344145,train,24,American Bulldog,American Bulldog
+93,0.91047776,train,226,American Bulldog,Boxer
+94,0.92210525,train,221,American Bulldog,Boxer
+95,0.8743349,train,1154,American Bulldog,American Bulldog
+96,0.89829016,train,1131,American Bulldog,American Bulldog
+97,0.85888624,train,10,American Bulldog,American Bulldog
+98,0.94672215,train,41,American Bulldog,American Bulldog
+99,0.92674446,train,1135,American Bulldog,American Bulldog
+100,0.8960812,train,1803,American Pit Bull Terrier,Newfoundland
+101,0.9443753,train,60,American Pit Bull Terrier,American Pit Bull Terrier
+102,0.944068,train,1178,American Pit Bull Terrier,American Pit Bull Terrier
+103,0.9213576,train,93,American Pit Bull Terrier,American Pit Bull Terrier
+104,0.9322818,train,83,American Pit Bull Terrier,American Pit Bull Terrier
+105,0.93307006,train,1023,American Pit Bull Terrier,Staffordshire Bull Terrier
+106,0.9413535,train,59,American Pit Bull Terrier,American Pit Bull Terrier
+107,0.91408217,train,80,American Pit Bull Terrier,American Pit Bull Terrier
+108,0.9370277,train,71,American Pit Bull Terrier,American Pit Bull Terrier
+109,0.9037154,train,51,American Pit Bull Terrier,American Pit Bull Terrier
+110,0.8972587,train,1039,American Pit Bull Terrier,Staffordshire Bull Terrier
+111,0.8715368,train,94,American Pit Bull Terrier,American Pit Bull Terrier
+112,0.90983796,train,1208,American Pit Bull Terrier,American Pit Bull Terrier
+113,0.91696477,train,1204,American Pit Bull Terrier,American Pit Bull Terrier
+114,0.92698437,train,1210,American Pit Bull Terrier,American Pit Bull Terrier
+115,0.9257281,train,1187,American Pit Bull Terrier,American Pit Bull Terrier
+116,0.92239654,train,49,American Pit Bull Terrier,American Pit Bull Terrier
+117,0.8562674,train,33,American Pit Bull Terrier,American Bulldog
+118,0.8778614,train,1196,American Pit Bull Terrier,American Pit Bull Terrier
+119,0.90283054,train,38,American Pit Bull Terrier,American Bulldog
+120,0.8964387,train,1206,American Pit Bull Terrier,American Pit Bull Terrier
+121,0.8356102,train,1130,American Pit Bull Terrier,Yorkshire Terrier
+122,0.9455431,train,49,American Pit Bull Terrier,American Pit Bull Terrier
+123,0.9258229,train,1033,American Pit Bull Terrier,Staffordshire Bull Terrier
+124,0.90464145,train,21,American Pit Bull Terrier,American Bulldog
+125,0.87701184,train,1196,American Pit Bull Terrier,American Pit Bull Terrier
+126,0.91822743,train,49,American Pit Bull Terrier,American Pit Bull Terrier
+127,0.88195264,train,1019,American Pit Bull Terrier,Staffordshire Bull Terrier
+128,0.85884535,train,1136,American Pit Bull Terrier,American Bulldog
+129,0.8932556,train,1023,American Pit Bull Terrier,Staffordshire Bull Terrier
+130,0.9040818,train,2120,American Pit Bull Terrier,Staffordshire Bull Terrier
+131,0.8989632,train,1196,American Pit Bull Terrier,American Pit Bull Terrier
+132,0.86013645,train,72,American Pit Bull Terrier,American Pit Bull Terrier
+133,0.885725,validation,124,American Pit Bull Terrier,American Bulldog
+134,0.9363905,train,1171,American Pit Bull Terrier,American Bulldog
+135,0.8567369,train,1196,American Pit Bull Terrier,American Pit Bull Terrier
+136,0.8773771,train,2105,American Pit Bull Terrier,Staffordshire Bull Terrier
+137,0.88502884,train,84,American Pit Bull Terrier,American Pit Bull Terrier
+138,0.85615057,train,1004,American Pit Bull Terrier,Staffordshire Bull Terrier
+139,0.93651175,validation,237,American Pit Bull Terrier,Staffordshire Bull Terrier
+140,0.9156632,train,2127,American Pit Bull Terrier,Staffordshire Bull Terrier
+141,0.8923861,train,1023,American Pit Bull Terrier,Staffordshire Bull Terrier
+142,0.90917027,validation,125,American Pit Bull Terrier,American Pit Bull Terrier
+143,0.9161046,train,2119,American Pit Bull Terrier,Staffordshire Bull Terrier
+144,0.8891957,train,2127,American Pit Bull Terrier,Staffordshire Bull Terrier
+145,0.91275,train,2144,American Pit Bull Terrier,Staffordshire Bull Terrier
+146,0.9003647,train,1,American Pit Bull Terrier,American Bulldog
+147,0.88649,train,1023,American Pit Bull Terrier,Staffordshire Bull Terrier
+148,0.90572536,train,72,American Pit Bull Terrier,American Pit Bull Terrier
+149,0.8767101,train,66,American Pit Bull Terrier,American Pit Bull Terrier
+150,0.9361806,validation,4,American Pit Bull Terrier,American Pit Bull Terrier
+151,0.9082259,train,44,American Pit Bull Terrier,American Bulldog
+152,0.9096937,train,41,American Pit Bull Terrier,American Bulldog
+153,0.8351016,train,1343,American Pit Bull Terrier,Boxer
+154,0.9135475,train,56,American Pit Bull Terrier,American Pit Bull Terrier
+155,0.88527364,train,49,American Pit Bull Terrier,American Pit Bull Terrier
+156,0.9253564,train,1212,American Pit Bull Terrier,American Pit Bull Terrier
+157,0.74858576,train,66,American Pit Bull Terrier,American Pit Bull Terrier
+158,0.8669396,validation,127,American Pit Bull Terrier,American Pit Bull Terrier
+159,0.9288373,train,2127,American Pit Bull Terrier,Staffordshire Bull Terrier
+160,0.9088172,train,1150,American Pit Bull Terrier,American Bulldog
+161,0.9252517,train,8,American Pit Bull Terrier,American Bulldog
+162,0.9162432,validation,125,American Pit Bull Terrier,American Pit Bull Terrier
+163,0.9277475,validation,125,American Pit Bull Terrier,American Pit Bull Terrier
+164,0.82529753,validation,151,American Pit Bull Terrier,Boxer
+165,0.90478164,train,1010,American Pit Bull Terrier,Staffordshire Bull Terrier
+166,0.87675226,train,1171,American Pit Bull Terrier,American Bulldog
+167,0.91528755,train,1011,American Pit Bull Terrier,Staffordshire Bull Terrier
+168,0.89887,train,1807,American Pit Bull Terrier,Newfoundland
+169,0.93613565,train,2127,American Pit Bull Terrier,Staffordshire Bull Terrier
+170,0.8968749,train,94,American Pit Bull Terrier,American Pit Bull Terrier
+171,0.9097499,train,1203,American Pit Bull Terrier,American Pit Bull Terrier
+172,0.90073526,train,2127,American Pit Bull Terrier,Staffordshire Bull Terrier
+173,0.92013824,train,2127,American Pit Bull Terrier,Staffordshire Bull Terrier
+174,0.91149646,train,2119,American Pit Bull Terrier,Staffordshire Bull Terrier
+175,0.9021541,train,1167,American Pit Bull Terrier,American Bulldog
+176,0.9102582,train,1196,American Pit Bull Terrier,American Pit Bull Terrier
+177,0.909703,train,69,American Pit Bull Terrier,American Pit Bull Terrier
+178,0.9085808,train,88,American Pit Bull Terrier,American Pit Bull Terrier
+179,0.9241923,validation,125,American Pit Bull Terrier,American Pit Bull Terrier
+180,0.87502193,validation,133,American Pit Bull Terrier,American Pit Bull Terrier
+181,0.95128787,train,1145,American Pit Bull Terrier,American Bulldog
+182,0.8878843,train,41,American Pit Bull Terrier,American Bulldog
+183,0.91848326,train,1196,American Pit Bull Terrier,American Pit Bull Terrier
+184,0.92045873,train,1196,American Pit Bull Terrier,American Pit Bull Terrier
+185,0.91128534,train,51,American Pit Bull Terrier,American Pit Bull Terrier
+186,0.8709968,train,1003,American Pit Bull Terrier,Staffordshire Bull Terrier
+187,0.8929031,train,829,American Pit Bull Terrier,Saint Bernard
+188,0.9149984,train,8,American Pit Bull Terrier,American Bulldog
+189,0.91180855,train,1023,American Pit Bull Terrier,Staffordshire Bull Terrier
+190,0.9281399,train,1156,American Pit Bull Terrier,American Bulldog
+191,0.8782404,train,88,American Pit Bull Terrier,American Pit Bull Terrier
+192,0.90386236,validation,124,American Pit Bull Terrier,American Bulldog
+193,0.91798246,train,1018,American Pit Bull Terrier,Staffordshire Bull Terrier
+194,0.922626,train,23,American Pit Bull Terrier,American Bulldog
+195,0.8281568,train,1394,American Pit Bull Terrier,English Cocker Spaniel
+196,0.8701938,validation,0,American Pit Bull Terrier,American Bulldog
+197,0.92804986,train,1191,American Pit Bull Terrier,American Pit Bull Terrier
+198,0.8139653,train,2069,American Pit Bull Terrier,Shiba Inu
+199,0.91349465,train,46,American Pit Bull Terrier,American Pit Bull Terrier
+200,0.9291068,train,130,Basset Hound,Basset Hound
+201,0.9081222,train,129,Basset Hound,Basset Hound
+202,0.9170885,train,1313,Basset Hound,Boxer
+203,0.9190262,train,1227,Basset Hound,Basset Hound
+204,0.93890816,validation,5,Basset Hound,Basset Hound
+205,0.77684075,train,1233,Basset Hound,Basset Hound
+206,0.7651133,train,1929,Basset Hound,Saint Bernard
+207,0.85368127,train,1225,Basset Hound,Basset Hound
+208,0.8826643,train,111,Basset Hound,Basset Hound
+209,0.9468063,train,1256,Basset Hound,Basset Hound
+210,0.9471096,train,119,Basset Hound,Basset Hound
+211,0.94576436,train,1221,Basset Hound,Basset Hound
+212,0.98167014,train,1256,Basset Hound,Basset Hound
+213,0.9188754,train,1220,Basset Hound,Basset Hound
+214,0.9561634,train,97,Basset Hound,Basset Hound
+215,0.95215666,train,1255,Basset Hound,Basset Hound
+216,0.938957,train,107,Basset Hound,Basset Hound
+217,0.89213836,train,375,Basset Hound,German Shorthaired
+218,0.92069876,train,1287,Basset Hound,Beagle
+219,0.9271531,validation,5,Basset Hound,Basset Hound
+220,0.9031085,train,107,Basset Hound,Basset Hound
+221,0.92817676,train,1239,Basset Hound,Basset Hound
+222,0.9257295,train,139,Basset Hound,Basset Hound
+223,0.90050685,validation,137,Basset Hound,Basset Hound
+224,0.9221634,train,1244,Basset Hound,Basset Hound
+225,0.8838618,train,1250,Basset Hound,Basset Hound
+226,0.8753476,train,124,Basset Hound,Basset Hound
+227,0.9305305,train,103,Basset Hound,Basset Hound
+228,0.9285461,train,107,Basset Hound,Basset Hound
+229,0.93346244,train,128,Basset Hound,Basset Hound
+230,0.90960807,train,290,Basset Hound,English Cocker Spaniel
+231,0.93647707,train,120,Basset Hound,Basset Hound
+232,0.9346245,train,1242,Basset Hound,Basset Hound
+233,0.94316304,train,102,Basset Hound,Basset Hound
+234,0.92815983,train,97,Basset Hound,Basset Hound
+235,0.889804,train,135,Basset Hound,Basset Hound
+236,0.88585675,validation,136,Basset Hound,Basset Hound
+237,0.93647456,train,108,Basset Hound,Basset Hound
+238,0.8897403,train,1217,Basset Hound,Basset Hound
+239,0.9399945,train,111,Basset Hound,Basset Hound
+240,0.9501956,train,135,Basset Hound,Basset Hound
+241,0.91224337,train,97,Basset Hound,Basset Hound
+242,0.9590836,validation,5,Basset Hound,Basset Hound
+243,0.9322953,train,1256,Basset Hound,Basset Hound
+244,0.90872765,train,1227,Basset Hound,Basset Hound
+245,0.9405701,train,120,Basset Hound,Basset Hound
+246,0.9387976,train,108,Basset Hound,Basset Hound
+247,0.9323309,validation,5,Basset Hound,Basset Hound
+248,0.9577831,train,1255,Basset Hound,Basset Hound
+249,0.90847844,train,1238,Basset Hound,Basset Hound
+250,0.93748677,train,113,Basset Hound,Basset Hound
+251,0.9295613,train,105,Basset Hound,Basset Hound
+252,0.9334372,train,1238,Basset Hound,Basset Hound
+253,0.8422671,train,1490,Basset Hound,German Shorthaired
+254,0.93300575,train,1254,Basset Hound,Basset Hound
+255,0.89558375,train,103,Basset Hound,Basset Hound
+256,0.9561577,train,1246,Basset Hound,Basset Hound
+257,0.95115805,train,108,Basset Hound,Basset Hound
+258,0.96340895,train,108,Basset Hound,Basset Hound
+259,0.94557726,train,108,Basset Hound,Basset Hound
+260,0.86833,train,1246,Basset Hound,Basset Hound
+261,0.87776464,train,1233,Basset Hound,Basset Hound
+262,0.85892564,train,1246,Basset Hound,Basset Hound
+263,0.9292834,validation,6,Basset Hound,Basset Hound
+264,0.93813735,train,107,Basset Hound,Basset Hound
+265,0.960378,train,108,Basset Hound,Basset Hound
+266,0.91382635,train,126,Basset Hound,Basset Hound
+267,0.83698654,train,102,Basset Hound,Basset Hound
+268,0.92188156,train,1255,Basset Hound,Basset Hound
+269,0.9200416,train,1243,Basset Hound,Basset Hound
+270,0.94835573,train,1499,Basset Hound,German Shorthaired
+271,0.9622093,train,108,Basset Hound,Basset Hound
+272,0.899082,train,1220,Basset Hound,Basset Hound
+273,0.90634656,train,1233,Basset Hound,Basset Hound
+274,0.92506444,train,1275,Basset Hound,Beagle
+275,0.9423069,train,102,Basset Hound,Basset Hound
+276,0.9200349,train,102,Basset Hound,Basset Hound
+277,0.9091916,train,1287,Basset Hound,Beagle
+278,0.92241645,train,99,Basset Hound,Basset Hound
+279,0.9539504,train,119,Basset Hound,Basset Hound
+280,0.9590669,train,97,Basset Hound,Basset Hound
+281,0.9224969,train,1246,Basset Hound,Basset Hound
+282,0.93225825,train,1235,Basset Hound,Basset Hound
+283,0.94856036,train,1235,Basset Hound,Basset Hound
+284,0.9052254,train,95,Basset Hound,Basset Hound
+285,0.93450665,validation,5,Basset Hound,Basset Hound
+286,0.9575355,train,107,Basset Hound,Basset Hound
+287,0.88056684,train,1219,Basset Hound,Basset Hound
+288,0.88177836,train,111,Basset Hound,Basset Hound
+289,0.81382525,train,1233,Basset Hound,Basset Hound
+290,0.8962491,train,107,Basset Hound,Basset Hound
+291,0.8933604,train,1216,Basset Hound,Basset Hound
+292,0.9419463,train,108,Basset Hound,Basset Hound
+293,0.9130343,train,108,Basset Hound,Basset Hound
+294,0.94003034,train,97,Basset Hound,Basset Hound
+295,0.9356831,validation,5,Basset Hound,Basset Hound
+296,0.9373207,train,102,Basset Hound,Basset Hound
+297,0.9309749,train,1227,Basset Hound,Basset Hound
+298,0.8458731,validation,137,Basset Hound,Basset Hound
+299,0.90947044,train,102,Basset Hound,Basset Hound
+300,0.9192058,validation,7,Beagle,Beagle
+301,0.92180914,train,176,Beagle,Beagle
+302,0.91135466,train,153,Beagle,Beagle
+303,0.90697217,validation,33,Beagle,German Shorthaired
+304,0.9421756,train,153,Beagle,Beagle
+305,0.9464205,train,182,Beagle,Beagle
+306,0.8929604,train,182,Beagle,Beagle
+307,0.9277787,train,2140,Beagle,Staffordshire Bull Terrier
+308,0.9019912,train,1243,Beagle,Basset Hound
+309,0.8771332,train,1240,Beagle,Basset Hound
+310,0.92315555,train,130,Beagle,Basset Hound
+311,0.9703109,train,1291,Beagle,Beagle
+312,0.9195252,train,145,Beagle,Beagle
+313,0.92608714,train,182,Beagle,Beagle
+314,0.9532765,train,153,Beagle,Beagle
+315,0.9523077,train,153,Beagle,Beagle
+316,0.92072463,validation,9,Beagle,Beagle
+317,0.8768366,train,119,Beagle,Basset Hound
+318,0.94426227,train,153,Beagle,Beagle
+319,0.88930345,train,159,Beagle,Beagle
+320,0.92324126,validation,139,Beagle,Basset Hound
+321,0.9295814,validation,9,Beagle,Beagle
+322,0.9034018,train,1221,Beagle,Basset Hound
+323,0.9256599,validation,9,Beagle,Beagle
+324,0.88713527,train,121,Beagle,Basset Hound
+325,0.87211925,train,1261,Beagle,Beagle
+326,0.9094602,validation,9,Beagle,Beagle
+327,0.8657867,train,1487,Beagle,German Shorthaired
+328,0.9547634,train,153,Beagle,Beagle
+329,0.8897176,train,222,Beagle,Boxer
+330,0.9017561,train,181,Beagle,Beagle
+331,0.9308327,validation,8,Beagle,Beagle
+332,0.85583436,train,145,Beagle,Beagle
+333,0.90376043,train,169,Beagle,Beagle
+334,0.943047,train,1272,Beagle,Beagle
+335,0.95643634,train,169,Beagle,Beagle
+336,0.8916469,train,169,Beagle,Beagle
+337,0.91365767,train,114,Beagle,Basset Hound
+338,0.9433203,validation,145,Beagle,Beagle
+339,0.91208863,validation,9,Beagle,Beagle
+340,0.95102596,train,153,Beagle,Beagle
+341,0.9396118,train,1258,Beagle,Beagle
+342,0.9197086,train,142,Beagle,Basset Hound
+343,0.92594707,train,149,Beagle,Beagle
+344,0.88071585,train,1245,Beagle,Basset Hound
+345,0.879591,validation,9,Beagle,Beagle
+346,0.93150723,validation,139,Beagle,Basset Hound
+347,0.93755335,train,1295,Beagle,Beagle
+348,0.9371682,train,162,Beagle,Beagle
+349,0.9153332,validation,9,Beagle,Beagle
+350,0.8732636,train,98,Beagle,Basset Hound
+351,0.9273851,train,1289,Beagle,Beagle
+352,0.94192845,train,160,Beagle,Beagle
+353,0.912475,train,162,Beagle,Beagle
+354,0.926023,validation,9,Beagle,Beagle
+355,0.92563516,train,1295,Beagle,Beagle
+356,0.94376177,train,168,Beagle,Beagle
+357,0.89381826,train,1291,Beagle,Beagle
+358,0.90974927,train,166,Beagle,Beagle
+359,0.8463334,validation,145,Beagle,Beagle
+360,0.89653176,train,162,Beagle,Beagle
+361,0.9474046,train,1258,Beagle,Beagle
+362,0.9260829,validation,7,Beagle,Beagle
+363,0.94577473,train,169,Beagle,Beagle
+364,0.88743687,train,166,Beagle,Beagle
+365,0.921512,train,1290,Beagle,Beagle
+366,0.91799736,train,162,Beagle,Beagle
+367,0.9006655,validation,9,Beagle,Beagle
+368,0.95449394,train,168,Beagle,Beagle
+369,0.9410956,train,148,Beagle,Beagle
+370,0.9396605,train,169,Beagle,Beagle
+371,0.9380791,train,167,Beagle,Beagle
+372,0.94073087,train,1291,Beagle,Beagle
+373,0.92892003,validation,7,Beagle,Beagle
+374,0.91389304,train,169,Beagle,Beagle
+375,0.90327096,train,152,Beagle,Beagle
+376,0.87975526,train,146,Beagle,Beagle
+377,0.9338285,train,169,Beagle,Beagle
+378,0.92283094,train,164,Beagle,Beagle
+379,0.92315054,train,125,Beagle,Basset Hound
+380,0.9403965,train,125,Beagle,Basset Hound
+381,0.9214927,train,177,Beagle,Beagle
+382,0.95583045,train,182,Beagle,Beagle
+383,0.9571799,train,164,Beagle,Beagle
+384,0.9110221,train,145,Beagle,Beagle
+385,0.9033755,train,104,Beagle,Basset Hound
+386,0.8252985,train,353,Beagle,English Setter
+387,0.8623188,train,1263,Beagle,Beagle
+388,0.9322382,train,130,Beagle,Basset Hound
+389,0.95527965,train,149,Beagle,Beagle
+390,0.8758527,train,121,Beagle,Basset Hound
+391,0.906403,train,145,Beagle,Beagle
+392,0.93897796,train,153,Beagle,Beagle
+393,0.9320792,train,144,Beagle,Beagle
+394,0.87218183,train,111,Beagle,Basset Hound
+395,0.8628951,validation,151,Beagle,Boxer
+396,0.96223336,train,153,Beagle,Beagle
+397,0.94531095,train,147,Beagle,Beagle
+398,0.8973627,train,1267,Beagle,Beagle
+399,0.95424616,train,160,Beagle,Beagle
+400,0.8813917,train,208,Boxer,Boxer
+401,0.91233003,train,41,Boxer,American Bulldog
+402,0.86168504,train,1324,Boxer,Boxer
+403,0.8865536,validation,11,Boxer,Beagle
+404,0.91548264,train,1325,Boxer,Boxer
+405,0.9319047,train,1324,Boxer,Boxer
+406,0.837234,validation,150,Boxer,Boxer
+407,0.9389739,train,1924,Boxer,Saint Bernard
+408,0.92495173,train,189,Boxer,Boxer
+409,0.94846797,train,188,Boxer,Boxer
+410,0.94509995,validation,152,Boxer,Boxer
+411,0.88353693,train,132,Boxer,Basset Hound
+412,0.95743126,train,188,Boxer,Boxer
+413,0.94049597,train,1337,Boxer,Boxer
+414,0.9205719,train,1361,Boxer,Chihuahua
+415,0.9147506,train,1157,Boxer,American Bulldog
+416,0.92192096,train,1134,Boxer,American Bulldog
+417,0.9545349,train,196,Boxer,Boxer
+418,0.91599303,validation,152,Boxer,Boxer
+419,0.938833,validation,152,Boxer,Boxer
+420,0.95273876,train,194,Boxer,Boxer
+421,0.94539064,train,208,Boxer,Boxer
+422,0.89758414,validation,152,Boxer,Boxer
+423,0.86512864,train,1272,Boxer,Beagle
+424,0.9600908,train,188,Boxer,Boxer
+425,0.95930946,train,189,Boxer,Boxer
+426,0.94513273,train,201,Boxer,Boxer
+427,0.9295424,train,194,Boxer,Boxer
+428,0.87170374,train,195,Boxer,Boxer
+429,0.83407545,validation,152,Boxer,Boxer
+430,0.9537002,train,1325,Boxer,Boxer
+431,0.9384514,train,1326,Boxer,Boxer
+432,0.9224844,train,187,Boxer,Boxer
+433,0.9028402,train,226,Boxer,Boxer
+434,0.9518184,train,1346,Boxer,Boxer
+435,0.9040599,train,1337,Boxer,Boxer
+436,0.9161542,train,1306,Boxer,Boxer
+437,0.9312457,train,189,Boxer,Boxer
+438,0.9490837,train,1157,Boxer,American Bulldog
+439,0.88742214,train,200,Boxer,Boxer
+440,0.93082476,train,187,Boxer,Boxer
+441,0.95051086,train,1924,Boxer,Saint Bernard
+442,0.88731045,train,227,Boxer,Boxer
+443,0.92003554,train,188,Boxer,Boxer
+444,0.911818,validation,222,Boxer,Saint Bernard
+445,0.9375481,train,201,Boxer,Boxer
+446,0.9571562,train,189,Boxer,Boxer
+447,0.9301897,train,218,Boxer,Boxer
+448,0.87842876,train,204,Boxer,Boxer
+449,0.8687804,validation,14,Boxer,Boxer
+450,0.9081401,train,200,Boxer,Boxer
+451,0.88615847,train,36,Boxer,American Bulldog
+452,0.92827445,train,1304,Boxer,Boxer
+453,0.92972815,train,188,Boxer,Boxer
+454,0.9373971,train,11,Boxer,American Bulldog
+455,0.92538935,validation,14,Boxer,Boxer
+456,0.9212582,train,1324,Boxer,Boxer
+457,0.93633354,train,231,Boxer,Boxer
+458,0.8815231,train,222,Boxer,Boxer
+459,0.91741335,train,200,Boxer,Boxer
+460,0.9385498,train,208,Boxer,Boxer
+461,0.8711943,train,1131,Boxer,American Bulldog
+462,0.88325596,validation,150,Boxer,Boxer
+463,0.9461311,train,1157,Boxer,American Bulldog
+464,0.9297321,train,40,Boxer,American Bulldog
+465,0.92837286,train,1325,Boxer,Boxer
+466,0.87968755,train,26,Boxer,American Bulldog
+467,0.91915566,train,1304,Boxer,Boxer
+468,0.91926134,train,2127,Boxer,Staffordshire Bull Terrier
+469,0.8470423,train,1136,Boxer,American Bulldog
+470,0.91329277,train,208,Boxer,Boxer
+471,0.93734217,train,1925,Boxer,Saint Bernard
+472,0.9308943,train,26,Boxer,American Bulldog
+473,0.89513445,train,2,Boxer,American Bulldog
+474,0.9354349,train,195,Boxer,Boxer
+475,0.9219677,train,189,Boxer,Boxer
+476,0.9183402,train,190,Boxer,Boxer
+477,0.9284318,train,1924,Boxer,Saint Bernard
+478,0.9536958,train,208,Boxer,Boxer
+479,0.86437094,train,26,Boxer,American Bulldog
+480,0.91120803,train,2,Boxer,American Bulldog
+481,0.9566042,validation,152,Boxer,Boxer
+482,0.9095408,train,1345,Boxer,Boxer
+483,0.9205333,train,201,Boxer,Boxer
+484,0.91943014,train,1346,Boxer,Boxer
+485,0.8878552,train,214,Boxer,Boxer
+486,0.94453156,train,189,Boxer,Boxer
+487,0.9507488,train,2,Boxer,American Bulldog
+488,0.9492358,train,1325,Boxer,Boxer
+489,0.8727634,validation,151,Boxer,Boxer
+490,0.93391854,train,45,Boxer,American Bulldog
+491,0.9012772,train,1325,Boxer,Boxer
+492,0.93045866,train,1924,Boxer,Saint Bernard
+493,0.9565433,train,188,Boxer,Boxer
+494,0.9112539,train,208,Boxer,Boxer
+495,0.9371785,train,194,Boxer,Boxer
+496,0.87973094,train,1304,Boxer,Boxer
+497,0.95845866,train,187,Boxer,Boxer
+498,0.9120203,train,1346,Boxer,Boxer
+499,0.9037873,train,1373,Chihuahua,Chihuahua
+500,0.9199326,train,266,Chihuahua,Chihuahua
+501,0.92891896,train,1370,Chihuahua,Chihuahua
+502,0.9378441,validation,156,Chihuahua,Chihuahua
+503,0.95131016,train,1374,Chihuahua,Chihuahua
+504,0.90950716,train,1851,Chihuahua,Pomeranian
+505,0.9106584,train,1373,Chihuahua,Chihuahua
+506,0.94021994,train,1381,Chihuahua,Chihuahua
+507,0.94971853,train,270,Chihuahua,Chihuahua
+508,0.9306338,train,234,Chihuahua,Chihuahua
+509,0.91550344,train,1351,Chihuahua,Chihuahua
+510,0.9400605,train,1370,Chihuahua,Chihuahua
+511,0.913964,train,769,Chihuahua,Pomeranian
+512,0.8475052,train,1353,Chihuahua,Chihuahua
+513,0.89977574,validation,157,Chihuahua,Chihuahua
+514,0.8893028,train,234,Chihuahua,Chihuahua
+515,0.8947439,validation,157,Chihuahua,Chihuahua
+516,0.89100146,train,1105,Chihuahua,Yorkshire Terrier
+517,0.8109266,train,242,Chihuahua,Chihuahua
+518,0.8860718,validation,155,Chihuahua,Chihuahua
+519,0.8301706,validation,155,Chihuahua,Chihuahua
+520,0.9132682,validation,57,Chihuahua,Miniature Pinscher
+521,0.91190755,train,1294,Chihuahua,Beagle
+522,0.92372805,train,273,Chihuahua,Chihuahua
+523,0.9347542,train,651,Chihuahua,Miniature Pinscher
+524,0.90319103,train,1378,Chihuahua,Chihuahua
+525,0.87289387,train,236,Chihuahua,Chihuahua
+526,0.895841,train,651,Chihuahua,Miniature Pinscher
+527,0.93892884,train,1782,Chihuahua,Miniature Pinscher
+528,0.93265295,train,1782,Chihuahua,Miniature Pinscher
+529,0.9073437,train,1351,Chihuahua,Chihuahua
+530,0.92441475,train,236,Chihuahua,Chihuahua
+531,0.9019161,train,651,Chihuahua,Miniature Pinscher
+532,0.88945556,validation,57,Chihuahua,Miniature Pinscher
+533,0.918515,train,260,Chihuahua,Chihuahua
+534,0.92123824,train,651,Chihuahua,Miniature Pinscher
+535,0.880915,train,1371,Chihuahua,Chihuahua
+536,0.92423487,train,236,Chihuahua,Chihuahua
+537,0.9404403,train,651,Chihuahua,Miniature Pinscher
+538,0.9000094,train,260,Chihuahua,Chihuahua
+539,0.8743645,train,1640,Chihuahua,Japanese Chin
+540,0.93164057,train,236,Chihuahua,Chihuahua
+541,0.9292352,train,236,Chihuahua,Chihuahua
+542,0.9346545,train,1622,Chihuahua,Japanese Chin
+543,0.9222692,train,506,Chihuahua,Japanese Chin
+544,0.9401175,train,1389,Chihuahua,Chihuahua
+545,0.90377223,train,2221,Chihuahua,Yorkshire Terrier
+546,0.9384669,train,236,Chihuahua,Chihuahua
+547,0.90915656,train,262,Chihuahua,Chihuahua
+548,0.87071425,train,734,Chihuahua,Pomeranian
+549,0.859255,train,1782,Chihuahua,Miniature Pinscher
+550,0.89789444,train,273,Chihuahua,Chihuahua
+551,0.93547887,train,236,Chihuahua,Chihuahua
+552,0.88918984,train,680,Chihuahua,Miniature Pinscher
+553,0.90291876,train,1384,Chihuahua,Chihuahua
+554,0.9130388,train,506,Chihuahua,Japanese Chin
+555,0.775565,train,235,Chihuahua,Chihuahua
+556,0.9278761,train,236,Chihuahua,Chihuahua
+557,0.922521,train,260,Chihuahua,Chihuahua
+558,0.9151545,train,652,Chihuahua,Miniature Pinscher
+559,0.9158731,train,275,Chihuahua,Chihuahua
+560,0.8719338,train,1147,Chihuahua,American Bulldog
+561,0.92132306,train,1389,Chihuahua,Chihuahua
+562,0.9362013,train,235,Chihuahua,Chihuahua
+563,0.9145308,train,651,Chihuahua,Miniature Pinscher
+564,0.91658056,train,236,Chihuahua,Chihuahua
+565,0.8026044,train,235,Chihuahua,Chihuahua
+566,0.91865695,train,651,Chihuahua,Miniature Pinscher
+567,0.9274947,train,651,Chihuahua,Miniature Pinscher
+568,0.8835189,train,2070,Chihuahua,Shiba Inu
+569,0.92169607,train,242,Chihuahua,Chihuahua
+570,0.9375088,train,1360,Chihuahua,Chihuahua
+571,0.92688,train,262,Chihuahua,Chihuahua
+572,0.935629,train,251,Chihuahua,Chihuahua
+573,0.88765955,validation,154,Chihuahua,Chihuahua
+574,0.93290937,train,236,Chihuahua,Chihuahua
+575,0.93800217,train,234,Chihuahua,Chihuahua
+576,0.8696781,train,1643,Chihuahua,Japanese Chin
+577,0.9095342,train,652,Chihuahua,Miniature Pinscher
+578,0.9336257,train,236,Chihuahua,Chihuahua
+579,0.8777745,train,235,Chihuahua,Chihuahua
+580,0.89973414,train,529,Chihuahua,Japanese Chin
+581,0.8930358,train,1378,Chihuahua,Chihuahua
+582,0.86399114,train,1363,Chihuahua,Chihuahua
+583,0.9174168,train,262,Chihuahua,Chihuahua
+584,0.88598216,train,651,Chihuahua,Miniature Pinscher
+585,0.9274871,train,236,Chihuahua,Chihuahua
+586,0.8487064,train,1782,Chihuahua,Miniature Pinscher
+587,0.9384488,train,651,Chihuahua,Miniature Pinscher
+588,0.8705604,train,1597,Chihuahua,Havanese
+589,0.81769896,train,2148,Chihuahua,Staffordshire Bull Terrier
+590,0.9242638,train,262,Chihuahua,Chihuahua
+591,0.90421444,train,234,Chihuahua,Chihuahua
+592,0.9442493,train,236,Chihuahua,Chihuahua
+593,0.89117706,validation,157,Chihuahua,Chihuahua
+594,0.9267601,train,236,Chihuahua,Chihuahua
+595,0.91824293,train,236,Chihuahua,Chihuahua
+596,0.93189245,train,236,Chihuahua,Chihuahua
+597,0.905153,train,262,Chihuahua,Chihuahua
+598,0.9447688,train,651,Chihuahua,Miniature Pinscher
+599,0.9135327,validation,164,English Cocker Spaniel,English Cocker Spaniel
+600,0.91366863,train,317,English Cocker Spaniel,English Cocker Spaniel
+601,0.9250426,validation,163,English Cocker Spaniel,English Cocker Spaniel
+602,0.9190575,train,317,English Cocker Spaniel,English Cocker Spaniel
+603,0.94622195,train,317,English Cocker Spaniel,English Cocker Spaniel
+604,0.95558864,validation,161,English Cocker Spaniel,English Cocker Spaniel
+605,0.8993801,validation,22,English Cocker Spaniel,English Cocker Spaniel
+606,0.89827317,validation,107,English Cocker Spaniel,Wheaten Terrier
+607,0.89225245,validation,22,English Cocker Spaniel,English Cocker Spaniel
+608,0.8715665,validation,162,English Cocker Spaniel,English Cocker Spaniel
+609,0.90748966,train,1807,English Cocker Spaniel,Newfoundland
+610,0.94081146,validation,162,English Cocker Spaniel,English Cocker Spaniel
+611,0.89906096,train,1426,English Cocker Spaniel,English Cocker Spaniel
+612,0.8864684,train,2161,English Cocker Spaniel,Wheaten Terrier
+613,0.9331325,train,301,English Cocker Spaniel,English Cocker Spaniel
+614,0.94288373,validation,41,English Cocker Spaniel,Havanese
+615,0.9399212,train,325,English Cocker Spaniel,English Cocker Spaniel
+616,0.9201809,train,703,English Cocker Spaniel,Newfoundland
+617,0.8721878,train,1445,English Cocker Spaniel,English Setter
+618,0.8992214,train,335,English Cocker Spaniel,English Setter
+619,0.89776444,validation,162,English Cocker Spaniel,English Cocker Spaniel
+620,0.8844568,train,290,English Cocker Spaniel,English Cocker Spaniel
+621,0.9335087,train,285,English Cocker Spaniel,English Cocker Spaniel
+622,0.9195143,train,290,English Cocker Spaniel,English Cocker Spaniel
+623,0.8896197,train,293,English Cocker Spaniel,English Cocker Spaniel
+624,0.92662746,train,1431,English Cocker Spaniel,English Setter
+625,0.87772894,train,1431,English Cocker Spaniel,English Setter
+626,0.85255957,train,326,English Cocker Spaniel,English Cocker Spaniel
+627,0.89765143,train,700,English Cocker Spaniel,Newfoundland
+628,0.88427114,train,363,English Cocker Spaniel,English Setter
+629,0.9111299,train,1408,English Cocker Spaniel,English Cocker Spaniel
+630,0.9080556,train,2195,English Cocker Spaniel,Wheaten Terrier
+631,0.9192592,validation,162,English Cocker Spaniel,English Cocker Spaniel
+632,0.8931756,validation,162,English Cocker Spaniel,English Cocker Spaniel
+633,0.8994241,train,311,English Cocker Spaniel,English Cocker Spaniel
+634,0.88074106,validation,165,English Cocker Spaniel,English Cocker Spaniel
+635,0.82531863,train,1391,English Cocker Spaniel,English Cocker Spaniel
+636,0.9339721,train,325,English Cocker Spaniel,English Cocker Spaniel
+637,0.9104353,train,1445,English Cocker Spaniel,English Setter
+638,0.8423573,train,1063,English Cocker Spaniel,Wheaten Terrier
+639,0.9143164,train,301,English Cocker Spaniel,English Cocker Spaniel
+640,0.9068046,train,470,English Cocker Spaniel,Havanese
+641,0.92747295,train,338,English Cocker Spaniel,English Setter
+642,0.9302849,validation,162,English Cocker Spaniel,English Cocker Spaniel
+643,0.9111713,train,1479,English Cocker Spaniel,German Shorthaired
+644,0.9288393,train,325,English Cocker Spaniel,English Cocker Spaniel
+645,0.91107535,train,329,English Cocker Spaniel,English Setter
+646,0.88678956,train,1426,English Cocker Spaniel,English Cocker Spaniel
+647,0.90351063,validation,162,English Cocker Spaniel,English Cocker Spaniel
+648,0.8413334,train,310,English Cocker Spaniel,English Cocker Spaniel
+649,0.9267977,train,1391,English Cocker Spaniel,English Cocker Spaniel
+650,0.937648,validation,162,English Cocker Spaniel,English Cocker Spaniel
+651,0.9449226,validation,162,English Cocker Spaniel,English Cocker Spaniel
+652,0.92549014,validation,162,English Cocker Spaniel,English Cocker Spaniel
+653,0.904012,train,301,English Cocker Spaniel,English Cocker Spaniel
+654,0.9108395,train,1413,English Cocker Spaniel,English Cocker Spaniel
+655,0.8999492,train,1419,English Cocker Spaniel,English Cocker Spaniel
+656,0.90047526,train,325,English Cocker Spaniel,English Cocker Spaniel
+657,0.9331579,validation,41,English Cocker Spaniel,Havanese
+658,0.89992905,train,285,English Cocker Spaniel,English Cocker Spaniel
+659,0.90703064,validation,22,English Cocker Spaniel,English Cocker Spaniel
+660,0.90754926,train,284,English Cocker Spaniel,English Cocker Spaniel
+661,0.9068487,train,293,English Cocker Spaniel,English Cocker Spaniel
+662,0.9290832,train,290,English Cocker Spaniel,English Cocker Spaniel
+663,0.8873442,train,325,English Cocker Spaniel,English Cocker Spaniel
+664,0.93223894,train,285,English Cocker Spaniel,English Cocker Spaniel
+665,0.9486747,train,285,English Cocker Spaniel,English Cocker Spaniel
+666,0.9307748,train,319,English Cocker Spaniel,English Cocker Spaniel
+667,0.92579234,train,290,English Cocker Spaniel,English Cocker Spaniel
+668,0.84048915,train,354,English Cocker Spaniel,English Setter
+669,0.892378,train,293,English Cocker Spaniel,English Cocker Spaniel
+670,0.8870981,train,284,English Cocker Spaniel,English Cocker Spaniel
+671,0.91266644,train,284,English Cocker Spaniel,English Cocker Spaniel
+672,0.8751501,train,364,English Cocker Spaniel,English Setter
+673,0.92316294,validation,162,English Cocker Spaniel,English Cocker Spaniel
+674,0.8767813,train,295,English Cocker Spaniel,English Cocker Spaniel
+675,0.8841592,train,329,English Cocker Spaniel,English Setter
+676,0.91709954,train,335,English Cocker Spaniel,English Setter
+677,0.7671863,train,1395,English Cocker Spaniel,English Cocker Spaniel
+678,0.893553,train,288,English Cocker Spaniel,English Cocker Spaniel
+679,0.8886955,train,294,English Cocker Spaniel,English Cocker Spaniel
+680,0.91730505,train,329,English Cocker Spaniel,English Setter
+681,0.90552413,train,325,English Cocker Spaniel,English Cocker Spaniel
+682,0.92104167,train,1453,English Cocker Spaniel,English Setter
+683,0.8390434,train,309,English Cocker Spaniel,English Cocker Spaniel
+684,0.93480796,train,285,English Cocker Spaniel,English Cocker Spaniel
+685,0.8879014,train,335,English Cocker Spaniel,English Setter
+686,0.92133904,train,1419,English Cocker Spaniel,English Cocker Spaniel
+687,0.93820506,train,290,English Cocker Spaniel,English Cocker Spaniel
+688,0.90465224,train,1419,English Cocker Spaniel,English Cocker Spaniel
+689,0.93121636,train,1453,English Cocker Spaniel,English Setter
+690,0.9001702,train,1460,English Cocker Spaniel,English Setter
+691,0.92482686,train,1069,English Cocker Spaniel,Wheaten Terrier
+692,0.93667495,train,286,English Cocker Spaniel,English Cocker Spaniel
+693,0.94571996,train,301,English Cocker Spaniel,English Cocker Spaniel
+694,0.8922868,train,284,English Cocker Spaniel,English Cocker Spaniel
+695,0.8776094,train,325,English Cocker Spaniel,English Cocker Spaniel
+696,0.94233453,train,319,English Cocker Spaniel,English Cocker Spaniel
+697,0.8887899,train,280,English Cocker Spaniel,English Cocker Spaniel
+698,0.93126893,validation,162,English Cocker Spaniel,English Cocker Spaniel
+699,0.90995663,train,347,English Setter,English Setter
+700,0.9327423,train,359,English Setter,English Setter
+701,0.92443985,train,354,English Setter,English Setter
+702,0.88446814,train,1391,English Setter,English Cocker Spaniel
+703,0.9051135,train,1722,English Setter,Leonberger
+704,0.90809476,train,440,English Setter,Great Pyrenees
+705,0.87922305,train,1475,English Setter,English Setter
+706,0.9131248,train,1480,English Setter,German Shorthaired
+707,0.9377929,train,353,English Setter,English Setter
+708,0.91124725,train,1458,English Setter,English Setter
+709,0.90729254,train,1405,English Setter,English Cocker Spaniel
+710,0.92363906,train,1453,English Setter,English Setter
+711,0.92024934,validation,9,English Setter,Beagle
+712,0.8944323,train,1460,English Setter,English Setter
+713,0.9017216,train,2195,English Setter,Wheaten Terrier
+714,0.8971586,train,359,English Setter,English Setter
+715,0.9485292,train,1445,English Setter,English Setter
+716,0.9301363,train,354,English Setter,English Setter
+717,0.9089205,train,354,English Setter,English Setter
+718,0.90854836,train,1405,English Setter,English Cocker Spaniel
+719,0.9190451,train,350,English Setter,English Setter
+720,0.9136405,train,1455,English Setter,English Setter
+721,0.9104884,train,359,English Setter,English Setter
+722,0.8519658,train,405,English Setter,German Shorthaired
+723,0.89700556,train,316,English Setter,English Cocker Spaniel
+724,0.93070436,train,1441,English Setter,English Setter
+725,0.88971376,train,824,English Setter,Saint Bernard
+726,0.87494683,train,286,English Setter,English Cocker Spaniel
+727,0.91269743,train,342,English Setter,English Setter
+728,0.9423883,train,338,English Setter,English Setter
+729,0.92355114,train,1398,English Setter,English Cocker Spaniel
+730,0.89303076,train,1419,English Setter,English Cocker Spaniel
+731,0.86971116,train,1472,English Setter,English Setter
+732,0.9132387,train,338,English Setter,English Setter
+733,0.9268674,train,1437,English Setter,English Setter
+734,0.8983238,train,338,English Setter,English Setter
+735,0.931168,train,1498,English Setter,German Shorthaired
+736,0.9194975,train,364,English Setter,English Setter
+737,0.8633459,train,1069,English Setter,Wheaten Terrier
+738,0.92187554,train,338,English Setter,English Setter
+739,0.9050425,train,285,English Setter,English Cocker Spaniel
+740,0.88693273,train,1422,English Setter,English Cocker Spaniel
+741,0.94216025,train,348,English Setter,English Setter
+742,0.89659643,train,1409,English Setter,English Cocker Spaniel
+743,0.9270823,train,333,English Setter,English Setter
+744,0.8780137,validation,162,English Setter,English Cocker Spaniel
+745,0.85929614,train,592,English Setter,Keeshond
+746,0.90003955,train,328,English Setter,English Setter
+747,0.8864584,train,1472,English Setter,English Setter
+748,0.9365212,train,695,English Setter,Newfoundland
+749,0.9131662,train,343,English Setter,English Setter
+750,0.9207939,train,347,English Setter,English Setter
+751,0.92327267,train,332,English Setter,English Setter
+752,0.9222054,train,347,English Setter,English Setter
+753,0.897445,train,328,English Setter,English Setter
+754,0.88561016,train,1426,English Setter,English Cocker Spaniel
+755,0.8996848,train,346,English Setter,English Setter
+756,0.89684844,train,860,English Setter,Saint Bernard
+757,0.90059304,train,1446,English Setter,English Setter
+758,0.935662,train,1445,English Setter,English Setter
+759,0.89092445,train,338,English Setter,English Setter
+760,0.89164,train,363,English Setter,English Setter
+761,0.90271693,train,327,English Setter,English Setter
+762,0.8874979,train,363,English Setter,English Setter
+763,0.89300585,train,348,English Setter,English Setter
+764,0.8884969,train,364,English Setter,English Setter
+765,0.9234684,train,823,English Setter,Saint Bernard
+766,0.9264424,train,1447,English Setter,English Setter
+767,0.8948815,train,1398,English Setter,English Cocker Spaniel
+768,0.93373406,train,310,English Setter,English Cocker Spaniel
+769,0.92742825,validation,162,English Setter,English Cocker Spaniel
+770,0.9408593,train,1445,English Setter,English Setter
+771,0.92067736,train,354,English Setter,English Setter
+772,0.9372744,train,1419,English Setter,English Cocker Spaniel
+773,0.8968629,train,1417,English Setter,English Cocker Spaniel
+774,0.908191,train,375,English Setter,German Shorthaired
+775,0.8888071,train,1408,English Setter,English Cocker Spaniel
+776,0.9079429,train,126,English Setter,Basset Hound
+777,0.8597537,train,1447,English Setter,English Setter
+778,0.94371873,train,348,English Setter,English Setter
+779,0.90169823,train,356,English Setter,English Setter
+780,0.90999925,train,1445,English Setter,English Setter
+781,0.94493973,train,1445,English Setter,English Setter
+782,0.8924061,train,335,English Setter,English Setter
+783,0.87641954,train,1417,English Setter,English Cocker Spaniel
+784,0.88119066,train,1466,English Setter,English Setter
+785,0.9271743,train,1442,English Setter,English Setter
+786,0.93567777,train,381,English Setter,German Shorthaired
+787,0.88788897,train,222,English Setter,Boxer
+788,0.9370174,train,1453,English Setter,English Setter
+789,0.8566214,train,352,English Setter,English Setter
+790,0.9350146,train,1442,English Setter,English Setter
+791,0.88995576,train,328,English Setter,English Setter
+792,0.93530023,train,1442,English Setter,English Setter
+793,0.94382185,train,285,English Setter,English Cocker Spaniel
+794,0.89087486,train,1435,English Setter,English Setter
+795,0.8416393,train,1392,English Setter,English Cocker Spaniel
+796,0.8897209,train,354,English Setter,English Setter
+797,0.9080528,train,843,English Setter,Saint Bernard
+798,0.88668853,train,285,English Setter,English Cocker Spaniel
+799,0.88973594,train,1498,German Shorthaired,German Shorthaired
+800,0.88021564,train,1514,German Shorthaired,German Shorthaired
+801,0.9160733,train,377,German Shorthaired,German Shorthaired
+802,0.9118308,train,377,German Shorthaired,German Shorthaired
+803,0.8827045,train,406,German Shorthaired,German Shorthaired
+804,0.8970064,train,406,German Shorthaired,German Shorthaired
+805,0.8927282,train,383,German Shorthaired,German Shorthaired
+806,0.8553692,train,406,German Shorthaired,German Shorthaired
+807,0.89988625,train,406,German Shorthaired,German Shorthaired
+808,0.999941,train,1510,German Shorthaired,German Shorthaired
+809,0.8827505,train,391,German Shorthaired,German Shorthaired
+810,0.9077458,train,1482,German Shorthaired,German Shorthaired
+811,0.99995637,train,1512,German Shorthaired,German Shorthaired
+812,0.9263333,train,1514,German Shorthaired,German Shorthaired
+813,0.8635263,train,405,German Shorthaired,German Shorthaired
+814,0.9287869,train,382,German Shorthaired,German Shorthaired
+815,0.9119519,train,377,German Shorthaired,German Shorthaired
+816,0.9530258,train,1510,German Shorthaired,German Shorthaired
+817,0.9354387,train,375,German Shorthaired,German Shorthaired
+818,0.8621284,train,408,German Shorthaired,German Shorthaired
+819,0.8931941,train,1491,German Shorthaired,German Shorthaired
+820,0.93841445,train,1508,German Shorthaired,German Shorthaired
+821,0.9283359,validation,170,German Shorthaired,German Shorthaired
+822,0.9169893,train,1482,German Shorthaired,German Shorthaired
+823,0.91161096,train,410,German Shorthaired,German Shorthaired
+824,0.8986312,train,408,German Shorthaired,German Shorthaired
+825,0.91088855,train,407,German Shorthaired,German Shorthaired
+826,0.9048979,train,414,German Shorthaired,German Shorthaired
+827,0.9351957,train,381,German Shorthaired,German Shorthaired
+828,0.9337603,train,377,German Shorthaired,German Shorthaired
+829,0.9385993,train,381,German Shorthaired,German Shorthaired
+830,0.94892573,train,377,German Shorthaired,German Shorthaired
+831,0.9087938,train,1481,German Shorthaired,German Shorthaired
+832,0.99992394,train,1481,German Shorthaired,German Shorthaired
+833,0.85680103,train,410,German Shorthaired,German Shorthaired
+834,0.88909334,train,1185,German Shorthaired,American Pit Bull Terrier
+835,0.893082,train,408,German Shorthaired,German Shorthaired
+836,0.88912404,train,384,German Shorthaired,German Shorthaired
+837,0.92003703,train,1499,German Shorthaired,German Shorthaired
+838,0.8880654,train,309,German Shorthaired,English Cocker Spaniel
+839,0.8994272,validation,33,German Shorthaired,German Shorthaired
+840,0.89672923,train,1484,German Shorthaired,German Shorthaired
+841,0.9057343,train,377,German Shorthaired,German Shorthaired
+842,0.9267305,train,377,German Shorthaired,German Shorthaired
+843,0.9157777,train,1472,German Shorthaired,English Setter
+844,0.9082676,train,380,German Shorthaired,German Shorthaired
+845,0.86134255,train,380,German Shorthaired,German Shorthaired
+846,0.90264463,train,403,German Shorthaired,German Shorthaired
+847,0.9198532,train,377,German Shorthaired,German Shorthaired
+848,0.9213527,train,382,German Shorthaired,German Shorthaired
+849,0.89762044,train,382,German Shorthaired,German Shorthaired
+850,0.8778684,train,1431,German Shorthaired,English Setter
+851,0.92123556,train,380,German Shorthaired,German Shorthaired
+852,0.88570225,train,377,German Shorthaired,German Shorthaired
+853,0.8670232,train,1484,German Shorthaired,German Shorthaired
+854,0.82911867,train,363,German Shorthaired,English Setter
+855,0.929733,train,1484,German Shorthaired,German Shorthaired
+856,0.9295362,train,1483,German Shorthaired,German Shorthaired
+857,0.8884973,train,1501,German Shorthaired,German Shorthaired
+858,0.8739123,train,380,German Shorthaired,German Shorthaired
+859,0.891591,train,391,German Shorthaired,German Shorthaired
+860,0.88178825,train,391,German Shorthaired,German Shorthaired
+861,0.9097204,train,408,German Shorthaired,German Shorthaired
+862,0.94045186,train,1510,German Shorthaired,German Shorthaired
+863,0.9207742,train,383,German Shorthaired,German Shorthaired
+864,0.9160434,train,1482,German Shorthaired,German Shorthaired
+865,0.88244164,train,1520,German Shorthaired,German Shorthaired
+866,0.89486074,train,1313,German Shorthaired,Boxer
+867,0.9370306,train,377,German Shorthaired,German Shorthaired
+868,0.8845247,train,165,German Shorthaired,Beagle
+869,0.87283146,train,287,German Shorthaired,English Cocker Spaniel
+870,0.89468867,train,377,German Shorthaired,German Shorthaired
+871,0.8972113,train,397,German Shorthaired,German Shorthaired
+872,0.9269124,train,403,German Shorthaired,German Shorthaired
+873,0.9305976,train,1496,German Shorthaired,German Shorthaired
+874,0.93035984,train,411,German Shorthaired,German Shorthaired
+875,0.93843734,train,1483,German Shorthaired,German Shorthaired
+876,0.8932865,train,410,German Shorthaired,German Shorthaired
+877,0.8640031,train,397,German Shorthaired,German Shorthaired
+878,0.9165863,train,405,German Shorthaired,German Shorthaired
+879,0.86645424,train,1281,German Shorthaired,Beagle
+880,0.8573205,train,1507,German Shorthaired,German Shorthaired
+881,0.9177704,train,385,German Shorthaired,German Shorthaired
+882,0.93232894,train,371,German Shorthaired,German Shorthaired
+883,0.90012515,train,319,German Shorthaired,English Cocker Spaniel
+884,0.90246546,train,408,German Shorthaired,German Shorthaired
+885,0.9054658,train,1504,German Shorthaired,German Shorthaired
+886,0.91084945,train,1510,German Shorthaired,German Shorthaired
+887,0.93048143,train,408,German Shorthaired,German Shorthaired
+888,0.9146004,train,1510,German Shorthaired,German Shorthaired
+889,0.9201174,train,383,German Shorthaired,German Shorthaired
+890,0.9157087,train,377,German Shorthaired,German Shorthaired
+891,0.86348224,train,377,German Shorthaired,German Shorthaired
+892,0.93899786,train,1483,German Shorthaired,German Shorthaired
+893,0.8769546,train,1484,German Shorthaired,German Shorthaired
+894,0.8888325,train,195,German Shorthaired,Boxer
+895,0.93823767,train,376,German Shorthaired,German Shorthaired
+896,0.9302091,train,385,German Shorthaired,German Shorthaired
+897,0.87649804,train,1491,German Shorthaired,German Shorthaired
+898,0.8721354,train,1508,German Shorthaired,German Shorthaired
+899,0.93704927,train,420,Great Pyrenees,Great Pyrenees
+900,0.89116424,validation,35,Great Pyrenees,Great Pyrenees
+901,0.92995477,train,898,Great Pyrenees,Samoyed
+902,0.926911,train,695,Great Pyrenees,Newfoundland
+903,0.8588412,validation,80,Great Pyrenees,Saint Bernard
+904,0.928396,train,427,Great Pyrenees,Great Pyrenees
+905,0.93745774,validation,36,Great Pyrenees,Great Pyrenees
+906,0.93631756,train,1554,Great Pyrenees,Great Pyrenees
+907,0.922574,train,1539,Great Pyrenees,Great Pyrenees
+908,0.92146456,train,1565,Great Pyrenees,Great Pyrenees
+909,0.94581795,train,1535,Great Pyrenees,Great Pyrenees
+910,0.8759722,train,1557,Great Pyrenees,Great Pyrenees
+911,0.93658876,train,1534,Great Pyrenees,Great Pyrenees
+912,0.9256557,train,432,Great Pyrenees,Great Pyrenees
+913,0.9181815,train,1987,Great Pyrenees,Samoyed
+914,0.89193064,train,1559,Great Pyrenees,Great Pyrenees
+915,0.9253693,train,1558,Great Pyrenees,Great Pyrenees
+916,0.9293642,train,424,Great Pyrenees,Great Pyrenees
+917,0.8684794,validation,48,Great Pyrenees,Keeshond
+918,0.9355067,train,1528,Great Pyrenees,Great Pyrenees
+919,0.9247279,train,1538,Great Pyrenees,Great Pyrenees
+920,0.9081565,validation,36,Great Pyrenees,Great Pyrenees
+921,0.92706645,train,696,Great Pyrenees,Newfoundland
+922,0.94411194,validation,36,Great Pyrenees,Great Pyrenees
+923,0.9067886,train,1555,Great Pyrenees,Great Pyrenees
+924,0.9153065,train,421,Great Pyrenees,Great Pyrenees
+925,0.87751865,train,1970,Great Pyrenees,Samoyed
+926,0.89539325,train,1970,Great Pyrenees,Samoyed
+927,0.93688333,validation,36,Great Pyrenees,Great Pyrenees
+928,0.85893404,train,445,Great Pyrenees,Great Pyrenees
+929,0.88957936,train,1729,Great Pyrenees,Leonberger
+930,0.8885337,validation,178,Great Pyrenees,Great Pyrenees
+931,0.8704738,train,1949,Great Pyrenees,Saint Bernard
+932,0.92085075,train,1560,Great Pyrenees,Great Pyrenees
+933,0.8353218,train,423,Great Pyrenees,Great Pyrenees
+934,0.8906019,validation,38,Great Pyrenees,Great Pyrenees
+935,0.8705219,train,415,Great Pyrenees,Great Pyrenees
+936,0.903901,train,447,Great Pyrenees,Great Pyrenees
+937,0.9164156,train,1548,Great Pyrenees,Great Pyrenees
+938,0.8840678,validation,38,Great Pyrenees,Great Pyrenees
+939,0.9240634,train,696,Great Pyrenees,Newfoundland
+940,0.89051723,train,1421,Great Pyrenees,English Cocker Spaniel
+941,0.92030096,train,1557,Great Pyrenees,Great Pyrenees
+942,0.89725524,validation,80,Great Pyrenees,Saint Bernard
+943,0.8540866,train,1548,Great Pyrenees,Great Pyrenees
+944,0.93220085,train,1528,Great Pyrenees,Great Pyrenees
+945,0.93577933,validation,36,Great Pyrenees,Great Pyrenees
+946,0.9112493,train,1555,Great Pyrenees,Great Pyrenees
+947,0.9094763,train,1528,Great Pyrenees,Great Pyrenees
+948,0.89609325,train,1558,Great Pyrenees,Great Pyrenees
+949,0.8819152,validation,224,Great Pyrenees,Samoyed
+950,0.8289177,validation,151,Great Pyrenees,Boxer
+951,0.87332344,train,1987,Great Pyrenees,Samoyed
+952,0.9196354,train,1537,Great Pyrenees,Great Pyrenees
+953,0.91469884,train,1558,Great Pyrenees,Great Pyrenees
+954,0.9264102,validation,36,Great Pyrenees,Great Pyrenees
+955,0.9224484,train,877,Great Pyrenees,Samoyed
+956,0.8957412,train,1528,Great Pyrenees,Great Pyrenees
+957,0.8930516,train,1537,Great Pyrenees,Great Pyrenees
+958,0.85870206,train,571,Great Pyrenees,Keeshond
+959,0.87234336,train,896,Great Pyrenees,Samoyed
+960,0.91939723,train,1560,Great Pyrenees,Great Pyrenees
+961,0.913514,train,1528,Great Pyrenees,Great Pyrenees
+962,0.93622935,train,1541,Great Pyrenees,Great Pyrenees
+963,0.9051678,train,1525,Great Pyrenees,Great Pyrenees
+964,0.9338733,train,1548,Great Pyrenees,Great Pyrenees
+965,0.9135987,train,1548,Great Pyrenees,Great Pyrenees
+966,0.9609589,train,1556,Great Pyrenees,Great Pyrenees
+967,0.94693124,train,1556,Great Pyrenees,Great Pyrenees
+968,0.91051257,train,1538,Great Pyrenees,Great Pyrenees
+969,0.90586066,validation,35,Great Pyrenees,Great Pyrenees
+970,0.9464995,train,1548,Great Pyrenees,Great Pyrenees
+971,0.93671525,train,1539,Great Pyrenees,Great Pyrenees
+972,0.9293794,train,1557,Great Pyrenees,Great Pyrenees
+973,0.9410051,train,1554,Great Pyrenees,Great Pyrenees
+974,0.93869185,validation,39,Great Pyrenees,Great Pyrenees
+975,0.90723366,train,1707,Great Pyrenees,Leonberger
+976,0.89599544,train,1566,Great Pyrenees,Great Pyrenees
+977,0.9154961,train,825,Great Pyrenees,Saint Bernard
+978,0.9193735,train,902,Great Pyrenees,Samoyed
+979,0.9377365,train,1555,Great Pyrenees,Great Pyrenees
+980,0.899649,train,1553,Great Pyrenees,Great Pyrenees
+981,0.90773165,train,1548,Great Pyrenees,Great Pyrenees
+982,0.9262775,train,1554,Great Pyrenees,Great Pyrenees
+983,0.92666674,train,615,Great Pyrenees,Leonberger
+984,0.86418176,train,825,Great Pyrenees,Saint Bernard
+985,0.92811763,train,1985,Great Pyrenees,Samoyed
+986,0.99996954,train,1548,Great Pyrenees,Great Pyrenees
+987,0.92642355,train,424,Great Pyrenees,Great Pyrenees
+988,0.94163656,train,1528,Great Pyrenees,Great Pyrenees
+989,0.8869915,validation,53,Great Pyrenees,Leonberger
+990,0.94427776,train,1558,Great Pyrenees,Great Pyrenees
+991,0.94469506,train,1548,Great Pyrenees,Great Pyrenees
+992,0.9332807,train,456,Great Pyrenees,Great Pyrenees
+993,0.869526,train,419,Great Pyrenees,Great Pyrenees
+994,0.94427615,train,1554,Great Pyrenees,Great Pyrenees
+995,0.9137481,validation,36,Great Pyrenees,Great Pyrenees
+996,0.9109363,train,1564,Great Pyrenees,Great Pyrenees
+997,0.9775102,train,416,Great Pyrenees,Great Pyrenees
+998,0.9237468,train,1534,Great Pyrenees,Great Pyrenees
+999,0.85638785,train,1609,Havanese,Havanese
+1000,0.9621945,train,1583,Havanese,Havanese
+1001,0.9474163,train,475,Havanese,Havanese
+1002,0.95076394,validation,180,Havanese,Havanese
+1003,0.9241675,train,1605,Havanese,Havanese
+1004,0.9393742,train,1578,Havanese,Havanese
+1005,0.9007139,validation,47,Havanese,Japanese Chin
+1006,0.9860013,train,1597,Havanese,Havanese
+1007,0.8637364,train,487,Havanese,Havanese
+1008,0.9286947,train,479,Havanese,Havanese
+1009,0.9520469,train,479,Havanese,Havanese
+1010,0.91421413,train,1580,Havanese,Havanese
+1011,0.9053025,train,1601,Havanese,Havanese
+1012,0.91625434,validation,229,Havanese,Scottish Terrier
+1013,0.9384488,train,1571,Havanese,Havanese
+1014,0.9332977,train,503,Havanese,Havanese
+1015,0.9336015,train,1581,Havanese,Havanese
+1016,0.94584763,train,490,Havanese,Havanese
+1017,0.9606792,train,1581,Havanese,Havanese
+1018,0.94914573,train,490,Havanese,Havanese
+1019,0.956629,train,490,Havanese,Havanese
+1020,0.9219374,validation,229,Havanese,Scottish Terrier
+1021,0.97114897,train,1581,Havanese,Havanese
+1022,0.95372146,train,483,Havanese,Havanese
+1023,0.9626221,train,490,Havanese,Havanese
+1024,0.9384543,train,490,Havanese,Havanese
+1025,0.9521625,train,479,Havanese,Havanese
+1026,0.94841856,train,479,Havanese,Havanese
+1027,0.9500511,train,503,Havanese,Havanese
+1028,0.8712648,train,490,Havanese,Havanese
+1029,0.96152294,train,1581,Havanese,Havanese
+1030,0.9561981,train,1580,Havanese,Havanese
+1031,0.96029437,train,1590,Havanese,Havanese
+1032,0.960111,train,490,Havanese,Havanese
+1033,0.92744344,train,490,Havanese,Havanese
+1034,0.87551844,validation,165,Havanese,English Cocker Spaniel
+1035,0.94233465,train,473,Havanese,Havanese
+1036,0.9114387,train,496,Havanese,Havanese
+1037,0.94348294,train,462,Havanese,Havanese
+1038,0.8120968,validation,180,Havanese,Havanese
+1039,0.94736916,validation,180,Havanese,Havanese
+1040,0.9083019,train,2170,Havanese,Wheaten Terrier
+1041,0.93275857,train,2162,Havanese,Wheaten Terrier
+1042,0.9259391,validation,180,Havanese,Havanese
+1043,0.932367,train,1590,Havanese,Havanese
+1044,0.91647065,train,493,Havanese,Havanese
+1045,0.9310842,train,1580,Havanese,Havanese
+1046,0.94221056,train,483,Havanese,Havanese
+1047,0.9370296,train,461,Havanese,Havanese
+1048,0.9062193,train,461,Havanese,Havanese
+1049,0.94193184,train,468,Havanese,Havanese
+1050,0.93668884,train,1578,Havanese,Havanese
+1051,0.9277544,train,475,Havanese,Havanese
+1052,0.9021313,train,491,Havanese,Havanese
+1053,0.94301033,train,483,Havanese,Havanese
+1054,0.95661813,train,1581,Havanese,Havanese
+1055,0.94936454,train,2162,Havanese,Wheaten Terrier
+1056,0.9163666,train,1584,Havanese,Havanese
+1057,0.93349826,train,470,Havanese,Havanese
+1058,0.89111054,train,1581,Havanese,Havanese
+1059,0.9308649,train,475,Havanese,Havanese
+1060,0.94371355,validation,180,Havanese,Havanese
+1061,0.929246,train,464,Havanese,Havanese
+1062,0.93598694,train,1592,Havanese,Havanese
+1063,0.9069054,train,1092,Havanese,Yorkshire Terrier
+1064,0.89380723,train,1044,Havanese,Wheaten Terrier
+1065,0.96115285,train,1581,Havanese,Havanese
+1066,0.91399336,train,1604,Havanese,Havanese
+1067,0.9265051,train,1361,Havanese,Chihuahua
+1068,0.95284414,train,483,Havanese,Havanese
+1069,0.94905895,train,1578,Havanese,Havanese
+1070,0.88622725,train,1599,Havanese,Havanese
+1071,0.90356565,train,2159,Havanese,Wheaten Terrier
+1072,0.9096302,validation,108,Havanese,Wheaten Terrier
+1073,0.92371094,train,1419,Havanese,English Cocker Spaniel
+1074,0.94148284,train,475,Havanese,Havanese
+1075,0.8846351,train,1361,Havanese,Chihuahua
+1076,0.9484214,train,1581,Havanese,Havanese
+1077,0.9418716,train,2162,Havanese,Wheaten Terrier
+1078,0.9267798,train,1092,Havanese,Yorkshire Terrier
+1079,0.9206384,train,2215,Havanese,Yorkshire Terrier
+1080,0.892711,train,471,Havanese,Havanese
+1081,0.90339094,train,471,Havanese,Havanese
+1082,0.91055596,train,493,Havanese,Havanese
+1083,0.95541084,validation,180,Havanese,Havanese
+1084,0.92469645,train,484,Havanese,Havanese
+1085,0.94934416,train,1580,Havanese,Havanese
+1086,0.94007707,train,1580,Havanese,Havanese
+1087,0.95014024,train,1581,Havanese,Havanese
+1088,0.89938664,train,541,Havanese,Japanese Chin
+1089,0.93578637,train,1581,Havanese,Havanese
+1090,0.8071843,train,1604,Havanese,Havanese
+1091,0.91889673,train,1046,Havanese,Wheaten Terrier
+1092,0.94154584,train,470,Havanese,Havanese
+1093,0.94253707,validation,180,Havanese,Havanese
+1094,0.90517116,train,1578,Havanese,Havanese
+1095,0.95260787,train,1583,Havanese,Havanese
+1096,0.92877245,validation,107,Havanese,Wheaten Terrier
+1097,0.95290184,train,467,Havanese,Havanese
+1098,0.9534939,train,479,Havanese,Havanese
+1099,0.9632956,train,1624,Japanese Chin,Japanese Chin
+1100,0.85841846,train,515,Japanese Chin,Japanese Chin
+1101,0.8585937,validation,179,Japanese Chin,Havanese
+1102,0.9288924,train,1631,Japanese Chin,Japanese Chin
+1103,0.9263643,train,1650,Japanese Chin,Japanese Chin
+1104,0.93619525,train,1613,Japanese Chin,Japanese Chin
+1105,0.9417781,train,550,Japanese Chin,Japanese Chin
+1106,0.94687116,train,527,Japanese Chin,Japanese Chin
+1107,0.95928633,train,513,Japanese Chin,Japanese Chin
+1108,0.91793954,train,1639,Japanese Chin,Japanese Chin
+1109,0.9378597,train,513,Japanese Chin,Japanese Chin
+1110,0.99996567,train,1650,Japanese Chin,Japanese Chin
+1111,0.9998195,train,1639,Japanese Chin,Japanese Chin
+1112,0.8901409,train,1641,Japanese Chin,Japanese Chin
+1113,0.89705545,train,1641,Japanese Chin,Japanese Chin
+1114,0.94973373,train,513,Japanese Chin,Japanese Chin
+1115,0.90045434,train,518,Japanese Chin,Japanese Chin
+1116,0.9327058,train,520,Japanese Chin,Japanese Chin
+1117,0.9476112,train,509,Japanese Chin,Japanese Chin
+1118,0.87784106,train,509,Japanese Chin,Japanese Chin
+1119,0.95491827,train,513,Japanese Chin,Japanese Chin
+1120,0.9388597,train,518,Japanese Chin,Japanese Chin
+1121,0.9490694,train,513,Japanese Chin,Japanese Chin
+1122,0.9393332,train,509,Japanese Chin,Japanese Chin
+1123,0.9308768,train,520,Japanese Chin,Japanese Chin
+1124,0.936566,train,513,Japanese Chin,Japanese Chin
+1125,0.84326005,validation,90,Japanese Chin,Samoyed
+1126,0.8952978,train,513,Japanese Chin,Japanese Chin
+1127,0.92697585,train,518,Japanese Chin,Japanese Chin
+1128,0.937978,train,520,Japanese Chin,Japanese Chin
+1129,0.88911647,train,518,Japanese Chin,Japanese Chin
+1130,0.93353176,train,520,Japanese Chin,Japanese Chin
+1131,0.9121021,train,520,Japanese Chin,Japanese Chin
+1132,0.90224314,train,551,Japanese Chin,Japanese Chin
+1133,0.8897177,train,518,Japanese Chin,Japanese Chin
+1134,0.8788954,validation,46,Japanese Chin,Japanese Chin
+1135,0.86092246,train,1632,Japanese Chin,Japanese Chin
+1136,0.9325798,train,518,Japanese Chin,Japanese Chin
+1137,0.92386425,train,1648,Japanese Chin,Japanese Chin
+1138,0.8897528,train,1648,Japanese Chin,Japanese Chin
+1139,0.9691427,train,513,Japanese Chin,Japanese Chin
+1140,0.9599575,train,1624,Japanese Chin,Japanese Chin
+1141,0.9176231,train,518,Japanese Chin,Japanese Chin
+1142,0.85728717,train,1653,Japanese Chin,Japanese Chin
+1143,0.9431212,train,541,Japanese Chin,Japanese Chin
+1144,0.89404225,train,739,Japanese Chin,Pomeranian
+1145,0.93635356,train,1647,Japanese Chin,Japanese Chin
+1146,0.9501504,train,520,Japanese Chin,Japanese Chin
+1147,0.926976,train,520,Japanese Chin,Japanese Chin
+1148,0.90253747,train,520,Japanese Chin,Japanese Chin
+1149,0.8946663,train,520,Japanese Chin,Japanese Chin
+1150,0.89822817,train,520,Japanese Chin,Japanese Chin
+1151,0.89655256,train,541,Japanese Chin,Japanese Chin
+1152,0.8949733,train,551,Japanese Chin,Japanese Chin
+1153,0.8829093,train,529,Japanese Chin,Japanese Chin
+1154,0.9249679,train,551,Japanese Chin,Japanese Chin
+1155,0.83064264,train,1611,Japanese Chin,Japanese Chin
+1156,0.9165604,train,1622,Japanese Chin,Japanese Chin
+1157,0.9304249,train,517,Japanese Chin,Japanese Chin
+1158,0.94334555,train,517,Japanese Chin,Japanese Chin
+1159,0.94733095,train,513,Japanese Chin,Japanese Chin
+1160,0.95015025,train,1629,Japanese Chin,Japanese Chin
+1161,0.8920536,train,515,Japanese Chin,Japanese Chin
+1162,0.8510075,train,478,Japanese Chin,Havanese
+1163,0.8863063,train,1441,Japanese Chin,English Setter
+1164,0.93918556,train,1624,Japanese Chin,Japanese Chin
+1165,0.9341359,train,530,Japanese Chin,Japanese Chin
+1166,0.89104617,train,529,Japanese Chin,Japanese Chin
+1167,0.92101884,train,1652,Japanese Chin,Japanese Chin
+1168,0.9472878,train,527,Japanese Chin,Japanese Chin
+1169,0.9338285,validation,185,Japanese Chin,Japanese Chin
+1170,0.94066423,train,550,Japanese Chin,Japanese Chin
+1171,0.93880004,train,529,Japanese Chin,Japanese Chin
+1172,0.90687287,train,533,Japanese Chin,Japanese Chin
+1173,0.85575736,train,543,Japanese Chin,Japanese Chin
+1174,0.99986607,train,1651,Japanese Chin,Japanese Chin
+1175,0.92842805,train,1631,Japanese Chin,Japanese Chin
+1176,0.95918393,train,513,Japanese Chin,Japanese Chin
+1177,0.7964492,validation,187,Japanese Chin,Japanese Chin
+1178,0.99989194,validation,187,Japanese Chin,Japanese Chin
+1179,0.86030054,train,738,Japanese Chin,Pomeranian
+1180,0.93844634,train,1651,Japanese Chin,Japanese Chin
+1181,0.9357421,train,1631,Japanese Chin,Japanese Chin
+1182,0.99993306,train,542,Japanese Chin,Japanese Chin
+1183,0.95692354,train,1652,Japanese Chin,Japanese Chin
+1184,0.93629336,train,1652,Japanese Chin,Japanese Chin
+1185,0.9998914,train,546,Japanese Chin,Japanese Chin
+1186,0.9171742,train,546,Japanese Chin,Japanese Chin
+1187,0.92537534,train,506,Japanese Chin,Japanese Chin
+1188,0.9407003,train,1622,Japanese Chin,Japanese Chin
+1189,0.95870113,train,518,Japanese Chin,Japanese Chin
+1190,0.92446744,train,507,Japanese Chin,Japanese Chin
+1191,0.9103732,train,506,Japanese Chin,Japanese Chin
+1192,0.89043605,validation,185,Japanese Chin,Japanese Chin
+1193,0.9408847,train,527,Japanese Chin,Japanese Chin
+1194,0.9415803,train,525,Japanese Chin,Japanese Chin
+1195,0.90651095,train,1633,Japanese Chin,Japanese Chin
+1196,0.95331514,train,507,Japanese Chin,Japanese Chin
+1197,0.9347751,train,1648,Japanese Chin,Japanese Chin
+1198,0.9450569,train,527,Japanese Chin,Japanese Chin
+1199,0.92092574,train,569,Keeshond,Keeshond
+1200,0.9113615,train,1691,Keeshond,Keeshond
+1201,0.90583825,train,1707,Keeshond,Leonberger
+1202,0.8524637,train,1666,Keeshond,Keeshond
+1203,0.94432104,train,1691,Keeshond,Keeshond
+1204,0.93570787,validation,51,Keeshond,Keeshond
+1205,0.9526602,train,1682,Keeshond,Keeshond
+1206,0.8199824,train,554,Keeshond,Keeshond
+1207,0.93727237,train,1697,Keeshond,Keeshond
+1208,0.9035877,train,559,Keeshond,Keeshond
+1209,0.9176828,train,573,Keeshond,Keeshond
+1210,0.89860356,train,1677,Keeshond,Keeshond
+1211,0.9124749,train,1678,Keeshond,Keeshond
+1212,0.91234136,train,1985,Keeshond,Samoyed
+1213,0.9227499,validation,226,Keeshond,Samoyed
+1214,0.9554424,train,585,Keeshond,Keeshond
+1215,0.89900476,train,1667,Keeshond,Keeshond
+1216,0.90195143,train,559,Keeshond,Keeshond
+1217,0.8940897,train,594,Keeshond,Keeshond
+1218,0.9999459,train,1684,Keeshond,Keeshond
+1219,0.8990469,train,1684,Keeshond,Keeshond
+1220,0.93355525,train,1695,Keeshond,Keeshond
+1221,0.8847327,train,751,Keeshond,Pomeranian
+1222,0.92709774,train,1684,Keeshond,Keeshond
+1223,0.91535085,train,1687,Keeshond,Keeshond
+1224,0.92540073,train,573,Keeshond,Keeshond
+1225,0.910632,validation,192,Keeshond,Keeshond
+1226,0.9282801,validation,192,Keeshond,Keeshond
+1227,0.9462282,train,562,Keeshond,Keeshond
+1228,0.94575703,train,572,Keeshond,Keeshond
+1229,0.93532884,train,557,Keeshond,Keeshond
+1230,0.90302694,train,749,Keeshond,Pomeranian
+1231,0.91870815,train,1666,Keeshond,Keeshond
+1232,0.9582683,train,1697,Keeshond,Keeshond
+1233,0.88594437,validation,225,Keeshond,Samoyed
+1234,0.906288,train,594,Keeshond,Keeshond
+1235,0.9218724,train,594,Keeshond,Keeshond
+1236,0.89991724,train,594,Keeshond,Keeshond
+1237,0.89841413,train,594,Keeshond,Keeshond
+1238,0.9518473,train,594,Keeshond,Keeshond
+1239,0.9554604,train,567,Keeshond,Keeshond
+1240,0.9999691,train,594,Keeshond,Keeshond
+1241,0.9556304,train,1682,Keeshond,Keeshond
+1242,0.9410411,train,594,Keeshond,Keeshond
+1243,0.9040537,train,1655,Keeshond,Keeshond
+1244,0.89201623,train,559,Keeshond,Keeshond
+1245,0.9240545,train,1659,Keeshond,Keeshond
+1246,0.9117547,train,597,Keeshond,Keeshond
+1247,0.92547256,validation,226,Keeshond,Samoyed
+1248,0.896858,train,562,Keeshond,Keeshond
+1249,0.9211625,train,562,Keeshond,Keeshond
+1250,0.93425196,train,557,Keeshond,Keeshond
+1251,0.82123184,train,1659,Keeshond,Keeshond
+1252,0.8922569,train,554,Keeshond,Keeshond
+1253,0.9205379,train,589,Keeshond,Keeshond
+1254,0.937264,train,557,Keeshond,Keeshond
+1255,0.90629363,train,1658,Keeshond,Keeshond
+1256,0.9069874,train,1690,Keeshond,Keeshond
+1257,0.9141864,train,562,Keeshond,Keeshond
+1258,0.8083395,train,578,Keeshond,Keeshond
+1259,0.92083144,train,587,Keeshond,Keeshond
+1260,0.9124525,train,594,Keeshond,Keeshond
+1261,0.93293476,train,567,Keeshond,Keeshond
+1262,0.9344192,train,1697,Keeshond,Keeshond
+1263,0.8553785,train,554,Keeshond,Keeshond
+1264,0.92992955,train,1659,Keeshond,Keeshond
+1265,0.929623,train,567,Keeshond,Keeshond
+1266,0.8819716,train,594,Keeshond,Keeshond
+1267,0.93427455,train,572,Keeshond,Keeshond
+1268,0.9400933,train,572,Keeshond,Keeshond
+1269,0.9202254,train,1661,Keeshond,Keeshond
+1270,0.8716415,train,1667,Keeshond,Keeshond
+1271,0.96079254,train,562,Keeshond,Keeshond
+1272,0.91830957,train,557,Keeshond,Keeshond
+1273,0.947127,train,1666,Keeshond,Keeshond
+1274,0.9432976,train,1666,Keeshond,Keeshond
+1275,0.9274549,train,559,Keeshond,Keeshond
+1276,0.88643456,train,518,Keeshond,Japanese Chin
+1277,0.9264046,train,577,Keeshond,Keeshond
+1278,0.9414097,validation,192,Keeshond,Keeshond
+1279,0.9188543,train,1691,Keeshond,Keeshond
+1280,0.94121176,validation,191,Keeshond,Keeshond
+1281,0.9327459,train,568,Keeshond,Keeshond
+1282,0.92651784,train,1694,Keeshond,Keeshond
+1283,0.9385307,train,1695,Keeshond,Keeshond
+1284,0.91937685,validation,196,Keeshond,Keeshond
+1285,0.9354025,train,1657,Keeshond,Keeshond
+1286,0.9670629,train,562,Keeshond,Keeshond
+1287,0.92622304,train,594,Keeshond,Keeshond
+1288,0.93461776,validation,192,Keeshond,Keeshond
+1289,0.9192013,train,559,Keeshond,Keeshond
+1290,0.9282987,train,567,Keeshond,Keeshond
+1291,0.9434091,validation,192,Keeshond,Keeshond
+1292,0.9419606,train,572,Keeshond,Keeshond
+1293,0.9182173,train,568,Keeshond,Keeshond
+1294,0.9999754,train,593,Keeshond,Keeshond
+1295,0.9018867,train,1696,Keeshond,Keeshond
+1296,0.99993825,train,1661,Keeshond,Keeshond
+1297,0.9127852,train,562,Keeshond,Keeshond
+1298,0.9501709,train,1720,Leonberger,Leonberger
+1299,0.9532445,train,1739,Leonberger,Leonberger
+1300,0.96563816,train,1728,Leonberger,Leonberger
+1301,0.9782325,train,621,Leonberger,Leonberger
+1302,0.94458306,train,1736,Leonberger,Leonberger
+1303,0.91792035,validation,53,Leonberger,Leonberger
+1304,0.9351245,train,1714,Leonberger,Leonberger
+1305,0.892395,train,1800,Leonberger,Newfoundland
+1306,0.940048,train,1719,Leonberger,Leonberger
+1307,0.90790975,train,1719,Leonberger,Leonberger
+1308,0.9999597,train,1740,Leonberger,Leonberger
+1309,0.9138336,train,840,Leonberger,Saint Bernard
+1310,0.9383237,train,1714,Leonberger,Leonberger
+1311,0.9470004,train,1722,Leonberger,Leonberger
+1312,0.9453562,train,631,Leonberger,Leonberger
+1313,0.9125835,validation,54,Leonberger,Leonberger
+1314,0.98233527,train,1722,Leonberger,Leonberger
+1315,0.9330939,train,631,Leonberger,Leonberger
+1316,0.8744152,train,607,Leonberger,Leonberger
+1317,0.9424418,train,631,Leonberger,Leonberger
+1318,0.93729323,train,615,Leonberger,Leonberger
+1319,0.9153975,train,631,Leonberger,Leonberger
+1320,0.99984205,train,1741,Leonberger,Leonberger
+1321,0.89127177,train,1732,Leonberger,Leonberger
+1322,0.91915405,train,595,Leonberger,Keeshond
+1323,0.9561455,train,1719,Leonberger,Leonberger
+1324,0.8495006,train,603,Leonberger,Leonberger
+1325,0.85353005,train,607,Leonberger,Leonberger
+1326,0.93869084,validation,201,Leonberger,Leonberger
+1327,0.9224486,train,1719,Leonberger,Leonberger
+1328,0.8827747,train,888,Leonberger,Samoyed
+1329,0.9044036,train,1719,Leonberger,Leonberger
+1330,0.9155136,validation,53,Leonberger,Leonberger
+1331,0.98207086,train,1741,Leonberger,Leonberger
+1332,0.8628383,train,1064,Leonberger,Wheaten Terrier
+1333,0.94709104,validation,53,Leonberger,Leonberger
+1334,0.8253311,train,1805,Leonberger,Newfoundland
+1335,0.9309447,train,1705,Leonberger,Leonberger
+1336,0.957414,train,1719,Leonberger,Leonberger
+1337,0.9190337,train,608,Leonberger,Leonberger
+1338,0.92238903,train,1721,Leonberger,Leonberger
+1339,0.9023117,validation,205,Leonberger,Newfoundland
+1340,0.9276825,train,1715,Leonberger,Leonberger
+1341,0.94605476,validation,53,Leonberger,Leonberger
+1342,0.9111002,train,1721,Leonberger,Leonberger
+1343,0.9374985,train,1830,Leonberger,Newfoundland
+1344,0.90557414,train,1705,Leonberger,Leonberger
+1345,0.91856074,train,599,Leonberger,Leonberger
+1346,0.9558916,train,1719,Leonberger,Leonberger
+1347,0.93245816,validation,198,Leonberger,Leonberger
+1348,0.87638855,train,613,Leonberger,Leonberger
+1349,0.9085456,train,610,Leonberger,Leonberger
+1350,0.9340797,validation,53,Leonberger,Leonberger
+1351,0.94491065,train,1795,Leonberger,Newfoundland
+1352,0.87080026,validation,53,Leonberger,Leonberger
+1353,0.9205457,train,599,Leonberger,Leonberger
+1354,0.9169662,validation,53,Leonberger,Leonberger
+1355,0.92959297,train,1795,Leonberger,Newfoundland
+1356,0.9093447,train,631,Leonberger,Leonberger
+1357,0.9220631,train,1698,Leonberger,Keeshond
+1358,0.9164196,train,833,Leonberger,Saint Bernard
+1359,0.92069876,train,1698,Leonberger,Keeshond
+1360,0.94897515,train,608,Leonberger,Leonberger
+1361,0.87969613,train,1702,Leonberger,Leonberger
+1362,0.9479039,train,634,Leonberger,Leonberger
+1363,0.86184764,validation,52,Leonberger,Leonberger
+1364,0.86752236,train,1942,Leonberger,Saint Bernard
+1365,0.8582889,validation,52,Leonberger,Leonberger
+1366,0.9576627,train,1727,Leonberger,Leonberger
+1367,0.887782,train,1714,Leonberger,Leonberger
+1368,0.8666549,validation,54,Leonberger,Leonberger
+1369,0.8889761,train,632,Leonberger,Leonberger
+1370,0.94531155,train,632,Leonberger,Leonberger
+1371,0.9567088,train,1705,Leonberger,Leonberger
+1372,0.967989,train,606,Leonberger,Leonberger
+1373,0.9233414,train,825,Leonberger,Saint Bernard
+1374,0.8835889,train,607,Leonberger,Leonberger
+1375,0.89867437,train,600,Leonberger,Leonberger
+1376,0.84278023,validation,208,Leonberger,Newfoundland
+1377,0.9015428,train,1727,Leonberger,Leonberger
+1378,0.94087565,train,1727,Leonberger,Leonberger
+1379,0.9260316,train,1727,Leonberger,Leonberger
+1380,0.9137394,validation,53,Leonberger,Leonberger
+1381,0.8966411,validation,201,Leonberger,Leonberger
+1382,0.9420613,train,1731,Leonberger,Leonberger
+1383,0.9262737,validation,201,Leonberger,Leonberger
+1384,0.94481325,train,610,Leonberger,Leonberger
+1385,0.92013896,train,606,Leonberger,Leonberger
+1386,0.85840935,train,615,Leonberger,Leonberger
+1387,0.9185159,train,607,Leonberger,Leonberger
+1388,0.9504238,train,1719,Leonberger,Leonberger
+1389,0.9371101,train,598,Leonberger,Leonberger
+1390,0.91181946,train,631,Leonberger,Leonberger
+1391,0.8633547,train,618,Leonberger,Leonberger
+1392,0.96586883,train,601,Leonberger,Leonberger
+1393,0.907637,train,1725,Leonberger,Leonberger
+1394,0.92516494,train,631,Leonberger,Leonberger
+1395,0.95642173,train,601,Leonberger,Leonberger
+1396,0.8886463,train,636,Leonberger,Leonberger
+1397,0.9394748,validation,54,Leonberger,Leonberger
+1398,0.86918664,train,1745,Miniature Pinscher,Miniature Pinscher
+1399,0.85395443,train,1766,Miniature Pinscher,Miniature Pinscher
+1400,0.91086125,train,1744,Miniature Pinscher,Miniature Pinscher
+1401,0.9340978,train,1382,Miniature Pinscher,Chihuahua
+1402,0.9004674,train,65,Miniature Pinscher,American Pit Bull Terrier
+1403,0.9273063,train,1782,Miniature Pinscher,Miniature Pinscher
+1404,0.93169904,train,663,Miniature Pinscher,Miniature Pinscher
+1405,0.83975506,validation,60,Miniature Pinscher,Miniature Pinscher
+1406,0.9487001,train,238,Miniature Pinscher,Chihuahua
+1407,0.913525,validation,57,Miniature Pinscher,Miniature Pinscher
+1408,0.9128662,train,660,Miniature Pinscher,Miniature Pinscher
+1409,0.9289608,validation,59,Miniature Pinscher,Miniature Pinscher
+1410,0.90690553,train,651,Miniature Pinscher,Miniature Pinscher
+1411,0.8801116,validation,155,Miniature Pinscher,Chihuahua
+1412,0.8593128,train,647,Miniature Pinscher,Miniature Pinscher
+1413,0.9219021,train,651,Miniature Pinscher,Miniature Pinscher
+1414,0.9181124,train,1744,Miniature Pinscher,Miniature Pinscher
+1415,0.8948289,train,1782,Miniature Pinscher,Miniature Pinscher
+1416,0.9158226,train,1763,Miniature Pinscher,Miniature Pinscher
+1417,0.910872,validation,204,Miniature Pinscher,Miniature Pinscher
+1418,0.88590527,train,645,Miniature Pinscher,Miniature Pinscher
+1419,0.8464111,train,648,Miniature Pinscher,Miniature Pinscher
+1420,0.87987936,train,1185,Miniature Pinscher,American Pit Bull Terrier
+1421,0.92633414,train,1351,Miniature Pinscher,Chihuahua
+1422,0.71114457,train,659,Miniature Pinscher,Miniature Pinscher
+1423,0.851358,train,536,Miniature Pinscher,Japanese Chin
+1424,0.8499981,train,680,Miniature Pinscher,Miniature Pinscher
+1425,0.8930549,train,1351,Miniature Pinscher,Chihuahua
+1426,0.884392,train,1768,Miniature Pinscher,Miniature Pinscher
+1427,0.8611722,train,647,Miniature Pinscher,Miniature Pinscher
+1428,0.89338475,train,1761,Miniature Pinscher,Miniature Pinscher
+1429,0.8697941,train,273,Miniature Pinscher,Chihuahua
+1430,0.86511153,train,670,Miniature Pinscher,Miniature Pinscher
+1431,0.89870554,validation,156,Miniature Pinscher,Chihuahua
+1432,0.8739367,train,1756,Miniature Pinscher,Miniature Pinscher
+1433,0.9420909,train,647,Miniature Pinscher,Miniature Pinscher
+1434,0.84352714,train,656,Miniature Pinscher,Miniature Pinscher
+1435,0.89704037,train,670,Miniature Pinscher,Miniature Pinscher
+1436,0.82921934,train,654,Miniature Pinscher,Miniature Pinscher
+1437,0.86837393,train,680,Miniature Pinscher,Miniature Pinscher
+1438,0.88646543,train,654,Miniature Pinscher,Miniature Pinscher
+1439,0.88203967,train,410,Miniature Pinscher,German Shorthaired
+1440,0.87330353,train,242,Miniature Pinscher,Chihuahua
+1441,0.91481817,train,678,Miniature Pinscher,Miniature Pinscher
+1442,0.9391327,train,649,Miniature Pinscher,Miniature Pinscher
+1443,0.9121307,train,651,Miniature Pinscher,Miniature Pinscher
+1444,0.9471762,train,647,Miniature Pinscher,Miniature Pinscher
+1445,0.9054704,train,2127,Miniature Pinscher,Staffordshire Bull Terrier
+1446,0.9317114,train,1759,Miniature Pinscher,Miniature Pinscher
+1447,0.8899499,train,1782,Miniature Pinscher,Miniature Pinscher
+1448,0.8790242,train,654,Miniature Pinscher,Miniature Pinscher
+1449,0.8690214,train,647,Miniature Pinscher,Miniature Pinscher
+1450,0.9116466,train,651,Miniature Pinscher,Miniature Pinscher
+1451,0.9370417,train,648,Miniature Pinscher,Miniature Pinscher
+1452,0.8895625,train,273,Miniature Pinscher,Chihuahua
+1453,0.8321595,train,1779,Miniature Pinscher,Miniature Pinscher
+1454,0.9267703,train,1351,Miniature Pinscher,Chihuahua
+1455,0.9232211,train,1787,Miniature Pinscher,Miniature Pinscher
+1456,0.9174658,train,679,Miniature Pinscher,Miniature Pinscher
+1457,0.9088901,train,647,Miniature Pinscher,Miniature Pinscher
+1458,0.91244096,train,1755,Miniature Pinscher,Miniature Pinscher
+1459,0.9490772,train,1788,Miniature Pinscher,Miniature Pinscher
+1460,0.88645345,train,651,Miniature Pinscher,Miniature Pinscher
+1461,0.8870807,train,649,Miniature Pinscher,Miniature Pinscher
+1462,0.92162764,validation,204,Miniature Pinscher,Miniature Pinscher
+1463,0.9248174,train,661,Miniature Pinscher,Miniature Pinscher
+1464,0.9372665,train,649,Miniature Pinscher,Miniature Pinscher
+1465,0.9073666,train,680,Miniature Pinscher,Miniature Pinscher
+1466,0.89279455,train,2127,Miniature Pinscher,Staffordshire Bull Terrier
+1467,0.87306833,train,2235,Miniature Pinscher,Yorkshire Terrier
+1468,0.8957204,train,644,Miniature Pinscher,Miniature Pinscher
+1469,0.9158087,train,663,Miniature Pinscher,Miniature Pinscher
+1470,0.93458915,validation,204,Miniature Pinscher,Miniature Pinscher
+1471,0.8330958,train,979,Miniature Pinscher,Shiba Inu
+1472,0.92159355,validation,204,Miniature Pinscher,Miniature Pinscher
+1473,0.8247441,train,1789,Miniature Pinscher,Miniature Pinscher
+1474,0.8734472,train,644,Miniature Pinscher,Miniature Pinscher
+1475,0.8806556,train,1782,Miniature Pinscher,Miniature Pinscher
+1476,0.9008992,validation,204,Miniature Pinscher,Miniature Pinscher
+1477,0.84464407,train,2062,Miniature Pinscher,Shiba Inu
+1478,0.91196805,train,1788,Miniature Pinscher,Miniature Pinscher
+1479,0.8894514,train,644,Miniature Pinscher,Miniature Pinscher
+1480,0.9166453,train,238,Miniature Pinscher,Chihuahua
+1481,0.9003009,train,2127,Miniature Pinscher,Staffordshire Bull Terrier
+1482,0.91114306,train,50,Miniature Pinscher,American Pit Bull Terrier
+1483,0.8963493,train,410,Miniature Pinscher,German Shorthaired
+1484,0.86891854,train,1351,Miniature Pinscher,Chihuahua
+1485,0.94443953,train,236,Miniature Pinscher,Chihuahua
+1486,0.8966459,train,1788,Miniature Pinscher,Miniature Pinscher
+1487,0.9458954,train,645,Miniature Pinscher,Miniature Pinscher
+1488,0.9180169,train,1351,Miniature Pinscher,Chihuahua
+1489,0.89885557,train,1351,Miniature Pinscher,Chihuahua
+1490,0.9092266,train,410,Miniature Pinscher,German Shorthaired
+1491,0.86527765,train,2116,Miniature Pinscher,Staffordshire Bull Terrier
+1492,0.9526743,train,645,Miniature Pinscher,Miniature Pinscher
+1493,0.9002212,train,645,Miniature Pinscher,Miniature Pinscher
+1494,0.93287605,validation,59,Miniature Pinscher,Miniature Pinscher
+1495,0.90352815,train,684,Miniature Pinscher,Miniature Pinscher
+1496,0.9553989,train,645,Miniature Pinscher,Miniature Pinscher
+1497,0.92165464,train,647,Miniature Pinscher,Miniature Pinscher
+1498,0.9623887,train,1825,Newfoundland,Newfoundland
+1499,0.90007037,validation,209,Newfoundland,Newfoundland
+1500,0.8359259,train,1813,Newfoundland,Newfoundland
+1501,0.877335,train,1815,Newfoundland,Newfoundland
+1502,0.87925273,train,1794,Newfoundland,Newfoundland
+1503,0.9259976,validation,209,Newfoundland,Newfoundland
+1504,0.87580824,train,2187,Newfoundland,Wheaten Terrier
+1505,0.9725815,train,1831,Newfoundland,Newfoundland
+1506,0.9272331,train,686,Newfoundland,Newfoundland
+1507,0.93346035,train,1791,Newfoundland,Newfoundland
+1508,0.93607414,train,1795,Newfoundland,Newfoundland
+1509,0.9217847,train,724,Newfoundland,Newfoundland
+1510,0.8975619,validation,67,Newfoundland,Newfoundland
+1511,0.94558674,train,686,Newfoundland,Newfoundland
+1512,0.89685726,validation,232,Newfoundland,Scottish Terrier
+1513,0.9024943,train,2195,Newfoundland,Wheaten Terrier
+1514,0.9136796,train,1800,Newfoundland,Newfoundland
+1515,0.9398404,train,724,Newfoundland,Newfoundland
+1516,0.7103739,validation,184,Newfoundland,Havanese
+1517,0.8338026,train,713,Newfoundland,Newfoundland
+1518,0.8537817,validation,207,Newfoundland,Newfoundland
+1519,0.86141974,train,2162,Newfoundland,Wheaten Terrier
+1520,0.9999044,train,1792,Newfoundland,Newfoundland
+1521,0.90003574,train,687,Newfoundland,Newfoundland
+1522,0.928689,train,687,Newfoundland,Newfoundland
+1523,0.9422233,train,1795,Newfoundland,Newfoundland
+1524,0.9529579,validation,209,Newfoundland,Newfoundland
+1525,0.94358623,train,1795,Newfoundland,Newfoundland
+1526,0.9477788,train,1795,Newfoundland,Newfoundland
+1527,0.9391329,train,1719,Newfoundland,Leonberger
+1528,0.9201811,train,1824,Newfoundland,Newfoundland
+1529,0.91117024,train,724,Newfoundland,Newfoundland
+1530,0.859822,train,1792,Newfoundland,Newfoundland
+1531,0.9482756,train,695,Newfoundland,Newfoundland
+1532,0.9428458,train,728,Newfoundland,Newfoundland
+1533,0.92643225,train,728,Newfoundland,Newfoundland
+1534,0.8931836,train,703,Newfoundland,Newfoundland
+1535,0.92401755,train,1794,Newfoundland,Newfoundland
+1536,0.8716558,train,703,Newfoundland,Newfoundland
+1537,0.9004088,train,699,Newfoundland,Newfoundland
+1538,0.90552354,train,724,Newfoundland,Newfoundland
+1539,0.9435406,train,695,Newfoundland,Newfoundland
+1540,0.93600255,train,707,Newfoundland,Newfoundland
+1541,0.95990777,train,724,Newfoundland,Newfoundland
+1542,0.87664384,train,1824,Newfoundland,Newfoundland
+1543,0.8557105,train,1824,Newfoundland,Newfoundland
+1544,0.9294274,train,687,Newfoundland,Newfoundland
+1545,0.89802384,train,1824,Newfoundland,Newfoundland
+1546,0.95184517,train,1795,Newfoundland,Newfoundland
+1547,0.9226408,train,1727,Newfoundland,Leonberger
+1548,0.9032315,train,728,Newfoundland,Newfoundland
+1549,0.9459355,train,726,Newfoundland,Newfoundland
+1550,0.91398275,train,691,Newfoundland,Newfoundland
+1551,0.88322026,train,697,Newfoundland,Newfoundland
+1552,0.8564925,train,1824,Newfoundland,Newfoundland
+1553,0.8584025,train,1394,Newfoundland,English Cocker Spaniel
+1554,0.9303583,train,827,Newfoundland,Saint Bernard
+1555,0.92790294,train,687,Newfoundland,Newfoundland
+1556,0.9102912,train,686,Newfoundland,Newfoundland
+1557,0.91497356,validation,209,Newfoundland,Newfoundland
+1558,0.88743585,train,2174,Newfoundland,Wheaten Terrier
+1559,0.91934,train,1712,Newfoundland,Leonberger
+1560,0.90102077,train,1721,Newfoundland,Leonberger
+1561,0.9226562,train,1791,Newfoundland,Newfoundland
+1562,0.85588074,train,1795,Newfoundland,Newfoundland
+1563,0.92068946,train,1823,Newfoundland,Newfoundland
+1564,0.91402954,train,1796,Newfoundland,Newfoundland
+1565,0.9302341,train,1712,Newfoundland,Leonberger
+1566,0.86588365,train,487,Newfoundland,Havanese
+1567,0.9113235,validation,198,Newfoundland,Leonberger
+1568,0.9196508,train,724,Newfoundland,Newfoundland
+1569,0.87040275,train,624,Newfoundland,Leonberger
+1570,0.92864716,train,1722,Newfoundland,Leonberger
+1571,0.870835,train,687,Newfoundland,Newfoundland
+1572,0.92188704,train,712,Newfoundland,Newfoundland
+1573,0.9068502,train,319,Newfoundland,English Cocker Spaniel
+1574,0.92605823,train,624,Newfoundland,Leonberger
+1575,0.90637803,train,687,Newfoundland,Newfoundland
+1576,0.91019964,train,724,Newfoundland,Newfoundland
+1577,0.9329941,train,1705,Newfoundland,Leonberger
+1578,0.9376162,train,1795,Newfoundland,Newfoundland
+1579,0.89040375,train,1824,Newfoundland,Newfoundland
+1580,0.90263534,train,1800,Newfoundland,Newfoundland
+1581,0.95319986,train,1795,Newfoundland,Newfoundland
+1582,0.91028374,train,687,Newfoundland,Newfoundland
+1583,0.9362351,train,688,Newfoundland,Newfoundland
+1584,0.93237853,train,724,Newfoundland,Newfoundland
+1585,0.8811301,train,1494,Newfoundland,German Shorthaired
+1586,0.90820014,train,728,Newfoundland,Newfoundland
+1587,0.8775803,train,691,Newfoundland,Newfoundland
+1588,0.8609146,train,699,Newfoundland,Newfoundland
+1589,0.9089879,train,728,Newfoundland,Newfoundland
+1590,0.88400626,train,1809,Newfoundland,Newfoundland
+1591,0.90221393,train,724,Newfoundland,Newfoundland
+1592,0.9213684,train,1795,Newfoundland,Newfoundland
+1593,0.9047638,train,1815,Newfoundland,Newfoundland
+1594,0.8672753,train,692,Newfoundland,Newfoundland
+1595,0.898576,train,728,Newfoundland,Newfoundland
+1596,0.8889815,train,687,Newfoundland,Newfoundland
+1597,0.89367974,train,705,Newfoundland,Newfoundland
+1598,0.91237843,train,1857,Pomeranian,Pomeranian
+1599,0.9267846,train,1841,Pomeranian,Pomeranian
+1600,0.93897295,train,775,Pomeranian,Pomeranian
+1601,0.9131545,validation,71,Pomeranian,Pomeranian
+1602,0.95580554,train,752,Pomeranian,Pomeranian
+1603,0.90627,train,770,Pomeranian,Pomeranian
+1604,0.93427277,train,1853,Pomeranian,Pomeranian
+1605,0.95403564,train,1859,Pomeranian,Pomeranian
+1606,0.89205575,train,1783,Pomeranian,Miniature Pinscher
+1607,0.8834075,train,734,Pomeranian,Pomeranian
+1608,0.9029977,train,740,Pomeranian,Pomeranian
+1609,0.9065943,train,749,Pomeranian,Pomeranian
+1610,0.9493613,train,1865,Pomeranian,Pomeranian
+1611,0.9118519,train,1865,Pomeranian,Pomeranian
+1612,0.9177309,train,1853,Pomeranian,Pomeranian
+1613,0.89569306,train,2239,Pomeranian,Yorkshire Terrier
+1614,0.9178161,train,1862,Pomeranian,Pomeranian
+1615,0.9390977,train,735,Pomeranian,Pomeranian
+1616,0.889556,train,1842,Pomeranian,Pomeranian
+1617,0.91564786,train,735,Pomeranian,Pomeranian
+1618,0.92290795,validation,69,Pomeranian,Pomeranian
+1619,0.9444473,train,731,Pomeranian,Pomeranian
+1620,0.9030719,validation,69,Pomeranian,Pomeranian
+1621,0.936153,train,734,Pomeranian,Pomeranian
+1622,0.86162615,train,740,Pomeranian,Pomeranian
+1623,0.8857518,train,1361,Pomeranian,Chihuahua
+1624,0.91027594,validation,69,Pomeranian,Pomeranian
+1625,0.89644396,train,1851,Pomeranian,Pomeranian
+1626,0.88774997,train,529,Pomeranian,Japanese Chin
+1627,0.92052794,train,762,Pomeranian,Pomeranian
+1628,0.8688226,train,536,Pomeranian,Japanese Chin
+1629,0.9098619,train,735,Pomeranian,Pomeranian
+1630,0.89523464,train,748,Pomeranian,Pomeranian
+1631,0.9264528,train,735,Pomeranian,Pomeranian
+1632,0.9441356,train,735,Pomeranian,Pomeranian
+1633,0.88939124,train,1694,Pomeranian,Keeshond
+1634,0.89955837,train,739,Pomeranian,Pomeranian
+1635,0.883571,train,1870,Pomeranian,Pomeranian
+1636,0.9389445,validation,69,Pomeranian,Pomeranian
+1637,0.9567574,validation,69,Pomeranian,Pomeranian
+1638,0.9421934,train,735,Pomeranian,Pomeranian
+1639,0.84973204,train,737,Pomeranian,Pomeranian
+1640,0.9248215,train,762,Pomeranian,Pomeranian
+1641,0.90454865,train,735,Pomeranian,Pomeranian
+1642,0.9184063,train,749,Pomeranian,Pomeranian
+1643,0.90585923,validation,71,Pomeranian,Pomeranian
+1644,0.8912544,train,735,Pomeranian,Pomeranian
+1645,0.95460886,train,762,Pomeranian,Pomeranian
+1646,0.92294294,train,1835,Pomeranian,Pomeranian
+1647,0.94513166,train,1862,Pomeranian,Pomeranian
+1648,0.86407113,train,739,Pomeranian,Pomeranian
+1649,0.91942215,train,1862,Pomeranian,Pomeranian
+1650,0.8967254,train,1853,Pomeranian,Pomeranian
+1651,0.92598724,train,735,Pomeranian,Pomeranian
+1652,0.9181472,train,735,Pomeranian,Pomeranian
+1653,0.9213394,train,510,Pomeranian,Japanese Chin
+1654,0.88589823,train,751,Pomeranian,Pomeranian
+1655,0.9209918,train,1865,Pomeranian,Pomeranian
+1656,0.92112947,train,735,Pomeranian,Pomeranian
+1657,0.9009467,train,533,Pomeranian,Japanese Chin
+1658,0.9267263,validation,69,Pomeranian,Pomeranian
+1659,0.8866943,train,749,Pomeranian,Pomeranian
+1660,0.92871433,train,731,Pomeranian,Pomeranian
+1661,0.9445025,train,761,Pomeranian,Pomeranian
+1662,0.92276895,train,1835,Pomeranian,Pomeranian
+1663,0.9593229,train,735,Pomeranian,Pomeranian
+1664,0.9226663,train,1846,Pomeranian,Pomeranian
+1665,0.94365454,train,1865,Pomeranian,Pomeranian
+1666,0.8925595,train,739,Pomeranian,Pomeranian
+1667,0.9183528,train,1865,Pomeranian,Pomeranian
+1668,0.9028981,train,751,Pomeranian,Pomeranian
+1669,0.904716,train,739,Pomeranian,Pomeranian
+1670,0.9273221,train,739,Pomeranian,Pomeranian
+1671,0.9328533,train,1841,Pomeranian,Pomeranian
+1672,0.88612926,train,749,Pomeranian,Pomeranian
+1673,0.9006374,train,751,Pomeranian,Pomeranian
+1674,0.8978821,train,868,Pomeranian,Samoyed
+1675,0.94220084,train,751,Pomeranian,Pomeranian
+1676,0.8517101,train,487,Pomeranian,Havanese
+1677,0.91553295,train,252,Pomeranian,Chihuahua
+1678,0.9408792,train,1614,Pomeranian,Japanese Chin
+1679,0.8420068,train,764,Pomeranian,Pomeranian
+1680,0.9387241,train,1862,Pomeranian,Pomeranian
+1681,0.9039024,validation,69,Pomeranian,Pomeranian
+1682,0.919145,train,2077,Pomeranian,Shiba Inu
+1683,0.9363463,train,739,Pomeranian,Pomeranian
+1684,0.8779156,train,1861,Pomeranian,Pomeranian
+1685,0.91757745,train,1614,Pomeranian,Japanese Chin
+1686,0.9363388,train,1860,Pomeranian,Pomeranian
+1687,0.93411267,train,751,Pomeranian,Pomeranian
+1688,0.92596304,train,734,Pomeranian,Pomeranian
+1689,0.9215746,train,735,Pomeranian,Pomeranian
+1690,0.9165987,train,743,Pomeranian,Pomeranian
+1691,0.9489243,validation,69,Pomeranian,Pomeranian
+1692,0.912352,train,509,Pomeranian,Japanese Chin
+1693,0.8675871,train,739,Pomeranian,Pomeranian
+1694,0.8300122,train,741,Pomeranian,Pomeranian
+1695,0.9433819,train,1865,Pomeranian,Pomeranian
+1696,0.8677584,train,739,Pomeranian,Pomeranian
+1697,0.95139956,train,751,Pomeranian,Pomeranian
+1698,0.941023,train,1916,Pug,Pug
+1699,0.9541639,train,1916,Pug,Pug
+1700,0.9164889,train,1907,Pug,Pug
+1701,0.914388,train,799,Pug,Pug
+1702,0.92792,train,1904,Pug,Pug
+1703,0.9446266,train,814,Pug,Pug
+1704,0.9484085,train,1912,Pug,Pug
+1705,0.9749556,train,786,Pug,Pug
+1706,0.9136817,validation,78,Pug,Pug
+1707,0.94170445,train,1901,Pug,Pug
+1708,0.8920495,train,783,Pug,Pug
+1709,0.95205855,train,1879,Pug,Pug
+1710,0.9461256,train,1875,Pug,Pug
+1711,0.9126067,validation,75,Pug,Pug
+1712,0.95589375,train,786,Pug,Pug
+1713,0.91406965,train,1924,Pug,Saint Bernard
+1714,0.9277716,validation,72,Pug,Pug
+1715,0.9401676,validation,72,Pug,Pug
+1716,0.9284629,train,791,Pug,Pug
+1717,0.9075998,train,791,Pug,Pug
+1718,0.9013717,validation,78,Pug,Pug
+1719,0.9467981,train,786,Pug,Pug
+1720,0.9564496,train,805,Pug,Pug
+1721,0.9438604,train,786,Pug,Pug
+1722,0.8891851,train,796,Pug,Pug
+1723,0.8945057,train,791,Pug,Pug
+1724,0.9308006,train,1888,Pug,Pug
+1725,0.9044695,validation,75,Pug,Pug
+1726,0.9555199,train,786,Pug,Pug
+1727,0.908159,validation,75,Pug,Pug
+1728,0.83340126,validation,75,Pug,Pug
+1729,0.8614784,train,1045,Pug,Wheaten Terrier
+1730,0.84349746,validation,75,Pug,Pug
+1731,0.8755246,validation,75,Pug,Pug
+1732,0.95757866,train,1878,Pug,Pug
+1733,0.8355746,validation,75,Pug,Pug
+1734,0.8768907,validation,75,Pug,Pug
+1735,0.9402411,train,779,Pug,Pug
+1736,0.93813956,train,786,Pug,Pug
+1737,0.9398529,train,786,Pug,Pug
+1738,0.9265716,train,805,Pug,Pug
+1739,0.9467804,train,786,Pug,Pug
+1740,0.9524547,validation,72,Pug,Pug
+1741,0.9351703,validation,78,Pug,Pug
+1742,0.9538545,train,786,Pug,Pug
+1743,0.9591371,train,791,Pug,Pug
+1744,0.9126685,validation,78,Pug,Pug
+1745,0.9165285,validation,78,Pug,Pug
+1746,0.9306164,train,791,Pug,Pug
+1747,0.94056284,validation,78,Pug,Pug
+1748,0.9468057,train,786,Pug,Pug
+1749,0.92478323,train,1877,Pug,Pug
+1750,0.8977765,train,1896,Pug,Pug
+1751,0.9496623,validation,75,Pug,Pug
+1752,0.9127576,train,786,Pug,Pug
+1753,0.80352956,train,792,Pug,Pug
+1754,0.9103633,train,1884,Pug,Pug
+1755,0.9309586,train,779,Pug,Pug
+1756,0.96250504,validation,78,Pug,Pug
+1757,0.9200604,train,1888,Pug,Pug
+1758,0.93736726,train,797,Pug,Pug
+1759,0.93352705,train,1878,Pug,Pug
+1760,0.9538014,train,786,Pug,Pug
+1761,0.86575156,train,814,Pug,Pug
+1762,0.8924105,train,789,Pug,Pug
+1763,0.8535086,train,785,Pug,Pug
+1764,0.9673728,train,791,Pug,Pug
+1765,0.90573037,train,780,Pug,Pug
+1766,0.9042077,train,779,Pug,Pug
+1767,0.9387419,train,787,Pug,Pug
+1768,0.94863,train,1878,Pug,Pug
+1769,0.9199943,train,802,Pug,Pug
+1770,0.8981724,train,231,Pug,Boxer
+1771,0.9348822,validation,72,Pug,Pug
+1772,0.8704545,validation,75,Pug,Pug
+1773,0.9208163,train,1884,Pug,Pug
+1774,0.93643093,train,779,Pug,Pug
+1775,0.9395887,train,791,Pug,Pug
+1776,0.92520785,train,791,Pug,Pug
+1777,0.9016388,validation,75,Pug,Pug
+1778,0.8210273,validation,75,Pug,Pug
+1779,0.9501219,train,805,Pug,Pug
+1780,0.8408899,train,785,Pug,Pug
+1781,0.957909,train,786,Pug,Pug
+1782,0.94823045,train,786,Pug,Pug
+1783,0.91063696,train,788,Pug,Pug
+1784,0.9417158,train,786,Pug,Pug
+1785,0.8471438,train,159,Pug,Beagle
+1786,0.8792355,train,778,Pug,Pug
+1787,0.89699507,validation,75,Pug,Pug
+1788,0.86991745,train,26,Pug,American Bulldog
+1789,0.9059296,train,791,Pug,Pug
+1790,0.9331274,train,788,Pug,Pug
+1791,0.9258841,train,787,Pug,Pug
+1792,0.95675355,train,805,Pug,Pug
+1793,0.92433745,validation,73,Pug,Pug
+1794,0.96616817,train,791,Pug,Pug
+1795,0.9364292,train,791,Pug,Pug
+1796,0.966582,train,778,Pug,Pug
+1797,0.86934304,train,779,Pug,Pug
+1798,0.9224105,train,1939,Saint Bernard,Saint Bernard
+1799,0.90341675,train,1955,Saint Bernard,Saint Bernard
+1800,0.874828,train,1702,Saint Bernard,Leonberger
+1801,0.90544206,train,852,Saint Bernard,Saint Bernard
+1802,0.9275338,train,1942,Saint Bernard,Saint Bernard
+1803,0.9023742,train,508,Saint Bernard,Japanese Chin
+1804,0.93688273,train,1961,Saint Bernard,Saint Bernard
+1805,0.8821832,train,1948,Saint Bernard,Saint Bernard
+1806,0.9172331,train,857,Saint Bernard,Saint Bernard
+1807,0.8560964,train,834,Saint Bernard,Saint Bernard
+1808,0.86574775,train,862,Saint Bernard,Saint Bernard
+1809,0.8704047,train,1564,Saint Bernard,Great Pyrenees
+1810,0.7966714,train,1969,Saint Bernard,Samoyed
+1811,0.79616255,train,1336,Saint Bernard,Boxer
+1812,0.9084984,train,840,Saint Bernard,Saint Bernard
+1813,0.89720666,train,846,Saint Bernard,Saint Bernard
+1814,0.8613833,validation,139,Saint Bernard,Basset Hound
+1815,0.8478316,train,2184,Saint Bernard,Wheaten Terrier
+1816,0.9542419,train,847,Saint Bernard,Saint Bernard
+1817,0.9033713,train,820,Saint Bernard,Saint Bernard
+1818,0.9047439,train,833,Saint Bernard,Saint Bernard
+1819,0.8795102,validation,9,Saint Bernard,Beagle
+1820,0.90261716,train,1967,Saint Bernard,Saint Bernard
+1821,0.8639221,train,1315,Saint Bernard,Boxer
+1822,0.8851259,validation,122,Saint Bernard,American Bulldog
+1823,0.9124134,train,1952,Saint Bernard,Saint Bernard
+1824,0.8769058,train,737,Saint Bernard,Pomeranian
+1825,0.9452637,train,846,Saint Bernard,Saint Bernard
+1826,0.9347197,train,820,Saint Bernard,Saint Bernard
+1827,0.8928947,train,840,Saint Bernard,Saint Bernard
+1828,0.89098454,train,840,Saint Bernard,Saint Bernard
+1829,0.89969796,train,1803,Saint Bernard,Newfoundland
+1830,0.9442934,train,843,Saint Bernard,Saint Bernard
+1831,0.93196046,train,833,Saint Bernard,Saint Bernard
+1832,0.943764,train,1950,Saint Bernard,Saint Bernard
+1833,0.9125769,train,1944,Saint Bernard,Saint Bernard
+1834,0.8946819,train,1558,Saint Bernard,Great Pyrenees
+1835,0.8907694,train,2122,Saint Bernard,Staffordshire Bull Terrier
+1836,0.9289744,validation,84,Saint Bernard,Saint Bernard
+1837,0.8448313,train,1312,Saint Bernard,Boxer
+1838,0.9295587,train,847,Saint Bernard,Saint Bernard
+1839,0.94299805,train,846,Saint Bernard,Saint Bernard
+1840,0.8961221,train,1800,Saint Bernard,Newfoundland
+1841,0.96948427,train,847,Saint Bernard,Saint Bernard
+1842,0.96479416,train,1942,Saint Bernard,Saint Bernard
+1843,0.9704556,train,847,Saint Bernard,Saint Bernard
+1844,0.9446007,train,820,Saint Bernard,Saint Bernard
+1845,0.9407228,train,847,Saint Bernard,Saint Bernard
+1846,0.9268098,train,1943,Saint Bernard,Saint Bernard
+1847,0.92140967,train,1942,Saint Bernard,Saint Bernard
+1848,0.9122136,validation,84,Saint Bernard,Saint Bernard
+1849,0.9268016,train,827,Saint Bernard,Saint Bernard
+1850,0.91364807,train,860,Saint Bernard,Saint Bernard
+1851,0.9278878,train,1950,Saint Bernard,Saint Bernard
+1852,0.87004447,train,820,Saint Bernard,Saint Bernard
+1853,0.89188874,train,333,Saint Bernard,English Setter
+1854,0.91843855,validation,82,Saint Bernard,Saint Bernard
+1855,0.935053,train,820,Saint Bernard,Saint Bernard
+1856,0.93264365,train,820,Saint Bernard,Saint Bernard
+1857,0.96341074,train,847,Saint Bernard,Saint Bernard
+1858,0.9167646,train,820,Saint Bernard,Saint Bernard
+1859,0.910707,train,847,Saint Bernard,Saint Bernard
+1860,0.93122005,train,182,Saint Bernard,Beagle
+1861,0.9188268,train,26,Saint Bernard,American Bulldog
+1862,0.9108688,train,833,Saint Bernard,Saint Bernard
+1863,0.8050963,train,450,Saint Bernard,Great Pyrenees
+1864,0.9375207,train,182,Saint Bernard,Beagle
+1865,0.9306265,train,1954,Saint Bernard,Saint Bernard
+1866,0.8932977,train,847,Saint Bernard,Saint Bernard
+1867,0.8951705,validation,84,Saint Bernard,Saint Bernard
+1868,0.90722346,validation,221,Saint Bernard,Saint Bernard
+1869,0.90615654,train,826,Saint Bernard,Saint Bernard
+1870,0.8499273,validation,222,Saint Bernard,Saint Bernard
+1871,0.9044837,train,1800,Saint Bernard,Newfoundland
+1872,0.9474527,train,847,Saint Bernard,Saint Bernard
+1873,0.8734051,train,1949,Saint Bernard,Saint Bernard
+1874,0.8943834,train,1942,Saint Bernard,Saint Bernard
+1875,0.9373033,train,847,Saint Bernard,Saint Bernard
+1876,0.883048,train,1954,Saint Bernard,Saint Bernard
+1877,0.9299392,train,846,Saint Bernard,Saint Bernard
+1878,0.9191431,validation,209,Saint Bernard,Newfoundland
+1879,0.90682316,train,846,Saint Bernard,Saint Bernard
+1880,0.8785602,train,826,Saint Bernard,Saint Bernard
+1881,0.9049445,train,1938,Saint Bernard,Saint Bernard
+1882,0.95395505,validation,84,Saint Bernard,Saint Bernard
+1883,0.89618754,train,1718,Saint Bernard,Leonberger
+1884,0.93290854,train,846,Saint Bernard,Saint Bernard
+1885,0.9133079,train,847,Saint Bernard,Saint Bernard
+1886,0.8882334,train,843,Saint Bernard,Saint Bernard
+1887,0.9032466,train,107,Saint Bernard,Basset Hound
+1888,0.9788834,train,825,Saint Bernard,Saint Bernard
+1889,0.92947423,train,840,Saint Bernard,Saint Bernard
+1890,0.90067375,train,844,Saint Bernard,Saint Bernard
+1891,0.8765367,train,844,Saint Bernard,Saint Bernard
+1892,0.91199374,validation,82,Saint Bernard,Saint Bernard
+1893,0.9155006,validation,82,Saint Bernard,Saint Bernard
+1894,0.95487684,train,825,Saint Bernard,Saint Bernard
+1895,0.91741353,train,1928,Saint Bernard,Saint Bernard
+1896,0.85022366,train,847,Saint Bernard,Saint Bernard
+1897,0.8549799,train,1956,Saint Bernard,Saint Bernard
+1898,0.8490589,train,2013,Samoyed,Samoyed
+1899,0.9183595,train,2013,Samoyed,Samoyed
+1900,0.9438677,train,2010,Samoyed,Samoyed
+1901,0.91674256,train,2009,Samoyed,Samoyed
+1902,0.9514618,train,2013,Samoyed,Samoyed
+1903,0.9546053,train,2013,Samoyed,Samoyed
+1904,0.8772461,validation,225,Samoyed,Samoyed
+1905,0.9172131,train,2009,Samoyed,Samoyed
+1906,0.9058744,train,884,Samoyed,Samoyed
+1907,0.8983577,train,887,Samoyed,Samoyed
+1908,0.93756175,train,2013,Samoyed,Samoyed
+1909,0.93942916,validation,87,Samoyed,Samoyed
+1910,0.9302474,train,2012,Samoyed,Samoyed
+1911,0.9306853,train,893,Samoyed,Samoyed
+1912,0.9401331,train,882,Samoyed,Samoyed
+1913,0.92953813,train,1551,Samoyed,Great Pyrenees
+1914,0.9493105,train,893,Samoyed,Samoyed
+1915,0.900923,train,898,Samoyed,Samoyed
+1916,0.96292764,train,1978,Samoyed,Samoyed
+1917,0.9101162,train,2012,Samoyed,Samoyed
+1918,0.95984316,train,875,Samoyed,Samoyed
+1919,0.9427319,train,864,Samoyed,Samoyed
+1920,0.9202551,train,872,Samoyed,Samoyed
+1921,0.89099586,train,1992,Samoyed,Samoyed
+1922,0.9636833,validation,87,Samoyed,Samoyed
+1923,0.9339225,train,2005,Samoyed,Samoyed
+1924,0.9515779,validation,226,Samoyed,Samoyed
+1925,0.8820946,validation,87,Samoyed,Samoyed
+1926,0.94233716,train,875,Samoyed,Samoyed
+1927,0.93627506,validation,226,Samoyed,Samoyed
+1928,0.95812756,train,864,Samoyed,Samoyed
+1929,0.87141716,train,1981,Samoyed,Samoyed
+1930,0.9418582,train,883,Samoyed,Samoyed
+1931,0.9511757,train,882,Samoyed,Samoyed
+1932,0.95580846,validation,87,Samoyed,Samoyed
+1933,0.8970378,train,868,Samoyed,Samoyed
+1934,0.8648519,validation,87,Samoyed,Samoyed
+1935,0.8964447,validation,87,Samoyed,Samoyed
+1936,0.90048337,validation,87,Samoyed,Samoyed
+1937,0.85790294,validation,225,Samoyed,Samoyed
+1938,0.94363296,validation,87,Samoyed,Samoyed
+1939,0.90727437,validation,87,Samoyed,Samoyed
+1940,0.9527707,train,869,Samoyed,Samoyed
+1941,0.9380255,train,2012,Samoyed,Samoyed
+1942,0.95869833,train,882,Samoyed,Samoyed
+1943,0.920247,train,872,Samoyed,Samoyed
+1944,0.9348564,train,872,Samoyed,Samoyed
+1945,0.9463553,train,870,Samoyed,Samoyed
+1946,0.9383303,train,882,Samoyed,Samoyed
+1947,0.9469406,train,872,Samoyed,Samoyed
+1948,0.9406166,train,867,Samoyed,Samoyed
+1949,0.9345565,train,1981,Samoyed,Samoyed
+1950,0.93589383,train,2005,Samoyed,Samoyed
+1951,0.9238385,validation,87,Samoyed,Samoyed
+1952,0.8902948,train,871,Samoyed,Samoyed
+1953,0.82261777,train,1972,Samoyed,Samoyed
+1954,0.9411862,train,870,Samoyed,Samoyed
+1955,0.97310704,train,872,Samoyed,Samoyed
+1956,0.94879377,train,872,Samoyed,Samoyed
+1957,0.94306684,train,870,Samoyed,Samoyed
+1958,0.9050904,train,1985,Samoyed,Samoyed
+1959,0.86072683,train,1981,Samoyed,Samoyed
+1960,0.91434056,train,2000,Samoyed,Samoyed
+1961,0.8531004,train,1564,Samoyed,Great Pyrenees
+1962,0.9575346,train,870,Samoyed,Samoyed
+1963,0.89783216,train,866,Samoyed,Samoyed
+1964,0.95125663,train,2012,Samoyed,Samoyed
+1965,0.87965226,train,867,Samoyed,Samoyed
+1966,0.9236305,train,867,Samoyed,Samoyed
+1967,0.9420506,validation,87,Samoyed,Samoyed
+1968,0.9406209,train,2005,Samoyed,Samoyed
+1969,0.9085702,train,1551,Samoyed,Great Pyrenees
+1970,0.9507507,validation,87,Samoyed,Samoyed
+1971,0.9110101,train,908,Samoyed,Samoyed
+1972,0.9296407,validation,86,Samoyed,Samoyed
+1973,0.9373895,validation,87,Samoyed,Samoyed
+1974,0.95209116,validation,226,Samoyed,Samoyed
+1975,0.9595344,train,869,Samoyed,Samoyed
+1976,0.9670795,train,864,Samoyed,Samoyed
+1977,0.8782065,train,1981,Samoyed,Samoyed
+1978,0.9135353,validation,225,Samoyed,Samoyed
+1979,0.84663725,train,592,Samoyed,Keeshond
+1980,0.966155,train,875,Samoyed,Samoyed
+1981,0.916011,train,907,Samoyed,Samoyed
+1982,0.9464687,validation,87,Samoyed,Samoyed
+1983,0.9483657,train,870,Samoyed,Samoyed
+1984,0.90900177,train,875,Samoyed,Samoyed
+1985,0.93326235,train,874,Samoyed,Samoyed
+1986,0.9349455,train,883,Samoyed,Samoyed
+1987,0.8886847,train,875,Samoyed,Samoyed
+1988,0.86223423,train,889,Samoyed,Samoyed
+1989,0.8768153,train,889,Samoyed,Samoyed
+1990,0.94250196,train,1987,Samoyed,Samoyed
+1991,0.9548474,validation,226,Samoyed,Samoyed
+1992,0.8989686,train,893,Samoyed,Samoyed
+1993,0.94574165,validation,86,Samoyed,Samoyed
+1994,0.9682661,validation,87,Samoyed,Samoyed
+1995,0.94382006,train,1991,Samoyed,Samoyed
+1996,0.9449197,train,1994,Samoyed,Samoyed
+1997,0.9789164,train,893,Samoyed,Samoyed
+1998,0.9317384,train,2032,Scottish Terrier,Scottish Terrier
+1999,0.9004253,train,483,Scottish Terrier,Havanese
+2000,0.8934684,train,1090,Scottish Terrier,Yorkshire Terrier
+2001,0.8889244,train,924,Scottish Terrier,Scottish Terrier
+2002,0.875324,train,2052,Scottish Terrier,Scottish Terrier
+2003,0.932546,train,939,Scottish Terrier,Scottish Terrier
+2004,0.92758954,train,2030,Scottish Terrier,Scottish Terrier
+2005,0.88857174,train,2052,Scottish Terrier,Scottish Terrier
+2006,0.9146129,train,2045,Scottish Terrier,Scottish Terrier
+2007,0.8350706,train,2057,Scottish Terrier,Scottish Terrier
+2008,0.9317361,train,2029,Scottish Terrier,Scottish Terrier
+2009,0.8769574,train,2022,Scottish Terrier,Scottish Terrier
+2010,0.8664161,train,919,Scottish Terrier,Scottish Terrier
+2011,0.92244315,validation,230,Scottish Terrier,Scottish Terrier
+2012,0.8751163,train,2225,Scottish Terrier,Yorkshire Terrier
+2013,0.90302896,train,2049,Scottish Terrier,Scottish Terrier
+2014,0.8947709,validation,230,Scottish Terrier,Scottish Terrier
+2015,0.9309262,train,2052,Scottish Terrier,Scottish Terrier
+2016,0.9114189,train,2052,Scottish Terrier,Scottish Terrier
+2017,0.9185939,train,2036,Scottish Terrier,Scottish Terrier
+2018,0.8352374,validation,230,Scottish Terrier,Scottish Terrier
+2019,0.89784837,validation,230,Scottish Terrier,Scottish Terrier
+2020,0.94239426,train,2030,Scottish Terrier,Scottish Terrier
+2021,0.9268602,train,2057,Scottish Terrier,Scottish Terrier
+2022,0.9060602,train,924,Scottish Terrier,Scottish Terrier
+2023,0.8686181,train,2027,Scottish Terrier,Scottish Terrier
+2024,0.9153031,validation,230,Scottish Terrier,Scottish Terrier
+2025,0.9432828,train,2030,Scottish Terrier,Scottish Terrier
+2026,0.95705837,validation,228,Scottish Terrier,Scottish Terrier
+2027,0.8862746,train,2022,Scottish Terrier,Scottish Terrier
+2028,0.8549229,train,1047,Scottish Terrier,Wheaten Terrier
+2029,0.9162883,train,2052,Scottish Terrier,Scottish Terrier
+2030,0.90314996,train,1313,Scottish Terrier,Boxer
+2031,0.9296034,train,2029,Scottish Terrier,Scottish Terrier
+2032,0.9178188,train,2029,Scottish Terrier,Scottish Terrier
+2033,0.9103173,train,2057,Scottish Terrier,Scottish Terrier
+2034,0.89714766,validation,228,Scottish Terrier,Scottish Terrier
+2035,0.91321075,train,940,Scottish Terrier,Scottish Terrier
+2036,0.8794172,train,2057,Scottish Terrier,Scottish Terrier
+2037,0.8978329,train,2030,Scottish Terrier,Scottish Terrier
+2038,0.92142403,train,2057,Scottish Terrier,Scottish Terrier
+2039,0.8514321,train,2032,Scottish Terrier,Scottish Terrier
+2040,0.8711177,train,951,Scottish Terrier,Scottish Terrier
+2041,0.9134846,train,2043,Scottish Terrier,Scottish Terrier
+2042,0.89790964,train,2029,Scottish Terrier,Scottish Terrier
+2043,0.91899765,train,923,Scottish Terrier,Scottish Terrier
+2044,0.937669,train,951,Scottish Terrier,Scottish Terrier
+2045,0.94127715,train,929,Scottish Terrier,Scottish Terrier
+2046,0.8977894,validation,92,Scottish Terrier,Scottish Terrier
+2047,0.90450555,train,2038,Scottish Terrier,Scottish Terrier
+2048,0.9492315,train,2029,Scottish Terrier,Scottish Terrier
+2049,0.9331806,train,2038,Scottish Terrier,Scottish Terrier
+2050,0.9111978,train,2052,Scottish Terrier,Scottish Terrier
+2051,0.91290486,train,2038,Scottish Terrier,Scottish Terrier
+2052,0.8983658,train,2025,Scottish Terrier,Scottish Terrier
+2053,0.9279963,validation,94,Scottish Terrier,Scottish Terrier
+2054,0.9342581,train,940,Scottish Terrier,Scottish Terrier
+2055,0.90927523,train,2057,Scottish Terrier,Scottish Terrier
+2056,0.88080674,train,2057,Scottish Terrier,Scottish Terrier
+2057,0.8414907,train,2055,Scottish Terrier,Scottish Terrier
+2058,0.922106,train,948,Scottish Terrier,Scottish Terrier
+2059,0.9342184,train,948,Scottish Terrier,Scottish Terrier
+2060,0.9261725,validation,94,Scottish Terrier,Scottish Terrier
+2061,0.8838729,validation,228,Scottish Terrier,Scottish Terrier
+2062,0.9519942,train,2030,Scottish Terrier,Scottish Terrier
+2063,0.91553503,train,940,Scottish Terrier,Scottish Terrier
+2064,0.9475896,validation,111,Scottish Terrier,Wheaten Terrier
+2065,0.9265334,train,2022,Scottish Terrier,Scottish Terrier
+2066,0.8852824,train,2029,Scottish Terrier,Scottish Terrier
+2067,0.9212762,train,940,Scottish Terrier,Scottish Terrier
+2068,0.90545845,validation,94,Scottish Terrier,Scottish Terrier
+2069,0.9228474,train,2052,Scottish Terrier,Scottish Terrier
+2070,0.9057367,train,921,Scottish Terrier,Scottish Terrier
+2071,0.89433736,train,936,Scottish Terrier,Scottish Terrier
+2072,0.9204638,train,935,Scottish Terrier,Scottish Terrier
+2073,0.93167657,train,943,Scottish Terrier,Scottish Terrier
+2074,0.95297015,train,2030,Scottish Terrier,Scottish Terrier
+2075,0.9095993,validation,228,Scottish Terrier,Scottish Terrier
+2076,0.89326906,train,933,Scottish Terrier,Scottish Terrier
+2077,0.8419236,train,952,Scottish Terrier,Scottish Terrier
+2078,0.9006417,train,2030,Scottish Terrier,Scottish Terrier
+2079,0.9230149,train,937,Scottish Terrier,Scottish Terrier
+2080,0.90623355,validation,228,Scottish Terrier,Scottish Terrier
+2081,0.937454,train,2054,Scottish Terrier,Scottish Terrier
+2082,0.94771606,train,935,Scottish Terrier,Scottish Terrier
+2083,0.8876842,train,2053,Scottish Terrier,Scottish Terrier
+2084,0.9292307,train,933,Scottish Terrier,Scottish Terrier
+2085,0.85254455,validation,230,Scottish Terrier,Scottish Terrier
+2086,0.8920242,train,2030,Scottish Terrier,Scottish Terrier
+2087,0.9512374,train,2030,Scottish Terrier,Scottish Terrier
+2088,0.8730251,train,2053,Scottish Terrier,Scottish Terrier
+2089,0.83557916,train,423,Scottish Terrier,Great Pyrenees
+2090,0.9220013,train,935,Scottish Terrier,Scottish Terrier
+2091,0.8938068,train,2058,Scottish Terrier,Scottish Terrier
+2092,0.91654766,validation,230,Scottish Terrier,Scottish Terrier
+2093,0.94204366,train,929,Scottish Terrier,Scottish Terrier
+2094,0.9037977,train,2052,Scottish Terrier,Scottish Terrier
+2095,0.91673005,train,1054,Scottish Terrier,Wheaten Terrier
+2096,0.7683749,validation,94,Scottish Terrier,Scottish Terrier
+2097,0.821829,train,985,Shiba Inu,Shiba Inu
+2098,0.92893416,train,994,Shiba Inu,Shiba Inu
+2099,0.87966865,train,970,Shiba Inu,Shiba Inu
+2100,0.9149717,train,994,Shiba Inu,Shiba Inu
+2101,0.88283694,validation,98,Shiba Inu,Shiba Inu
+2102,0.8590346,train,2103,Shiba Inu,Shiba Inu
+2103,0.89173853,train,968,Shiba Inu,Shiba Inu
+2104,0.91734445,train,994,Shiba Inu,Shiba Inu
+2105,0.9260433,train,994,Shiba Inu,Shiba Inu
+2106,0.92695963,train,972,Shiba Inu,Shiba Inu
+2107,0.9321091,train,2078,Shiba Inu,Shiba Inu
+2108,0.9091503,train,993,Shiba Inu,Shiba Inu
+2109,0.9035244,train,2102,Shiba Inu,Shiba Inu
+2110,0.90665925,train,2101,Shiba Inu,Shiba Inu
+2111,0.91531616,train,963,Shiba Inu,Shiba Inu
+2112,0.8894702,train,964,Shiba Inu,Shiba Inu
+2113,0.92257905,train,974,Shiba Inu,Shiba Inu
+2114,0.9258784,train,974,Shiba Inu,Shiba Inu
+2115,0.8973661,validation,96,Shiba Inu,Shiba Inu
+2116,0.9091182,train,2079,Shiba Inu,Shiba Inu
+2117,0.9345575,train,992,Shiba Inu,Shiba Inu
+2118,0.9155638,train,2089,Shiba Inu,Shiba Inu
+2119,0.948737,train,2076,Shiba Inu,Shiba Inu
+2120,0.8885576,train,888,Shiba Inu,Samoyed
+2121,0.927849,train,972,Shiba Inu,Shiba Inu
+2122,0.92795396,train,964,Shiba Inu,Shiba Inu
+2123,0.9016312,train,967,Shiba Inu,Shiba Inu
+2124,0.9523233,train,972,Shiba Inu,Shiba Inu
+2125,0.8275602,train,974,Shiba Inu,Shiba Inu
+2126,0.9556572,train,984,Shiba Inu,Shiba Inu
+2127,0.93568516,train,964,Shiba Inu,Shiba Inu
+2128,0.88741237,train,964,Shiba Inu,Shiba Inu
+2129,0.9319035,train,964,Shiba Inu,Shiba Inu
+2130,0.91987413,train,2079,Shiba Inu,Shiba Inu
+2131,0.8954619,train,2089,Shiba Inu,Shiba Inu
+2132,0.90842897,train,2064,Shiba Inu,Shiba Inu
+2133,0.9036568,train,986,Shiba Inu,Shiba Inu
+2134,0.91011727,train,2091,Shiba Inu,Shiba Inu
+2135,0.91279554,train,2091,Shiba Inu,Shiba Inu
+2136,0.8616923,train,2060,Shiba Inu,Shiba Inu
+2137,0.8696853,train,963,Shiba Inu,Shiba Inu
+2138,0.93593943,train,972,Shiba Inu,Shiba Inu
+2139,0.906955,train,993,Shiba Inu,Shiba Inu
+2140,0.9337147,train,970,Shiba Inu,Shiba Inu
+2141,0.929017,train,986,Shiba Inu,Shiba Inu
+2142,0.9424566,train,2077,Shiba Inu,Shiba Inu
+2143,0.9262418,train,2079,Shiba Inu,Shiba Inu
+2144,0.92334604,train,2076,Shiba Inu,Shiba Inu
+2145,0.9300958,train,2102,Shiba Inu,Shiba Inu
+2146,0.9341247,train,965,Shiba Inu,Shiba Inu
+2147,0.9160985,train,2061,Shiba Inu,Shiba Inu
+2148,0.8831222,train,2061,Shiba Inu,Shiba Inu
+2149,0.95850503,train,972,Shiba Inu,Shiba Inu
+2150,0.9269337,train,984,Shiba Inu,Shiba Inu
+2151,0.9334867,train,964,Shiba Inu,Shiba Inu
+2152,0.93229353,train,963,Shiba Inu,Shiba Inu
+2153,0.8311124,train,2091,Shiba Inu,Shiba Inu
+2154,0.8144256,validation,99,Shiba Inu,Shiba Inu
+2155,0.8259651,validation,99,Shiba Inu,Shiba Inu
+2156,0.92040825,train,972,Shiba Inu,Shiba Inu
+2157,0.92110115,train,972,Shiba Inu,Shiba Inu
+2158,0.834466,train,599,Shiba Inu,Leonberger
+2159,0.8864543,train,2076,Shiba Inu,Shiba Inu
+2160,0.92978823,train,2061,Shiba Inu,Shiba Inu
+2161,0.96504414,train,975,Shiba Inu,Shiba Inu
+2162,0.8839233,train,974,Shiba Inu,Shiba Inu
+2163,0.9257284,train,994,Shiba Inu,Shiba Inu
+2164,0.9566061,train,972,Shiba Inu,Shiba Inu
+2165,0.9225496,train,975,Shiba Inu,Shiba Inu
+2166,0.95006305,train,2070,Shiba Inu,Shiba Inu
+2167,0.9358016,train,965,Shiba Inu,Shiba Inu
+2168,0.9362224,train,972,Shiba Inu,Shiba Inu
+2169,0.90701,train,2072,Shiba Inu,Shiba Inu
+2170,0.94103086,train,2087,Shiba Inu,Shiba Inu
+2171,0.8693725,train,986,Shiba Inu,Shiba Inu
+2172,0.92025864,validation,96,Shiba Inu,Shiba Inu
+2173,0.9340049,validation,96,Shiba Inu,Shiba Inu
+2174,0.9151269,train,971,Shiba Inu,Shiba Inu
+2175,0.9237863,validation,96,Shiba Inu,Shiba Inu
+2176,0.90157664,train,892,Shiba Inu,Samoyed
+2177,0.92125434,train,2076,Shiba Inu,Shiba Inu
+2178,0.91985095,train,986,Shiba Inu,Shiba Inu
+2179,0.85872644,train,954,Shiba Inu,Shiba Inu
+2180,0.89907277,train,970,Shiba Inu,Shiba Inu
+2181,0.88641495,train,987,Shiba Inu,Shiba Inu
+2182,0.8978212,train,2076,Shiba Inu,Shiba Inu
+2183,0.9277833,validation,99,Shiba Inu,Shiba Inu
+2184,0.902665,train,971,Shiba Inu,Shiba Inu
+2185,0.93084407,train,982,Shiba Inu,Shiba Inu
+2186,0.94661415,train,2070,Shiba Inu,Shiba Inu
+2187,0.90882146,train,992,Shiba Inu,Shiba Inu
+2188,0.9259252,train,2070,Shiba Inu,Shiba Inu
+2189,0.8513918,train,2095,Shiba Inu,Shiba Inu
+2190,0.861616,train,2064,Shiba Inu,Shiba Inu
+2191,0.8898616,train,965,Shiba Inu,Shiba Inu
+2192,0.8965236,train,2087,Shiba Inu,Shiba Inu
+2193,0.87760943,train,2091,Shiba Inu,Shiba Inu
+2194,0.82537585,train,994,Shiba Inu,Shiba Inu
+2195,0.91783535,train,2087,Shiba Inu,Shiba Inu
+2196,0.92255074,train,992,Shiba Inu,Shiba Inu
+2197,0.8815,train,1028,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2198,0.9168106,train,1167,Staffordshire Bull Terrier,American Bulldog
+2199,0.9080707,train,1023,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2200,0.9130712,train,24,Staffordshire Bull Terrier,American Bulldog
+2201,0.8111199,train,1035,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2202,0.8713277,train,1037,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2203,0.93247133,train,1000,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2204,0.9086925,train,26,Staffordshire Bull Terrier,American Bulldog
+2205,0.87352765,train,220,Staffordshire Bull Terrier,Boxer
+2206,0.90802646,train,1169,Staffordshire Bull Terrier,American Bulldog
+2207,0.92443395,train,2130,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2208,0.88991165,train,829,Staffordshire Bull Terrier,Saint Bernard
+2209,0.9175331,train,2149,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2210,0.93898314,train,2130,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2211,0.90853494,train,1171,Staffordshire Bull Terrier,American Bulldog
+2212,0.88628536,train,2142,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2213,0.9049856,train,1006,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2214,0.93783706,train,1025,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2215,0.8771682,train,21,Staffordshire Bull Terrier,American Bulldog
+2216,0.932017,train,2115,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2217,0.9062815,train,2134,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2218,0.94261163,train,2127,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2219,0.87640285,train,1196,Staffordshire Bull Terrier,American Pit Bull Terrier
+2220,0.9033079,train,1013,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2221,0.93861675,validation,238,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2222,0.8784061,train,35,Staffordshire Bull Terrier,American Bulldog
+2223,0.94289094,train,1171,Staffordshire Bull Terrier,American Bulldog
+2224,0.9614561,train,2140,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2225,0.8974995,train,1027,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2226,0.9148383,train,1000,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2227,0.9712517,train,1018,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2228,0.87984276,train,2113,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2229,0.8821661,train,1315,Staffordshire Bull Terrier,Boxer
+2230,0.92032003,train,2127,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2231,0.9086944,train,2115,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2232,0.8684211,train,26,Staffordshire Bull Terrier,American Bulldog
+2233,0.80927384,train,218,Staffordshire Bull Terrier,Boxer
+2234,0.8922509,train,8,Staffordshire Bull Terrier,American Bulldog
+2235,0.8988534,train,1028,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2236,0.91225827,train,1028,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2237,0.89553076,validation,241,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2238,0.9291529,train,2144,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2239,0.92928946,train,2144,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2240,0.85788214,train,2109,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2241,0.9292462,train,1038,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2242,0.90012777,train,2127,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2243,0.8932579,train,26,Staffordshire Bull Terrier,American Bulldog
+2244,0.8949164,train,2130,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2245,0.9207418,train,2115,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2246,0.9230583,train,2108,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2247,0.9154029,train,1309,Staffordshire Bull Terrier,Boxer
+2248,0.9322711,train,2127,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2249,0.9339801,train,1010,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2250,0.9330586,train,2117,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2251,0.947613,train,1037,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2252,0.9071703,train,1156,Staffordshire Bull Terrier,American Bulldog
+2253,0.908669,train,2112,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2254,0.8306984,train,1185,Staffordshire Bull Terrier,American Pit Bull Terrier
+2255,0.8598722,train,1133,Staffordshire Bull Terrier,American Bulldog
+2256,0.90793514,train,1133,Staffordshire Bull Terrier,American Bulldog
+2257,0.9058199,train,26,Staffordshire Bull Terrier,American Bulldog
+2258,0.8728624,train,2130,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2259,0.90515643,train,1012,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2260,0.9248848,train,2130,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2261,0.9183359,train,2113,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2262,0.92221296,train,2106,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2263,0.900514,train,26,Staffordshire Bull Terrier,American Bulldog
+2264,0.8900316,train,2113,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2265,0.9272541,train,1021,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2266,0.9348596,train,83,Staffordshire Bull Terrier,American Pit Bull Terrier
+2267,0.91874546,train,2106,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2268,0.9142808,train,1037,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2269,0.92055756,train,1018,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2270,0.9260063,validation,238,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2271,0.9273964,train,2142,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2272,0.9462772,train,1010,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2273,0.91755545,train,2115,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2274,0.9356227,validation,238,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2275,0.93260646,train,2106,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2276,0.92857873,train,2106,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2277,0.9292278,train,1,Staffordshire Bull Terrier,American Bulldog
+2278,0.91844046,train,2112,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2279,0.91387177,train,1020,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2280,0.94717604,train,11,Staffordshire Bull Terrier,American Bulldog
+2281,0.90738463,train,11,Staffordshire Bull Terrier,American Bulldog
+2282,0.918532,validation,238,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2283,0.9416809,train,2115,Staffordshire Bull Terrier,Staffordshire Bull Terrier
+2284,0.80404484,train,1149,Staffordshire Bull Terrier,American Bulldog
+2285,0.88657415,train,1163,Staffordshire Bull Terrier,American Bulldog
+2286,0.93055487,train,1069,Wheaten Terrier,Wheaten Terrier
+2287,0.93552697,train,2178,Wheaten Terrier,Wheaten Terrier
+2288,0.88102496,train,2196,Wheaten Terrier,Wheaten Terrier
+2289,0.9293141,train,1070,Wheaten Terrier,Wheaten Terrier
+2290,0.8788843,train,1572,Wheaten Terrier,Havanese
+2291,0.9414183,train,2178,Wheaten Terrier,Wheaten Terrier
+2292,0.87190396,train,2157,Wheaten Terrier,Wheaten Terrier
+2293,0.9398833,train,1049,Wheaten Terrier,Wheaten Terrier
+2294,0.910419,train,600,Wheaten Terrier,Leonberger
+2295,0.8865558,train,1252,Wheaten Terrier,Basset Hound
+2296,0.9204915,validation,111,Wheaten Terrier,Wheaten Terrier
+2297,0.93745583,train,1054,Wheaten Terrier,Wheaten Terrier
+2298,0.8933821,train,1045,Wheaten Terrier,Wheaten Terrier
+2299,0.93751955,train,2156,Wheaten Terrier,Wheaten Terrier
+2300,0.89522743,train,1054,Wheaten Terrier,Wheaten Terrier
+2301,0.9340782,train,475,Wheaten Terrier,Havanese
+2302,0.9329331,validation,111,Wheaten Terrier,Wheaten Terrier
+2303,0.9556992,train,1046,Wheaten Terrier,Wheaten Terrier
+2304,0.90754575,train,2162,Wheaten Terrier,Wheaten Terrier
+2305,0.8923966,validation,180,Wheaten Terrier,Havanese
+2306,0.9201029,validation,108,Wheaten Terrier,Wheaten Terrier
+2307,0.8399665,train,2052,Wheaten Terrier,Scottish Terrier
+2308,0.9278753,validation,111,Wheaten Terrier,Wheaten Terrier
+2309,0.93210924,train,1049,Wheaten Terrier,Wheaten Terrier
+2310,0.83853346,train,1045,Wheaten Terrier,Wheaten Terrier
+2311,0.7756926,train,1057,Wheaten Terrier,Wheaten Terrier
+2312,0.947081,validation,111,Wheaten Terrier,Wheaten Terrier
+2313,0.88866425,train,2049,Wheaten Terrier,Scottish Terrier
+2314,0.8758925,train,2049,Wheaten Terrier,Scottish Terrier
+2315,0.8332844,train,1571,Wheaten Terrier,Havanese
+2316,0.9338162,train,483,Wheaten Terrier,Havanese
+2317,0.884229,train,1043,Wheaten Terrier,Wheaten Terrier
+2318,0.93744916,train,483,Wheaten Terrier,Havanese
+2319,0.89894575,train,1049,Wheaten Terrier,Wheaten Terrier
+2320,0.9098004,train,1049,Wheaten Terrier,Wheaten Terrier
+2321,0.8803954,train,941,Wheaten Terrier,Scottish Terrier
+2322,0.9267702,train,1070,Wheaten Terrier,Wheaten Terrier
+2323,0.8817828,train,1058,Wheaten Terrier,Wheaten Terrier
+2324,0.8924234,train,1070,Wheaten Terrier,Wheaten Terrier
+2325,0.9622482,train,2164,Wheaten Terrier,Wheaten Terrier
+2326,0.9035715,validation,243,Wheaten Terrier,Wheaten Terrier
+2327,0.8710727,train,2054,Wheaten Terrier,Scottish Terrier
+2328,0.86757606,validation,112,Wheaten Terrier,Wheaten Terrier
+2329,0.9225435,train,1076,Wheaten Terrier,Wheaten Terrier
+2330,0.9422622,train,1051,Wheaten Terrier,Wheaten Terrier
+2331,0.92587334,train,1085,Wheaten Terrier,Wheaten Terrier
+2332,0.85828733,train,1060,Wheaten Terrier,Wheaten Terrier
+2333,0.9041416,train,2154,Wheaten Terrier,Wheaten Terrier
+2334,0.9460254,train,2054,Wheaten Terrier,Scottish Terrier
+2335,0.91721,train,1072,Wheaten Terrier,Wheaten Terrier
+2336,0.84212583,train,1713,Wheaten Terrier,Leonberger
+2337,0.88662726,train,1081,Wheaten Terrier,Wheaten Terrier
+2338,0.9426822,train,1069,Wheaten Terrier,Wheaten Terrier
+2339,0.9194999,train,1053,Wheaten Terrier,Wheaten Terrier
+2340,0.82785195,train,1046,Wheaten Terrier,Wheaten Terrier
+2341,0.9392222,train,1069,Wheaten Terrier,Wheaten Terrier
+2342,0.92243934,train,2178,Wheaten Terrier,Wheaten Terrier
+2343,0.8688942,train,1081,Wheaten Terrier,Wheaten Terrier
+2344,0.7780647,validation,180,Wheaten Terrier,Havanese
+2345,0.93781555,validation,111,Wheaten Terrier,Wheaten Terrier
+2346,0.8226476,train,1063,Wheaten Terrier,Wheaten Terrier
+2347,0.91051203,train,1063,Wheaten Terrier,Wheaten Terrier
+2348,0.9406394,validation,111,Wheaten Terrier,Wheaten Terrier
+2349,0.8913598,train,2154,Wheaten Terrier,Wheaten Terrier
+2350,0.9384203,train,2162,Wheaten Terrier,Wheaten Terrier
+2351,0.8207934,train,1045,Wheaten Terrier,Wheaten Terrier
+2352,0.915944,train,1069,Wheaten Terrier,Wheaten Terrier
+2353,0.89063644,train,1063,Wheaten Terrier,Wheaten Terrier
+2354,0.93841714,train,2162,Wheaten Terrier,Wheaten Terrier
+2355,0.883273,train,1063,Wheaten Terrier,Wheaten Terrier
+2356,0.9282239,train,1063,Wheaten Terrier,Wheaten Terrier
+2357,0.87492967,train,2173,Wheaten Terrier,Wheaten Terrier
+2358,0.88836414,train,1055,Wheaten Terrier,Wheaten Terrier
+2359,0.92244923,train,1046,Wheaten Terrier,Wheaten Terrier
+2360,0.86227643,train,1051,Wheaten Terrier,Wheaten Terrier
+2361,0.9154956,train,1053,Wheaten Terrier,Wheaten Terrier
+2362,0.92609644,validation,107,Wheaten Terrier,Wheaten Terrier
+2363,0.89643914,train,921,Wheaten Terrier,Scottish Terrier
+2364,0.9447819,train,1049,Wheaten Terrier,Wheaten Terrier
+2365,0.92199004,train,2178,Wheaten Terrier,Wheaten Terrier
+2366,0.9293941,train,1058,Wheaten Terrier,Wheaten Terrier
+2367,0.8470906,train,620,Wheaten Terrier,Leonberger
+2368,0.91530126,train,475,Wheaten Terrier,Havanese
+2369,0.8324092,train,1084,Wheaten Terrier,Wheaten Terrier
+2370,0.8976091,train,1069,Wheaten Terrier,Wheaten Terrier
+2371,0.84120214,train,470,Wheaten Terrier,Havanese
+2372,0.8196238,train,1077,Wheaten Terrier,Wheaten Terrier
+2373,0.92865366,train,1076,Wheaten Terrier,Wheaten Terrier
+2374,0.9029075,train,2168,Wheaten Terrier,Wheaten Terrier
+2375,0.9159229,train,1063,Wheaten Terrier,Wheaten Terrier
+2376,0.89997405,train,1046,Wheaten Terrier,Wheaten Terrier
+2377,0.88287127,train,1081,Wheaten Terrier,Wheaten Terrier
+2378,0.9408155,validation,111,Wheaten Terrier,Wheaten Terrier
+2379,0.9497374,train,1046,Wheaten Terrier,Wheaten Terrier
+2380,0.898749,train,2153,Wheaten Terrier,Wheaten Terrier
+2381,0.9192797,train,296,Wheaten Terrier,English Cocker Spaniel
+2382,0.84304166,train,1045,Wheaten Terrier,Wheaten Terrier
+2383,0.92492026,train,1049,Wheaten Terrier,Wheaten Terrier
+2384,0.87121576,train,1050,Wheaten Terrier,Wheaten Terrier
+2385,0.95352566,train,1049,Wheaten Terrier,Wheaten Terrier
+2386,0.91296256,train,2230,Yorkshire Terrier,Yorkshire Terrier
+2387,0.91074777,train,2215,Yorkshire Terrier,Yorkshire Terrier
+2388,0.9560273,train,2235,Yorkshire Terrier,Yorkshire Terrier
+2389,0.9492345,train,485,Yorkshire Terrier,Havanese
+2390,0.8834046,train,483,Yorkshire Terrier,Havanese
+2391,0.90279484,train,2238,Yorkshire Terrier,Yorkshire Terrier
+2392,0.9435583,train,475,Yorkshire Terrier,Havanese
+2393,0.92367435,train,503,Yorkshire Terrier,Havanese
+2394,0.9063305,train,470,Yorkshire Terrier,Havanese
+2395,0.91618544,train,2217,Yorkshire Terrier,Yorkshire Terrier
+2396,0.92773116,train,1090,Yorkshire Terrier,Yorkshire Terrier
+2397,0.91407096,train,484,Yorkshire Terrier,Havanese
+2398,0.9426404,validation,247,Yorkshire Terrier,Yorkshire Terrier
+2399,0.9344903,train,485,Yorkshire Terrier,Havanese
+2400,0.93045044,validation,247,Yorkshire Terrier,Yorkshire Terrier
+2401,0.92417353,train,2230,Yorkshire Terrier,Yorkshire Terrier
+2402,0.8500184,train,1639,Yorkshire Terrier,Japanese Chin
+2403,0.87577575,train,550,Yorkshire Terrier,Japanese Chin
+2404,0.93267655,validation,247,Yorkshire Terrier,Yorkshire Terrier
+2405,0.92476183,train,2241,Yorkshire Terrier,Yorkshire Terrier
+2406,0.89753723,train,2238,Yorkshire Terrier,Yorkshire Terrier
+2407,0.9312815,train,1086,Yorkshire Terrier,Yorkshire Terrier
+2408,0.92489743,train,1090,Yorkshire Terrier,Yorkshire Terrier
+2409,0.88297474,train,1092,Yorkshire Terrier,Yorkshire Terrier
+2410,0.9097013,train,1090,Yorkshire Terrier,Yorkshire Terrier
+2411,0.8736103,train,475,Yorkshire Terrier,Havanese
+2412,0.82387894,train,2240,Yorkshire Terrier,Yorkshire Terrier
+2413,0.9332203,train,2218,Yorkshire Terrier,Yorkshire Terrier
+2414,0.9508486,train,2215,Yorkshire Terrier,Yorkshire Terrier
+2415,0.91690475,train,1609,Yorkshire Terrier,Havanese
+2416,0.95344913,train,1090,Yorkshire Terrier,Yorkshire Terrier
+2417,0.9305229,train,2238,Yorkshire Terrier,Yorkshire Terrier
+2418,0.93081,train,472,Yorkshire Terrier,Havanese
+2419,0.9100681,train,1090,Yorkshire Terrier,Yorkshire Terrier
+2420,0.93585813,validation,247,Yorkshire Terrier,Yorkshire Terrier
+2421,0.8965415,train,2215,Yorkshire Terrier,Yorkshire Terrier
+2422,0.9352177,train,483,Yorkshire Terrier,Havanese
+2423,0.84580433,train,2206,Yorkshire Terrier,Yorkshire Terrier
+2424,0.927792,train,1090,Yorkshire Terrier,Yorkshire Terrier
+2425,0.94141155,train,1090,Yorkshire Terrier,Yorkshire Terrier
+2426,0.91724,train,1095,Yorkshire Terrier,Yorkshire Terrier
+2427,0.901708,train,2241,Yorkshire Terrier,Yorkshire Terrier
+2428,0.9232995,train,1090,Yorkshire Terrier,Yorkshire Terrier
+2429,0.9101838,train,2214,Yorkshire Terrier,Yorkshire Terrier
+2430,0.90997547,train,2238,Yorkshire Terrier,Yorkshire Terrier
+2431,0.8898868,train,1110,Yorkshire Terrier,Yorkshire Terrier
+2432,0.8917766,validation,114,Yorkshire Terrier,Yorkshire Terrier
+2433,0.92604,train,2235,Yorkshire Terrier,Yorkshire Terrier
+2434,0.8956943,train,2213,Yorkshire Terrier,Yorkshire Terrier
+2435,0.9344859,train,2218,Yorkshire Terrier,Yorkshire Terrier
+2436,0.9374743,train,2241,Yorkshire Terrier,Yorkshire Terrier
+2437,0.8730255,train,1093,Yorkshire Terrier,Yorkshire Terrier
+2438,0.9472374,train,2230,Yorkshire Terrier,Yorkshire Terrier
+2439,0.89911604,train,1763,Yorkshire Terrier,Miniature Pinscher
+2440,0.94672936,train,2230,Yorkshire Terrier,Yorkshire Terrier
+2441,0.8977674,train,475,Yorkshire Terrier,Havanese
+2442,0.9198704,train,1092,Yorkshire Terrier,Yorkshire Terrier
+2443,0.9251498,train,2211,Yorkshire Terrier,Yorkshire Terrier
+2444,0.9314704,validation,247,Yorkshire Terrier,Yorkshire Terrier
+2445,0.951811,train,1097,Yorkshire Terrier,Yorkshire Terrier
+2446,0.88314676,train,468,Yorkshire Terrier,Havanese
+2447,0.9167017,train,1597,Yorkshire Terrier,Havanese
+2448,0.9269544,train,1092,Yorkshire Terrier,Yorkshire Terrier
+2449,0.95425105,train,2230,Yorkshire Terrier,Yorkshire Terrier
+2450,0.93732697,train,2230,Yorkshire Terrier,Yorkshire Terrier
+2451,0.9345027,validation,247,Yorkshire Terrier,Yorkshire Terrier
+2452,0.9131179,train,1597,Yorkshire Terrier,Havanese
+2453,0.94951403,train,2238,Yorkshire Terrier,Yorkshire Terrier
+2454,0.9039626,train,1054,Yorkshire Terrier,Wheaten Terrier
+2455,0.88212985,train,1090,Yorkshire Terrier,Yorkshire Terrier
+2456,0.9020407,validation,230,Yorkshire Terrier,Scottish Terrier
+2457,0.9229046,validation,230,Yorkshire Terrier,Scottish Terrier
+2458,0.97111833,train,2230,Yorkshire Terrier,Yorkshire Terrier
+2459,0.893949,train,1090,Yorkshire Terrier,Yorkshire Terrier
+2460,0.9373826,train,2235,Yorkshire Terrier,Yorkshire Terrier
+2461,0.9328927,train,1090,Yorkshire Terrier,Yorkshire Terrier
+2462,0.9061924,train,1090,Yorkshire Terrier,Yorkshire Terrier
+2463,0.9292557,train,1597,Yorkshire Terrier,Havanese
+2464,0.83907413,train,2233,Yorkshire Terrier,Yorkshire Terrier
+2465,0.9108031,train,1597,Yorkshire Terrier,Havanese
+2466,0.9398421,train,2241,Yorkshire Terrier,Yorkshire Terrier
+2467,0.95390844,train,2230,Yorkshire Terrier,Yorkshire Terrier
+2468,0.93319285,train,475,Yorkshire Terrier,Havanese
+2469,0.8859992,train,2217,Yorkshire Terrier,Yorkshire Terrier
+2470,0.92857945,train,1580,Yorkshire Terrier,Havanese
+2471,0.9415188,train,2215,Yorkshire Terrier,Yorkshire Terrier
+2472,0.9103024,train,2238,Yorkshire Terrier,Yorkshire Terrier
+2473,0.9032371,train,1091,Yorkshire Terrier,Yorkshire Terrier
+2474,0.919286,train,1597,Yorkshire Terrier,Havanese
+2475,0.9201797,train,1090,Yorkshire Terrier,Yorkshire Terrier
+2476,0.86495924,train,2216,Yorkshire Terrier,Yorkshire Terrier
+2477,0.9211602,train,2238,Yorkshire Terrier,Yorkshire Terrier
+2478,0.91435564,train,1088,Yorkshire Terrier,Yorkshire Terrier
+2479,0.89509755,train,2230,Yorkshire Terrier,Yorkshire Terrier
+2480,0.9062549,train,1602,Yorkshire Terrier,Havanese
+2481,0.959625,train,1088,Yorkshire Terrier,Yorkshire Terrier
+2482,0.88342786,train,1091,Yorkshire Terrier,Yorkshire Terrier
+2483,0.8986149,train,2235,Yorkshire Terrier,Yorkshire Terrier
+2484,0.8279252,train,2239,Yorkshire Terrier,Yorkshire Terrier
+2485,0.9099802,train,2238,Yorkshire Terrier,Yorkshire Terrier

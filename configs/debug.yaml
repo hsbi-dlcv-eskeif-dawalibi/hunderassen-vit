@@ -1,0 +1,11 @@
+# Pipeline smoke test: 64 images per split, one epoch, CPU friendly.
+# python scripts/train.py configs/debug.yaml
+name: debug
+model:
+  checkpoint: facebook/deit-small-patch16-224
+data:
+  max_samples: 64
+training:
+  epochs: 1
+  batch_size: 16
+  fp16: false

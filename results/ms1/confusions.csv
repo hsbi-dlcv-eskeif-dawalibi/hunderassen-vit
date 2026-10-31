@@ -1,0 +1,11 @@
+true,predicted,count
+American Pit Bull Terrier,Staffordshire Bull Terrier,62
+Staffordshire Bull Terrier,American Pit Bull Terrier,27
+American Pit Bull Terrier,American Bulldog,24
+Staffordshire Bull Terrier,American Bulldog,16
+Miniature Pinscher,Chihuahua,16
+Basset Hound,Beagle,15
+Boxer,American Bulldog,15
+Wheaten Terrier,Havanese,12
+Chihuahua,Miniature Pinscher,10
+American Bulldog,Boxer,10

@@ -1,0 +1,22 @@
+# "Why so high?" (make why): ViT-B/16 trained from RANDOM initialisation on the 25 dog breeds.
+# Same architecture, data, split and evaluation as station 1 (configs/ms1/vit_b16.yaml); only the
+# pretrained weights are missing. The gap to station 1 is the contribution of pretraining.
+#
+# From scratch needs more steps and a larger learning rate than fine-tuning, so the budget is
+# 30 epochs (3x station 1) with patience 10; ViTs without pretraining are known to need far more
+# data (Dosovitskiy et al. 2021), so a low accuracy is the expected result, not a bug.
+name: why_vit_b16_scratch
+model:
+  checkpoint: google/vit-base-patch16-224
+  pretrained: false
+data:
+  augmentation: light
+training:
+  strategy: cosine
+  epochs: 30
+  learning_rate: 3.0e-4
+  batch_size: 32
+  early_stopping_patience: 10
+  extra:
+    weight_decay: 0.05
+    warmup_ratio: 0.1

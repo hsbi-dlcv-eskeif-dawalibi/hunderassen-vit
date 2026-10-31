@@ -1,0 +1,13 @@
+# Extra analysis (not a station task): Swin-T (28 M), hierarchical ViT with shifted-window attention (lecture 03).
+# Local attention + 2-D feature hierarchy like a CNN. Question: does it behave more like
+# a CNN or like a ViT on background and shape tests?
+name: extra_swin_t
+model:
+  checkpoint: microsoft/swin-tiny-patch4-window7-224
+training:
+  strategy: cosine
+  epochs: 10
+  learning_rate: 5.0e-5
+  extra:
+    weight_decay: 0.05
+    warmup_ratio: 0.1

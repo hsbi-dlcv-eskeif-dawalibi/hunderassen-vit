@@ -1,0 +1,164 @@
+% Anhang / Zusatzmaterial: zählt nicht zu den 6 Seiten (Folie 16). Format wie im Author-Kit
+% (sec/X_suppl.tex), Überschrift auf Deutsch. Zahlen aus results/ms1, results/why, results/explain.
+\clearpage
+\setcounter{page}{1}
+\twocolumn[\centering\Large\textbf{\thetitle}\\\vspace{0.5em}Anhang\\\vspace{1.0em}]
+\appendix
+
+\begin{figure*}[t]
+  \centering
+  \begin{subfigure}[b]{0.6\textwidth}
+    \centering
+    \resultfigure{data_quality/examples.png}{\linewidth}{Beispiel pro Rasse mit Maskenumriss}
+    \caption{Ein Trainingsbild pro Rasse; gelb: Umriss der Segmentierungsmaske.}
+    \label{fig:examples}
+  \end{subfigure}\hfill
+  \begin{subfigure}[b]{0.37\textwidth}
+    \centering
+    \resultfigure{data_quality/class_counts.png}{\linewidth}{Bilder pro Rasse}
+    \caption{Zahl der Bilder pro Rasse (trainval und test).}
+    \label{fig:class_counts}
+  \end{subfigure}
+  \caption{Datensatz: 25 Hunderassen von Oxford-IIIT Pet.}
+  \label{fig:data}
+\end{figure*}
+
+\section{Hyperparameter}
+\label{sec:hyperparameters}
+\Cref{tab:hyper} listet alle Konfigurationen (\texttt{configs/ms1/*.yaml}). Gemeinsam für alle: AdamW,
+Weight Decay 0,05, Cosine-Schedule mit 10\,\% Warm-up, bis zu 10 Epochen, Early Stopping (Geduld 3),
+Batchgröße 32, $224\times224$ Pixel Eingabe, Augmentierung \emph{light}, Seeds 1--3.
+
+\begin{table}[h]
+  \centering
+  \caption{Lernrate und trainierbare Parameter je Methode.}
+  \label{tab:hyper}
+  \small
+  \resizebox{\linewidth}{!}{\begin{tabular}{lll}
+    \toprule
+    Methode & Lernrate & Trainierbar \\
+    \midrule
+    ViT Linear Probing & $10^{-3}$ & Kopf \\
+    ViT LoRA $r\in\{4,8,16\}$, $\alpha=2r$, Dropout 0,1, Query/Value & $5\cdot10^{-4}$ & LoRA + Kopf \\
+    ViT LoRA $r=8$, alle linearen Layer & $5\cdot10^{-4}$ & LoRA + Kopf \\
+    ViT volles Fine-Tuning & $5\cdot10^{-5}$ & alle \\
+    ResNet-50, ConvNeXt-T & $2\cdot10^{-4}$ (Validation) & alle \\
+    \bottomrule
+  \end{tabular}}
+\end{table}
+
+\begin{table}[h]
+  \centering
+  \caption{Wahl der CNN-Lernrate auf dem Validierungssplit (Mittelwert $\pm$ Std über 3 Seeds;
+  \texttt{make ms1-cnn-lr}). Der Testsplit wurde nicht verwendet.}
+  \label{tab:lr}
+  \small
+  \resizebox{\linewidth}{!}{\begin{tabular}{lcccc}
+    \toprule
+    & \multicolumn{2}{c}{ResNet-50} & \multicolumn{2}{c}{ConvNeXt-T} \\
+    Lernrate & Val.-Acc.\ (\%) & Val.-Loss & Val.-Acc.\ (\%) & Val.-Loss \\
+    \midrule
+    $5\cdot10^{-5}$ & $91{,}47\pm1{,}29$ & 1,349 & $96{,}40\pm0{,}69$ & 0,303 \\
+    $2\cdot10^{-4}$ & $\mathbf{97{,}47\pm0{,}46}$ & 0,146 & $\mathbf{97{,}47\pm0{,}46}$ & 0,112 \\
+    $5\cdot10^{-4}$ & $96{,}40\pm1{,}06$ & 0,110 & $96{,}13\pm0{,}83$ & 0,157 \\
+    $10^{-3}$ & $96{,}13\pm1{,}80$ & 0,154 & $94{,}80\pm0{,}80$ & 0,190 \\
+    \bottomrule
+  \end{tabular}}
+\end{table}
+
+\section{Warum sind die Accuracies so hoch?}
+\label{sec:why}
+Alle Zahlen aus \texttt{results/why/REPORT.md} (\texttt{make why}).
+
+\paragraph{Pretraining.} Zufällig initialisiert und mit denselben Daten und derselben Auswertung
+trainiert (30 Epochen, größere Lernrate), erreicht ViT-B/16 $11{,}18\pm2{,}61$\,\% und ResNet-50
+$31{,}07\pm0{,}41$\,\% Test-Accuracy, gegenüber $95{,}39\pm0{,}39$ und $94{,}22\pm0{,}85$\,\% mit
+ImageNet-Gewichten (Zufall: 4\,\%).
+
+\paragraph{Vorwissen.} 22 der 25 Rassen sind ImageNet-1k-Klassen~\cite{russakovsky2015imagenet}; es
+fehlen nur American Bulldog, Havanese und Shiba Inu. Ganz ohne Training klassifizieren die
+ursprünglichen ImageNet-Köpfe unserer Checkpoints die Testbilder dieser 22 Rassen (Auswahl unter den 22)
+mit 96,20\,\% (ViT-B/16), 96,75\,\% (ResNet-50) und 96,52\,\% (ConvNeXt-T). LoRA $r=4$ erreicht auf
+denselben Bildern 95,88\,\%, bei Auswahl unter allen 25 Rassen.
+
+\paragraph{Eingefrorene Merkmale.} Eine logistische Regression auf eingefrorenen Merkmalen (alle
+Trainingsbilder) erreicht 95,94\,\% (ViT-B/16) und 96,06\,\% (ResNet-50), gegenüber 95,39 und 94,22\,\%
+nach vollem Fine-Tuning. Mit einem Bild pro Rasse erreicht sie $84{,}66\pm2{,}63$ und
+$87{,}41\pm1{,}91$\,\% (\cref{fig:fewshot}).
+
+\paragraph{Fast-Duplikate.} Für jedes Testbild haben wir die Kosinus-Ähnlichkeit zum ähnlichsten Trainings-
+oder Validierungsbild mit Embeddings von CLIP ViT-B/16~\cite{radford2021clip} berechnet. 215 Testbilder
+(8,6\,\%) haben einen Nachbarn mit Ähnlichkeit $\geq0{,}95$; ohne sie ändert sich die Accuracy von LoRA
+$r=4$ von 96,11 auf 95,77\,\%.
+
+\paragraph{Rest-Fehler.} Die vier Bully-Rassen (American Bulldog, American Pit Bull Terrier,
+Staffordshire Bull Terrier, Boxer) machen 16\,\% der Testbilder und 59\,\% aller Fehler von LoRA $r=4$
+aus (Accuracy 84,9\,\% gegenüber 98,2\,\% bei den übrigen Rassen). 71 Testbilder sind in allen drei
+Seeds falsch klassifiziert.
+
+\begin{figure}[h]
+  \centering
+  \resultfigure{why/fewshot_curves.png}{\linewidth}{Few-Shot-Kurven}
+  \caption{Linear Probe auf eingefrorenen Merkmalen über der Zahl der Trainingsbilder pro Rasse
+  (Mittelwert $\pm$ Std über 3 Ziehungen).}
+  \label{fig:fewshot}
+\end{figure}
+
+\begin{figure*}[p]
+  \centering
+  \begin{subfigure}{\textwidth}
+    \centering
+    \resultfigure{explain/head_examples.png}{0.82\textwidth}{Kopf-Box und Grad-CAM}
+    \caption{Grad-CAM-Karten und annotierte Kopf-Box (weiß) auf Validierungsbildern; Zeilen: Modelle.}
+    \label{fig:head}
+  \end{subfigure}
+
+  \vspace{0.8em}
+  \begin{subfigure}{\textwidth}
+    \centering
+    \resultfigure{explain/contrastive_convnext_t.png}{0.5\textwidth}{Kontrastive Karten}
+    \caption{Warum Rasse $A$ und nicht $B$? Für die häufigsten Verwechslungen: Grad-CAM für $A$ und $B$,
+    kontrastive Karte $A-B$ und Occlusion für $A$ (ConvNeXt-T, Testbilder).}
+    \label{fig:contrastive}
+  \end{subfigure}
+  \caption{Erklärungskarten (\texttt{make explain}).}
+  \label{fig:explain}
+\end{figure*}
+
+\section{Warum diese Rasse und nicht die andere?}
+\label{sec:explain}
+Erklärungen für LoRA $r=4$, ConvNeXt-T und ResNet-50 (Seed 1; \texttt{results/explain/REPORT.md},
+\texttt{make explain}). Wir nutzen Grad-CAM~\cite{selvaraju2017gradcam} (Implementierung:
+pytorch-grad-cam~\cite{gildenblat2021gradcam}), Occlusion~\cite{zeiler2014visualizing} (Implementierung:
+Captum~\cite{kokhlikyan2020captum}) und Attention Rollout~\cite{abnar2020rollout} (eigener Code). Ein
+\emph{kontrastives} Grad-CAM verwendet das Ziel $\text{logit}_A-\text{logit}_B$ und hebt Evidenz für
+Rasse $A$ und gegen Rasse $B$ hervor (vgl.~\cite{prabhushankar2020contrastive}). In einem
+Deletion-Test~\cite{petsiuk2018rise} werden die auffälligsten $16\times16$-Patches zuerst grau
+übermalt; Occlusion senkt die Klassenwahrscheinlichkeit beim ViT und bei ConvNeXt-T am schnellsten
+(Fläche unter der Kurve 0,64 und 0,59 gegenüber 0,92 und 0,89 beim zufälligen Löschen). Gemessen mit der
+jeweils treuesten Methode liegt die Saliency in der annotierten Kopf-Box (Validierungssplit) bei allen
+drei Modellen beim 3,1- bis 3,7-Fachen ihres Flächenanteils. Grad-CAM liefert für den ViT einen deutlich
+kleineren Wert (1,3), passend zu bekannten Grenzen von Grad-CAM bei Transformern~\cite{chefer2021transformer}.
+\Cref{fig:head} zeigt Beispielkarten mit den Kopf-Boxen, \cref{fig:contrastive} kontrastive Karten für
+die häufigsten Verwechslungen.
+
+
+
+
+\section{Bilder pro Rasse}
+\label{sec:breeds}
+\Cref{fig:examples} zeigt ein Trainingsbild pro Rasse, \cref{fig:class_counts} die Zahl der Bilder pro Rasse.
+
+
+\section{Software und KI-Hilfsmittel}
+\label{sec:tools}
+Die Experimente nutzen PyTorch~\cite{paszke2019pytorch}, Hugging Face
+Transformers~\cite{wolf2020transformers}, scikit-learn, pytorch-grad-cam~\cite{gildenblat2021gradcam}
+und Captum~\cite{kokhlikyan2020captum}.
+% Erklärung zur KI-Nutzung (Modulregeln, Vorlesung 01, Folie 13). Wortlaut vor der Abgabe mit dem
+% Dozenten abstimmen und an das anpassen, was ihr tatsächlich gemacht habt.
+Code, Auswerteskripte und Entwürfe aller Abschnitte dieser Arbeit wurden mit Unterstützung des
+KI-Assistenten Claude (Anthropic) erstellt. Die Autoren haben Forschungsfragen und Experimente
+festgelegt, allen Code und Text geprüft und überarbeitet, die Experimente durchgeführt und sind für den
+Inhalt verantwortlich. Alle Zahlen stammen aus den protokollierten Experimenten im Repository
+(\texttt{results/}).

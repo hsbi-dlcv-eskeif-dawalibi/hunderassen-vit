@@ -1,0 +1,21 @@
+index,wrong,conf,true,predicted
+411,True,0.9925333333333333,Boxer,American Bulldog
+264,True,0.9920333333333334,Basset Hound,Beagle
+145,True,0.9908333333333333,American Pit Bull Terrier,Staffordshire Bull Terrier
+2212,True,0.9861,Staffordshire Bull Terrier,American Bulldog
+211,True,0.9857333333333335,Basset Hound,Beagle
+50,True,0.9855333333333333,American Bulldog,Boxer
+129,True,0.9847666666666667,American Pit Bull Terrier,Staffordshire Bull Terrier
+206,True,0.9790333333333333,Basset Hound,Beagle
+582,True,0.9784666666666667,Chihuahua,Miniature Pinscher
+2233,True,0.9712999999999999,Staffordshire Bull Terrier,Boxer
+549,True,0.9709666666666666,Chihuahua,Miniature Pinscher
+124,True,0.9699333333333332,American Pit Bull Terrier,American Bulldog
+2395,True,0.9687333333333333,Yorkshire Terrier,Havanese
+403,True,0.9648666666666667,Boxer,American Bulldog
+123,True,0.9611333333333333,American Pit Bull Terrier,American Bulldog
+158,True,0.9561333333333334,American Pit Bull Terrier,Boxer
+2314,True,0.9463,Wheaten Terrier,Havanese
+454,True,0.9460333333333333,Boxer,American Bulldog
+422,True,0.9441333333333333,Boxer,American Bulldog
+126,True,0.9338666666666667,American Pit Bull Terrier,Staffordshire Bull Terrier

@@ -1,0 +1,18 @@
+# Extra analysis (not a station task): component swap 2: convolutional stem instead of the linear patch embedding.
+# Four stride-2 3x3 conv blocks + 1x1 projection produce the same 14x14 token grid
+# (Xiao et al., "Early Convolutions Help Transformers See Better", NeurIPS 2021).
+# The stem is trained from scratch, the rest of the ViT stays pretrained, so it gets
+# more epochs and a higher learning rate. Question: does a CNN-like input stage change
+# where the ViT looks (saliency_maps.py) and its shape bias?
+name: extra_vit_conv_stem
+model:
+  checkpoint: google/vit-base-patch16-224
+modifications:
+  patch_embedding: conv_stem
+training:
+  strategy: cosine
+  epochs: 20
+  learning_rate: 1.0e-4
+  extra:
+    weight_decay: 0.05
+    warmup_ratio: 0.1

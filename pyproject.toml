@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "animal-vit"
+version = "1.0.0"
+description = "Adapting, compressing and explaining Vision Transformers on the 25 dog breeds of Oxford-IIIT Pet (HSBI, Deep Learning for Computer Vision, WS 2026/27)"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Wael Eskeif" }, { name = "Tarek Dawalibi" }]
+dependencies = [
+    "torch>=2.2",
+    "torchvision>=0.17",
+    "transformers>=4.48,<5",
+    "datasets>=2.18,<5",
+    "accelerate>=0.30",
+    "numpy>=1.26",
+    "pandas>=2.0",
+    "scikit-learn>=1.4",
+    "matplotlib>=3.8",
+    "tensorboard>=2.15",
+    "pillow>=10.0",
+    "pyyaml>=6.0",
+    "grad-cam>=1.5",  # pytorch-grad-cam (Gildenblat et al.), make explain
+    "captum>=0.7",    # Captum (Kokhlikyan et al. 2020), make explain
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "ruff>=0.5", "pre-commit>=3.6"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM"]
+ignore = [
+    "E402",  # scripts import _bootstrap before package imports
+    "B905",  # zip() without strict=: keep code runnable on older Pythons
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["animal_vit"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+filterwarnings = ["ignore::DeprecationWarning"]

@@ -1,0 +1,42 @@
+% Einleitung: 1/2-3/4 Seite, mit konkreten Beiträgen (Folie 16).
+\section{Einleitung}
+\label{sec:intro}
+
+Auf großen Datensätzen vortrainierte Vision Transformer (ViTs)~\cite{dosovitskiy2021vit} sind starke
+Ausgangspunkte für neue Bildklassifikationsaufgaben. Bei kleinen Zieldatensätzen stellt sich die Frage,
+\emph{wie} man sie anpasst: Nur einen neuen Klassifikator auf eingefrorenen Merkmalen zu trainieren
+(Linear Probing) ist günstig, trennt die Zielklassen aber womöglich nicht gut genug. Alle Gewichte zu
+aktualisieren (volles Fine-Tuning) ist teuer und kann die vortrainierten Merkmale
+verzerren~\cite{kumar2022finetuning}. Low-Rank Adaptation (LoRA)~\cite{hu2022lora} bietet einen
+Mittelweg: Die vortrainierten Gewichte bleiben eingefroren, gelernt werden nur kleine Änderungen niedrigen
+Rangs.
+
+Wir untersuchen diesen Zielkonflikt an einer feinkörnigen Aufgabe. Der Empfehlung folgend, nur eine
+Tierart zu verwenden, klassifizieren wir die 25 Hunderassen von Oxford-IIIT Pet~\cite{parkhi2012pets};
+Rassen derselben Art sehen sich ähnlich und unterscheiden sich in Details von Kopfform, Fell und
+Körperproportionen. Die Situation ist typisch für die Praxis: wenige gelabelte Bilder (etwa 90 pro
+Rasse für das Training), viele ähnliche Klassen und begrenzte Rechenleistung.
+
+\paragraph{Forschungsfrage.}
+Wie effizient lässt sich ein vortrainierter ViT an eine neue Aufgabe anpassen -- welche Accuracy
+erreichen Linear Probing und LoRA im Vergleich zu vollem Fine-Tuning und zu CNNs, und zu welchen Kosten?
+Wir prüfen vier Hypothesen:
+\textbf{A1} LoRA mit $<1\,\%$ trainierbaren Parametern liegt weniger als 2 Prozentpunkte unter vollem
+Fine-Tuning;
+\textbf{A2} Linear Probing ist bei feinkörnigen Rassen deutlich schlechter als LoRA;
+\textbf{A3} ein höherer LoRA-Rang als $r=8$ bringt wenig, mehr angepasste Layer bringen mehr;
+\textbf{A4} der beste ViT und die CNNs erreichen eine ähnliche Accuracy.
+
+\paragraph{Beiträge.}
+\begin{itemize}
+  \item Ein Vergleich von Linear Probing, LoRA und vollem Fine-Tuning des ViT-B/16 mit ResNet-50 und
+        ConvNeXt-T unter identischem Protokoll (drei Seeds, Modellauswahl nur auf Validation).
+  \item Eine LoRA-Ablation über Rang und angepasste Layer.
+  \item Eine Kosten-Nutzen-Analyse: Accuracy gegenüber trainierbaren Parametern und Trainingszeit sowie
+        der Einfluss der Datenaugmentierung.
+  \item Eine Analyse, \emph{warum} alle Methoden über 90\,\% erreichen (Training ohne Pretraining,
+        Überschneidung mit den ImageNet-Klassen, Suche nach Fast-Duplikaten), und Erklärungskarten,
+        worauf die Modelle schauen (\cref{sec:why,sec:explain}).
+  \item Eine Datenqualitätsanalyse der 25 Hunderassen sowie dokumentierter, reproduzierbarer Code
+        (\url{https://github.com/hsbi-dlcv-eskeif-dawalibi/hunderassen-vit}).
+\end{itemize}

@@ -1,0 +1,85 @@
+% Methode: 1-1 1/2 Seiten: Datensatz, Modelle, Parameter (Folie 16).
+\section{Methode}
+\label{sec:method}
+
+\subsection{Datensatz und Datenqualität}
+Wir verwenden die 25 Hunderassen von Oxford-IIIT Pet~\cite{parkhi2012pets} (CC BY-SA 4.0) und lassen
+die 12 Katzenrassen weg. Eine einzige Tierart macht die Aufgabe feinkörnig; wir wählten Hunde, weil es
+etwa doppelt so viele Bilder wie von Katzen gibt. Mit 25 Klassen liegen wir über den empfohlenen 5--10
+Klassen, jede Rasse hat aber noch etwa 200 Bilder. Der offizielle \texttt{trainval}-Split wird in
+Training und Validation geteilt (10\,\% pro Klasse, stratifiziert, fester Split-Seed); der offizielle
+\texttt{test}-Split wird einmal nach der Modellauswahl verwendet (\cref{tab:splits}).
+
+\begin{table}[t]
+  \centering
+  \caption{Splits der 25 Hunderassen (Zahlen in \texttt{runs/<name>/README.md}).}
+  \label{tab:splits}
+  \small
+  \begin{tabular}{lrl}
+    \toprule
+    Split & Bilder & Quelle \\
+    \midrule
+    Training   & 2\,242 & \texttt{trainval} ohne Validation \\
+    Validation & 250    & 10\,\% pro Rasse, stratifiziert \\
+    Test       & 2\,486 & offizieller \texttt{test}-Split \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\paragraph{Datenqualität.}
+Wir haben alle 4\,978 Bilder geprüft (\texttt{make data-report}). Die Klassen sind nahezu balanciert
+(189--200 Bilder pro Rasse). Alle Dateien liegen als RGB vor; 33 davon haben grauen Inhalt (identische
+Kanäle). Die Bildgröße liegt im Median bei $500\times375$\,px; 133 Bilder haben eine kürzere Seite unter
+224\,px und werden hochskaliert. Der Hund bedeckt im Mittel 40\,\% des Bildes, in 123 Bildern weniger als
+10\,\%. Exakte Duplikate gibt es nicht, daher wurde kein Bild entfernt. \Cref{fig:examples} im Anhang zeigt ein
+Beispiel pro Rasse.
+
+\paragraph{Augmentierung.}
+Unser Standard (\emph{light}) nutzt zufällige Ausschnitte mit Skalierung (60--100\,\% des Bildes) und
+horizontales Spiegeln. Vertikales Spiegeln und Farbtonänderungen vermeiden wir, weil Orientierung und
+Fellfarbe Rassemerkmale sind, und halten die Augmentierung beim Fine-Tuning eines vortrainierten Modells
+moderat (nur das Preset \emph{strong} enthält über RandAugment Farboperationen). \emph{strong} ergänzt
+RandAugment~\cite{cubuk2020randaugment} und Random Erasing~\cite{zhong2020erasing}; \emph{none} nutzt
+nur Skalierung und zentralen Zuschnitt.
+
+\subsection{Modelle und Training}
+Alle Modelle sind auf ImageNet~\cite{russakovsky2015imagenet} vortrainiert und werden mit Hugging Face
+Transformers~\cite{wolf2020transformers} auf PyTorch~\cite{paszke2019pytorch} geladen: ViT-B/16
+(\texttt{google/vit-base-patch16-224}, 86\,M Parameter mit unserem Kopf für 25 Klassen), ResNet-50
+(\texttt{microsoft/resnet-50}, 24\,M) und ConvNeXt-T (\texttt{facebook/convnext-tiny-224}, 28\,M). Wir
+trainieren mit AdamW (Weight Decay 0,05), Cosine-Schedule mit 10\,\% Warm-up, bis zu 10 Epochen mit
+Early Stopping, Batchgröße 32 und $224\times224$ Pixeln Eingabe. Jede Konfiguration läuft mit drei Seeds;
+wir berichten Mittelwert $\pm$ Standardabweichung auf dem Testsplit. Der Checkpoint wird auf dem
+Validierungssplit ausgewählt.
+
+\subsection{Anpassungsmethoden}
+\label{sec:methods}
+\paragraph{Linear Probing.} Der ViT-Backbone ist eingefroren; trainiert wird nur der neue lineare
+Klassifikator auf dem \texttt{[CLS]}-Token (Lernrate $10^{-3}$).
+
+\paragraph{LoRA.} Für ein eingefrorenes vortrainiertes Gewicht $W\in\mathbb{R}^{d_\text{out}\times
+d_\text{in}}$ lernt LoRA~\cite{hu2022lora} $A\in\mathbb{R}^{r\times d_\text{in}}$ und
+$B\in\mathbb{R}^{d_\text{out}\times r}$ mit Rang $r\ll d$:
+\begin{equation}
+  h = W x + \frac{\alpha}{r}\, B A x .
+  \label{eq:lora}
+\end{equation}
+In \cref{eq:lora} wird $B$ mit Nullen initialisiert, sodass das Training beim vortrainierten Modell
+beginnt. Wir passen die Query- und Value-Projektionen aller 12 Blöcke mit $r\in\{4,8,16\}$ an und für
+$r=8$ zusätzlich alle linearen Layer jedes Blocks (Key, Attention-Ausgabe, beide MLP-Layer). Wir setzen
+$\alpha=2r$, verwenden Dropout 0,1 im LoRA-Pfad und trainieren den Klassifikationskopf mit (Lernrate
+$5\cdot10^{-4}$). Nach dem Training wird $\frac{\alpha}{r}BA$ zu $W$ addiert; das angepasste Modell hat
+damit dieselbe Architektur und dieselben FLOPs wie der ursprüngliche ViT.
+
+\paragraph{Volles Fine-Tuning.} Alle Parameter werden trainiert (Lernrate $5\cdot10^{-5}$); das ist die
+Referenz, mit der die effizienten Methoden verglichen werden. Auch die CNNs werden vollständig
+feinjustiert. Gemäß Vorgabe werden sie nicht von Grund auf trainiert, sondern starten mit vortrainierten
+ImageNet-Gewichten und werden nur an unsere Aufgabe angepasst (Transfer Learning); das Training ohne
+Pretraining in \cref{sec:why} dient ausschließlich als Vergleich.
+
+\paragraph{Lernraten.} Die Lernraten der ViT-Methoden wurden einmal pro Methode festgelegt und nicht
+optimiert (größer bei weniger trainierbaren Parametern). Unsere ersten CNN-Läufe verwendeten die
+ViT-Lernrate $5\cdot10^{-5}$ und waren deutlich untertrainiert (Validation-Loss 1,35 bei ResNet-50). Daher
+haben wir die CNN-Lernrate auf dem \emph{Validierungssplit} aus $\{5\cdot10^{-5}, 2\cdot10^{-4},
+5\cdot10^{-4}, 10^{-3}\}$ mit je drei Seeds gewählt; $2\cdot10^{-4}$ war für beide CNNs am besten
+(\cref{tab:lr} im Anhang).

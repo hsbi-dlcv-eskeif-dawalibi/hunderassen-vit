@@ -1,0 +1,5 @@
+{
+  "ViT LoRA r=4": "runs/ms1_vit_b16_lora_r4_s1",
+  "ConvNeXt-T": "runs/ms1_convnext_t_s1",
+  "ResNet-50": "runs/ms1_resnet50_s1"
+}

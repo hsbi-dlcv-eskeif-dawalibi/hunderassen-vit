@@ -1,0 +1,53 @@
+# --- data & models (never commit; see docs/TECHNICAL.md) ---
+data/
+models/
+offline_models/
+*.pt
+*.pth
+*.safetensors
+*.bin
+*.npy
+
+# --- local training output (results worth keeping go to results/) ---
+runs/
+checkpoint-*/
+tmp_trainer/
+wandb/
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+build/
+dist/
+
+# --- notebooks ---
+.ipynb_checkpoints/
+
+# --- IDE / OS ---
+.idea/
+.vscode/
+.DS_Store
+
+# keep TensorBoard events inside results/
+!results/**/events.out.tfevents*
+
+# --- LaTeX build output (paper/) ---
+paper/**/*.aux
+paper/**/*.bbl
+paper/**/*.blg
+paper/**/*.brf
+paper/**/*.fdb_latexmk
+paper/**/*.fls
+paper/**/*.log
+paper/**/*.out
+paper/**/*.synctex.gz
+paper/**/main.pdf
+logs/
+.setup_done
+results_bundle_*.tar.gz
+runs_smoke/

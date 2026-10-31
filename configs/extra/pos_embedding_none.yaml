@@ -1,0 +1,18 @@
+# Extra analysis (not a station task): component swap 1: position embeddings removed.
+# The pretrained position embeddings are zeroed and frozen, so the encoder sees an
+# unordered bag of 196 patches. Small accuracy drop => the ViT classifies breeds from
+# local texture, large drop => it needs the spatial arrangement (shape).
+# Compare with configs/ms1/vit_b16.yaml and evaluate both with evaluate_variants.py
+# (patch_shuffle) and evaluate_shape_bias.py.
+name: extra_vit_pos_none
+model:
+  checkpoint: google/vit-base-patch16-224
+modifications:
+  positional_embedding: none
+training:
+  strategy: cosine
+  epochs: 10
+  learning_rate: 5.0e-5
+  extra:
+    weight_decay: 0.05
+    warmup_ratio: 0.1

@@ -1,0 +1,17 @@
+# Extra analysis (not a station task): component swap 1b: position embeddings shuffled.
+# The pretrained position vectors are randomly permuted across patch positions: the
+# spatial prior from pretraining is wrong and has to be re-learned during fine-tuning.
+# Compare with configs/ms1/vit_b16.yaml and evaluate both with evaluate_variants.py
+# (patch_shuffle) and evaluate_shape_bias.py.
+name: extra_vit_pos_shuffled
+model:
+  checkpoint: google/vit-base-patch16-224
+modifications:
+  positional_embedding: shuffled
+training:
+  strategy: cosine
+  epochs: 10
+  learning_rate: 5.0e-5
+  extra:
+    weight_decay: 0.05
+    warmup_ratio: 0.1

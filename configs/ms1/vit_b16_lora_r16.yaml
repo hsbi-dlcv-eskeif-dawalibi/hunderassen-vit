@@ -1,0 +1,26 @@
+# Station 1 "Adaptation" - ViT-B/16 with LoRA (Hu et al., ICLR 2022), rank 16.
+# Backbone frozen; trainable: low-rank updates B A (rank 16) in the query and value projections + classifier head.
+# The slides ask for "LoRA mit unterschiedlichen Parametern": compare vit_b16_lora_r4 / _r8 / _r16
+# (rank) and vit_b16_lora_r8_all (which layers are adapted).
+#
+#   make ms1-vit      # all ViT adaptation methods x SEEDS
+name: ms1_vit_b16_lora_r16
+model:
+  checkpoint: google/vit-base-patch16-224
+modifications:
+  trainable: lora
+  lora:
+    rank: 16
+    alpha: 32
+    dropout: 0.1
+    targets: qv
+data:
+  augmentation: light
+training:
+  strategy: cosine
+  epochs: 10
+  learning_rate: 5.0e-4
+  batch_size: 32
+  extra:
+    weight_decay: 0.05
+    warmup_ratio: 0.1

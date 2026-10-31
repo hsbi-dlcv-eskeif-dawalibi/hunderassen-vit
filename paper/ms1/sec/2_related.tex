@@ -1,0 +1,38 @@
+% Stand der Forschung: 3/4-1 Seite, mindestens 5 wissenschaftliche Quellen, nur relevante Arbeiten (Folie 16).
+\section{Stand der Forschung}
+\label{sec:related}
+
+\paragraph{Vision Transformer und CNNs.}
+Der ViT~\cite{dosovitskiy2021vit} zerlegt ein Bild in $16\times16$-Patches und verarbeitet sie mit einem
+Transformer-Encoder~\cite{vaswani2017attention}. ViTs brauchen ein großes Pretraining und profitieren
+bei wenigen Daten von Augmentierung und Regularisierung~\cite{steiner2022augreg}.
+ResNet~\cite{he2016resnet} führte Residual-Blöcke ein; ConvNeXt~\cite{liu2022convnext} modernisiert
+ResNet mit Designentscheidungen der Transformer und erreicht eine vergleichbare Accuracy.
+Faltungen bringen Lokalität und Translationsäquivarianz mit, eine induktive Verzerrung, die bei wenigen
+Daten hilft; globale Self-Attention muss die räumliche Struktur erst aus den Daten lernen, weshalb ViTs
+stärker auf großes Pretraining angewiesen sind~\cite{dosovitskiy2021vit,steiner2022augreg}.
+
+\paragraph{Transfer Learning und Linear Probing.}
+Kornblith \etal~\cite{kornblith2019transfer} vergleichen logistische Regression auf eingefrorenen
+Merkmalen mit vollem Fine-Tuning auf zwölf Datensätzen, darunter Oxford-IIIT Pet. Fine-Tuning hilft vor
+allem bei feinkörnigen Datensätzen, die weit von ImageNet entfernt sind, etwa Autos und Flugzeuge; bei
+Pets ist der Gewinn klein. Kumar \etal~\cite{kumar2022finetuning} zeigen, dass volles Fine-Tuning
+vortrainierte Merkmale verzerren kann, was vor allem außerhalb der Trainingsverteilung schadet, während
+Linear Probing sie erhält.
+
+\paragraph{Parameter-effizientes Fine-Tuning.}
+LoRA~\cite{hu2022lora} friert die vortrainierten Gewichte ein und lernt Änderungen niedrigen Rangs
+$\Delta W = BA$ ausgewählter Gewichtsmatrizen; nach dem Training wird die Änderung in $W$ eingerechnet,
+sodass die Inferenz nichts zusätzlich kostet. Hu \etal\ berichten, dass es genügt, nur die Query- und
+Value-Projektionen anzupassen, dass schon ein sehr kleiner Rang ausreicht und dass mehrere Gewichtsarten
+mit kleinerem Rang besser sind als eine einzige mit größerem Rang.
+
+\paragraph{Feinkörnige Klassifikation von Hunderassen.}
+Oxford-IIIT Pet~\cite{parkhi2012pets} (37 Katzen- und Hunderassen mit Segmentierungsmasken) und Stanford
+Dogs~\cite{khosla2011dogs} (120 Rassen) sind Standard-Benchmarks für die Rassenerkennung, bei der sich
+Klassen in feinen Details von Form und Fell unterscheiden.
+
+\paragraph{Datenaugmentierung.}
+RandAugment~\cite{cubuk2020randaugment} wendet zufällig gewählte Bildoperationen mit einer globalen
+Stärke an; Random Erasing~\cite{zhong2020erasing} (ähnlich CutOut) maskiert zufällige Bildbereiche.
+RandAugment ist Teil des AugReg-Rezepts für ViTs bei begrenzten Daten~\cite{steiner2022augreg}.

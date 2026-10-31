@@ -1,0 +1,21 @@
+# Station 1 "Adaptation" - ViT-B/16 linear probing.
+# Backbone frozen, only the new classifier head is trained (slides: "ViT: linear probing ...
+# nur Kopf nachtrainieren"; lecture 03: strategy for small datasets < 10k images).
+# A frozen backbone needs a larger learning rate for the new head than full fine-tuning.
+#
+#   make ms1-vit      # all ViT adaptation methods x SEEDS
+name: ms1_vit_b16_head
+model:
+  checkpoint: google/vit-base-patch16-224
+modifications:
+  trainable: head
+data:
+  augmentation: light
+training:
+  strategy: cosine
+  epochs: 10
+  learning_rate: 1.0e-3
+  batch_size: 32
+  extra:
+    weight_decay: 0.05
+    warmup_ratio: 0.1

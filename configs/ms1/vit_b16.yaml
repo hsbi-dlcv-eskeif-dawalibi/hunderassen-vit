@@ -1,0 +1,21 @@
+# Station 1 "Adaptation": fine-tune on Oxford-IIIT Pet, 25 dog breeds (data.species: dogs).
+# ViT-B/16 (86 M, ImageNet-21k -> 1k): the transformer of milestone 1
+#
+# Run three seeds:
+#   for s in 1 2 3; do python scripts/train.py configs/ms1/vit_b16.yaml --set training.seed=$s name=ms1_vit_b16_s$s; done
+#
+# Reference for station 1: full fine-tuning (all 86 M parameters trained). Not required by the
+# slides, but it is the upper bound that linear probing and LoRA are compared against.
+name: ms1_vit_b16
+model:
+  checkpoint: google/vit-base-patch16-224
+data:
+  augmentation: light
+training:
+  strategy: cosine
+  epochs: 10
+  learning_rate: 5.0e-5
+  batch_size: 32
+  extra:
+    weight_decay: 0.05
+    warmup_ratio: 0.1

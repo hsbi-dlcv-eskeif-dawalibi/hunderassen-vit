@@ -1,0 +1,21 @@
+# Normalise line endings for text files
+* text=auto eol=lf
+
+# --- Git LFS: binary artefacts ---
+# Images (figures, paper images)
+*.png filter=lfs diff=lfs merge=lfs -text
+*.jpg filter=lfs diff=lfs merge=lfs -text
+*.jpeg filter=lfs diff=lfs merge=lfs -text
+*.gif filter=lfs diff=lfs merge=lfs -text
+*.pdf filter=lfs diff=lfs merge=lfs -text
+
+# Model weights (should normally not be committed at all, see .gitignore)
+*.pt filter=lfs diff=lfs merge=lfs -text
+*.pth filter=lfs diff=lfs merge=lfs -text
+*.onnx filter=lfs diff=lfs merge=lfs -text
+*.safetensors filter=lfs diff=lfs merge=lfs -text
+*.zip filter=lfs diff=lfs merge=lfs -text
+
+# TensorBoard event files ending in ".0" (historic rule, kept so existing
+# pointers stay valid; event files with other suffixes are stored as normal blobs)
+*.0 filter=lfs diff=lfs merge=lfs -text

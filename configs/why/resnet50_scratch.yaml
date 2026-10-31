@@ -1,0 +1,20 @@
+# "Why so high?" (make why): ResNet-50 trained from RANDOM initialisation on the 25 dog breeds.
+# Same architecture, data, split and evaluation as station 1 (configs/ms1/resnet50.yaml); only the
+# pretrained weights are missing. The gap to station 1 is the contribution of pretraining.
+#
+# Budget as for the ViT: 30 epochs, patience 10, a larger learning rate than fine-tuning.
+name: why_resnet50_scratch
+model:
+  checkpoint: microsoft/resnet-50
+  pretrained: false
+data:
+  augmentation: light
+training:
+  strategy: cosine
+  epochs: 30
+  learning_rate: 1.0e-3
+  batch_size: 32
+  early_stopping_patience: 10
+  extra:
+    weight_decay: 0.05
+    warmup_ratio: 0.1

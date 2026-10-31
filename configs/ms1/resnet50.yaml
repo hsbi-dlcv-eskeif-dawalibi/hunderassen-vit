@@ -1,0 +1,24 @@
+# Station 1 "Adaptation": fine-tune on Oxford-IIIT Pet, 25 dog breeds (data.species: dogs).
+# ResNet-50 (25 M, ImageNet-1k): classic CNN with residual blocks (lecture 02)
+#
+# Run three seeds:
+#   for s in 1 2 3; do python scripts/train.py configs/ms1/resnet50.yaml --set training.seed=$s name=ms1_resnet50_s$s; done
+#
+# Station 1 "CNN: Training einer CNN-Architektur": full fine-tuning (trainable: all), same
+# protocol as the ViT runs.
+name: ms1_resnet50
+model:
+  checkpoint: microsoft/resnet-50
+data:
+  augmentation: light
+training:
+  strategy: cosine
+  epochs: 10
+  # Chosen on VALIDATION with `make ms1-cnn-lr CNN=resnet50` (5e-5, 2e-4, 5e-4, 1e-3 x 3 seeds,
+  # results/ms1/lr_sweep_resnet50.md). The ViT rate 5e-5 left the CNN under-trained (high validation
+  # loss, poor calibration); a new head plus BatchNorm/LayerNorm layers need a larger step.
+  learning_rate: 2.0e-4
+  batch_size: 32
+  extra:
+    weight_decay: 0.05
+    warmup_ratio: 0.1
