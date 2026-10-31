@@ -7,13 +7,13 @@
 
 \begin{figure*}[t]
   \centering
-  \begin{subfigure}[b]{0.6\textwidth}
+  \begin{subfigure}[c]{0.6\textwidth}
     \centering
     \resultfigure{data_quality/examples.png}{\linewidth}{Beispiel pro Rasse mit Maskenumriss}
     \caption{Ein Trainingsbild pro Rasse; gelb: Umriss der Segmentierungsmaske.}
     \label{fig:examples}
   \end{subfigure}\hfill
-  \begin{subfigure}[b]{0.37\textwidth}
+  \begin{subfigure}[c]{0.37\textwidth}
     \centering
     \resultfigure{data_quality/class_counts.png}{\linewidth}{Bilder pro Rasse}
     \caption{Zahl der Bilder pro Rasse (trainval und test).}
@@ -108,7 +108,7 @@ Seeds falsch klassifiziert.
   \centering
   \begin{subfigure}{\textwidth}
     \centering
-    \resultfigure{explain/head_examples.png}{0.82\textwidth}{Kopf-Box und Grad-CAM}
+    \resultfigure{explain/head_examples.png}{0.88\textwidth}{Kopf-Box und Grad-CAM}
     \caption{Grad-CAM-Karten und annotierte Kopf-Box (weiß) auf Validierungsbildern; Zeilen: Modelle.}
     \label{fig:head}
   \end{subfigure}
@@ -116,7 +116,7 @@ Seeds falsch klassifiziert.
   \vspace{0.8em}
   \begin{subfigure}{\textwidth}
     \centering
-    \resultfigure{explain/contrastive_convnext_t.png}{0.5\textwidth}{Kontrastive Karten}
+    \resultfigureh{explain/contrastive_convnext_t.png}{13.2cm}{Kontrastive Karten}
     \caption{Warum Rasse $A$ und nicht $B$? Für die häufigsten Verwechslungen: Grad-CAM für $A$ und $B$,
     kontrastive Karte $A-B$ und Occlusion für $A$ (ConvNeXt-T, Testbilder).}
     \label{fig:contrastive}
@@ -143,11 +143,6 @@ kleineren Wert (1,3), passend zu bekannten Grenzen von Grad-CAM bei Transformern
 die häufigsten Verwechslungen.
 
 
-
-
-\section{Bilder pro Rasse}
-\label{sec:breeds}
-\Cref{fig:examples} zeigt ein Trainingsbild pro Rasse, \cref{fig:class_counts} die Zahl der Bilder pro Rasse.
 
 
 \section{Software und KI-Hilfsmittel}

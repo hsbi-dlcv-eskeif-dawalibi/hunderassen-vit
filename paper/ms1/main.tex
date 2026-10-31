@@ -20,6 +20,11 @@
 \newcommand{\resultsdir}{../../results}
 \newcommand{\resultfigure}[3]{% #1 file below results/, #2 width, #3 TODO text
   \IfFileExists{\resultsdir/#1}{\includegraphics[width=#2]{\resultsdir/#1}}{\fbox{\parbox{0.9\linewidth}{\TODO{#3 (\texttt{results/\detokenize{#1}})}}}}}
+% Same, but limited by height (tall figures).
+\newcommand{\resultfigureh}[3]{%
+  \IfFileExists{\resultsdir/#1}{\includegraphics[height=#2]{\resultsdir/#1}}{\fbox{\parbox{0.9\linewidth}{\TODO{#3 (\texttt{results/\detokenize{#1}})}}}}}
+% Matriculation numbers: local file matrikel.tex (git-ignored, defines \matrline); optional.
+\IfFileExists{matrikel.tex}{\input{matrikel}}{\newcommand{\matrline}{}}
 % Rows of the method table (decided here, because \IfFileExists cannot start a table cell).
 \makeatletter
 \IfFileExists{\resultsdir/ms1/tables.tex}%
@@ -52,6 +57,7 @@
 
 %%%%%%%%% AUTHORS (same institution: one block, see author kit)
 \author{Wael Eskeif \qquad Tarek Dawalibi\\
+{\small\matrline}\\
 Hochschule Bielefeld (HSBI), Campus Minden\\
 {\small Deep Learning for Computer Vision, WS 2026/27 \quad
 Code: \url{https://github.com/hsbi-dlcv-eskeif-dawalibi/hunderassen-vit} (Tag \texttt{ms1})}
