@@ -66,6 +66,13 @@ Batchgröße 32, $224\times224$ Pixel Eingabe, Augmentierung \emph{light}, Seeds
   \end{tabular}}
 \end{table}
 
+\begin{figure}[h]
+  \centering
+  \resultfigure{ms1/validation_curves.png}{\linewidth}{Lernkurven}
+  \caption{Validation-Accuracy über den Epochen für alle Methoden (Mittelwert über 3 Seeds).}
+  \label{fig:curves}
+\end{figure}
+
 \section{Warum sind die Accuracies so hoch?}
 \label{sec:why}
 Alle Zahlen aus \texttt{results/why/REPORT.md} (\texttt{make why}).
@@ -79,9 +86,13 @@ ImageNet-Gewichten (Zufall: 4\,\%).
 fehlen nur American Bulldog, Havanese und Shiba Inu. Ganz ohne Training klassifizieren die
 ursprünglichen ImageNet-Köpfe unserer Checkpoints die Testbilder dieser 22 Rassen (Auswahl unter den 22)
 mit 96,20\,\% (ViT-B/16), 96,75\,\% (ResNet-50) und 96,52\,\% (ConvNeXt-T). LoRA $r=4$ erreicht auf
-denselben Bildern 95,88\,\%, bei Auswahl unter allen 25 Rassen.
+denselben Bildern 95,88\,\%, bei Auswahl unter allen 25 Rassen. Die Zuordnung von Rasse zu
+ImageNet-Klasse erfolgt über den Namen (Tabelle in \texttt{animal\_vit/why.py}); sie ist eine Annahme. Der
+American Pit Bull Terrier wird der Klasse ``American Staffordshire terrier'' zugeordnet, Japanese Chin
+``Japanese spaniel'', Scottish Terrier ``Scotch terrier'' und German Shorthaired ``German short-haired
+pointer''. Bei diesen Rassen kann die Zuordnung strittig sein.
 
-\paragraph{Eingefrorene Merkmale.} Eine logistische Regression auf eingefrorenen Merkmalen (alle
+\paragraph{Eingefrorene Merkmale.} Eine logistische Regression~\cite{pedregosa2011sklearn} auf eingefrorenen Merkmalen (alle
 Trainingsbilder) erreicht 95,94\,\% (ViT-B/16) und 96,06\,\% (ResNet-50), gegenüber 95,39 und 94,22\,\%
 nach vollem Fine-Tuning. Mit einem Bild pro Rasse erreicht sie $84{,}66\pm2{,}63$ und
 $87{,}41\pm1{,}91$\,\% (\cref{fig:fewshot}).
@@ -148,7 +159,7 @@ die häufigsten Verwechslungen.
 \section{Software und KI-Hilfsmittel}
 \label{sec:tools}
 Die Experimente nutzen PyTorch~\cite{paszke2019pytorch}, Hugging Face
-Transformers~\cite{wolf2020transformers}, scikit-learn, pytorch-grad-cam~\cite{gildenblat2021gradcam}
+Transformers~\cite{wolf2020transformers}, scikit-learn~\cite{pedregosa2011sklearn}, pytorch-grad-cam~\cite{gildenblat2021gradcam}
 und Captum~\cite{kokhlikyan2020captum}.
 % Erklärung zur KI-Nutzung (Modulregeln, Vorlesung 01, Folie 13). Wortlaut vor der Abgabe mit dem
 % Dozenten abstimmen und an das anpassen, was ihr tatsächlich gemacht habt.

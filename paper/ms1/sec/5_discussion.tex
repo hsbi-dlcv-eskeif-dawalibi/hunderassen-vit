@@ -12,7 +12,7 @@ LoRA $r=8$ ist nominell die beste Methode (96,21\,\%), doch Linear Probing (96,0
 (\cref{sec:why}) legen nahe, warum ein eingefrorener Backbone genügt: Die vortrainierten Merkmale
 trennen die Rassen bereits. Eine logistische Regression auf eingefrorenen ViT-B/16-Merkmalen erreicht
 95,9\,\%, mit nur einem Bild pro Rasse schon 84,7\,\%. Zudem sind 22 unserer 25 Rassen
-ImageNet-1k-Klassen~\cite{russakovsky2015imagenet}; bei Auswahl unter diesen 22 Rassen erreichen die
+ImageNet-1k-Klassen~\cite{russakovsky2015imagenet} (Zuordnung im Anhang); bei Auswahl unter diesen 22 Rassen erreichen die
 ursprünglichen ImageNet-Köpfe 96,2--96,8\,\%, ohne ein einziges Bild unseres Trainingssatzes gesehen zu
 haben. Die Anpassung muss also keine Rassenmerkmale lernen, sondern vor allem vorhandene Merkmale auf
 unsere Klassen abbilden, und das leistet ein linearer Kopf. Volles Fine-Tuning aktualisiert dagegen 86\,M
@@ -25,14 +25,14 @@ Trainingsverfahren, der Vergleich ist daher nur ein Hinweis).
 
 \paragraph{Lohnt sich LoRA? (A1, A2)}
 A1 ist bestätigt: Mit 0,19--0,70\,\% trainierbaren Parametern ist LoRA nie schlechter als volles
-Fine-Tuning, und LoRA $r=8$ ist sogar signifikant besser ($+0{,}82$\,pp bei einer Schwelle von
-0,78\,pp); die anderen Ränge liegen innerhalb der Streuung. A2 ist widerlegt: Linear Probing liegt nur
+Fine-Tuning, und LoRA $r=8$ ist sogar besser ($+0{,}82$\,pp bei einer Schwelle von
+0,78\,pp); die anderen Ränge liegen innerhalb der Streuung. A2 wird nicht gestützt: Linear Probing liegt nur
 0,17\,pp hinter der besten LoRA-Variante, innerhalb des Rauschens, trainiert dabei 16-mal weniger
 Parameter als LoRA $r=8$ und ist am schnellsten fertig (im Mittel 0,3\,min; seine beste Epoche,
-$3{,}7\pm1{,}2$, ist nominell auch die früheste). Auf diesem Datensatz gilt die Empfehlung der Vorlesung,
-bei weniger als 10\,k Bildern nur den Kopf zu trainieren, sogar für feinkörnige Rassen. Gegenüber
-Adapter-Methoden, die zur Inferenz zusätzliche Module brauchen, hat LoRA den Vorteil, dass die Änderung in
-die Gewichte eingerechnet wird.
+$3{,}7\pm1{,}2$, ist nominell auch die früheste). Das passt zur gängigen Empfehlung, bei kleinen Datensätzen
+und ähnlicher Domäne nur die späten Schichten anzupassen~\cite{yosinski2014transferable}, und gilt hier
+sogar für feinkörnige Rassen. Gegenüber Adaptern~\cite{houlsby2019adapter}, die zur Inferenz zusätzliche
+Module berechnen, hat LoRA den Vorteil, dass die Änderung in die Gewichte eingerechnet wird.
 
 \paragraph{Rang und angepasste Layer (A3).}
 Der erste Teil von A3 ist bestätigt, der zweite nicht. Die Ränge 4, 8 und 16 unterscheiden sich um etwa
@@ -43,10 +43,10 @@ Kapazität im Adapter ungenutzt zu bleiben, wenn die eingefrorenen Merkmale bere
 
 \paragraph{ViT gegen CNN (A4).}
 Das beste CNN (ConvNeXt-T, 94,78\,\%) liegt 1,42\,pp unter dem besten ViT. Der Abstand ist kleiner als
-2\,pp, übersteigt aber die Seed-Streuung (Schwelle 0,92\,pp); A4 ist daher im strengen Sinn widerlegt:
+2\,pp, übersteigt aber die Seed-Streuung (Schwelle 0,92\,pp); A4 wird daher im strengen Sinn nicht gestützt:
 Die Accuracies liegen nah beieinander, unterscheiden sich aber systematisch. Unsere Probes auf
 eingefrorenen Merkmalen deuten auf die Ursache. Mit Linear Probe sind die Merkmale von ResNet-50
-(96,1\,\%, nur ImageNet-1k) so gut wie die von ViT-B/16 (95,9\,\%, ImageNet-21k und 1k). Der Abstand
+(96,1\,\%, nur ImageNet-1k) so gut wie die von ViT-B/16 (95,9\,\%, ImageNet-21k und -1k~\cite{deng2009imagenet}). Der Abstand
 scheint also von der Anpassung der CNNs durch volles Fine-Tuning zu kommen, das auch beim ViT die
 schwächste Methode ist, und nicht von einem besseren Pretraining des ViT. Eine methodische Lehre betrifft
 die Lernrate: Mit der ViT-Lernrate ($5\cdot10^{-5}$) war ResNet-50 untertrainiert (Validation-Accuracy
@@ -59,8 +59,7 @@ ohne ImageNet-Klasse erreichen mit Linear Probing einen etwas kleineren F1-Wert 
 96,2\,\%), vor allem wegen des American Bulldog, der mit ähnlichen Rassen verwechselt wird. Für Daten fern
 von ImageNet (andere Bilddomänen, Klassen ohne Entsprechung im Pretraining) oder für deutlich größere
 Datensätze dürften eingefrorene Merkmale nicht mehr genügen, und LoRA oder volles Fine-Tuning sollten
-vorn liegen, wie Kornblith \etal~\cite{kornblith2019transfer} für Autos und Flugzeuge beobachten und wie
-es die Strategietabelle der Vorlesung nahelegt. Training ohne Pretraining ist bei dieser Datenmenge keine
+vorn liegen, wie Kornblith \etal~\cite{kornblith2019transfer} für Autos und Flugzeuge beobachten. Training ohne Pretraining ist bei dieser Datenmenge keine
 Alternative: ViT-B/16 erreicht nur 11,2\,\% und ResNet-50 31,1\,\%; der Vorsprung des CNN geht
 vermutlich auf die induktive Verzerrung der Faltungen zurück.
 
@@ -75,9 +74,25 @@ verbleibenden Fehler konzentrieren sich: Die vier Bully-Rassen machen 16\,\% der
 verursachen aber 59\,\% aller Fehler. Diese Rassen sehen sich auf Fotos sehr ähnlich und unterscheiden
 sich vor allem in Größe und Proportionen, die ein Bild ohne Maßstab kaum zeigt.
 
+\paragraph{Einordnung in die Literatur.}
+Kornblith \etal~\cite{kornblith2019transfer} messen auf Oxford-IIIT Pet nur einen kleinen Gewinn von
+Fine-Tuning gegenüber eingefrorenen Merkmalen; unser Befund, dass ein linearer Kopf genügt und volles
+Fine-Tuning nicht besser ist, passt dazu. Absolute Werte sind nicht direkt vergleichbar, weil jene Arbeit
+alle 37 Rassen mit der mittleren Accuracy pro Klasse auswertet und wir 25 Hunderassen mit Gesamt-Accuracy.
+Kumar \etal~\cite{kumar2022finetuning} sehen den Schaden durch Fine-Tuning vor allem außerhalb der
+Trainingsverteilung, die wir nicht getestet haben.
+
 \paragraph{Limitationen.}
 Wir verwenden einen Datensatz, dessen Klassen großteils in ImageNet vorkommen; der Vorteil von Linear
-Probing muss sich daher nicht auf andere Domänen übertragen. Nur die CNN-Lernrate wurde optimiert, die
+Probing muss sich daher nicht auf andere Domänen übertragen. Zudem können Oxford-IIIT-Pet-Bilder selbst
+im Pretraining enthalten sein (ImageNet und Pet stammen beide aus dem Web); wir haben das nicht geprüft,
+und es würde die hohen Werte der ImageNet-Köpfe ohne Training teilweise erklären. Der Vergleich von ViT
+und CNNs ist nicht streng gleich: ViT-B/16 hat 86\,M statt 24--28\,M Parameter und wurde auf
+ImageNet-21k vortrainiert, die CNNs nur auf ImageNet-1k; der Abstand von 1,4\,pp misst daher die Kombination
+aus Architektur, Größe und Pretraining. Unsere Schwelle (Methode) ist konservativer als ein gepaarter
+Vergleich je Seed; ein solcher würde auch die kleinen Rückstände von LoRA $r=16$ und von LoRA auf allen
+Layern gegenüber $r=8$ (0,24 und 0,39\,pp) als konsistent einstufen, was an den Schlussfolgerungen nichts
+ändert, weil beide nicht besser sind. Nur die CNN-Lernrate wurde optimiert, die
 ViT-Methoden nutzen je eine feste Lernrate. Drei Seeds und ein Validierungssplit mit 250 Bildern (ein
 Bild entspricht 0,4\,pp; die Modellauswahl für Station~2 war ein Gleichstand) begrenzen die Auflösung
 kleiner Unterschiede. Die Trainingszeiten wurden auf einer einzigen GPU gemessen.

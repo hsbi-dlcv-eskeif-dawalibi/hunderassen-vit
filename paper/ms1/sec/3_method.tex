@@ -43,14 +43,22 @@ RandAugment~\cite{cubuk2020randaugment} und Random Erasing~\cite{zhong2020erasin
 nur Skalierung und zentralen Zuschnitt.
 
 \subsection{Modelle und Training}
-Alle Modelle sind auf ImageNet~\cite{russakovsky2015imagenet} vortrainiert und werden mit Hugging Face
+Alle Modelle sind auf ImageNet~\cite{deng2009imagenet,russakovsky2015imagenet} vortrainiert und werden mit Hugging Face
 Transformers~\cite{wolf2020transformers} auf PyTorch~\cite{paszke2019pytorch} geladen: ViT-B/16
-(\texttt{google/vit-base-patch16-224}, 86\,M Parameter mit unserem Kopf für 25 Klassen), ResNet-50
+(\texttt{google/vit-base-patch16-224}, auf ImageNet-21k vor- und auf ImageNet-1k nachtrainiert; 86\,M Parameter mit unserem Kopf für 25 Klassen), ResNet-50
 (\texttt{microsoft/resnet-50}, 24\,M) und ConvNeXt-T (\texttt{facebook/convnext-tiny-224}, 28\,M). Wir
-trainieren mit AdamW (Weight Decay 0,05), Cosine-Schedule mit 10\,\% Warm-up, bis zu 10 Epochen mit
+trainieren mit AdamW~\cite{loshchilov2019adamw} (Weight Decay 0,05) und Cosine-Schedule~\cite{loshchilov2017sgdr}
+mit 10\,\% Warm-up, bis zu 10 Epochen mit
 Early Stopping, Batchgröße 32 und $224\times224$ Pixeln Eingabe. Jede Konfiguration läuft mit drei Seeds;
 wir berichten Mittelwert $\pm$ Standardabweichung auf dem Testsplit. Der Checkpoint wird auf dem
 Validierungssplit ausgewählt.
+
+\paragraph{Auswertung.}
+Wir berichten Accuracy und Macro-F1. Einen Unterschied zwischen zwei Methoden interpretieren wir nur, wenn
+die Differenz der Mittelwerte größer ist als das Doppelte der größeren Seed-Standardabweichung beider
+Methoden (\emph{Schwelle}); alle Aussagen wie ``innerhalb der Streuung'' beziehen sich darauf. Mit drei
+Seeds ist das ein grobes Kriterium und kein statistischer Test; die Schwelle ist konservativer als ein
+gepaarter Vergleich je Seed (siehe Limitationen).
 
 \subsection{Anpassungsmethoden}
 \label{sec:methods}
