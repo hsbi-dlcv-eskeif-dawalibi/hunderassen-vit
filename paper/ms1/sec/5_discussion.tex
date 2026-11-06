@@ -66,7 +66,7 @@ Rückstand verkleinern oder umkehren.
 LoRA mit weniger als 1\,\% trainierbaren Parametern ist nie schlechter als volles Fine-Tuning; der Vorsprung
 von $r=8$ liegt nur knapp über der Schwelle und sollte nicht überbewertet werden. Linear Probing trainiert
 16-mal weniger Parameter als LoRA $r=8$ bei gleicher Accuracy.
-Ein höherer Rang und mehr angepasste Layer bringen nichts: Zusätzliche Kapazität bleibt
+Ein höherer Rang und mehr angepasste Layer bringen keinen messbaren Gewinn: Zusätzliche Kapazität bleibt
 vermutlich ungenutzt, wenn die eingefrorenen Merkmale schon gut sind.
 
 \paragraph{ViT gegen CNN (A4).}
@@ -74,7 +74,7 @@ Der Abstand von 1,42\,pp zwischen bestem ViT und ConvNeXt-T ist klein, aber grö
 misst die Kombination aus Architektur, Größe (86 gegenüber 24--28\,M Parameter) und Pretraining
 (ImageNet-21k und -1k~\cite{deng2009imagenet} gegenüber nur -1k), nicht Architektur allein. Auf
 eingefrorenen Merkmalen sind ResNet-50 (96,1\,\%) und ViT-B/16 (95,9\,\%) gleich gut; der Abstand
-entsteht also beim Fine-Tuning der CNNs und nicht durch besseres Pretraining des ViT. Mit der ViT-Lernrate war ResNet-50 untertrainiert; erst die auf Validation gewählte
+scheint also beim Fine-Tuning der CNNs zu entstehen und nicht durch besseres Pretraining des ViT. Mit der ViT-Lernrate war ResNet-50 untertrainiert; erst die auf Validation gewählte
 Lernrate (\cref{tab:lr}) macht den Vergleich fair.
 
 \paragraph{Auf welchen Daten würde eine andere Methode gewinnen?}
