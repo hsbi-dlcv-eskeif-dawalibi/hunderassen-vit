@@ -71,7 +71,7 @@ def efficiency(methods_csv: Path, out: Path) -> None:
     import pandas as pd
 
     df = pd.read_csv(methods_csv).set_index("group")
-    fig, ax = plt.subplots(figsize=(COLUMN, 3.15))
+    fig, ax = plt.subplots(figsize=(COLUMN, 2.85))
     for group, label in LABELS.items():
         r = df.loc[group]
         marker, color = STYLE[group]
@@ -107,7 +107,7 @@ def curves(runs_dir: Path, out: Path) -> None:
             if "eval_accuracy" in entry:
                 rows.append({"group": group, "epoch": round(entry["epoch"]), "acc": entry["eval_accuracy"]})
     df = pd.DataFrame(rows).groupby(["group", "epoch"]).acc.mean().reset_index()
-    fig, ax = plt.subplots(figsize=(COLUMN, 2.7))
+    fig, ax = plt.subplots(figsize=(COLUMN, 2.5))
     for group in LABELS:
         marker, color = STYLE[group]
         part = df[df.group == group]

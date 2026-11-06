@@ -4,7 +4,7 @@
 
 \subsection{Datensatz und Datenqualität}
 Wir verwenden die 25 Hunderassen von Oxford-IIIT Pet~\cite{parkhi2012pets} (CC BY-SA 4.0) und lassen
-die 12 Katzenrassen weg. Eine einzige Tierart macht die Aufgabe feinkörnig; wir wählten Hunde, weil es
+die 12 Katzenrassen weg. Eine einzige Tierart macht die Aufgabe feinkörnig; haben wir Hunde gewählt, weil es
 etwa doppelt so viele Bilder wie von Katzen gibt. Mit 25 Klassen liegen wir über den vom Modul empfohlenen 5--10
 Klassen, jede Rasse hat aber noch etwa 200 Bilder. Der offizielle \texttt{trainval}-Split wird in
 Training und Validation geteilt (10\,\% pro Klasse, stratifiziert, fester Split-Seed); der offizielle
@@ -51,7 +51,7 @@ Erasing~\cite{zhong2020erasing} (zufällig maskierte Bildbereiche), \emph{none} 
 \subsection{Modelle und Training}
 Alle Modelle sind auf ImageNet~\cite{deng2009imagenet,russakovsky2015imagenet} vortrainiert und werden mit Hugging Face
 Transformers~\cite{wolf2020transformers} auf PyTorch~\cite{paszke2019pytorch} geladen: ViT-B/16
-(\texttt{google/vit-base-patch16-224}, auf ImageNet-21k vor- und auf ImageNet-1k nachtrainiert; 86\,M Parameter mit unserem Kopf für 25 Klassen), ResNet-50
+(\texttt{google/vit-base-patch16-224}, auf ImageNet-21k vortrainiert und auf ImageNet-1k feinjustiert; 86\,M Parameter mit unserem Kopf für 25 Klassen), ResNet-50
 (\texttt{microsoft/resnet-50}, 24\,M) und ConvNeXt-T (\texttt{facebook/convnext-tiny-224}, 28\,M). Wir
 trainieren mit AdamW~\cite{loshchilov2019adamw} (Weight Decay 0,05) und Cosine-Schedule~\cite{loshchilov2017sgdr}
 mit 10\,\% Warm-up, bis zu 10 Epochen mit
@@ -87,7 +87,7 @@ damit dieselbe Architektur und dieselben FLOPs wie der ursprüngliche ViT.
 
 \paragraph{Volles Fine-Tuning.} Alle Parameter werden trainiert (Lernrate $5\cdot10^{-5}$); das ist die
 Referenz, mit der die effizienten Methoden verglichen werden. Auch die CNNs werden vollständig
-feinjustiert. Gemäß Vorgabe werden sie nicht von Grund auf trainiert, sondern starten mit vortrainierten
+angepasst. Gemäß Vorgabe des Dozenten werden sie nicht von Grund auf trainiert, sondern starten mit vortrainierten
 ImageNet-Gewichten und werden nur an unsere Aufgabe angepasst (Transfer Learning); das Training ohne
 Pretraining in \cref{sec:why} dient ausschließlich als Vergleich.
 

@@ -236,6 +236,8 @@ def latex_rows(summary) -> str:
         train = "-" if tr != tr or tr is None else f"{tr / 1e6:.2f}\\,M"
         time = r.get("train_min_mean")
         time_text = "-" if time != time or time is None else f"{time:.1f}"
+        gf = r.get("gflops_mean")
+        gflops = "-" if gf != gf or gf is None else f"{gf:.1f}"
         acc = pm(r, "accuracy").replace("±", "$\\pm$")
         f1 = pm(r, "f1_macro").replace("±", "$\\pm$")
         if r["accuracy_mean"] == best_acc:
@@ -244,7 +246,7 @@ def latex_rows(summary) -> str:
             f1 = f"\\textbf{{{f1}}}"
         lines.append(
             f"{LATEX_LABELS.get(r['label'], r['label'])} & "
-            + decimal_comma(f"{acc} & {f1} & {train} & {time_text}")
+            + decimal_comma(f"{acc} & {f1} & {train} & {time_text} & {gflops}")
             + " \\\\"
         )
     return "\n".join(lines) + "\n"

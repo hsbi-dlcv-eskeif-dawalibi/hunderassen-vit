@@ -47,7 +47,7 @@ nennt \cref{tab:repro}.
   \end{tabular}
 \end{table}
 
-\section{Warum sind die Accuracies so hoch?}
+\section{Warum sind die Werte so hoch?}
 \label{sec:why}
 
 \paragraph{Pretraining.} Zufällig initialisiert und mit denselben Daten und derselben Auswertung
@@ -66,9 +66,9 @@ American Pit Bull Terrier wird der Klasse \glqq American Staffordshire terrier\g
 pointer\grqq{}. Bei diesen Rassen kann die Zuordnung strittig sein.
 
 \paragraph{Eingefrorene Merkmale.} Eine logistische Regression~\cite{pedregosa2011sklearn} auf eingefrorenen Merkmalen mit allen
-Trainingsbildern (anders als das trainierte \emph{Linear Probing} im Hauptteil, und auch für ResNet-50
-verfügbar) erreicht 95,94\,\% (ViT-B/16) und 96,06\,\% (ResNet-50), gegenüber 95,39 und 94,22\,\%
-nach vollem Fine-Tuning. Mit einem Bild pro Rasse erreicht sie $84{,}66\pm2{,}63$ und
+Trainingsbildern erreicht 95,94\,\% (ViT-B/16) und 96,06\,\% (ResNet-50), gegenüber 95,39 und 94,22\,\%
+nach vollem Fine-Tuning. Sie unterscheidet sich vom trainierten Kopf des \emph{Linear Probing} im Hauptteil
+und liegt auch für ResNet-50 vor. Mit einem Bild pro Rasse erreicht sie $84{,}66\pm2{,}63$ und
 $87{,}41\pm1{,}91$\,\% (\cref{fig:fewshot} im Hauptteil).
 
 \paragraph{Fast-Duplikate.} Für jedes Testbild haben wir die Kosinus-Ähnlichkeit zum ähnlichsten Trainings-

@@ -37,10 +37,10 @@ ursprünglichen ImageNet-Köpfe erreichen bei Auswahl unter diesen 22 Rassen 96,
 unseres Trainingssatzes gesehen zu haben (auch Kornblith \etal~\cite{kornblith2019transfer} betonen, dass die meisten Pet-Rassen
 ImageNet-Klassen entsprechen). Die Anpassung muss also vor allem vorhandene Merkmale auf unsere
 Klassen abbilden, und das leistet ein linearer Kopf; das passt dazu, dass vortrainierte Merkmale weitgehend
-übertragbar sind und vor allem späte Schichten aufgabenspezifisch~\cite{yosinski2014transferable}. Volles
-Fine-Tuning aktualisiert dagegen 86\,M Parameter mit 2\,242 Bildern und liegt darunter, in Einklang damit,
+übertragbar sind und vor allem späte Schichten aufgabenspezifisch sind~\cite{yosinski2014transferable}. Volles
+Fine-Tuning aktualisiert dagegen 86\,M Parameter mit 2\,242 Bildern und liegt darunter, was dazu passt,
 dass es gute Merkmale verzerren kann~\cite{kumar2022finetuning}. Wichtige Einschränkung: Kornblith \etal\ finden, dass Fine-Tuning ab einigen hundert Bildern meist besser
-ist als eingefrorene Merkmale, mit abgestimmten Hyperparametern. Unsere Lernrate für volles Fine-Tuning
+ist als eingefrorene Merkmale (bei abgestimmten Hyperparametern). Unsere Lernrate für volles Fine-Tuning
 ($5\cdot10^{-5}$) wurde nicht optimiert, die der CNNs schon; ein besser abgestimmtes Fine-Tuning könnte den
 Rückstand verkleinern oder umkehren.
 
@@ -65,23 +65,24 @@ Rückstand verkleinern oder umkehren.
 \paragraph{LoRA, Rang und Layer (A1--A3).}
 LoRA mit weniger als 1\,\% trainierbaren Parametern ist nie schlechter als volles Fine-Tuning; der Vorsprung
 von $r=8$ liegt nur knapp über der Schwelle und sollte nicht überbewertet werden. Linear Probing trainiert
-16-mal weniger Parameter als LoRA $r=8$ bei gleicher Accuracy.
+16-mal weniger Parameter als LoRA $r=8$ bei vergleichbarer Accuracy.
 Ein höherer Rang und mehr angepasste Layer bringen keinen messbaren Gewinn: Zusätzliche Kapazität bleibt
 vermutlich ungenutzt, wenn die eingefrorenen Merkmale schon gut sind.
 
 \paragraph{ViT gegen CNN (A4).}
 Der Abstand von 1,42\,pp zwischen bestem ViT und ConvNeXt-T ist klein, aber größer als die Schwelle. Er
-misst die Kombination aus Architektur, Größe (86 gegenüber 24--28\,M Parameter) und Pretraining
-(ImageNet-21k und -1k~\cite{deng2009imagenet} gegenüber nur -1k), nicht Architektur allein. Auf
+misst Architektur, Größe (86 gegenüber 24--28\,M Parameter) und Pretraining (ImageNet-21k und
+-1k~\cite{deng2009imagenet} gegenüber nur -1k) zusammen, nicht die Architektur allein. Auf
 eingefrorenen Merkmalen sind ResNet-50 (96,1\,\%) und ViT-B/16 (95,9\,\%) gleich gut; der Abstand
 scheint also beim Fine-Tuning der CNNs zu entstehen und nicht durch besseres Pretraining des ViT. Mit der ViT-Lernrate war ResNet-50 untertrainiert; erst die auf Validation gewählte
 Lernrate (\cref{tab:lr}) macht den Vergleich fair.
 
 \paragraph{Auf welchen Daten würde eine andere Methode gewinnen?}
-Wie nah ImageNet liegt, erklärt unsere Ergebnisse nur teilweise. Die drei Rassen ohne ImageNet-Klasse
+Die Nähe zu ImageNet erklärt unsere Ergebnisse nur teilweise. Die drei Rassen ohne ImageNet-Klasse
 erreichen mit Linear Probing im Mittel einen kleineren F1-Wert (93,8 gegenüber 96,2\,\%), aber nur wegen des
 American Bulldog (86\,\%); Havanese (97\,\%) und Shiba Inu (99\,\%) sind so leicht wie die ImageNet-Rassen.
-Der American Bulldog gehört zu den Bully-Rassen, die auch ImageNet-Rassen untereinander verwechseln (s.\,u.). Für Datensätze, deren Klassen in ImageNet kaum vertreten sind (z.\,B. Stanford Cars und FGVC Aircraft~\cite{kornblith2019transfer}),
+Der American Bulldog gehört zu den Bully-Rassen (American Bulldog, American Pit Bull Terrier, Staffordshire
+Bull Terrier, Boxer), die auch ImageNet-Rassen untereinander verwechseln (s.\,u.). Für Datensätze, deren Klassen in ImageNet kaum vertreten sind (z.\,B. Stanford Cars und FGVC Aircraft~\cite{kornblith2019transfer}),
 oder für deutlich größere Datensätze erwarten wir, dass LoRA oder volles Fine-Tuning aufholen; getestet haben wir das nicht.
 
 \paragraph{Augmentierung, Datenqualität, Fehler und Erklärungen.}
@@ -104,7 +105,8 @@ sie ist daher nur ein grober Stellvertreter für Test, und die Modellauswahl fü
 Gleichstand.
 
 \paragraph{Statistische Aussagekraft.}
-Drei Seeds begrenzen die Auflösung kleiner Unterschiede; unsere Schwelle ist konservativer als
+Drei Seeds begrenzen die Auflösung kleiner Unterschiede, und der Split-Seed war fest, die Streuung durch die
+Datenaufteilung ist also nicht erfasst; unsere Schwelle ist konservativer als
 ein gepaarter Vergleich je Seed, der die Rückstände von LoRA $r=16$ und von LoRA auf allen Layern gegenüber
 $r=8$ (0,24 und 0,39\,pp) als konsistent einstufen würde; an den Schlussfolgerungen ändert das nichts.
 

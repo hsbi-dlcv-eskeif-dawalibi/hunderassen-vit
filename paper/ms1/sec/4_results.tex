@@ -3,24 +3,26 @@
 \label{sec:results}
 
 \paragraph{Vergleich aller Methoden.}
-\Cref{tab:methods} und \cref{fig:efficiency} vergleichen alle Methoden. LoRA mit $r=8$ erreicht die
+\Cref{tab:methods} und \cref{fig:efficiency} zeigen alle Methoden. LoRA mit $r=8$ erreicht die
 höchste Test-Accuracy ($96{,}21\pm0{,}24$\,\%), gefolgt von LoRA $r=4$ ($96{,}11\pm0{,}21$\,\%) und
 Linear Probing ($96{,}03\pm0{,}12$\,\%), das nur 0,02\,\% der Parameter trainiert. Die Unterschiede
 zwischen diesen drei liegen innerhalb der Seed-Streuung. Volles Fine-Tuning ($95{,}39\pm0{,}39$\,\%)
-liegt 0,82 Prozentpunkte (pp) unter der besten LoRA-Variante, mehr als die Seed-Streuung. Die CNNs
+liegt 0,82 Prozentpunkte (pp) unter der besten LoRA-Variante, mehr als unsere Schwelle. Die CNNs
 erreichen $94{,}78\pm0{,}46$\,\% (ConvNeXt-T) und $94{,}22\pm0{,}85$\,\% (ResNet-50); die beste
-ViT-Methode liegt 1,42\,pp über dem besten CNN.
+ViT-Methode liegt 1,42\,pp über dem besten CNN. Bei der Inferenz braucht der ViT-B/16 jedoch 35,1\,GFLOPs
+pro Bild, ResNet-50 8,2 und ConvNeXt-T 8,9.
 
 \begin{table*}[t]
   \centering
   \caption{Testergebnisse (Mittelwert $\pm$ Standardabweichung über 3 Seeds; fett: bester Wert).
-  Trainierbar: im Training aktualisierte Parameter. Zeit: Training eines Laufs auf einer RTX~5090. LoRA-Änderungen
-  werden nach dem Training eingerechnet (keine zusätzlichen Inferenzkosten).}
+  Trainierbar: im Training aktualisierte Parameter. Zeit: Training eines Laufs auf einer RTX~5090. GFLOPs: Rechenaufwand
+  pro Bild bei der Inferenz. LoRA-Änderungen werden nach dem Training eingerechnet (keine zusätzlichen
+  Inferenzkosten).}
   \label{tab:methods}
   \small
-  \begin{tabular}{lcccc}
+  \begin{tabular}{lccccc}
     \toprule
-    Methode & Acc.\ (\%) & Macro-F1 (\%) & Trainierbar & Zeit (min) \\
+    Methode & Acc.\ (\%) & Macro-F1 (\%) & Trainierbar & Zeit (min) & GFLOPs \\
     \midrule
     \methodrows
     \bottomrule
@@ -43,8 +45,8 @@ Mit Anpassung von Query und Value beträgt die Accuracy 96,11, 96,21 und 95,96\,
 der Seed-Streuung.
 
 \paragraph{Trainingsverlauf.}
-Linear Probing erreicht seine beste Validation-Accuracy nach $3{,}7\pm1{,}2$ Epochen, die LoRA-Varianten
-nach 5,3--6,7, volles Fine-Tuning nach $6{,}3\pm1{,}2$ und die CNNs nach 5--6 (\cref{fig:curves}).
+Die beste Validation-Accuracy erreicht Linear Probing nach $3{,}7\pm1{,}2$ Epochen, die übrigen Methoden
+nach 5--7 (\cref{fig:curves}).
 
 \begin{figure}[h]
   \centering
