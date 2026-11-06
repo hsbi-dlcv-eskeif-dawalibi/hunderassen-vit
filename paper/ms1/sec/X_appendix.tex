@@ -100,7 +100,7 @@ unteren Ende.
 
 \section{Warum diese Rasse und nicht die andere?}
 \label{sec:explain}
-Erklärungen für LoRA $r=4$, ConvNeXt-T und ResNet-50 (Seed 1; \texttt{make explain}). Wir nutzen Grad-CAM~\cite{selvaraju2017gradcam} (Implementierung:
+Erklärungen für LoRA $r=4$, ConvNeXt-T und ResNet-50 (Seed 1). Wir nutzen Grad-CAM~\cite{selvaraju2017gradcam} (Implementierung:
 pytorch-grad-cam~\cite{gildenblat2021gradcam}), Occlusion~\cite{zeiler2014visualizing} (Implementierung:
 Captum~\cite{kokhlikyan2020captum}) und Attention Rollout~\cite{abnar2020rollout} (eigener Code). Ein
 \emph{kontrastives} Grad-CAM verwendet das Ziel $\text{logit}_A-\text{logit}_B$ und hebt Evidenz für
