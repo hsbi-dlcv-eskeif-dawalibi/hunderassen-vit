@@ -28,19 +28,16 @@ Training und Validation geteilt (10\,\% pro Klasse, stratifiziert, fester Split-
 
 \paragraph{Datenqualität.}
 Wir haben alle 4\,978 Bilder geprüft (\texttt{make data-report}). Die Klassen sind nahezu balanciert
-(189--200 Bilder pro Rasse). Alle Dateien liegen als RGB vor; 33 davon haben grauen Inhalt (identische
-Kanäle). Die Bildgröße liegt im Median bei $500\times375$\,px; 133 Bilder haben eine kürzere Seite unter
+(189--200 Bilder pro Rasse). Die Bildgröße liegt im Median bei $500\times375$\,px; 133 Bilder haben eine kürzere Seite unter
 224\,px und werden hochskaliert. Der Hund bedeckt im Mittel 40\,\% des Bildes, in 123 Bildern weniger als
 10\,\%. Exakte Duplikate gibt es nicht, daher wurde kein Bild entfernt. \Cref{fig:examples} zeigt ein
 Beispiel pro Rasse.
 
 \paragraph{Augmentierung.}
-Unser Standard (\emph{light}) nutzt zufällige Ausschnitte mit Skalierung (60--100\,\% des Bildes) und
-horizontales Spiegeln. Vertikales Spiegeln und Farbtonänderungen vermeiden wir, weil Orientierung und
-Fellfarbe Rassemerkmale sind, und halten die Augmentierung beim Fine-Tuning eines vortrainierten Modells
-moderat (nur das Preset \emph{strong} enthält über RandAugment Farboperationen). \emph{strong} ergänzt
-RandAugment~\cite{cubuk2020randaugment} und Random Erasing~\cite{zhong2020erasing}; \emph{none} nutzt
-nur Skalierung und zentralen Zuschnitt.
+Unser Standard (\emph{light}) nutzt zufällige Ausschnitte (60--100\,\% des Bildes) und horizontales
+Spiegeln; vertikales Spiegeln und Farbänderungen vermeiden wir, weil Orientierung und Fellfarbe
+Rassemerkmale sind. \emph{strong} ergänzt RandAugment~\cite{cubuk2020randaugment} und Random
+Erasing~\cite{zhong2020erasing}, \emph{none} nutzt nur Skalierung und zentralen Zuschnitt.
 
 \begin{figure}[t]
   \centering

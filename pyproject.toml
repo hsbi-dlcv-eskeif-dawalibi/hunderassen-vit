@@ -9,6 +9,7 @@ description = "Adapting, compressing and explaining Vision Transformers on the 2
 readme = "README.md"
 requires-python = ">=3.10"
 authors = [{ name = "Wael Eskeif" }, { name = "Tarek Dawalibi" }]
+license = { text = "MIT" }
 dependencies = [
     "torch>=2.2",
     "torchvision>=0.17",

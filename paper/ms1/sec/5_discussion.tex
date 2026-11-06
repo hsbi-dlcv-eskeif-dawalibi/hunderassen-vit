@@ -8,9 +8,8 @@
 \paragraph{Hauptbefund.}
 Fast alle Methoden liegen bei 95--96\,\%, eine Rangfolge ist nur an den Rändern belastbar
 (\cref{tab:hyp}): LoRA ($r=8$ und $r=4$) und Linear Probing sind nicht zu unterscheiden, volles
-Fine-Tuning und die CNNs sind schlechter. Nominell beste Methode auf dem Testsplit ist LoRA $r=8$
-(96,21\,\%); die auf Validation gewählte Variante ist $r=4$ (96,11\,\%), der Unterschied liegt innerhalb der
-Streuung.
+Fine-Tuning und die CNNs sind schlechter. Nominell beste Methode auf Test ist LoRA $r=8$ (96,21\,\%); die auf
+Validation gewählte Variante $r=4$ (96,11\,\%) liegt innerhalb der Streuung.
 
 \begin{table}[t]
   \centering
@@ -39,8 +38,7 @@ unseres Trainingssatzes gesehen zu haben. Die Anpassung muss also vor allem vorh
 Klassen abbilden, und das leistet ein linearer Kopf; das passt zur gängigen Empfehlung, bei kleinen
 Datensätzen und ähnlicher Domäne nur späte Schichten anzupassen~\cite{yosinski2014transferable}. Volles
 Fine-Tuning aktualisiert dagegen 86\,M Parameter mit 2\,242 Bildern und liegt darunter, in Einklang damit,
-dass es gute Merkmale verzerren kann~\cite{kumar2022finetuning} (die Autoren sehen den Schaden vor allem
-außerhalb der Trainingsverteilung, die wir nicht getestet haben). Wichtige Einschränkung: Die Lernrate des
+dass es gute Merkmale verzerren kann~\cite{kumar2022finetuning}. Wichtige Einschränkung: Die Lernrate des
 vollen Fine-Tunings ($5\cdot10^{-5}$) wurde nicht optimiert, die der CNNs schon; ein besser abgestimmtes
 Fine-Tuning könnte den Rückstand verkleinern.
 
@@ -67,7 +65,7 @@ Fine-Tuning könnte den Rückstand verkleinern.
 LoRA mit weniger als 1\,\% trainierbaren Parametern ist nie schlechter als volles Fine-Tuning; der Vorsprung
 von $r=8$ liegt nur knapp über der Schwelle und sollte nicht überbewertet werden. Linear Probing trainiert
 16-mal weniger Parameter als LoRA $r=8$ bei gleicher Accuracy; die Trainingszeiten (0,3 gegenüber 0,5\,min)
-unterscheiden sich im Bereich der Messstreuung, sodass wir den Vorteil nur über die Parameterzahl begründen.
+liegen im Bereich der Messstreuung.
 Ein höherer Rang und mehr angepasste Layer bringen nichts: Zusätzliche Kapazität bleibt
 vermutlich ungenutzt, wenn die eingefrorenen Merkmale schon gut sind, in Analogie zum niedrigen
 intrinsischen Rang, den Hu \etal~\cite{hu2022lora} für Sprachmodelle berichten.
@@ -77,20 +75,18 @@ Der Abstand von 1,42\,pp zwischen bestem ViT und ConvNeXt-T ist klein, aber grö
 misst die Kombination aus Architektur, Größe (86 gegenüber 24--28\,M Parameter) und Pretraining
 (ImageNet-21k und -1k~\cite{deng2009imagenet} gegenüber nur -1k), nicht Architektur allein. Auf
 eingefrorenen Merkmalen sind ResNet-50 (96,1\,\%) und ViT-B/16 (95,9\,\%) gleich gut; der Abstand
-entsteht also beim Fine-Tuning der CNNs und nicht durch besseres Pretraining des ViT. Mit der ViT-Lernrate war ResNet-50 untertrainiert; erst die pro Architektur auf
-Validation gewählte Lernrate (\cref{tab:lr}) macht den Vergleich fair.
+entsteht also beim Fine-Tuning der CNNs und nicht durch besseres Pretraining des ViT. Mit der ViT-Lernrate war ResNet-50 untertrainiert; erst die auf Validation gewählte
+Lernrate (\cref{tab:lr}) macht den Vergleich fair.
 
 \paragraph{Auf welchen Daten würde eine andere Methode gewinnen?}
 Wie nah ImageNet liegt, erklärt unsere Ergebnisse nur teilweise. Die drei Rassen ohne ImageNet-Klasse
 erreichen mit Linear Probing im Mittel einen kleineren F1-Wert (93,8 gegenüber 96,2\,\%), aber nur wegen des
 American Bulldog (86\,\%); Havanese (97\,\%) und Shiba Inu (99\,\%) sind so leicht wie die ImageNet-Rassen.
-Der American Bulldog gehört zudem zu den Bully-Rassen, die auch ImageNet-Rassen untereinander verwechseln
-(s.\,u.). Ob eingefrorene Merkmale auch weiter von ImageNet entfernt genügen, haben wir nicht geprüft;
-für andere Domänen oder deutlich größere Datensätze erwarten wir, dass LoRA oder volles Fine-Tuning
-aufholen, wie es Kornblith \etal~\cite{kornblith2019transfer} für Autos und Flugzeuge beobachten.
+Er gehört zu den Bully-Rassen, die auch ImageNet-Rassen untereinander verwechseln (s.\,u.). Für andere
+Domänen oder deutlich größere Datensätze erwarten wir, dass LoRA oder volles Fine-Tuning aufholen, wie es Kornblith \etal~\cite{kornblith2019transfer} für Autos und Flugzeuge beobachten.
 
 \paragraph{Augmentierung, Datenqualität und Fehler.}
-\emph{none}, \emph{light} und \emph{strong} unterscheiden sich um höchstens 0,3\,pp, innerhalb des Rauschens. Die Daten sind
+\emph{none}, \emph{light} und \emph{strong} unterscheiden sich um höchstens 0,3\,pp, innerhalb der Seed-Streuung. Die Daten sind
 balanciert und enthalten keine exakten Duplikate; 8,6\,\% der Testbilder haben ein sehr ähnliches
 Trainingsbild (CLIP-Ähnlichkeit $\geq0{,}95$), ohne sie sinkt die Accuracy um 0,34\,pp, die Ergebnisse sind
 also höchstens leicht geschönt. Die vier Bully-Rassen machen 16\,\% der Testbilder, aber 59\,\% der Fehler
@@ -109,12 +105,10 @@ Validation (250 Bilder, ein Bild entspricht 0,4\,pp) liegt bei allen Modellen h�
 gegenüber 94--96\,\%), stammt aus \texttt{trainval} und wurde nicht auf Fast-Duplikate zum Training geprüft;
 sie ist daher nur ein grober Stellvertreter für Test, und die Modellauswahl für Station~2 war ein
 Gleichstand. Drei Seeds begrenzen die Auflösung kleiner Unterschiede; unsere Schwelle ist konservativer als
-ein gepaarter Vergleich je Seed, der auch die kleinen Rückstände von LoRA $r=16$ und von LoRA auf allen
-Layern gegenüber $r=8$ (0,24 und 0,39\,pp) als konsistent einstufen würde, an den Schlussfolgerungen aber
-nichts ändert. Absolute Werte sind nicht mit denen von Kornblith \etal~\cite{kornblith2019transfer} (37 Rassen) vergleichbar.
+ein gepaarter Vergleich je Seed, der die Rückstände von LoRA $r=16$ und von LoRA auf allen Layern gegenüber
+$r=8$ (0,24 und 0,39\,pp) als konsistent einstufen würde; an den Schlussfolgerungen ändert das nichts. Absolute Werte sind nicht mit denen von Kornblith \etal~\cite{kornblith2019transfer} (37 Rassen) vergleichbar.
 
 \paragraph{Fazit und Ausblick.}
-Für einen kleinen feinkörnigen Datensatz nahe an ImageNet erreicht ein neuer linearer Kopf auf einem
-eingefrorenen ViT-B/16 96\,\% mit 0,02\,\% trainierbaren Parametern; LoRA bringt keinen messbaren Gewinn,
-und volles Fine-Tuning mit fester Lernrate ist leicht schlechter. Die auf Validation gewählte Methode,
-LoRA $r=4$, dient in Station~2 als Teacher, den wir in deutlich kleinere ViTs destillieren.
+Für einen kleinen feinkörnigen Datensatz nahe an ImageNet genügt ein neuer linearer Kopf auf
+einem eingefrorenen ViT-B/16; LoRA bringt keinen messbaren Gewinn. Die auf Validation gewählte
+Methode, LoRA $r=4$, ist in Station~2 der Teacher.

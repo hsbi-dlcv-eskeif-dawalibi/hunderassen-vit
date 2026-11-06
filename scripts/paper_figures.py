@@ -175,12 +175,38 @@ def examples(out: Path, size: int = 192) -> None:
         ax.axis("off")
     for ax, (breed, name) in zip(np.ravel(axes), sorted(first.items())):
         image = Image.open(root / "images" / f"{name}.jpg").convert("RGB").resize((size, size))
-        trimap = np.asarray(Image.open(root / "annotations" / "trimaps" / f"{name}.png").resize((size, size), Image.NEAREST))
+        trimap = np.asarray(
+            Image.open(root / "annotations" / "trimaps" / f"{name}.png").resize((size, size), Image.NEAREST)
+        )
         ax.imshow(image)
         ax.contour(np.isin(trimap, (1, 3)), levels=[0.5], colors="yellow", linewidths=0.4)
         title = "\n".join(textwrap.wrap(breed.replace("_", " ").title(), 15))
         ax.set_title(title, fontsize=4.6, pad=1.5, linespacing=0.95)
     fig.subplots_adjust(left=0.01, right=0.99, top=0.93, bottom=0.01, wspace=0.04, hspace=0.55)
+    fig.savefig(out, dpi=300)
+    plt.close(fig)
+
+
+def per_breed(runs_dir: Path, out: Path) -> None:
+    """F1 per breed (LoRA r=4, mean over the seeds), bully breeds highlighted."""
+    import matplotlib.pyplot as plt
+    import pandas as pd
+
+    frames = [
+        pd.read_csv(p, index_col=0)
+        for p in sorted(runs_dir.glob("ms1_vit_b16_lora_r4_s[0-9]/classification_report.csv"))
+    ]
+    f1 = pd.concat(frames).drop(index=["accuracy", "macro avg", "weighted avg"], errors="ignore")
+    f1 = f1.groupby(level=0)["f1-score"].mean().sort_values()
+    bully = {"American Bulldog", "American Pit Bull Terrier", "Staffordshire Bull Terrier", "Boxer"}
+    fig, ax = plt.subplots(figsize=(COLUMN, 3.6))
+    ax.barh(f1.index, 100 * f1.values, color=["#c0392b" if b in bully else "#1f4e79" for b in f1.index], height=0.7)
+    ax.set_xlim(70, 100)
+    ax.set(xlabel="F1-Wert (%)")
+    ax.tick_params(axis="y", labelsize=5.5)
+    _comma(ax, "x", 0)
+    ax.grid(axis="x", alpha=0.3, lw=0.4)
+    fig.tight_layout(pad=0.4)
     fig.savefig(out, dpi=300)
     plt.close(fig)
 
@@ -203,6 +229,7 @@ def main() -> None:
     efficiency(RESULTS_DIR / "ms1" / "methods.csv", args.out / "effizienz.png")
     curves(args.runs, args.out / "lernkurven.png")
     fewshot(RESULTS_DIR / "why" / "fewshot_backbones.csv", args.out / "fewshot.png")
+    per_breed(args.runs, args.out / "f1_je_rasse.png")
     examples(args.out / "beispiele.png")
     crop_title(RESULTS_DIR / "explain" / "head_examples.png", args.out / "gradcam.png", top=52)
     crop_title(RESULTS_DIR / "explain" / "contrastive_convnext_t.png", args.out / "kontrastiv.png", top=0)

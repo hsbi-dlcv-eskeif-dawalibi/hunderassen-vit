@@ -29,6 +29,23 @@ Batchgröße 32, $224\times224$ Pixel Eingabe, Augmentierung \emph{light}, Seeds
   \end{tabular}}
 \end{table}
 
+\begin{table}[h]
+  \centering
+  \caption{Umgebung und Protokoll aller Läufe.}
+  \label{tab:repro}
+  \small
+  \begin{tabular}{lp{5.6cm}}
+    \toprule
+    Hardware & NVIDIA GeForce RTX 5090, CUDA 12.8 \\
+    Software & Python 3.12.3, PyTorch 2.8.0,\newline Transformers 4.57.6 \\
+    Genauigkeit & gemischte Präzision (fp16) \\
+    Seeds & 1, 2, 3 (Training); Split-Seed 0 \\
+    Daten & Oxford-IIIT Pet (25 Hunderassen), CC BY-SA 4.0 \\
+    Code & Tag \texttt{ms1} des Repositorys \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
 \section{Warum sind die Accuracies so hoch?}
 \label{sec:why}
 Alle Zahlen aus \texttt{results/why/REPORT.md} (\texttt{make why}).
@@ -96,6 +113,20 @@ die häufigsten Verwechslungen.
   wird (Rassen über dem Bild). Spalten: Grad-CAM für $A$, Grad-CAM für $B$, Differenz $A-B$ (rot: spricht für
   $A$ und gegen $B$) und Occlusion für $A$ (ConvNeXt-T).}
   \label{fig:contrastive}
+\end{figure}
+
+\section{Fehler je Rasse}
+\label{sec:perbreed}
+\Cref{fig:perbreed} zeigt den F1-Wert jeder Rasse für LoRA $r=4$. Die vier Bully-Rassen (rot) liegen am
+unteren Ende; die häufigste Verwechslung ist American Pit Bull Terrier $\rightarrow$ Staffordshire Bull
+Terrier (62 Bilder über alle Seeds).
+
+\begin{figure}[h]
+  \centering
+  \resultfigure{paper/f1_je_rasse.png}{\linewidth}{F1 je Rasse}
+  \caption{F1-Wert je Rasse auf dem Testsplit (LoRA $r=4$, Mittelwert über 3 Seeds). Rot: die vier
+  Bully-Rassen, die 59\,\% der Fehler verursachen. Die x-Achse beginnt bei 70\,\%.}
+  \label{fig:perbreed}
 \end{figure}
 
 \section{Software und KI-Hilfsmittel}

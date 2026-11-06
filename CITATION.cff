@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite it as below."
+title: "Hunderassen-ViT: adapting Vision Transformers to 25 dog breeds"
+type: software
+authors:
+  - family-names: Eskeif
+    given-names: Wael
+  - family-names: Dawalibi
+    given-names: Tarek
+repository-code: "https://github.com/hsbi-dlcv-eskeif-dawalibi/hunderassen-vit"
+license: MIT
+version: ms1
+date-released: 2026-11-06
+keywords:
+  - vision transformer
+  - LoRA
+  - linear probing
+  - fine-grained classification
+  - Oxford-IIIT Pet

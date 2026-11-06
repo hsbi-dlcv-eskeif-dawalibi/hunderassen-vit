@@ -11,6 +11,7 @@ Projektarbeit im Modul *Deep Learning for Computer Vision* · M.Sc. Informatik �
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.x-EE4C2C?logo=pytorch&logoColor=white)
 ![Transformers](https://img.shields.io/badge/%F0%9F%A4%97%20Transformers-4.48%2B-FFD21E)
 ![Dataset](https://img.shields.io/badge/data-Oxford--IIIT%20Pet%20(25%20Hunderassen)-6A5ACD)
+![Lizenz](https://img.shields.io/badge/Lizenz-MIT-blue)
 ![Code style](https://img.shields.io/badge/code%20style-ruff-D7FF64?logo=ruff&logoColor=black)
 
 [Ergebnisse](#-ergebnisse-station-1) · [Schnellstart](#-schnellstart) · [Struktur](#-struktur) · [Dokumentation](#-dokumentation) · [Team](#-team)
@@ -118,6 +119,8 @@ hunderassen-vit/
 | Wael Eskeif | Tarek Dawalibi |
 |:--:|:--:|
 | M.Sc. Informatik, HSBI | M.Sc. Informatik, HSBI |
+
+**Lizenz:** Code unter [MIT](LICENSE); der Datensatz hat eine eigene Lizenz (siehe unten). Zitieren: [`CITATION.cff`](CITATION.cff).
 
 **Datensatz:** Oxford-IIIT Pet, Parkhi et al., CVPR 2012, CC BY-SA 4.0.
 **Software:** PyTorch, Hugging Face Transformers, scikit-learn, pytorch-grad-cam, Captum.

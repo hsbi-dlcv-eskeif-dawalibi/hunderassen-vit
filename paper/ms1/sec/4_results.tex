@@ -9,8 +9,7 @@ Linear Probing ($96{,}03\pm0{,}12$\,\%), das nur 0,02\,\% der Parameter trainier
 zwischen diesen drei liegen innerhalb der Seed-Streuung. Volles Fine-Tuning ($95{,}39\pm0{,}39$\,\%)
 liegt 0,82 Prozentpunkte (pp) unter der besten LoRA-Variante, mehr als die Seed-Streuung. Die CNNs
 erreichen $94{,}78\pm0{,}46$\,\% (ConvNeXt-T) und $94{,}22\pm0{,}85$\,\% (ResNet-50); die beste
-ViT-Methode liegt 1,42\,pp über dem besten CNN. Ein Lauf dauerte im Mittel 0,3--1,0 Minuten auf einer
-RTX~5090.
+ViT-Methode liegt 1,42\,pp über dem besten CNN. Ein Lauf dauerte 0,3--1,0 Minuten (RTX~5090).
 
 \begin{table*}[t]
   \centering
@@ -44,9 +43,8 @@ Mit Anpassung von Query und Value beträgt die Accuracy 96,11, 96,21 und 95,96\,
 der Seed-Streuung.
 
 \paragraph{Trainingsverlauf.}
-Linear Probing erreicht seine beste Validation-Accuracy nach $3{,}7\pm1{,}2$ Epochen, die
-LoRA-Varianten nach 5,3--6,7 Epochen, volles Fine-Tuning nach $6{,}3\pm1{,}2$ und die CNNs nach 5--6
-Epochen (\cref{fig:curves}).
+Linear Probing erreicht seine beste Validation-Accuracy nach $3{,}7\pm1{,}2$ Epochen, die LoRA-Varianten
+nach 5,3--6,7, volles Fine-Tuning nach $6{,}3\pm1{,}2$ und die CNNs nach 5--6 (\cref{fig:curves}).
 
 \begin{figure}[h]
   \centering
@@ -62,9 +60,8 @@ Für LoRA $r=8$ ergibt \emph{light} $96{,}21\pm0{,}24$\,\%, \emph{none} $95{,}99
 \emph{strong} $95{,}91\pm0{,}36$\,\%; die Unterschiede liegen innerhalb der Seed-Streuung.
 
 \paragraph{Fehler.}
-Für LoRA $r=4$ (auf Validation gewählt; gleichauf mit LoRA $r=8$ auf allen Layern bei 97,87\,\%,
-entschieden über den kleineren Validation-Loss) sind die schwierigsten Rassen American Pit Bull Terrier
-(F1 77,2\,\%), Staffordshire Bull Terrier (78,2\,\%) und American Bulldog (88,7\,\%). Die häufigste
-Verwechslung über alle Seeds ist American Pit Bull Terrier $\rightarrow$ Staffordshire Bull Terrier
-(62 Bilder), gefolgt von der Gegenrichtung (27) und American Pit Bull Terrier $\rightarrow$ American
-Bulldog (24).
+Für LoRA $r=4$ (auf Validation gewählt; Gleichstand mit LoRA $r=8$ auf allen Layern bei 97,87\,\%,
+entschieden über den kleineren Validation-Loss) sind American Pit Bull Terrier (F1 77,2\,\%), Staffordshire
+Bull Terrier (78,2\,\%) und American Bulldog (88,7\,\%) am schwierigsten (Anhang~\ref{sec:perbreed}). Die
+häufigste Verwechslung ist American Pit Bull Terrier $\rightarrow$ Staffordshire Bull Terrier (62 Bilder
+über alle Seeds).

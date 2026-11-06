@@ -17,23 +17,32 @@ Rassen derselben Art sehen sich ähnlich und unterscheiden sich in Details von K
 Körperproportionen. Die Situation ist typisch für die Praxis: wenige gelabelte Bilder (etwa 90 pro
 Rasse für das Training), viele ähnliche Klassen und begrenzte Rechenleistung.
 
+Die Arbeit ist Station~1 (Adaptation) des Moduls \emph{Deep Learning for Computer Vision}; Station~2
+baut mit Knowledge Distillation darauf auf.
+
 \paragraph{Forschungsfrage.}
 Wie effizient lässt sich ein vortrainierter ViT an eine neue Aufgabe anpassen -- welche Accuracy
 erreichen Linear Probing und LoRA im Vergleich zu vollem Fine-Tuning und zu CNNs, und zu welchen Kosten?
 Wir prüfen vier Hypothesen:
-\textbf{A1} LoRA mit $<1\,\%$ trainierbaren Parametern liegt weniger als 2 Prozentpunkte unter vollem
-Fine-Tuning;
-\textbf{A2} Linear Probing ist bei feinkörnigen Rassen deutlich schlechter als LoRA;
-\textbf{A3} ein höherer LoRA-Rang als $r=8$ bringt wenig, mehr angepasste Layer bringen mehr;
-\textbf{A4} der beste ViT und die CNNs erreichen eine ähnliche Accuracy.
+\begin{itemize}\itemsep0pt
+  \item[\textbf{A1}] LoRA mit $<1\,\%$ trainierbaren Parametern liegt weniger als 2 Prozentpunkte unter
+        vollem Fine-Tuning;
+  \item[\textbf{A2}] Linear Probing ist bei feinkörnigen Rassen deutlich schlechter als LoRA;
+  \item[\textbf{A3}] ein höherer LoRA-Rang als $r=8$ bringt wenig, mehr angepasste Layer bringen mehr;
+  \item[\textbf{A4}] der beste ViT und die CNNs erreichen eine ähnliche Accuracy.
+\end{itemize}
+\paragraph{Ergebnis.}
+Ein neuer linearer Kopf auf einem eingefrorenen ViT-B/16 erreicht mit 0,02\,\% der Parameter 96,0\,\% und
+ist damit so gut wie LoRA; volles Fine-Tuning und die CNNs liegen darunter. Zusatzexperimente deuten
+darauf hin, dass das am ImageNet-Pretraining liegt, das viele der Rassen schon kennt.
 
+\Needspace{6\baselineskip}
 \paragraph{Beiträge.}
 \begin{itemize}
   \item Ein Vergleich von Linear Probing, LoRA und vollem Fine-Tuning des ViT-B/16 mit ResNet-50 und
         ConvNeXt-T unter identischem Protokoll (drei Seeds, Modellauswahl nur auf Validation).
   \item Eine LoRA-Ablation über Rang und angepasste Layer.
-  \item Eine Kosten-Nutzen-Analyse: Accuracy gegenüber trainierbaren Parametern und Trainingszeit sowie
-        der Einfluss der Datenaugmentierung.
+  \item Eine Kosten-Nutzen-Analyse: Accuracy gegenüber Parametern, Trainingszeit und Augmentierung.
   \item Eine Analyse, \emph{warum} alle Methoden über 90\,\% erreichen (Training ohne Pretraining,
         Überschneidung mit den ImageNet-Klassen, Suche nach Fast-Duplikaten), und Erklärungskarten,
         worauf die Modelle schauen (\cref{sec:why,sec:explain}).
