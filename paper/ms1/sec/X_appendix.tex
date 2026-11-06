@@ -9,24 +9,24 @@
 \label{sec:hyperparameters}
 \Cref{tab:hyper} listet alle Konfigurationen (\texttt{configs/ms1/*.yaml}). Gemeinsam für alle: AdamW,
 Weight Decay 0,05, Cosine-Schedule mit 10\,\% Warm-up, bis zu 10 Epochen, Early Stopping (Geduld 3),
-Batchgröße 32, $224\times224$ Pixel Eingabe, Augmentierung \emph{light}, Seeds 1--3.
+Batchgröße 32, bei LoRA $\alpha=2r$ und Dropout 0,1, $224\times224$ Pixel Eingabe, Augmentierung \emph{light}, Seeds 1--3.
 
 \begin{table}[h]
   \centering
-  \caption{Lernrate und trainierbare Parameter je Methode.}
+  \caption{Lernrate und trainierbare Parameter je Methode (CNNs: auf Validation gewählt).}
   \label{tab:hyper}
   \small
-  \resizebox{\linewidth}{!}{\begin{tabular}{lll}
+  \begin{tabular}{p{4.3cm}cl}
     \toprule
     Methode & Lernrate & Trainierbar \\
     \midrule
     ViT Linear Probing & $10^{-3}$ & Kopf \\
-    ViT LoRA $r\in\{4,8,16\}$, $\alpha=2r$, Dropout 0,1, Query/Value & $5\cdot10^{-4}$ & LoRA + Kopf \\
+    ViT LoRA $r\in\{4,8,16\}$, Query/Value & $5\cdot10^{-4}$ & LoRA + Kopf \\
     ViT LoRA $r=8$, alle linearen Layer & $5\cdot10^{-4}$ & LoRA + Kopf \\
     ViT volles Fine-Tuning & $5\cdot10^{-5}$ & alle \\
-    ResNet-50, ConvNeXt-T & $2\cdot10^{-4}$ (Validation) & alle \\
+    ResNet-50, ConvNeXt-T & $2\cdot10^{-4}$ & alle \\
     \bottomrule
-  \end{tabular}}
+  \end{tabular}
 \end{table}
 
 \begin{table}[h]
@@ -60,9 +60,9 @@ ursprünglichen ImageNet-Köpfe unserer Checkpoints die Testbilder dieser 22 Ras
 mit 96,20\,\% (ViT-B/16), 96,75\,\% (ResNet-50) und 96,52\,\% (ConvNeXt-T). LoRA $r=4$ erreicht auf
 denselben Bildern 95,88\,\%, bei Auswahl unter allen 25 Rassen. Die Zuordnung von Rasse zu
 ImageNet-Klasse erfolgt über den Namen (Tabelle in \texttt{animal\_vit/why.py}); sie ist eine Annahme. Der
-American Pit Bull Terrier wird der Klasse ``American Staffordshire terrier'' zugeordnet, Japanese Chin
-``Japanese spaniel'', Scottish Terrier ``Scotch terrier'' und German Shorthaired ``German short-haired
-pointer''. Bei diesen Rassen kann die Zuordnung strittig sein.
+American Pit Bull Terrier wird der Klasse \glqq American Staffordshire terrier\grqq{} zugeordnet, Japanese Chin
+\glqq Japanese spaniel\grqq{}, Scottish Terrier \glqq Scotch terrier\grqq{} und German Shorthaired \glqq German short-haired
+pointer\grqq{}. Bei diesen Rassen kann die Zuordnung strittig sein.
 
 \paragraph{Eingefrorene Merkmale.} Eine logistische Regression~\cite{pedregosa2011sklearn} auf eingefrorenen Merkmalen mit allen
 Trainingsbildern (anders als das trainierte \emph{Linear Probing} im Hauptteil, und auch für ResNet-50

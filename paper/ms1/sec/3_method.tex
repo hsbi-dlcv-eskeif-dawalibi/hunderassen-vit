@@ -5,7 +5,7 @@
 \subsection{Datensatz und Datenqualität}
 Wir verwenden die 25 Hunderassen von Oxford-IIIT Pet~\cite{parkhi2012pets} (CC BY-SA 4.0) und lassen
 die 12 Katzenrassen weg. Eine einzige Tierart macht die Aufgabe feinkörnig; wir wählten Hunde, weil es
-etwa doppelt so viele Bilder wie von Katzen gibt. Mit 25 Klassen liegen wir über den empfohlenen 5--10
+etwa doppelt so viele Bilder wie von Katzen gibt. Mit 25 Klassen liegen wir über den vom Modul empfohlenen 5--10
 Klassen, jede Rasse hat aber noch etwa 200 Bilder. Der offizielle \texttt{trainval}-Split wird in
 Training und Validation geteilt (10\,\% pro Klasse, stratifiziert, fester Split-Seed); der offizielle
 \texttt{test}-Split wird einmal nach der Modellauswahl verwendet (\cref{tab:splits}).
@@ -27,7 +27,7 @@ Training und Validation geteilt (10\,\% pro Klasse, stratifiziert, fester Split-
 \end{table}
 
 \paragraph{Datenqualität.}
-Wir haben alle 4\,978 Bilder geprüft (\texttt{make data-report}). Die Klassen sind nahezu balanciert
+Wir haben alle 4\,978 Bilder geprüft. Die Klassen sind nahezu balanciert
 (189--200 Bilder pro Rasse). Die Bildgröße liegt im Median bei $500\times375$\,px; 133 Bilder haben eine kürzere Seite unter
 224\,px und werden hochskaliert. Der Hund bedeckt im Mittel 40\,\% des Bildes, in 123 Bildern weniger als
 10\,\%. Exakte Duplikate gibt es nicht, daher wurde kein Bild entfernt. \Cref{fig:examples} zeigt ein
@@ -62,7 +62,7 @@ Validierungssplit ausgewählt.
 \paragraph{Auswertung.}
 Wir berichten Accuracy und Macro-F1. Einen Unterschied zwischen zwei Methoden interpretieren wir nur, wenn
 die Differenz der Mittelwerte größer ist als das Doppelte der größeren Seed-Standardabweichung beider
-Methoden (\emph{Schwelle}); alle Aussagen wie ``innerhalb der Streuung'' beziehen sich darauf. Mit drei
+Methoden (\emph{Schwelle}); alle Aussagen wie \glqq innerhalb der Streuung\grqq{} beziehen sich darauf. Mit drei
 Seeds ist das ein grobes Kriterium und kein statistischer Test; die Schwelle ist konservativer als ein
 gepaarter Vergleich je Seed (siehe Limitationen).
 
@@ -100,8 +100,8 @@ haben wir die CNN-Lernrate auf dem \emph{Validierungssplit} aus $\{5\cdot10^{-5}
 
 \begin{table}[h]
   \centering
-  \caption{Wahl der CNN-Lernrate auf dem Validierungssplit (Mittelwert $\pm$ Std über 3 Seeds;
-  \texttt{make ms1-cnn-lr}). Der Testsplit wurde nicht verwendet.}
+  \caption{Wahl der CNN-Lernrate auf dem Validierungssplit (Mittelwert $\pm$ Std über 3 Seeds). Der
+  Testsplit wurde nicht verwendet.}
   \label{tab:lr}
   \small
   \resizebox{\linewidth}{!}{\begin{tabular}{lcccc}
