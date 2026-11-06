@@ -9,13 +9,13 @@ Linear Probing ($96{,}03\pm0{,}12$\,\%), das nur 0,02\,\% der Parameter trainier
 zwischen diesen drei liegen innerhalb der Seed-Streuung. Volles Fine-Tuning ($95{,}39\pm0{,}39$\,\%)
 liegt 0,82 Prozentpunkte (pp) unter der besten LoRA-Variante, mehr als die Seed-Streuung. Die CNNs
 erreichen $94{,}78\pm0{,}46$\,\% (ConvNeXt-T) und $94{,}22\pm0{,}85$\,\% (ResNet-50); die beste
-ViT-Methode liegt 1,42\,pp über dem besten CNN. Ein Lauf dauerte 0,3--1,0 Minuten (RTX~5090).
+ViT-Methode liegt 1,42\,pp über dem besten CNN.
 
 \begin{table*}[t]
   \centering
-  \caption{Testergebnisse (Mittelwert $\pm$ Standardabweichung über 3 Seeds). Trainierbar: im Training
-  aktualisierte Parameter. LoRA-Änderungen werden nach dem Training eingerechnet (keine zusätzlichen
-  Inferenzkosten).}
+  \caption{Testergebnisse (Mittelwert $\pm$ Standardabweichung über 3 Seeds; fett: bester Wert).
+  Trainierbar: im Training aktualisierte Parameter. Zeit: Training eines Laufs auf einer RTX~5090. LoRA-Änderungen
+  werden nach dem Training eingerechnet (keine zusätzlichen Inferenzkosten).}
   \label{tab:methods}
   \small
   \begin{tabular}{lcccc}

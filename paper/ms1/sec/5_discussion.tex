@@ -8,8 +8,8 @@
 \paragraph{Hauptbefund.}
 Fast alle Methoden liegen bei 95--96\,\%, eine Rangfolge ist nur an den Rändern belastbar
 (\cref{tab:hyp}): LoRA ($r=8$ und $r=4$) und Linear Probing sind nicht zu unterscheiden, volles
-Fine-Tuning und die CNNs sind schlechter. Nominell beste Methode auf Test ist LoRA $r=8$ (96,21\,\%); die auf
-Validation gewählte Variante $r=4$ (96,11\,\%) liegt innerhalb der Streuung.
+Fine-Tuning und die CNNs sind schlechter. Nominell beste Methode auf Test: LoRA $r=8$; auf Validation
+gewählt wurde $r=4$ (innerhalb der Streuung).
 
 \begin{table}[t]
   \centering
@@ -18,7 +18,7 @@ Validation gewählte Variante $r=4$ (96,11\,\%) liegt innerhalb der Streuung.
   \small
   \resizebox{\linewidth}{!}{\begin{tabular}{llp{4.6cm}}
     \toprule
-    & Urteil & Beleg \\
+    Hyp. & Urteil & Beleg \\
     \midrule
     A1 & bestätigt & LoRA nie schlechter als volles Fine-Tuning; $r=8$ $+0{,}82$\,pp (Schwelle 0,78) \\
     A2 & nicht gestützt & Linear Probing $-0{,}17$\,pp, innerhalb der Streuung \\
@@ -47,10 +47,9 @@ Rückstand verkleinern oder umkehren.
 \begin{figure}[t]
   \centering
   \resultfigure{paper/fewshot.png}{\linewidth}{Few-Shot-Kurven}
-  \caption{Linear Probe (logistische Regression) auf eingefrorenen ImageNet-Merkmalen über der Zahl der
+  \caption{Linear Probing (logistische Regression) auf eingefrorenen ImageNet-Merkmalen über der Zahl der
   Trainingsbilder pro Rasse (Mittelwert $\pm$ Std.\ über 3 Ziehungen; ganz rechts: alle Trainingsbilder, etwa
-  90 pro Rasse; die y-Achse beginnt bei 80\,\%, Zufall wäre 4\,\%). Schon ein Bild pro Rasse genügt für
-  85--87\,\%.}
+  90 pro Rasse; die y-Achse beginnt bei 80\,\%, Zufall wäre 4\,\%).}
   \label{fig:fewshot}
 \end{figure}
 
@@ -68,8 +67,7 @@ LoRA mit weniger als 1\,\% trainierbaren Parametern ist nie schlechter als volle
 von $r=8$ liegt nur knapp über der Schwelle und sollte nicht überbewertet werden. Linear Probing trainiert
 16-mal weniger Parameter als LoRA $r=8$ bei gleicher Accuracy.
 Ein höherer Rang und mehr angepasste Layer bringen nichts: Zusätzliche Kapazität bleibt
-vermutlich ungenutzt, wenn die eingefrorenen Merkmale schon gut sind, in Analogie zum niedrigen
-intrinsischen Rang, den Hu \etal~\cite{hu2022lora} für Sprachmodelle berichten.
+vermutlich ungenutzt, wenn die eingefrorenen Merkmale schon gut sind.
 
 \paragraph{ViT gegen CNN (A4).}
 Der Abstand von 1,42\,pp zwischen bestem ViT und ConvNeXt-T ist klein, aber größer als die Schwelle. Er
@@ -86,14 +84,15 @@ American Bulldog (86\,\%); Havanese (97\,\%) und Shiba Inu (99\,\%) sind so leic
 Der American Bulldog gehört zu den Bully-Rassen, die auch ImageNet-Rassen untereinander verwechseln (s.\,u.). Für Datensätze, deren Klassen in ImageNet kaum vertreten sind (z.\,B. Stanford Cars und FGVC Aircraft~\cite{kornblith2019transfer}),
 oder für deutlich größere Datensätze erwarten wir, dass LoRA oder volles Fine-Tuning aufholen; getestet haben wir das nicht.
 
-\paragraph{Augmentierung, Datenqualität und Fehler.}
+\paragraph{Augmentierung, Datenqualität, Fehler und Erklärungen.}
 \emph{none}, \emph{light} und \emph{strong} unterscheiden sich um höchstens 0,3\,pp, innerhalb der Seed-Streuung. 8,6\,\% der Testbilder haben ein sehr ähnliches
 Trainingsbild (CLIP-Ähnlichkeit $\geq0{,}95$), ohne sie sinkt die Accuracy um 0,34\,pp, die Ergebnisse sind
 also höchstens leicht geschönt. Die vier Bully-Rassen machen 16\,\% der Testbilder, aber 59\,\% der Fehler
 aus. Wir haben die acht sichersten der 71 in allen Seeds falschen Testbilder angesehen (Anhang~\ref{sec:why}):
 Bei mindestens dreien ist das Label zweifelhaft (zwei Beagles mit Label Basset Hound, ein Boxer mit
 Label American Bulldog), die übrigen sind Verwechslungen ähnlicher Rassen. Ein Teil der Restfehler ist also vermutlich
-Label-Rauschen und kein Modellfehler; alle 71 Bilder haben wir nicht geprüft.
+Label-Rauschen und kein Modellfehler; alle 71 Bilder haben wir nicht geprüft. Die Erklärungskarten (\cref{fig:head}) zeigen, dass ResNet-50 und
+ConvNeXt-T meist auf den Kopf achten, beim ViT ist Grad-CAM verrauscht (Anhang~\ref{sec:explain}).
 
 \paragraph{Limitationen.}
 Der Datensatz liegt nah an ImageNet; der Vorteil von Linear Probing muss sich nicht auf andere Domänen
@@ -102,7 +101,10 @@ dem Web); das haben wir nicht geprüft, es würde die hohen Werte ohne Training 
 Validation (250 Bilder, ein Bild entspricht 0,4\,pp) liegt bei allen Modellen höher als Test (etwa 97--98
 gegenüber 94--96\,\%), stammt aus \texttt{trainval} und wurde nicht auf Fast-Duplikate zum Training geprüft;
 sie ist daher nur ein grober Stellvertreter für Test, und die Modellauswahl für Station~2 war ein
-Gleichstand. Drei Seeds begrenzen die Auflösung kleiner Unterschiede; unsere Schwelle ist konservativer als
+Gleichstand.
+
+\paragraph{Statistische Aussagekraft.}
+Drei Seeds begrenzen die Auflösung kleiner Unterschiede; unsere Schwelle ist konservativer als
 ein gepaarter Vergleich je Seed, der die Rückstände von LoRA $r=16$ und von LoRA auf allen Layern gegenüber
 $r=8$ (0,24 und 0,39\,pp) als konsistent einstufen würde; an den Schlussfolgerungen ändert das nichts.
 

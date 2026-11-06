@@ -39,11 +39,6 @@ Klassen in feinen Details von Form und Fell unterscheiden. Die Bilder beider Dat
 Web; Stanford Dogs wurde aus ImageNet~\cite{deng2009imagenet} zusammengestellt, ImageNet-Pretraining hat
 Hunderassen also bereits gesehen.
 
-\paragraph{Datenaugmentierung.}
-RandAugment~\cite{cubuk2020randaugment} wendet zufällig gewählte Bildoperationen mit einer globalen
-Stärke an; Random Erasing~\cite{zhong2020erasing} maskiert zufällige Bildbereiche.
-RandAugment ist Teil des AugReg-Rezepts für ViTs bei begrenzten Daten~\cite{steiner2022augreg}.
-
 \paragraph{Abgrenzung.}
 Wir vergleichen Linear Probing, LoRA und volles Fine-Tuning eines ViT unter einem gemeinsamen Protokoll mit
 zwei CNNs auf nur 25 feinkörnigen Hunderassen und fragen zusätzlich, warum die Werte so hoch sind.

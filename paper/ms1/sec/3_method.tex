@@ -36,8 +36,8 @@ Beispiel pro Rasse.
 \paragraph{Augmentierung.}
 Unser Standard (\emph{light}) nutzt zufällige Ausschnitte (60--100\,\% des Bildes) und horizontales
 Spiegeln; vertikales Spiegeln und Farbänderungen vermeiden wir, weil Orientierung und Fellfarbe
-Rassemerkmale sind. \emph{strong} ergänzt RandAugment~\cite{cubuk2020randaugment} und Random
-Erasing~\cite{zhong2020erasing}, \emph{none} nutzt nur Skalierung und zentralen Zuschnitt.
+Rassemerkmale sind. \emph{strong} ergänzt RandAugment~\cite{cubuk2020randaugment} (zufällig gewählte Bildoperationen) und Random
+Erasing~\cite{zhong2020erasing} (zufällig maskierte Bildbereiche), \emph{none} nutzt nur Skalierung und zentralen Zuschnitt.
 
 \begin{figure}[t]
   \centering
@@ -100,8 +100,8 @@ haben wir die CNN-Lernrate auf dem \emph{Validierungssplit} aus $\{5\cdot10^{-5}
 
 \begin{table}[h]
   \centering
-  \caption{Wahl der CNN-Lernrate auf dem Validierungssplit (Mittelwert $\pm$ Std über 3 Seeds). Der
-  Testsplit wurde nicht verwendet.}
+  \caption{Wahl der CNN-Lernrate auf dem Validierungssplit (Mittelwert $\pm$ Std über 3 Seeds; Loss:
+  Cross-Entropy; fett: gewählte Lernrate).}
   \label{tab:lr}
   \small
   \resizebox{\linewidth}{!}{\begin{tabular}{lcccc}
