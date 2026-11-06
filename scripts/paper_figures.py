@@ -199,11 +199,11 @@ def per_breed(runs_dir: Path, out: Path) -> None:
     f1 = pd.concat(frames).drop(index=["accuracy", "macro avg", "weighted avg"], errors="ignore")
     f1 = f1.groupby(level=0)["f1-score"].mean().sort_values()
     bully = {"American Bulldog", "American Pit Bull Terrier", "Staffordshire Bull Terrier", "Boxer"}
-    fig, ax = plt.subplots(figsize=(COLUMN, 3.6))
+    fig, ax = plt.subplots(figsize=(COLUMN, 2.95))
     ax.barh(f1.index, 100 * f1.values, color=["#c0392b" if b in bully else "#1f4e79" for b in f1.index], height=0.7)
     ax.set_xlim(70, 100)
     ax.set(xlabel="F1-Wert (%)")
-    ax.tick_params(axis="y", labelsize=5.5)
+    ax.tick_params(axis="y", labelsize=5)
     _comma(ax, "x", 0)
     ax.grid(axis="x", alpha=0.3, lw=0.4)
     fig.tight_layout(pad=0.4)

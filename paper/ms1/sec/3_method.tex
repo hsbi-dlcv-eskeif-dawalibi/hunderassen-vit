@@ -81,7 +81,7 @@ $B\in\mathbb{R}^{d_\text{out}\times r}$ mit Rang $r\ll d$:
 In \cref{eq:lora} wird $B$ mit Nullen initialisiert, sodass das Training beim vortrainierten Modell
 beginnt. Wir passen die Query- und Value-Projektionen aller 12 Blöcke mit $r\in\{4,8,16\}$ an und für
 $r=8$ zusätzlich alle linearen Layer jedes Blocks (Key, Attention-Ausgabe, beide MLP-Layer). Wir setzen
-$\alpha=2r$, verwenden Dropout 0,1 im LoRA-Pfad und trainieren den Klassifikationskopf mit (Lernrate
+$\alpha=2r$, verwenden Dropout 0,1 im LoRA-Pfad und trainieren zusätzlich den Klassifikationskopf (Lernrate
 $5\cdot10^{-4}$). Nach dem Training wird $\frac{\alpha}{r}BA$ zu $W$ addiert; das angepasste Modell hat
 damit dieselbe Architektur und dieselben FLOPs wie der ursprüngliche ViT.
 

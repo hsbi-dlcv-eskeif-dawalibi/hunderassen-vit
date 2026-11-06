@@ -13,7 +13,7 @@ Validation gewählte Variante $r=4$ (96,11\,\%) liegt innerhalb der Streuung.
 
 \begin{table}[t]
   \centering
-  \caption{Urteil über die Hypothesen. Schwelle: doppelte größere Seed-Standardabweichung (\cref{sec:method}).}
+  \caption{Urteil über die Hypothesen. Schwelle: doppelte größere Seed-Standardabweichung (Abschn.~3.2).}
   \label{tab:hyp}
   \small
   \resizebox{\linewidth}{!}{\begin{tabular}{llp{4.6cm}}
@@ -82,7 +82,7 @@ Lernrate (\cref{tab:lr}) macht den Vergleich fair.
 Wie nah ImageNet liegt, erklärt unsere Ergebnisse nur teilweise. Die drei Rassen ohne ImageNet-Klasse
 erreichen mit Linear Probing im Mittel einen kleineren F1-Wert (93,8 gegenüber 96,2\,\%), aber nur wegen des
 American Bulldog (86\,\%); Havanese (97\,\%) und Shiba Inu (99\,\%) sind so leicht wie die ImageNet-Rassen.
-Er gehört zu den Bully-Rassen, die auch ImageNet-Rassen untereinander verwechseln (s.\,u.). Für andere
+Der American Bulldog gehört zu den Bully-Rassen, die auch ImageNet-Rassen untereinander verwechseln (s.\,u.). Für andere
 Domänen oder deutlich größere Datensätze erwarten wir, dass LoRA oder volles Fine-Tuning aufholen, wie es Kornblith \etal~\cite{kornblith2019transfer} für Autos und Flugzeuge beobachten.
 
 \paragraph{Augmentierung, Datenqualität und Fehler.}
@@ -91,8 +91,8 @@ balanciert und enthalten keine exakten Duplikate; 8,6\,\% der Testbilder haben e
 Trainingsbild (CLIP-Ähnlichkeit $\geq0{,}95$), ohne sie sinkt die Accuracy um 0,34\,pp, die Ergebnisse sind
 also höchstens leicht geschönt. Die vier Bully-Rassen machen 16\,\% der Testbilder, aber 59\,\% der Fehler
 aus. Wir haben die acht sichersten der 71 in allen Seeds falschen Testbilder angesehen (Anhang~\ref{sec:why}):
-Bei mindestens dreien ist das Label zweifelhaft (ein Beagle als Basset Hound, ein Boxer als American
-Bulldog), die übrigen sind Verwechslungen ähnlicher Rassen. Ein Teil der Restfehler ist also vermutlich
+Bei mindestens dreien ist das Label zweifelhaft (zwei Beagles mit Label Basset Hound, ein Boxer mit
+Label American Bulldog), die übrigen sind Verwechslungen ähnlicher Rassen. Ein Teil der Restfehler ist also vermutlich
 Label-Rauschen und kein Modellfehler; alle 71 Bilder haben wir nicht geprüft, und ob die Rassen vor allem
 an Größe und Proportionen zu unterscheiden sind, die ein Foto ohne Maßstab kaum zeigt, ist eine
 Vermutung.

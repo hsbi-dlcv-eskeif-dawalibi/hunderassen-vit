@@ -38,7 +38,7 @@ Batchgröße 32, $224\times224$ Pixel Eingabe, Augmentierung \emph{light}, Seeds
     \toprule
     Hardware & NVIDIA GeForce RTX 5090, CUDA 12.8 \\
     Software & Python 3.12.3, PyTorch 2.8.0,\newline Transformers 4.57.6 \\
-    Genauigkeit & gemischte Präzision (fp16) \\
+    Präzision & gemischte Präzision (fp16) \\
     Seeds & 1, 2, 3 (Training); Split-Seed 0 \\
     Daten & Oxford-IIIT Pet (25 Hunderassen), CC BY-SA 4.0 \\
     Code & Tag \texttt{ms1} des Repositorys \\
@@ -65,9 +65,9 @@ American Pit Bull Terrier wird der Klasse ``American Staffordshire terrier'' zug
 ``Japanese spaniel'', Scottish Terrier ``Scotch terrier'' und German Shorthaired ``German short-haired
 pointer''. Bei diesen Rassen kann die Zuordnung strittig sein.
 
-\paragraph{Eingefrorene Merkmale.} Eine logistische Regression~\cite{pedregosa2011sklearn} auf eingefrorenen Merkmalen (im Hauptteil
-ist \emph{Linear Probing} dagegen ein trainierter Kopf; diese Regression liegt auch für ResNet-50 vor; alle
-Trainingsbilder) erreicht 95,94\,\% (ViT-B/16) und 96,06\,\% (ResNet-50), gegenüber 95,39 und 94,22\,\%
+\paragraph{Eingefrorene Merkmale.} Eine logistische Regression~\cite{pedregosa2011sklearn} auf eingefrorenen Merkmalen mit allen
+Trainingsbildern (anders als das trainierte \emph{Linear Probing} im Hauptteil, und auch für ResNet-50
+verfügbar) erreicht 95,94\,\% (ViT-B/16) und 96,06\,\% (ResNet-50), gegenüber 95,39 und 94,22\,\%
 nach vollem Fine-Tuning. Mit einem Bild pro Rasse erreicht sie $84{,}66\pm2{,}63$ und
 $87{,}41\pm1{,}91$\,\% (\cref{fig:fewshot} im Hauptteil).
 
@@ -80,10 +80,23 @@ $r=4$ von 96,11 auf 95,77\,\%.
 Staffordshire Bull Terrier, Boxer) machen 16\,\% der Testbilder und 59\,\% aller Fehler von LoRA $r=4$
 aus (Accuracy 84,9\,\% gegenüber 98,2\,\% bei den übrigen Rassen). 71 Testbilder sind in allen drei
 Seeds falsch klassifiziert. Bei den acht sichersten (Konfidenz $\geq0{,}98$) sind drei Labels zweifelhaft
-(zwei Bilder von Beagles mit Label Basset Hound, ein Boxer-Kopf mit Label American Bulldog), die übrigen
-sind Bully-Verwechslungen und ein Beagle-ähnliches Bild mit Label Basset Hound; nur eine Sichtung von
-Thumbnails, keine Rassenprüfung durch Fachleute.
+(zwei Beagles mit Label Basset Hound, ein Boxer mit Label American Bulldog); die übrigen sind
+Bully-Verwechslungen oder ein Beagle-ähnliches Bild mit Label Basset Hound. Das ist nur eine Sichtung von
+Vorschaubildern, keine Rassenprüfung durch Fachleute.
 
+
+\section{Fehler je Rasse}
+\label{sec:perbreed}
+\Cref{fig:perbreed} zeigt den F1-Wert jeder Rasse für LoRA $r=4$. Die vier Bully-Rassen (rot) liegen am
+unteren Ende.
+
+\begin{figure}[t]
+  \centering
+  \resultfigure{paper/f1_je_rasse.png}{\linewidth}{F1 je Rasse}
+  \caption{F1-Wert je Rasse auf dem Testsplit (LoRA $r=4$, Mittelwert über 3 Seeds). Rot: die vier
+  Bully-Rassen, die 59\,\% der Fehler verursachen. Die x-Achse beginnt bei 70\,\%.}
+  \label{fig:perbreed}
+\end{figure}
 
 \section{Warum diese Rasse und nicht die andere?}
 \label{sec:explain}
@@ -115,20 +128,6 @@ die häufigsten Verwechslungen.
   \label{fig:contrastive}
 \end{figure}
 
-\section{Fehler je Rasse}
-\label{sec:perbreed}
-\Cref{fig:perbreed} zeigt den F1-Wert jeder Rasse für LoRA $r=4$. Die vier Bully-Rassen (rot) liegen am
-unteren Ende; die häufigste Verwechslung ist American Pit Bull Terrier $\rightarrow$ Staffordshire Bull
-Terrier (62 Bilder über alle Seeds).
-
-\begin{figure}[h]
-  \centering
-  \resultfigure{paper/f1_je_rasse.png}{\linewidth}{F1 je Rasse}
-  \caption{F1-Wert je Rasse auf dem Testsplit (LoRA $r=4$, Mittelwert über 3 Seeds). Rot: die vier
-  Bully-Rassen, die 59\,\% der Fehler verursachen. Die x-Achse beginnt bei 70\,\%.}
-  \label{fig:perbreed}
-\end{figure}
-
 \section{Software und KI-Hilfsmittel}
 \label{sec:tools}
 Die Experimente nutzen PyTorch~\cite{paszke2019pytorch}, Hugging Face
@@ -136,5 +135,4 @@ Transformers~\cite{wolf2020transformers}, scikit-learn~\cite{pedregosa2011sklear
 und Captum~\cite{kokhlikyan2020captum}.
 % Erklärung zur KI-Nutzung (Modulregeln, Vorlesung 01, Folie 13); in der Präsentation mit dem Dozenten besprochen.
 Bei Code, Auswertung und Formulierung haben wir einen KI-Assistenten eingesetzt, wie in der Präsentation mit
-dem Dozenten besprochen. Forschungsfragen, Experimente und die Prüfung aller Ergebnisse stammen von uns;
-alle Zahlen stammen aus den protokollierten Experimenten (\texttt{results/}).
+dem Dozenten besprochen. Forschungsfragen, Experimente und die Prüfung aller Ergebnisse stammen von uns.
