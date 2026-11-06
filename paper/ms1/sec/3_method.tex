@@ -92,7 +92,7 @@ ImageNet-Gewichten und werden nur an unsere Aufgabe angepasst (Transfer Learning
 Pretraining in \cref{sec:why} dient ausschließlich als Vergleich.
 
 \paragraph{Lernraten.} Die Lernraten der ViT-Methoden wurden einmal pro Methode festgelegt und nicht
-optimiert (größer bei weniger trainierbaren Parametern). Unsere ersten CNN-Läufe verwendeten die
+optimiert. Unsere ersten CNN-Läufe verwendeten die
 ViT-Lernrate $5\cdot10^{-5}$ und waren deutlich untertrainiert (Validation-Loss 1,35 bei ResNet-50). Daher
 haben wir die CNN-Lernrate auf dem \emph{Validierungssplit} aus $\{5\cdot10^{-5}, 2\cdot10^{-4},
 5\cdot10^{-4}, 10^{-3}\}$ mit je drei Seeds gewählt; $2\cdot10^{-4}$ war für beide CNNs am besten

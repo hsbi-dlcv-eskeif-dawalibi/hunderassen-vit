@@ -48,7 +48,6 @@ Batchgröße 32, $224\times224$ Pixel Eingabe, Augmentierung \emph{light}, Seeds
 
 \section{Warum sind die Accuracies so hoch?}
 \label{sec:why}
-Alle Zahlen aus \texttt{results/why/REPORT.md} (\texttt{make why}).
 
 \paragraph{Pretraining.} Zufällig initialisiert und mit denselben Daten und derselben Auswertung
 trainiert (30 Epochen, größere Lernrate), erreicht ViT-B/16 $11{,}18\pm2{,}61$\,\% und ResNet-50
@@ -100,8 +99,7 @@ unteren Ende.
 
 \section{Warum diese Rasse und nicht die andere?}
 \label{sec:explain}
-Erklärungen für LoRA $r=4$, ConvNeXt-T und ResNet-50 (Seed 1; \texttt{results/explain/REPORT.md},
-\texttt{make explain}). Wir nutzen Grad-CAM~\cite{selvaraju2017gradcam} (Implementierung:
+Erklärungen für LoRA $r=4$, ConvNeXt-T und ResNet-50 (Seed 1; \texttt{make explain}). Wir nutzen Grad-CAM~\cite{selvaraju2017gradcam} (Implementierung:
 pytorch-grad-cam~\cite{gildenblat2021gradcam}), Occlusion~\cite{zeiler2014visualizing} (Implementierung:
 Captum~\cite{kokhlikyan2020captum}) und Attention Rollout~\cite{abnar2020rollout} (eigener Code). Ein
 \emph{kontrastives} Grad-CAM verwendet das Ziel $\text{logit}_A-\text{logit}_B$ und hebt Evidenz für
@@ -111,10 +109,10 @@ Deletion-Test~\cite{petsiuk2018rise} werden die auffälligsten $16\times16$-Patc
 (Fläche unter der Kurve 0,64 und 0,59 gegenüber 0,92 und 0,89 beim zufälligen Löschen). Wir geben je Modell die im Deletion-Test treueste Methode an (Occlusion beim ViT und bei ConvNeXt-T,
 Grad-CAM beim ResNet-50); damit liegt die Saliency in der annotierten Kopf-Box (Validierungssplit) beim 3,1-
 bis 3,7-Fachen ihres Flächenanteils. Die Werte vergleichen also teils verschiedene Methoden und hängen von
-der Methodenwahl ab: Grad-CAM liefert für den ViT nur 1,3 (Occlusion 3,4), passend zu bekannten Grenzen
-von Grad-CAM bei Transformern~\cite{chefer2021transformer}.
-\Cref{fig:head} im Hauptteil zeigt Beispielkarten mit den Kopf-Boxen, \cref{fig:contrastive} kontrastive Karten für
-die häufigsten Verwechslungen.
+der Methodenwahl ab: Grad-CAM liefert für den ViT nur 1,3 (Occlusion 3,4), für Transformer wurden eigene
+Verfahren vorgeschlagen, weil Karten aus Attention oder heuristischer Propagation als unzureichend
+gelten~\cite{chefer2021transformer}; wir haben sie nicht eingesetzt.
+Beispiele: \cref{fig:head} (Hauptteil) und \cref{fig:contrastive}.
 
 
 

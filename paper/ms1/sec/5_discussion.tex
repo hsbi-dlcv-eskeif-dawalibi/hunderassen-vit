@@ -34,13 +34,15 @@ eingefrorenen ViT-B/16-Merkmalen erreicht 95,9\,\%, mit einem Bild pro Rasse sch
 (\cref{fig:fewshot}): Die Rassen sind im Merkmalsraum bereits weitgehend linear trennbar. 22 unserer
 25 Rassen sind ImageNet-1k-Klassen~\cite{russakovsky2015imagenet} (Zuordnung im Anhang), und die
 ursprünglichen ImageNet-Köpfe erreichen bei Auswahl unter diesen 22 Rassen 96,2--96,8\,\%, ohne ein Bild
-unseres Trainingssatzes gesehen zu haben. Die Anpassung muss also vor allem vorhandene Merkmale auf unsere
-Klassen abbilden, und das leistet ein linearer Kopf; das passt zur gängigen Empfehlung, bei kleinen
-Datensätzen und ähnlicher Domäne nur späte Schichten anzupassen~\cite{yosinski2014transferable}. Volles
+unseres Trainingssatzes gesehen zu haben (auch Kornblith \etal~\cite{kornblith2019transfer} betonen, dass die meisten Pet-Rassen
+ImageNet-Klassen entsprechen). Die Anpassung muss also vor allem vorhandene Merkmale auf unsere
+Klassen abbilden, und das leistet ein linearer Kopf; das passt dazu, dass vortrainierte Merkmale weitgehend
+übertragbar sind und vor allem späte Schichten aufgabenspezifisch~\cite{yosinski2014transferable}. Volles
 Fine-Tuning aktualisiert dagegen 86\,M Parameter mit 2\,242 Bildern und liegt darunter, in Einklang damit,
-dass es gute Merkmale verzerren kann~\cite{kumar2022finetuning}. Wichtige Einschränkung: Die Lernrate des
-vollen Fine-Tunings ($5\cdot10^{-5}$) wurde nicht optimiert, die der CNNs schon; ein besser abgestimmtes
-Fine-Tuning könnte den Rückstand verkleinern.
+dass es gute Merkmale verzerren kann~\cite{kumar2022finetuning}. Wichtige Einschränkung: Kornblith \etal\ finden, dass Fine-Tuning ab einigen hundert Bildern meist besser
+ist als eingefrorene Merkmale, mit abgestimmten Hyperparametern. Unsere Lernrate für volles Fine-Tuning
+($5\cdot10^{-5}$) wurde nicht optimiert, die der CNNs schon; ein besser abgestimmtes Fine-Tuning könnte den
+Rückstand verkleinern oder umkehren.
 
 \begin{figure}[t]
   \centering
@@ -64,8 +66,7 @@ Fine-Tuning könnte den Rückstand verkleinern.
 \paragraph{LoRA, Rang und Layer (A1--A3).}
 LoRA mit weniger als 1\,\% trainierbaren Parametern ist nie schlechter als volles Fine-Tuning; der Vorsprung
 von $r=8$ liegt nur knapp über der Schwelle und sollte nicht überbewertet werden. Linear Probing trainiert
-16-mal weniger Parameter als LoRA $r=8$ bei gleicher Accuracy; die Trainingszeiten (0,3 gegenüber 0,5\,min)
-liegen im Bereich der Messstreuung.
+16-mal weniger Parameter als LoRA $r=8$ bei gleicher Accuracy.
 Ein höherer Rang und mehr angepasste Layer bringen nichts: Zusätzliche Kapazität bleibt
 vermutlich ungenutzt, wenn die eingefrorenen Merkmale schon gut sind, in Analogie zum niedrigen
 intrinsischen Rang, den Hu \etal~\cite{hu2022lora} für Sprachmodelle berichten.
@@ -82,20 +83,17 @@ Lernrate (\cref{tab:lr}) macht den Vergleich fair.
 Wie nah ImageNet liegt, erklärt unsere Ergebnisse nur teilweise. Die drei Rassen ohne ImageNet-Klasse
 erreichen mit Linear Probing im Mittel einen kleineren F1-Wert (93,8 gegenüber 96,2\,\%), aber nur wegen des
 American Bulldog (86\,\%); Havanese (97\,\%) und Shiba Inu (99\,\%) sind so leicht wie die ImageNet-Rassen.
-Der American Bulldog gehört zu den Bully-Rassen, die auch ImageNet-Rassen untereinander verwechseln (s.\,u.). Für andere
-Domänen oder deutlich größere Datensätze erwarten wir, dass LoRA oder volles Fine-Tuning aufholen, wie es Kornblith \etal~\cite{kornblith2019transfer} für Autos und Flugzeuge beobachten.
+Der American Bulldog gehört zu den Bully-Rassen, die auch ImageNet-Rassen untereinander verwechseln (s.\,u.). Für Datensätze, deren Klassen in ImageNet kaum vertreten sind (z.\,B. Stanford Cars und FGVC Aircraft~\cite{kornblith2019transfer}),
+oder für deutlich größere Datensätze erwarten wir, dass LoRA oder volles Fine-Tuning aufholen; getestet haben wir das nicht.
 
 \paragraph{Augmentierung, Datenqualität und Fehler.}
-\emph{none}, \emph{light} und \emph{strong} unterscheiden sich um höchstens 0,3\,pp, innerhalb der Seed-Streuung. Die Daten sind
-balanciert und enthalten keine exakten Duplikate; 8,6\,\% der Testbilder haben ein sehr ähnliches
+\emph{none}, \emph{light} und \emph{strong} unterscheiden sich um höchstens 0,3\,pp, innerhalb der Seed-Streuung. 8,6\,\% der Testbilder haben ein sehr ähnliches
 Trainingsbild (CLIP-Ähnlichkeit $\geq0{,}95$), ohne sie sinkt die Accuracy um 0,34\,pp, die Ergebnisse sind
 also höchstens leicht geschönt. Die vier Bully-Rassen machen 16\,\% der Testbilder, aber 59\,\% der Fehler
 aus. Wir haben die acht sichersten der 71 in allen Seeds falschen Testbilder angesehen (Anhang~\ref{sec:why}):
 Bei mindestens dreien ist das Label zweifelhaft (zwei Beagles mit Label Basset Hound, ein Boxer mit
 Label American Bulldog), die übrigen sind Verwechslungen ähnlicher Rassen. Ein Teil der Restfehler ist also vermutlich
-Label-Rauschen und kein Modellfehler; alle 71 Bilder haben wir nicht geprüft, und ob die Rassen vor allem
-an Größe und Proportionen zu unterscheiden sind, die ein Foto ohne Maßstab kaum zeigt, ist eine
-Vermutung.
+Label-Rauschen und kein Modellfehler; alle 71 Bilder haben wir nicht geprüft.
 
 \paragraph{Limitationen.}
 Der Datensatz liegt nah an ImageNet; der Vorteil von Linear Probing muss sich nicht auf andere Domänen
@@ -106,9 +104,8 @@ gegenüber 94--96\,\%), stammt aus \texttt{trainval} und wurde nicht auf Fast-Du
 sie ist daher nur ein grober Stellvertreter für Test, und die Modellauswahl für Station~2 war ein
 Gleichstand. Drei Seeds begrenzen die Auflösung kleiner Unterschiede; unsere Schwelle ist konservativer als
 ein gepaarter Vergleich je Seed, der die Rückstände von LoRA $r=16$ und von LoRA auf allen Layern gegenüber
-$r=8$ (0,24 und 0,39\,pp) als konsistent einstufen würde; an den Schlussfolgerungen ändert das nichts. Absolute Werte sind nicht mit denen von Kornblith \etal~\cite{kornblith2019transfer} (37 Rassen) vergleichbar.
+$r=8$ (0,24 und 0,39\,pp) als konsistent einstufen würde; an den Schlussfolgerungen ändert das nichts.
 
 \paragraph{Fazit und Ausblick.}
-Für einen kleinen feinkörnigen Datensatz nahe an ImageNet genügt ein neuer linearer Kopf auf
-einem eingefrorenen ViT-B/16; LoRA bringt keinen messbaren Gewinn. Die auf Validation gewählte
-Methode, LoRA $r=4$, ist in Station~2 der Teacher.
+Für kleine feinkörnige Datensätze nahe an ImageNet genügt ein linearer Kopf auf einem eingefrorenen
+ViT-B/16; LoRA bringt keinen messbaren Gewinn. LoRA $r=4$ (Validation) ist in Station~2 der Teacher.

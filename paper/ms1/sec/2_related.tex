@@ -4,8 +4,8 @@
 
 \paragraph{Vision Transformer und CNNs.}
 Der ViT~\cite{dosovitskiy2021vit} zerlegt ein Bild in $16\times16$-Patches und verarbeitet sie mit einem
-Transformer-Encoder~\cite{vaswani2017attention}. ViTs brauchen ein großes Pretraining; Steiner \etal~\cite{steiner2022augreg} zeigen, dass beim
-Pretraining mit begrenzten Daten Augmentierung und Regularisierung viel Rechenaufwand ersetzen können.
+Transformer-Encoder~\cite{vaswani2017attention}. ViTs brauchen ein großes Pretraining; Steiner \etal~\cite{steiner2022augreg} zeigen, dass Augmentierung und
+Regularisierung zusammen mit mehr Rechenaufwand eine Größenordnung mehr Trainingsdaten ersetzen können.
 ResNet~\cite{he2016resnet} führte Residual-Blöcke ein; ConvNeXt~\cite{liu2022convnext} modernisiert
 ResNet mit Designentscheidungen der Transformer und erreicht eine vergleichbare Accuracy.
 Faltungen bringen Lokalität und Translationsäquivarianz mit, eine induktive Verzerrung, die bei wenigen
@@ -15,9 +15,11 @@ stärker auf großes Pretraining angewiesen sind~\cite{dosovitskiy2021vit,steine
 \paragraph{Transfer Learning und Linear Probing.}
 Yosinski \etal~\cite{yosinski2014transferable} untersuchen, wie übertragbar die Schichten eines Netzes
 sind: Frühe Schichten sind allgemein, späte aufgabenspezifisch. Kornblith \etal~\cite{kornblith2019transfer}
-vergleichen logistische Regression auf eingefrorenen Merkmalen mit vollem Fine-Tuning auf zwölf
-Datensätzen, darunter Oxford-IIIT Pet. Fine-Tuning bringt den größten Gewinn bei Stanford Cars und
-FGVC Aircraft; bei Pets ist er klein. Kumar \etal~\cite{kumar2022finetuning} zeigen, dass volles Fine-Tuning
+vergleichen auf zwölf Datensätzen, darunter Oxford-IIIT Pet, logistische Regression auf eingefrorenen
+Merkmalen, volles Fine-Tuning und Training von Grund auf. Fine-Tuning ist meist besser; bei sehr wenigen
+Trainingsbildern (47--800 insgesamt) ist die logistische Regression aber gleichwertig oder besser. Der Nutzen
+des ImageNet-Pretrainings ist gering, wenn die Klassen in ImageNet kaum vertreten sind (Stanford Cars,
+FGVC Aircraft); die meisten Hunde- und Katzenrassen von Pet entsprechen dagegen direkt ImageNet-Klassen. Kumar \etal~\cite{kumar2022finetuning} zeigen, dass volles Fine-Tuning
 vortrainierte Merkmale verzerren kann, was vor allem außerhalb der Trainingsverteilung schadet, während
 Linear Probing sie erhält.
 
@@ -26,9 +28,9 @@ LoRA~\cite{hu2022lora} friert die vortrainierten Gewichte ein und lernt Änderun
 $\Delta W = BA$ ausgewählter Gewichtsmatrizen; nach dem Training wird die Änderung in $W$ eingerechnet,
 sodass die Inferenz nichts zusätzlich kostet. Adapter~\cite{houlsby2019adapter} fügen dagegen zusätzliche
 Module ein, die auch zur Inferenz berechnet werden, und Visual Prompt Tuning~\cite{jia2022vpt} lernt
-zusätzliche Eingabe-Token für ViTs. Hu \etal\ berichten, dass es genügt, nur die Query- und
-Value-Projektionen anzupassen, dass schon ein sehr kleiner Rang ausreicht und dass mehrere Gewichtsarten
-mit kleinerem Rang besser sind als eine einzige mit größerem Rang.
+zusätzliche Eingabe-Token für ViTs. Hu \etal\ passen nur Attention-Gewichte an; bei gleicher Parameterzahl ist die Anpassung von Query und
+Value am besten, schon ein sehr kleiner Rang genügt, und mehrere Gewichtsarten mit kleinerem Rang sind
+besser als eine einzige mit größerem Rang.
 
 \paragraph{Feinkörnige Klassifikation von Hunderassen.}
 Oxford-IIIT Pet~\cite{parkhi2012pets} (37 Katzen- und Hunderassen mit Segmentierungsmasken) und Stanford

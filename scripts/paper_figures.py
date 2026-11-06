@@ -211,12 +211,21 @@ def per_breed(runs_dir: Path, out: Path) -> None:
     plt.close(fig)
 
 
-def crop_title(src: Path, out: Path, top: int) -> None:
-    """Drop the English title line of a rendered figure (the caption explains it in German)."""
-    from PIL import Image
+def crop_title(src: Path, out: Path, top: int, pad: int = 8, blank: tuple[int, int, int, int] | None = None) -> None:
+    """Drop the English title line of a rendered figure (the caption explains it in German) and trim white margins."""
+    from PIL import Image, ImageChops
 
-    image = Image.open(src)
-    image.crop((0, top, image.width, image.height)).save(out)
+    image = Image.open(src).convert("RGB")
+    image = image.crop((0, top, image.width, image.height))
+    if blank:
+        image.paste((255, 255, 255), blank)
+    bbox = ImageChops.difference(image, Image.new("RGB", image.size, (255, 255, 255))).getbbox()
+    if bbox:
+        left, upper, right, lower = bbox
+        image = image.crop(
+            (max(left - pad, 0), max(upper - pad, 0), min(right + pad, image.width), min(lower + pad, image.height))
+        )
+    image.save(out)
 
 
 def main() -> None:
@@ -232,7 +241,12 @@ def main() -> None:
     per_breed(args.runs, args.out / "f1_je_rasse.png")
     examples(args.out / "beispiele.png")
     crop_title(RESULTS_DIR / "explain" / "head_examples.png", args.out / "gradcam.png", top=52)
-    crop_title(RESULTS_DIR / "explain" / "contrastive_convnext_t.png", args.out / "kontrastiv.png", top=0)
+    crop_title(
+        RESULTS_DIR / "explain" / "contrastive_convnext_t.png",
+        args.out / "kontrastiv.png",
+        top=0,
+        blank=(240, 0, 1365, 72),
+    )
     print("figures written to", args.out)
 
 

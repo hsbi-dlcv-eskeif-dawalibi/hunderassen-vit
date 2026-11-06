@@ -50,3 +50,9 @@
 % \usepackage{soul}
 % \setuldepth{foobar}
 \usepackage{needspace}
+% Columns that consist only of floats: figures start at the top instead of floating with stretchable space above.
+\makeatletter
+\setlength{\@fptop}{0pt}
+\setlength{\@fpsep}{12pt plus 1fil}
+\setlength{\@fpbot}{0pt plus 1fil}
+\makeatother
