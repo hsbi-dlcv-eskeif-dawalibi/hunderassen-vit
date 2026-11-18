@@ -60,7 +60,8 @@ wir berichten Mittelwert $\pm$ Standardabweichung auf dem Testsplit. Der Checkpo
 Validierungssplit ausgewählt.
 
 \paragraph{Auswertung.}
-Wir berichten Accuracy und Macro-F1. Einen Unterschied zwischen zwei Methoden interpretieren wir nur, wenn
+Wir berichten Accuracy und Macro-F1 (Mittel der F1-Werte aller Rassen, damit jede Rasse gleich
+zählt). Einen Unterschied zwischen zwei Methoden interpretieren wir nur, wenn
 die Differenz der Mittelwerte größer ist als das Doppelte der größeren Seed-Standardabweichung beider
 Methoden (\emph{Schwelle}); alle Aussagen wie \glqq innerhalb der Streuung\grqq{} beziehen sich darauf. Mit drei
 Seeds ist das ein grobes Kriterium und kein statistischer Test; die Schwelle ist konservativer als ein
