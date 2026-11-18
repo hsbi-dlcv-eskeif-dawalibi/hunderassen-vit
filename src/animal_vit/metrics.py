@@ -60,6 +60,7 @@ def make_compute_metrics() -> Callable[[Any], dict[str, float]]:
     """Adapter for ``transformers.Trainer(compute_metrics=...)``."""
 
     def compute_metrics(eval_prediction) -> dict[str, float]:
+        """Metrics for the Hugging Face ``Trainer`` from its ``EvalPrediction``."""
         logits, labels = eval_prediction.predictions, eval_prediction.label_ids
         # With output_attentions=True the model returns a tuple (logits, attentions, ...).
         if isinstance(logits, (tuple, list)):

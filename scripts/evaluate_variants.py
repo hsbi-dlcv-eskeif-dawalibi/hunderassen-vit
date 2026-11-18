@@ -20,6 +20,7 @@ from animal_vit.variants import VARIANTS
 
 
 def main() -> None:
+    """Evaluate every run on the requested test-image variants and write ``variants.csv``."""
     import numpy as np
     import pandas as pd
 

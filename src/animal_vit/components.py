@@ -59,9 +59,11 @@ def build_conv_stem(out_dim: int, channels=(48, 96, 192, 384), in_channels: int 
     import torch.nn as nn
 
     class ConvStem(nn.Sequential):
-        # ViTEmbeddings reads ``projection.weight.dtype`` to cast its input.
+        """Convolutional patch embedding that can replace the ViT's single linear projection."""
+
         @property
         def weight(self):
+            """Weight of the last layer, read by ``ViTEmbeddings`` to cast its input dtype."""
             return self[-1].weight
 
     layers, prev = [], in_channels

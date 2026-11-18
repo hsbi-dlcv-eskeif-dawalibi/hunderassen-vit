@@ -165,6 +165,7 @@ def write_run_report(output_dir: Path, cfg_dict: dict, metrics: dict, info: dict
     for r in rows:
 
         def pct(value):
+            """Fraction as percent with two decimals, ``-`` if missing."""
             return "-" if value is None else f"{100 * value:.2f}"
 
         train_loss = "-" if r["train_loss"] is None else f"{r['train_loss']:.4f}"

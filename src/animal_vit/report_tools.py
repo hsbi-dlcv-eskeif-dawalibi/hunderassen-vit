@@ -30,11 +30,13 @@ def group_of(name: str) -> str:
 
 
 def seed_of(name: str) -> int | None:
+    """Seed from the ``_s<k>`` suffix of a run name (``None`` without suffix)."""
     m = SEED_RE.search(name)
     return int(m.group(1)) if m else None
 
 
 def load_json(path: Path) -> dict:
+    """Parse a JSON file."""
     return json.loads(Path(path).read_text())
 
 
@@ -82,6 +84,7 @@ def decimal_comma(text: str) -> str:
 
 
 def is_missing(value) -> bool:
+    """``True`` for ``None`` and NaN (pandas uses NaN for missing numbers)."""
     return value is None or (isinstance(value, float) and math.isnan(value))
 
 
@@ -172,6 +175,7 @@ def figure(width: float = 6.5, height: float = 4.0):
 
 
 def save(fig, path: Path) -> Path:
+    """Save ``fig`` at 200 dpi (creating the folder) and close it; returns ``path``."""
     import matplotlib.pyplot as plt
 
     path.parent.mkdir(parents=True, exist_ok=True)

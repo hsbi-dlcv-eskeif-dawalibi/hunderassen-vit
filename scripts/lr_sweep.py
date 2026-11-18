@@ -28,6 +28,7 @@ def best_eval(run: Path) -> dict:
 
 
 def main() -> None:
+    """Group the runs by learning rate and print the validation table and the best rate."""
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("runs", nargs="+", type=Path)
     parser.add_argument("--baseline", nargs="*", type=Path, default=[], help="runs with the original rate")
@@ -46,6 +47,7 @@ def main() -> None:
         raise SystemExit("no finished runs found")
 
     def stat(rows, key):
+        """Mean and std of ``key`` over runs (NaN if no run logged it, std 0 for one run)."""
         vals = [r[key] for r in rows if key in r]
         if not vals:
             return float("nan"), float("nan")

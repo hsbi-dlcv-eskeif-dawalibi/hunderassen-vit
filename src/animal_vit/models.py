@@ -76,6 +76,7 @@ def enable_pos_encoding_interpolation(model) -> None:
 
     class _WithPosInterpolation(base):  # type: ignore[misc, valid-type]
         def forward(self, pixel_values=None, labels=None, **kwargs):
+            """Always interpolate the position embeddings so other input sizes work."""
             kwargs.pop("interpolate_pos_encoding", None)
             return super().forward(pixel_values=pixel_values, labels=labels, interpolate_pos_encoding=True, **kwargs)
 

@@ -79,6 +79,7 @@ def plot_examples(sources: dict, out_path: Path, size: int = 160) -> None:
 
 
 def main() -> None:
+    """Read all images of the chosen species, write the quality tables, figures and ``README.md``."""
     import pandas as pd
 
     from animal_vit.data import _PetsSource

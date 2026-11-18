@@ -147,6 +147,7 @@ def plot_pairs(top, datasets, path: Path) -> None:
     import matplotlib.pyplot as plt
 
     def image(split, position):
+        """RGB image at ``position`` of ``split`` (positions index the split, not the dataset)."""
         ds = datasets[split]
         return ds.load(ds.indices[position])[0].convert("RGB")
 
@@ -207,6 +208,7 @@ def _pick(m: dict) -> dict:
 
 
 def main() -> None:
+    """Run the selected ``why`` analyses (ImageNet heads, near duplicates, few-shot)."""
     from animal_vit.evaluation import select_device
 
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)

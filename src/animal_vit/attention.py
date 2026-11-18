@@ -35,12 +35,15 @@ def _scaled(inner, factor: float):
     import torch.nn as nn
 
     class Scaled(nn.Module):
+        """Wraps a module and multiplies its output by a constant factor."""
+
         def __init__(self):
             super().__init__()
             self.inner = inner
             self.factor = factor
 
         def forward(self, x):
+            """Output of the wrapped module times ``factor``."""
             return self.inner(x) * self.factor
 
     return Scaled()

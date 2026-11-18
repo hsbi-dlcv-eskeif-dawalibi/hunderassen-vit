@@ -17,6 +17,7 @@ import _bootstrap  # noqa: F401
 
 
 def main() -> None:
+    """Profile every given run and write ``efficiency.json`` next to its metrics."""
     from animal_vit.efficiency import profile
     from animal_vit.evaluation import select_device
     from animal_vit.training import load_run

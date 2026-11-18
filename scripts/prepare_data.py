@@ -18,6 +18,7 @@ from animal_vit.paths import PETS_DIR
 
 
 def main() -> None:
+    """Download Oxford-IIIT Pet (if missing) and print how many dog images each split uses."""
     from torchvision.datasets import OxfordIIITPet
 
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)

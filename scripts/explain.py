@@ -45,6 +45,7 @@ LABELS = {
 
 
 def label_of(run: Path) -> str:
+    """Readable model name of a station-1 run (seed and ``ms1_`` prefix removed)."""
     key = re.sub(r"^ms1_|_s\d+$", "", run.name)
     return LABELS.get(key, key)
 
@@ -62,6 +63,7 @@ def default_runs(runs_dir: Path, results: Path) -> list[Path]:
 
 
 def split_dataset(cfg, size, mean, std, split: str):
+    """One split of the run's dataset with pet masks (same split and preprocessing as training, no augmentation)."""
     from animal_vit.data import build_datasets, build_transforms
 
     d = cfg.data
@@ -287,6 +289,7 @@ def head_examples(store, out: Path, k: int = 6) -> None:
 
 
 def main() -> None:
+    """Compute all explanation outputs for the selected runs (see the module docstring)."""
     import numpy as np
     import pandas as pd
 

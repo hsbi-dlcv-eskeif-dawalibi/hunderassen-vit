@@ -30,6 +30,7 @@ from animal_vit.training import run_experiment
 
 
 def main() -> None:
+    """Load the YAML config, apply ``--set`` overrides and run one experiment."""
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("config", help="Path to an experiment YAML file")
     parser.add_argument(

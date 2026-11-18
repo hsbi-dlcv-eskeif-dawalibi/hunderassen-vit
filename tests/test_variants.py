@@ -10,6 +10,7 @@ from animal_vit.variants import GREY, apply_variant
 
 @pytest.fixture()
 def sample():
+    """8x8 test image with a 4x4 square mask in the centre."""
     image = np.arange(8 * 8 * 3, dtype=np.uint8).reshape(8, 8, 3)
     mask = np.zeros((8, 8), dtype=bool)
     mask[2:6, 2:6] = True

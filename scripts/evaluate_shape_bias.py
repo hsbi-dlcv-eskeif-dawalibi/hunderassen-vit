@@ -41,6 +41,7 @@ class CueConflictDataset:
 
 
 def main() -> None:
+    """Classify the cue-conflict images with every run and write ``shape_bias.json``."""
     from animal_vit.data import build_transforms
     from animal_vit.evaluation import predict, select_device
     from animal_vit.style_transfer import shape_bias

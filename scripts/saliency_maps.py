@@ -22,6 +22,7 @@ import _bootstrap  # noqa: F401
 
 
 def main() -> None:
+    """Compute saliency maps and foreground focus for every run, save examples and ``saliency.json``."""
     import matplotlib
 
     matplotlib.use("Agg")

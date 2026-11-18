@@ -224,6 +224,7 @@ def _renormalizer(src_mean, src_std, dst_mean, dst_std):
     import torch
 
     def convert(x):
+        """Re-normalise a batch from the source to the target mean/std."""
         shape = (1, 3, 1, 1)
         sm, ss = torch.tensor(src_mean, device=x.device).view(shape), torch.tensor(src_std, device=x.device).view(shape)
         dm, ds = torch.tensor(dst_mean, device=x.device).view(shape), torch.tensor(dst_std, device=x.device).view(shape)

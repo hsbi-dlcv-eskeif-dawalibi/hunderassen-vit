@@ -76,6 +76,7 @@ class StyleTransfer:
         optimizer = torch.optim.LBFGS([x], max_iter=steps)
 
         def closure():
+            """One L-BFGS evaluation: content plus style loss of the current image."""
             optimizer.zero_grad()
             x.data.clamp_(0, 1)
             feats = self._features(x)

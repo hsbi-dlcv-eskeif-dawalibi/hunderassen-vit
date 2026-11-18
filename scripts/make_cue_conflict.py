@@ -23,6 +23,7 @@ from animal_vit.paths import DATA_ROOT
 
 
 def main() -> None:
+    """Render shape/texture cue-conflict images by style transfer between breeds."""
     import numpy as np
     import pandas as pd
 

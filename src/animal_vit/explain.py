@@ -46,6 +46,7 @@ def logits_only(model):
             self.inner = inner
 
         def forward(self, x):
+            """Plain logits, as expected by pytorch-grad-cam and Captum."""
             return self.inner(pixel_values=x).logits
 
     return _LogitsOnly(model)

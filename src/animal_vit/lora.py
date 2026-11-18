@@ -59,6 +59,7 @@ def _lora_linear_class():
             return self.base.weight
 
         def forward(self, x):
+            """Frozen base output plus the scaled low-rank update ``B A x`` (Hu et al. 2022)."""
             update = self.lora_dropout(x) @ self.lora_A.t() @ self.lora_B.t()
             return self.base(x) + self.scaling * update
 
