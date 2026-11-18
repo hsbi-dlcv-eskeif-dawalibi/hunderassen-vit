@@ -7,8 +7,9 @@
 
 \paragraph{Hauptbefund.}
 Fast alle Methoden liegen bei 95--96\,\%, eine Rangfolge ist nur an den Rändern belastbar
-(\cref{tab:hyp}): LoRA ($r=8$ und $r=4$) und Linear Probing sind nicht zu unterscheiden, volles
-Fine-Tuning und die CNNs sind schlechter. Nominell beste Methode auf Test: LoRA $r=8$; auf Validation
+(\cref{tab:hyp}): LoRA ($r=8$ und $r=4$) und Linear Probing sind nicht zu unterscheiden, die CNNs sind
+schlechter als alle drei. Volles Fine-Tuning liegt nur unter LoRA $r=8$ über der Schwelle, gegenüber
+$r=4$ und Linear Probing innerhalb der Streuung. Nominell beste Methode auf Test: LoRA $r=8$; auf Validation
 gewählt wurde $r=4$ (innerhalb der Streuung).
 
 \begin{table}[t]
@@ -20,10 +21,10 @@ gewählt wurde $r=4$ (innerhalb der Streuung).
     \toprule
     Hyp. & Urteil & Beleg \\
     \midrule
-    A1 & bestätigt & LoRA nie schlechter als volles Fine-Tuning; $r=8$ $+0{,}82$\,pp (Schwelle 0,78) \\
+    A1 & bestätigt & LoRA nie schlechter als volles Fine-Tuning; $r=8$ $+0{,}82$\,pp (Schwelle 0,77) \\
     A2 & nicht gestützt & Linear Probing $-0{,}17$\,pp, innerhalb der Streuung \\
     A3 & teils gestützt & Ränge 4/8/16 innerhalb 0,25\,pp; alle Layer $-0{,}39$\,pp, nicht besser \\
-    A4 & nicht gestützt & bestes CNN $-1{,}42$\,pp (Schwelle 0,92) \\
+    A4 & nicht gestützt & bestes CNN $-1{,}42$\,pp (Schwelle 0,91) \\
     \bottomrule
   \end{tabular}}
 \end{table}
