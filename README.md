@@ -13,8 +13,12 @@ Projektarbeit im Modul *Deep Learning for Computer Vision* · M.Sc. Informatik �
 ![Dataset](https://img.shields.io/badge/data-Oxford--IIIT%20Pet%20(25%20Hunderassen)-6A5ACD)
 ![Lizenz](https://img.shields.io/badge/Lizenz-MIT-blue)
 ![Code style](https://img.shields.io/badge/code%20style-ruff-D7FF64?logo=ruff&logoColor=black)
+![Tests](https://img.shields.io/badge/tests-62%20passed-brightgreen?logo=pytest&logoColor=white)
+![Seeds](https://img.shields.io/badge/Seeds-3%20je%20Konfiguration-informational)
+![Paper](https://img.shields.io/badge/Paper-CVPR%202026%20Template-B31B1B?logo=latex&logoColor=white)
+![Git LFS](https://img.shields.io/badge/Abbildungen-Git%20LFS-F64935?logo=git&logoColor=white)
 
-[Ergebnisse](#-ergebnisse-station-1) · [Schnellstart](#-schnellstart) · [Struktur](#-struktur) · [Dokumentation](#-dokumentation) · [Team](#-team)
+[Highlights](#-highlights) · [Ergebnisse](#-ergebnisse-station-1) · [Schnellstart](#-schnellstart) · [Struktur](#-struktur) · [Dokumentation](#-dokumentation) · [Team](#-team) · [Mitwirken](#-mitwirken) · [Lizenz](#-lizenz) · [Zitieren](#-zitieren)
 
 </div>
 
@@ -33,6 +37,20 @@ Zusätzlich: Warum liegen alle Modelle über 90 %? (`make why`) und welche Bildt
 
 Alle Modelle sind vortrainiert, jede Konfiguration läuft mit **3 Seeds**, ausgewählt wird nur auf dem
 Validierungssplit, und Unterschiede werden nur interpretiert, wenn sie größer als die Seed-Streuung sind.
+
+---
+
+## ✨ Highlights
+
+| | |
+|:--|:--|
+| 🔁 **Ein Befehl, alles reproduziert** | `make all` erzeugt Läufe, Reports, Tabellen und Abbildungen; abgebrochene GPU-Sitzungen setzen einfach fort. `make smoke` prüft die ganze Pipeline in Minuten. |
+| 📏 **Saubere Statistik** | 3 Seeds je Konfiguration, Modellauswahl nur auf Validation, Test genau einmal. Unterschiede gelten nur, wenn die gepaarte Differenz über zwei Standardfehlern liegt. |
+| 🧩 **LoRA selbst implementiert** | Eigene Adapter in [`lora.py`](src/animal_vit/lora.py) (Hu et al. 2022), getestet und nach dem Training in die Gewichte eingerechnet: gleiche Inferenzkosten wie der Basis-ViT. |
+| 🔍 **Erklärungen, die geprüft werden** | Grad-CAM, Occlusion und kontrastive Karten („warum A und nicht B?“), bewertet mit dem Deletion-Test statt nur hübscher Heatmaps. |
+| 🕵️ **Gegenprobe auf Leakage** | Fast-Duplikat-Suche mit CLIP zwischen Test und Training, Läufe ohne Pretraining und ImageNet-Köpfe ohne Training erklären die > 90 %. |
+| 📝 **Reports schreiben sich selbst** | `scripts/report_*.py` erzeugen Tabellen, Abbildungen und Befunde direkt aus den Läufen, dazu die LaTeX-Tabellen fürs Paper. |
+| ✅ **Software-Qualität** | 62 Tests auf der CPU, GitHub Actions bei jedem Push, Ruff und Pre-Commit, Docstrings für jede öffentliche Funktion. |
 
 ---
 
@@ -55,6 +73,13 @@ Testsplit (2 486 Bilder), Mittelwert ± Standardabweichung über 3 Seeds.
 - Warum so hoch? 22 der 25 Rassen sind ImageNet-Klassen: Die ImageNet-Köpfe erkennen sie **ohne Training**
   zu 96–97 %, ohne Pretraining schaffen ViT bzw. ResNet nur 11 bzw. 31 %.
 - Alle Modelle stützen sich auf den Kopf des Hundes (Saliency etwa dreimal so stark wie nach Flächenanteil).
+
+<p align="center">
+  <img src="results/paper/effizienz.png" alt="Test-Accuracy gegen trainierbare Parameter" width="46%">
+  &nbsp;
+  <img src="results/paper/gradcam.png" alt="Saliency-Karten von ViT, ConvNeXt-T und ResNet-50 mit annotierter Kopf-Box" width="50%">
+</p>
+<p align="center"><sub>Links: Accuracy gegen trainierbare Parameter (log). Rechts: Worauf die Modelle schauen; weiße Box = annotierter Kopf.</sub></p>
 
 Details mit Tabellen, Abbildungen und geprüften Hypothesen: [Report Station 1](results/ms1/REPORT.md) ·
 [Warum > 90 %](results/why/REPORT.md) · [Erklärungen](results/explain/REPORT.md) ·
@@ -116,14 +141,56 @@ hunderassen-vit/
 
 ## 👥 Team
 
-| Wael Eskeif | Tarek Dawalibi |
-|:--:|:--:|
-| M.Sc. Informatik, HSBI | M.Sc. Informatik, HSBI |
+<table align="center">
+  <tr>
+    <td align="center"><a href="https://github.com/weski17"><img src="https://github.com/weski17.png" width="90" alt=""><br><b>Wael Eskeif</b></a><br><sub>M.Sc. Informatik, HSBI</sub></td>
+    <td align="center"><a href="https://github.com/Tareq1337"><img src="https://github.com/Tareq1337.png" width="90" alt=""><br><b>Mohammad Tarek Dawalibi</b></a><br><sub>M.Sc. Informatik, HSBI</sub></td>
+  </tr>
+</table>
 
-**Lizenz:** Code unter [MIT](LICENSE); der Datensatz hat eine eigene Lizenz (siehe unten). Zitieren: [`CITATION.cff`](CITATION.cff).
+---
 
-**Datensatz:** Oxford-IIIT Pet, Parkhi et al., CVPR 2012, CC BY-SA 4.0.
-**Software:** PyTorch, Hugging Face Transformers, scikit-learn, pytorch-grad-cam, Captum.
+## 🤝 Mitwirken
+
+Beiträge folgen den Regeln in [`CONTRIBUTING.md`](CONTRIBUTING.md), kurz:
+
+- **Conventional Commits** (`feat:`, `fix:`, `docs:`, `refactor:`, `test:`, `exp:` …), klein und thematisch.
+- Gemeinsamer Code nach `src/animal_vit/`, Experimente als YAML in `configs/`, Skripte bleiben dünne CLI-Hüllen.
+- Vor jedem Push: `make test` und `make lint` grün, neue Funktionen mit Docstring und Test.
+- Keine Daten, Gewichte oder Zugangsdaten im Repository; Zahlen in Paper und Folien nur aus `results/`.
+
+---
+
+## 📄 Lizenz
+
+- **Code:** [MIT](LICENSE) © 2026 Wael Eskeif, Mohammad Tarek Dawalibi
+- **Datensatz:** Oxford-IIIT Pet (Parkhi et al., CVPR 2012), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Der Datensatz ist nicht im Repository und wird per `make data` geladen.
+- **Vortrainierte Modelle:** jeweils unter der Lizenz ihres Hugging-Face-Checkpoints.
+
+---
+
+## 📖 Zitieren
+
+Metadaten in [`CITATION.cff`](CITATION.cff) (GitHub zeigt dafür „Cite this repository“ an). BibTeX:
+
+```bibtex
+@software{eskeif_dawalibi_2026_hunderassen_vit,
+  author  = {Eskeif, Wael and Dawalibi, Mohammad Tarek},
+  title   = {Hunderassen-ViT: adapting Vision Transformers to 25 dog breeds},
+  year    = {2026},
+  version = {ms1},
+  url     = {https://github.com/hsbi-dlcv-eskeif-dawalibi/hunderassen-vit},
+  license = {MIT}
+}
+```
+
+---
+
+## 🙏 Danksagung
+
+Prof. Dr.-Ing. Jan Rexilius für das Modul *Deep Learning for Computer Vision*, der Visual Geometry Group
+(Oxford) für Oxford-IIIT Pet und den Projekten hinter **PyTorch**, **Hugging Face Transformers**,
+**scikit-learn**, **pytorch-grad-cam** und **Captum**.
 
 <div align="center">
 <sub>Hochschule Bielefeld · Campus Minden · Deep Learning for Computer Vision · Prof. Dr.-Ing. Jan Rexilius</sub>

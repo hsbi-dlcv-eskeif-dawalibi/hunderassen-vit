@@ -56,7 +56,7 @@ Legende: ✅ umgesetzt · ⚠️ umgesetzt, Entscheidung/Begründung im Paper n�
 
 | Regel | Status | Hinweis |
 |---|---|---|
-| Max. 2 Personen | ✅ | Wael Eskeif, Tarek Dawalibi |
+| Max. 2 Personen | ✅ | Wael Eskeif, Mohammad Tarek Dawalibi |
 | Externe Quellen kenntlich machen | ✅ | Quellen in Docstrings, `docs/CONTEXT.md` §10, `main.bib` |
 | Quellen angeben | ✅ | Literaturverzeichnisse beider Paper, Quellen im Code und in `docs/` |
 | „Kein Code aus externen Quellen, z. B. generative KI-Werkzeuge" | ⚠️ 👤 | Mit KI-Unterstützung entstandene Commits sind mit `Co-Authored-By` gekennzeichnet. **Vor der Abgabe mit dem Dozenten klären**, ob und wie das zulässig ist |

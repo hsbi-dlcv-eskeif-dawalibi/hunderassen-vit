@@ -3,7 +3,7 @@
 **Leitfrage (Folie 14):** Wie effizient lässt sich ein vortrainierter ViT an eine neue Aufgabe anpassen?
 **Arbeitstitel:** *How Efficiently Can a Pretrained ViT Be Adapted? Linear Probing, LoRA and CNNs on 25 Dog Breeds*
 **Format:** CVPR-Template, max. 6 Seiten (ohne Referenzen und Anhang) · **Sprache:** Deutsch oder Englisch ·
-**Autoren:** Wael Eskeif, Tarek Dawalibi
+**Autoren:** Wael Eskeif, Mohammad Tarek Dawalibi
 
 > **LaTeX-Vorlage:** [`paper/ms1/`](../../paper/ms1) (CVPR2026-v1), bauen mit `make paper`.
 > **Alles ausführen:** `make setup` (einmal), dann `make station1`.

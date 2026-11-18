@@ -8,7 +8,7 @@ version = "1.0.0"
 description = "Adapting, compressing and explaining Vision Transformers on the 25 dog breeds of Oxford-IIIT Pet (HSBI, Deep Learning for Computer Vision, WS 2026/27)"
 readme = "README.md"
 requires-python = ">=3.10"
-authors = [{ name = "Wael Eskeif" }, { name = "Tarek Dawalibi" }]
+authors = [{ name = "Wael Eskeif" }, { name = "Mohammad Tarek Dawalibi" }]
 license = { text = "MIT" }
 dependencies = [
     "torch>=2.2",

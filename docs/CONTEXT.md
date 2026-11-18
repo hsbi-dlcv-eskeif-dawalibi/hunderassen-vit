@@ -34,7 +34,7 @@
 | **Umfang** | 2 SWS Vorlesung + Praktikum, 10 CP |
 | **Prüfungsform** | Parcoursprüfung mit 3 benoteten Stationen |
 | **Projektthema (vorgegeben)** | *„Verständnis und praktische Anwendung von ViT-Architekturen"* |
-| **Team** | Wael Eskeif, Tarek Dawalibi |
+| **Team** | Wael Eskeif, Mohammad Tarek Dawalibi |
 
 ### Aufgaben der drei Stationen (Vorlesung 01, Stand 15.10.2026, Folien 14 und 18–20)
 
