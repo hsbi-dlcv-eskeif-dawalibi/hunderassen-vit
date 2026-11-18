@@ -18,12 +18,12 @@ from __future__ import annotations
 
 import argparse
 import json
-import re
 from pathlib import Path
 
 import _bootstrap  # noqa: F401
 
 from animal_vit.paths import RESULTS_DIR
+from animal_vit.report_tools import group_of
 
 
 def collect(run: Path) -> dict:
@@ -56,6 +56,7 @@ def collect(run: Path) -> dict:
 
 
 def main() -> None:
+    """Collect every run into ``summary.csv`` and a markdown table ``summary.md``."""
     import pandas as pd
 
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -66,7 +67,7 @@ def main() -> None:
     rows = []
     for run in args.runs:
         if (run / "config.json").exists():
-            rows.append({"group": re.sub(r"_s\d+$", "", run.name), "run": run.name, **collect(run)})
+            rows.append({"group": group_of(run.name), "run": run.name, **collect(run)})
     if not rows:
         raise SystemExit("no runs with config.json found")
     df = pd.DataFrame(rows)
@@ -83,6 +84,7 @@ def main() -> None:
     summary.to_csv(args.out / "summary.csv")
 
     def fmt(group: str, metric: str) -> str:
+        """``mean ± std`` of ``metric`` for ``group``; accuracies and F1 in percent."""
         mean, std = summary.loc[group, f"{metric}_mean"], summary.loc[group, f"{metric}_std"]
         if pd.isna(mean):
             return "-"

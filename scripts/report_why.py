@@ -72,6 +72,7 @@ CHANCE = 1 / 25
 
 
 def runs_of(runs_dir: Path, group: str) -> list[Path]:
+    """Finished runs of ``group`` (one per seed), or the single unseeded run directory."""
     return sorted(p for p in runs_dir.glob(f"{group}_s*") if (p / "metrics.json").exists()) or (
         [runs_dir / group] if (runs_dir / group / "metrics.json").exists() else []
     )
@@ -85,33 +86,17 @@ def best_vit_group(results_root: Path) -> str:
     return "ms1_vit_b16_lora_r8"
 
 
-def main() -> None:  # noqa: C901 - one linear report, one section per check
+def section_header(number: int, title: str) -> list[str]:
+    """Markdown heading of one check plus its link to the lectures."""
+    return ["", f"## {number}. {title}", "", f"> **Vorlesungsbezug:** {LECTURES[number]}", ""]
+
+
+def check_pretraining(runs_dir: Path, out: Path, findings: list[str]) -> list[str]:
+    """1. Same architecture with and without pretraining (from-scratch runs vs. station 1)."""
     import numpy as np
     import pandas as pd
 
-    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--runs-dir", type=Path, default=RUNS_DIR)
-    parser.add_argument("--out", type=Path, default=RESULTS_DIR / "why")
-    args = parser.parse_args()
-    args.out.mkdir(parents=True, exist_ok=True)
-    runs_dir = args.runs_dir
-    findings: list[str] = []
-
-    lines = [
-        "# Warum über 90 %? Belege aus Experimenten",
-        "",
-        "Automatisch erzeugt von `scripts/report_why.py` (`make why`). Testsplit der 25 Hunderassen, "
-        "Mittelwert ± Std über Seeds. Jeder Abschnitt prüft eine mögliche Erklärung.",
-    ]
-
-    # ------------------------------------------------------------------ 1. pretraining
-    lines += [
-        "",
-        "## 1. Pretraining: dieselbe Architektur ohne vortrainierte Gewichte",
-        "",
-        f"> **Vorlesungsbezug:** {LECTURES[1]}",
-        "",
-    ]
+    lines = section_header(1, "Pretraining: dieselbe Architektur ohne vortrainierte Gewichte")
     rows = [
         r
         for g in SCRATCH_PAIRS
@@ -172,24 +157,24 @@ def main() -> None:  # noqa: C901 - one linear report, one section per check
             ax.set_xticks(x, [b[0] for b in bars])
             ax.set(ylabel="test accuracy (%)", ylim=(0, 100), title="Same architecture, with and without pretraining")
             ax.legend(fontsize=8)
-            save(fig, args.out / "scratch_vs_pretrained.png")
+            save(fig, out / "scratch_vs_pretrained.png")
     else:
         lines += ["(noch keine Läufe, `make why`)"]
+    return lines
 
-    # ------------------------------------------------------------------ 2. prior knowledge
-    lines += [
-        "",
-        "## 2. Vorwissen: 22 der 25 Rassen sind ImageNet-1k-Klassen",
-        "",
-        f"> **Vorlesungsbezug:** {LECTURES[2]}",
-        "",
-    ]
+
+def check_prior_knowledge(runs_dir: Path, out: Path, findings: list[str]) -> list[str]:
+    """2. ImageNet overlap: the original 1000-class heads without training, and F1 of breeds in/out of ImageNet."""
+    import numpy as np
+    import pandas as pd
+
+    lines = section_header(2, "Vorwissen: 22 der 25 Rassen sind ImageNet-1k-Klassen")
     lines += [
         f"In ImageNet-1k (Russakovsky et al. 2015) fehlen nur {', '.join(NOT_IN_IMAGENET)}. Die Checkpoints von "
         "Station 1 sind auf ImageNet-1k trainiert, haben diese Rassen also schon als Klassen gelernt.",
         "",
     ]
-    heads = args.out / "imagenet_head.csv"
+    heads = out / "imagenet_head.csv"
     if heads.exists():
         h = pd.read_csv(heads)
         lines += md_table(
@@ -216,7 +201,7 @@ def main() -> None:  # noqa: C901 - one linear report, one section per check
         best = h.sort_values("accuracy_22way").iloc[-1]
         # Fair reference: the trained model on exactly these 22 breeds (its 25-way predictions, so it can
         # still confuse them with the 3 extra breeds - a slightly harder task than the 22-way head).
-        group = best_vit_group(args.out.parent)
+        group = best_vit_group(out.parent)
         ft = [pd.read_csv(r / "predictions.csv") for r in runs_of(runs_dir, group) if (r / "predictions.csv").exists()]
         ft_acc = float(np.mean([d[d.true.isin(list(IMAGENET_IDS))].correct.mean() for d in ft])) if ft else None
         if ft_acc is not None:
@@ -260,16 +245,16 @@ def main() -> None:  # noqa: C901 - one linear report, one section per check
             "American Bulldog (verwechselbar mit Pit Bull). Havanese und Shiba Inu erkennen die Modelle trotzdem "
             "gut: Die Merkmale übertragen sich auf neue, ähnliche Klassen. Einschränkung: nur 3 Rassen."
         )
+    return lines
 
-    # ------------------------------------------------------------------ 3. leakage
-    lines += [
-        "",
-        "## 3. Leakage: Fast-Duplikate zwischen Test und Training",
-        "",
-        f"> **Vorlesungsbezug:** {LECTURES[3]}",
-        "",
-    ]
-    sims = args.out / "test_max_sim.csv"
+
+def check_leakage(runs_dir: Path, out: Path, findings: list[str]) -> list[str]:
+    """3. Near duplicates between test and train/val (CLIP similarity) and accuracy without them."""
+    import numpy as np
+    import pandas as pd
+
+    lines = section_header(3, "Leakage: Fast-Duplikate zwischen Test und Training")
+    sims = out / "test_max_sim.csv"
     if sims.exists():
         s = pd.read_csv(sims)
         counts = [
@@ -287,9 +272,9 @@ def main() -> None:  # noqa: C901 - one linear report, one section per check
             title="Near-duplicate check (CLIP ViT-B/16)",
         )
         ax.legend(fontsize=8)
-        save(fig, args.out / "max_sim_hist.png")
+        save(fig, out / "max_sim_hist.png")
         dup = s[s.max_similarity >= DUPLICATE_THRESHOLD]
-        best_group = best_vit_group(args.out.parent)
+        best_group = best_vit_group(out.parent)
         accs = []
         for run in runs_of(runs_dir, best_group):
             pred = pd.read_csv(run / "predictions.csv")
@@ -323,16 +308,16 @@ def main() -> None:  # noqa: C901 - one linear report, one section per check
             ]
     else:
         lines += ["(fehlt: `python scripts/why_analysis.py --only duplicates`)"]
+    return lines
 
-    # ------------------------------------------------------------------ 4. separability
-    lines += [
-        "",
-        "## 4. Trennbarkeit: wie wenige Bilder reichen?",
-        "",
-        f"> **Vorlesungsbezug:** {LECTURES[4]}",
-        "",
-    ]
-    fs_path = args.out / "fewshot_backbones.csv"
+
+def check_separability(runs_dir: Path, out: Path, findings: list[str]) -> list[str]:
+    """4. Few-shot linear probes on frozen features, and frozen features vs. full fine-tuning."""
+    import numpy as np
+    import pandas as pd
+
+    lines = section_header(4, "Trennbarkeit: wie wenige Bilder reichen?")
+    fs_path = out / "fewshot_backbones.csv"
     curves = {}
     if fs_path.exists():
         fs = pd.read_csv(fs_path)
@@ -374,7 +359,7 @@ def main() -> None:  # noqa: C901 - one linear report, one section per check
             xlabel="training images per breed (k)", ylabel="test accuracy (%)", title="Linear probe on frozen features"
         )
         ax.legend(fontsize=7)
-        save(fig, args.out / "fewshot_curves.png")
+        save(fig, out / "fewshot_curves.png")
         vit = curves.get("ViT-B/16 (ImageNet)")
         if vit is not None and 1 in vit.index:
             findings.append(
@@ -418,16 +403,15 @@ def main() -> None:  # noqa: C901 - one linear report, one section per check
                     "Einschränkung: Die Linear Probe ist eine logistische Regression mit auf Validation gewähltem C, "
                     "das Fine-Tuning lief 10 Epochen mit festem Schema; nur ein Lauf je Probe."
                 )
+    return lines
 
-    # ------------------------------------------------------------------ 5. remaining error
-    lines += [
-        "",
-        "## 5. Wo liegt der Rest-Fehler?",
-        "",
-        f"> **Vorlesungsbezug:** {LECTURES[5]}",
-        "",
-    ]
-    best_group = best_vit_group(args.out.parent)
+
+def check_remaining_error(runs_dir: Path, out: Path, findings: list[str]) -> list[str]:
+    """5. Where the remaining error lies: bully breeds and test images wrong in every seed."""
+    import pandas as pd
+
+    lines = section_header(5, "Wo liegt der Rest-Fehler?")
+    best_group = best_vit_group(out.parent)
     preds = [
         pd.read_csv(r / "predictions.csv") for r in runs_of(runs_dir, best_group) if (r / "predictions.csv").exists()
     ]
@@ -466,7 +450,7 @@ def main() -> None:  # noqa: C901 - one linear report, one section per check
             predicted=("predicted", lambda x: x.mode()[0]),
         )
         always = always[always.wrong].sort_values("conf", ascending=False)
-        always.head(20).to_csv(args.out / "confident_errors.csv")
+        always.head(20).to_csv(out / "confident_errors.csv")
         lines += [
             "",
             f"In allen Seeds falsch: {len(always)} Testbilder. Die sichersten davon "
@@ -479,9 +463,30 @@ def main() -> None:  # noqa: C901 - one linear report, one section per check
             "Obergrenze des Datensatzes."
         )
         try:
-            plot_errors(always.head(8), args.out / "confident_errors.png")
+            plot_errors(always.head(8), out / "confident_errors.png")
         except Exception as err:  # dataset not available on this machine
             print(f"confident_errors.png skipped: {err}")
+    return lines
+
+
+def main() -> None:
+    """Run every check and write ``REPORT.md``; a check whose inputs are missing only adds a note."""
+    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument("--runs-dir", type=Path, default=RUNS_DIR)
+    parser.add_argument("--out", type=Path, default=RESULTS_DIR / "why")
+    args = parser.parse_args()
+    out, runs_dir = args.out, args.runs_dir
+    out.mkdir(parents=True, exist_ok=True)
+    findings: list[str] = []  # one bullet per check, collected for the "Befunde" section
+
+    lines = [
+        "# Warum über 90 %? Belege aus Experimenten",
+        "",
+        "Automatisch erzeugt von `scripts/report_why.py` (`make why`). Testsplit der 25 Hunderassen, "
+        "Mittelwert ± Std über Seeds. Jeder Abschnitt prüft eine mögliche Erklärung.",
+    ]
+    for check in (check_pretraining, check_prior_knowledge, check_leakage, check_separability, check_remaining_error):
+        lines += check(runs_dir, out, findings)
 
     lines += [
         "",
@@ -504,8 +509,8 @@ def main() -> None:  # noqa: C901 - one linear report, one section per check
         "`confident_errors.png`",
         "- `imagenet_head.csv`, `test_max_sim.csv`, `fewshot_backbones.csv`, `confident_errors.csv`",
     ]
-    (args.out / "REPORT.md").write_text("\n".join(lines) + "\n")
-    print(f"wrote {args.out / 'REPORT.md'}")
+    (out / "REPORT.md").write_text("\n".join(lines) + "\n")
+    print(f"wrote {out / 'REPORT.md'}")
 
 
 def plot_errors(errors, path: Path) -> None:

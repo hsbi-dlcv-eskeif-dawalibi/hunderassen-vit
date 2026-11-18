@@ -22,6 +22,7 @@ from pathlib import Path
 import _bootstrap  # noqa: F401
 
 from animal_vit.paths import PETS_DIR, RESULTS_DIR, RUNS_DIR
+from animal_vit.report_tools import group_of
 
 COLUMN = 3.35  # inches: width of one column of the CVPR template
 
@@ -67,6 +68,7 @@ def _comma(ax, axis: str = "y", digits: int = 0) -> None:
 
 
 def efficiency(methods_csv: Path, out: Path) -> None:
+    """Test accuracy vs. trainable parameters of the station-1 methods (column width)."""
     import matplotlib.pyplot as plt
     import pandas as pd
 
@@ -94,12 +96,13 @@ def efficiency(methods_csv: Path, out: Path) -> None:
 
 
 def curves(runs_dir: Path, out: Path) -> None:
+    """Validation accuracy per epoch, mean over seeds, for the methods in ``LABELS``."""
     import matplotlib.pyplot as plt
     import pandas as pd
 
     rows = []
     for run in sorted(runs_dir.glob("ms1_*_s[0-9]")):
-        group = re.sub(r"_s\d+$", "", run.name)
+        group = group_of(run.name)
         history = run / "history.json"
         if group not in LABELS or not history.exists():
             continue
@@ -123,6 +126,7 @@ def curves(runs_dir: Path, out: Path) -> None:
 
 
 def fewshot(csv_path: Path, out: Path) -> None:
+    """Linear-probe accuracy vs. images per breed for the ImageNet backbones."""
     import matplotlib.pyplot as plt
     import pandas as pd
 
@@ -229,6 +233,7 @@ def crop_title(src: Path, out: Path, top: int, pad: int = 8, blank: tuple[int, i
 
 
 def main() -> None:
+    """Write every paper figure to ``--out``; inputs come from ``results/`` and ``--runs``."""
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--runs", type=Path, default=RUNS_DIR)
     parser.add_argument("--out", type=Path, default=RESULTS_DIR / "paper")

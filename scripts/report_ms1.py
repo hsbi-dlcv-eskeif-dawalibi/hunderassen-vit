@@ -21,14 +21,15 @@ Example::
 from __future__ import annotations
 
 import argparse
-import json
 import re
 from pathlib import Path
 
 import _bootstrap  # noqa: F401
 
 from animal_vit.paths import RESULTS_DIR, RUNS_DIR
-from animal_vit.report_tools import decimal_comma
+from animal_vit.report_tools import aggregate as aggregate_groups
+from animal_vit.report_tools import decimal_comma, is_missing, load_json, per_breed_f1, validation_curve_rows
+from animal_vit.report_tools import group_of as group_of_name
 
 #: Display order and names of the station-1 methods (group name without ``ms1_`` prefix).
 METHOD_ORDER = [
@@ -46,7 +47,7 @@ LABELS = dict(METHOD_ORDER)
 
 def group_of(run: Path) -> str:
     """Group name: run name without the seed suffix ``_s<k>``."""
-    return re.sub(r"_s\d+$", "", run.name)
+    return group_of_name(run.name)
 
 
 def label_of(group: str) -> str:
@@ -63,8 +64,7 @@ def read_run(run: Path) -> dict | None:
     """One row per finished run (``metrics.json`` present)."""
     if not (run / "metrics.json").exists():
         return None
-    m = json.loads((run / "metrics.json").read_text())
-    cfg = json.loads((run / "config.json").read_text())
+    m, cfg = load_json(run / "metrics.json"), load_json(run / "config.json")
     t = m["test_metrics"]
     row = {
         "group": group_of(run),
@@ -86,17 +86,14 @@ def read_run(run: Path) -> dict | None:
         lora = cfg["modifications"]["lora"]
         row.update(lora_rank=lora["rank"], lora_alpha=lora["alpha"], lora_targets=str(lora["targets"]))
     if (run / "efficiency.json").exists():
-        e = json.loads((run / "efficiency.json").read_text())
+        e = load_json(run / "efficiency.json")
         row.update(gflops=e.get("gflops"), latency_ms=e.get("latency_ms_bs1"))
     return row
 
 
 def aggregate(df):
-    """Mean and std per group, plus the number of seeds."""
-    numeric = df.select_dtypes("number").columns.drop("seed", errors="ignore")
-    grouped = df.groupby("group")[list(numeric)]
-    out = grouped.mean().add_suffix("_mean").join(grouped.std().add_suffix("_std"))
-    out["n_seeds"] = df.groupby("group").size()
+    """Mean and std per group plus the number of seeds, with readable labels in the display order."""
+    out = aggregate_groups(df)
     out["label"] = [label_of(g) for g in out.index]
     order = {f"ms1_{k}": i for i, (k, _) in enumerate(METHOD_ORDER)}
     out["order"] = [order.get(g, 100) for g in out.index]
@@ -104,22 +101,21 @@ def aggregate(df):
 
 
 def pm(row, metric: str, scale: float = 100, digits: int = 2) -> str:
-    """``mean ± std`` as text (``-`` if missing)."""
-    import math
+    """``mean ± std`` of ``metric`` from an :func:`aggregate` row (``-`` if missing, ``± 0`` for one seed).
 
+    Unlike :func:`animal_vit.report_tools.pm` the spread is always printed, so the tables keep one format.
+    """
     mean, std = row.get(f"{metric}_mean"), row.get(f"{metric}_std")
-    if mean is None or (isinstance(mean, float) and math.isnan(mean)):
+    if is_missing(mean):
         return "-"
-    std = 0 if std is None or (isinstance(std, float) and math.isnan(std)) else std
+    std = 0 if is_missing(std) else std
     return f"{mean * scale:.{digits}f} ± {std * scale:.{digits}f}"
 
 
 def params_text(row) -> str:
     """Trainable parameters in millions and as share of the model."""
-    import math
-
     tr, tot = row.get("trainable_params_mean"), row.get("total_params_mean")
-    if tr is None or (isinstance(tr, float) and math.isnan(tr)):
+    if is_missing(tr):
         return "-"
     return f"{tr / 1e6:.3f} M ({100 * tr / tot:.2f} %)"
 
@@ -167,13 +163,7 @@ def plot_validation_curves(runs: list[Path], out: Path) -> None:
     import matplotlib.pyplot as plt
     import pandas as pd
 
-    from animal_vit.reporting import epoch_table
-
-    rows = []
-    for run in runs:
-        if (run / "history.json").exists():
-            for r in epoch_table(json.loads((run / "history.json").read_text())):
-                rows.append({"label": label_of(group_of(run)), "epoch": r["epoch"], "acc": r["val_accuracy"]})
+    rows = validation_curve_rows(runs, lambda run: label_of(group_of(run)))
     if not rows:
         return
     df = pd.DataFrame(rows).groupby(["label", "epoch"])["acc"].mean().reset_index()
@@ -192,17 +182,9 @@ def plot_validation_curves(runs: list[Path], out: Path) -> None:
 
 
 def per_breed(runs: list[Path]):
-    """Mean per-breed F1 over the given runs (``classification_report.csv``)."""
-    import pandas as pd
-
-    frames = []
-    for run in runs:
-        path = run / "classification_report.csv"
-        if path.exists():
-            rep = pd.read_csv(path, index_col=0)
-            rep = rep.drop(index=[i for i in ("accuracy", "macro avg", "weighted avg") if i in rep.index])
-            frames.append(rep["f1-score"])
-    return pd.concat(frames, axis=1).mean(axis=1).sort_values() if frames else None
+    """Mean per-breed F1 over the given runs, hardest breed first (``None`` without reports)."""
+    f1 = per_breed_f1(runs)
+    return None if f1 is None else f1.sort_values()
 
 
 def confusions(runs: list[Path], top: int = 10):
@@ -252,51 +234,8 @@ def latex_rows(summary) -> str:
     return "\n".join(lines) + "\n"
 
 
-def main() -> None:
-    import pandas as pd
-
-    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("runs", nargs="*", type=Path)
-    parser.add_argument("--out", type=Path, default=RESULTS_DIR / "ms1")
-    args = parser.parse_args()
-    runs = sorted(args.runs or RUNS_DIR.glob("ms1_*_s*"))
-    rows = [r for r in (read_run(run) for run in runs) if r]
-    if not rows:
-        raise SystemExit("no finished ms1 runs found (run `make ms1` first)")
-    args.out.mkdir(parents=True, exist_ok=True)
-
-    df = pd.DataFrame(rows)
-    df.to_csv(args.out / "runs.csv", index=False)
-    summary = aggregate(df)
-    summary.to_csv(args.out / "methods.csv")
-    main_methods = summary[~summary.index.str.contains("_aug_")]
-    aug_methods = summary[summary.index.str.contains("_aug_")]
-
-    plot_efficiency(main_methods, args.out / "efficiency.png")
-    plot_validation_curves([r for r in runs if "_aug_" not in r.name], args.out / "validation_curves.png")
-    (args.out / "tables.tex").write_text(latex_rows(main_methods))
-
-    best_group = main_methods["val_accuracy_mean"].idxmax()  # chosen on validation, not on test
-    best_runs = [r for r in runs if group_of(r) == best_group]
-    f1 = per_breed(best_runs)
-    conf = confusions(best_runs)
-    if conf is not None:
-        conf.to_csv(args.out / "confusions.csv", index=False)
-    if f1 is not None:
-        import matplotlib
-
-        matplotlib.use("Agg")
-        import matplotlib.pyplot as plt
-
-        fig, ax = plt.subplots(figsize=(6, 0.25 * len(f1) + 1))
-        ax.barh(f1.index, 100 * f1.values)
-        ax.set(xlabel="F1 (%)", title=f"F1 per breed - {label_of(best_group)}")
-        ax.grid(axis="x", alpha=0.3)
-        fig.tight_layout()
-        fig.savefig(args.out / "per_breed_f1.png", dpi=200)
-        plt.close(fig)
-
-    # ------------------------------------------------------------------ REPORT.md
+def section_methods(main_methods, best_group: str) -> list[str]:
+    """1. Main table of the adaptation methods, ranking and gaps to the best ViT relative to the seed spread."""
     lines = [
         "# Station 1 - Ergebnisbericht",
         "",
@@ -342,6 +281,12 @@ def main() -> None:
             else:
                 verdict = "größer als die Streuung" if gap > 2 * spread else "innerhalb der Streuung"
             lines.append(f"  - {r['label']}: −{gap:.2f} Pp. (Streuung ±{spread:.2f}) → {verdict}")
+    return lines
+
+
+def section_lora(main_methods, df) -> list[str]:
+    """2. LoRA variants with rank, alpha and target layers (read from the first run of each group)."""
+    lines: list[str] = []
     lora = main_methods[main_methods.index.str.contains("lora")]
     if len(lora):
         lines += [
@@ -357,6 +302,12 @@ def main() -> None:
                 f"| {r['label']} | {int(first['lora_rank'])} | {first['lora_alpha']:g} | {first['lora_targets']} | "
                 f"{pm(r, 'accuracy')} | {params_text(r)} |"
             )
+    return lines
+
+
+def section_augmentation(main_methods, aug_methods) -> list[str]:
+    """3. Augmentation presets none / light (main run) / strong of the same method."""
+    lines: list[str] = []
     if len(aug_methods):
         lines += [
             "",
@@ -375,11 +326,23 @@ def main() -> None:
         rows_aug += [(r["label"], r) for _, r in aug_methods.iterrows()]
         for label, r in rows_aug:
             lines.append(f"| {label} | {pm(r, 'accuracy')} | {pm(r, 'f1_macro')} | {pm(r, 'val_accuracy')} |")
+    return lines
+
+
+def section_cost(main_methods) -> list[str]:
+    """4. Inference cost (only if ``make ms1-benchmark`` wrote ``efficiency.json``)."""
+    lines: list[str] = []
     if "gflops_mean" in main_methods.columns:
         lines += ["", "## 4. Kosten zur Inferenz", "", "| Methode | GFLOPs | Latenz (ms, Batch 1) |", "|---|---|---|"]
         for _, r in main_methods.iterrows():
             lines.append(f"| {r['label']} | {pm(r, 'gflops', 1, 2)} | {pm(r, 'latency_ms', 1, 1)} |")
         lines.append("\nLoRA wird nach dem Training in die Gewichte gemergt: gleiche Inferenzkosten wie der Basis-ViT.")
+    return lines
+
+
+def section_errors(best_group: str, f1, conf) -> list[str]:
+    """5. Hardest and easiest breeds and the most frequent confusions of the best method."""
+    lines: list[str] = []
     lines += ["", f"## 5. Fehleranalyse: {label_of(best_group)}", ""]
     if f1 is not None:
         lines.append("Schwierigste Rassen (F1): " + ", ".join(f"{k} {100 * v:.1f} %" for k, v in f1.head(5).items()))
@@ -396,6 +359,64 @@ def main() -> None:
             "|---|---|---|",
         ]
         lines += [f"| {r['true']} | {r['predicted']} | {r['count']} |" for _, r in conf.iterrows()]
+    return lines
+
+
+def plot_per_breed(f1, best_group: str, out: Path) -> None:
+    """Horizontal bar chart of the F1 per breed of the best method."""
+    import matplotlib
+
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+
+    fig, ax = plt.subplots(figsize=(6, 0.25 * len(f1) + 1))
+    ax.barh(f1.index, 100 * f1.values)
+    ax.set(xlabel="F1 (%)", title=f"F1 per breed - {label_of(best_group)}")
+    ax.grid(axis="x", alpha=0.3)
+    fig.tight_layout()
+    fig.savefig(out, dpi=200)
+    plt.close(fig)
+
+
+def main() -> None:
+    """Read all station-1 runs, write tables and figures, then assemble ``REPORT.md``."""
+    import pandas as pd
+
+    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument("runs", nargs="*", type=Path)
+    parser.add_argument("--out", type=Path, default=RESULTS_DIR / "ms1")
+    args = parser.parse_args()
+    runs = sorted(args.runs or RUNS_DIR.glob("ms1_*_s*"))
+    rows = [r for r in (read_run(run) for run in runs) if r]
+    if not rows:
+        raise SystemExit("no finished ms1 runs found (run `make ms1` first)")
+    args.out.mkdir(parents=True, exist_ok=True)
+
+    df = pd.DataFrame(rows)
+    df.to_csv(args.out / "runs.csv", index=False)
+    summary = aggregate(df)
+    summary.to_csv(args.out / "methods.csv")
+    main_methods = summary[~summary.index.str.contains("_aug_")]
+    aug_methods = summary[summary.index.str.contains("_aug_")]
+
+    plot_efficiency(main_methods, args.out / "efficiency.png")
+    plot_validation_curves([r for r in runs if "_aug_" not in r.name], args.out / "validation_curves.png")
+    (args.out / "tables.tex").write_text(latex_rows(main_methods))
+
+    best_group = main_methods["val_accuracy_mean"].idxmax()  # chosen on validation, not on test
+    best_runs = [r for r in runs if group_of(r) == best_group]
+    f1 = per_breed(best_runs)
+    conf = confusions(best_runs)
+    if conf is not None:
+        conf.to_csv(args.out / "confusions.csv", index=False)
+    if f1 is not None:
+        plot_per_breed(f1, best_group, args.out / "per_breed_f1.png")
+
+    lines = section_methods(main_methods, best_group)
+    lines += section_lora(main_methods, df)
+    lines += section_augmentation(main_methods, aug_methods)
+    lines += section_cost(main_methods)
+    lines += section_errors(best_group, f1, conf)
     lines += interpretation(main_methods, aug_methods, conf)
     lines += [
         "",
@@ -417,6 +438,7 @@ def interpretation(main_methods, aug_methods, conf) -> list[str]:
     """Data-driven findings with candidate explanations and sources, as material for the discussion."""
 
     def acc(g):
+        """Mean test accuracy of group ``g`` (``None`` if the group did not run)."""
         return main_methods.loc[g, "accuracy_mean"] if g in main_methods.index else None
 
     def gap_text(a, b) -> str:

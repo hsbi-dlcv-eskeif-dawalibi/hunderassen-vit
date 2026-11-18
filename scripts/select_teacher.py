@@ -28,6 +28,7 @@ from pathlib import Path
 import _bootstrap  # noqa: F401
 
 from animal_vit.paths import RESULTS_DIR, RUNS_DIR
+from animal_vit.report_tools import group_of, load_json, seed_of
 
 FAMILIES = {"vit": r"^ms1_vit_b16(_.*)?$", "cnn": r"^ms1_(resnet50|convnext_t)$"}
 
@@ -53,9 +54,8 @@ def candidates(runs_dir: Path) -> dict[str, dict]:
             continue
         if not (run / "model" / "model.safetensors").exists():
             continue
-        group = re.sub(r"_s\d+$", "", run.name)
-        seed = int(re.search(r"_s(\d+)$", run.name).group(1))
-        metrics = json.loads((run / "metrics.json").read_text())
+        group, seed = group_of(run.name), seed_of(run.name)
+        metrics = load_json(run / "metrics.json")
         g = groups.setdefault(group, {"val": [], "loss": [], "test": [], "runs": {}})
         g["val"].append(metrics.get("best_validation_metric") or 0.0)
         g["loss"].append(best_val_loss(run))
@@ -65,6 +65,7 @@ def candidates(runs_dir: Path) -> dict[str, dict]:
 
 
 def select(runs_dir: Path) -> dict[str, dict]:
+    """Best group per model family by validation accuracy (ties: lower validation loss)."""
     groups = candidates(runs_dir)
     choice = {}
     for family, pattern in FAMILIES.items():
@@ -93,6 +94,7 @@ def select(runs_dir: Path) -> dict[str, dict]:
 
 
 def main() -> None:
+    """Write ``best_models.json`` or, with ``--print``, only print the chosen group."""
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("runs_dir", nargs="?", type=Path, default=RUNS_DIR)
     parser.add_argument("--out", type=Path, default=RESULTS_DIR / "ms1")

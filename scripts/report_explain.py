@@ -39,30 +39,10 @@ SOURCES = [
 ]
 
 
-def main() -> None:  # noqa: C901 - one linear report
-    import numpy as np
-    import pandas as pd
-
-    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--out", type=Path, default=RESULTS_DIR / "explain")
-    args = parser.parse_args()
-    out = args.out
-    findings: list[str] = []
-    areas: dict = {}  # (model, method) -> deletion area, used to pick the most faithful method per model
-    lines = [
-        "# Warum diese Rasse und nicht die andere? Erklärungsmethoden",
-        "",
-        "Automatisch erzeugt von `scripts/report_explain.py` (`make explain`). Modelle: Teacher von Station 2 "
-        "(bester ViT und bestes CNN nach Validation) und das zweite CNN, jeweils Seed 1.",
-        "",
-        "> **Vorlesungsbezug:** Attention und Attention-Visualisierung (Vorlesung 03), „Was lernt das Modell "
-        "wirklich?“ und „hohe Accuracy beweist nicht, dass das Richtige gelernt wurde“ (Vorlesung 04). Die "
-        "Kopf-Analyse nutzt die Annotationen des Datensatzes, die Deletion-Kurve prüft, ob eine Erklärung stimmt.",
-    ]
-
-    # ------------------------------------------------------------------ 1. contrastive
+def section_contrastive(out: Path, findings: list[str]) -> list[str]:
+    """1. Contrastive maps (why A and not B?): lists the figures written by ``scripts/explain.py``."""
     figs = sorted(out.glob("contrastive_*.png"))
-    lines += ["", "## 1. Warum A und nicht B? Kontrastive Karten", ""]
+    lines = ["", "## 1. Warum A und nicht B? Kontrastive Karten", ""]
     lines += [
         "Für die häufigsten Verwechslungen aus Station 1 zeigt jede Zeile ein Testbild der Rasse A: Grad-CAM "
         "für A, Grad-CAM für B und die **kontrastive Karte** mit dem Ziel `logit_A − logit_B`. Rot sind die "
@@ -78,9 +58,18 @@ def main() -> None:  # noqa: C901 - one linear report
             "Zuordnung ist eure qualitative Beobachtung und sollte an mehreren Beispielen belegt werden. Stimmen "
             "Grad-CAM und Occlusion überein, ist die Aussage belastbarer."
         )
+    return lines
 
-    # ------------------------------------------------------------------ 2. faithfulness
-    lines += ["", "## 2. Stimmt die Erklärung? Deletion-Test", ""]
+
+def section_faithfulness(out: Path, findings: list[str], areas: dict) -> list[str]:
+    """2. Deletion test: table, ``deletion_curves.png`` and the area under each curve.
+
+    Fills ``areas`` with ``(model, method) -> area`` so that section 3 can use the most faithful method.
+    """
+    import numpy as np
+    import pandas as pd
+
+    lines = ["", "## 2. Stimmt die Erklärung? Deletion-Test", ""]
     faith = out / "faithfulness.csv"
     if faith.exists():
         f = pd.read_csv(faith)
@@ -157,9 +146,14 @@ def main() -> None:  # noqa: C901 - one linear report
                 )
     else:
         lines += ["(fehlt: `make explain`)"]
+    return lines
 
-    # ------------------------------------------------------------------ 3. head focus
-    lines += ["", "## 3. Kopf, Körper oder Hintergrund?", ""]
+
+def section_head_focus(out: Path, findings: list[str], areas: dict) -> list[str]:
+    """3. Saliency on head, rest of the dog and background, relative to the area of each region."""
+    import pandas as pd
+
+    lines = ["", "## 3. Kopf, Körper oder Hintergrund?", ""]
     head = out / "head_focus.csv"
     if head.exists():
         h = pd.read_csv(head)
@@ -217,8 +211,14 @@ def main() -> None:  # noqa: C901 - one linear report
                             f"Occlusion {oc:.1f}×. Grad-CAM ist bei ViTs bekannt unzuverlässig (Chefer et al., CVPR "
                             "2021); hier zählt die Methode, die im Deletion-Test besser abschneidet."
                         )
+    return lines
 
-    # ------------------------------------------------------------------ 4. agreement
+
+def section_agreement(out: Path, findings: list[str]) -> list[str]:
+    """4. Overlap of the top-20 % Grad-CAM regions between two models (skipped without ``agreement.csv``)."""
+    import pandas as pd
+
+    lines: list[str] = []
     agree = out / "agreement.csv"
     if agree.exists():
         a = pd.read_csv(agree)
@@ -249,6 +249,31 @@ def main() -> None:  # noqa: C901 - one linear report
                 "abschneidet; außerdem sind die Karten unterschiedlich fein (ViT 14×14 Patches, CNNs 7×7). Dass die "
                 "beiden CNNs untereinander stärker übereinstimmen als mit dem ViT, ist das robustere Ergebnis."
             )
+    return lines
+
+
+def main() -> None:
+    """Build every section from the CSV files in ``--out`` and write ``REPORT.md``."""
+    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument("--out", type=Path, default=RESULTS_DIR / "explain")
+    args = parser.parse_args()
+    out = args.out
+    findings: list[str] = []
+    areas: dict = {}  # (model, method) -> deletion area, used to pick the most faithful method per model
+    lines = [
+        "# Warum diese Rasse und nicht die andere? Erklärungsmethoden",
+        "",
+        "Automatisch erzeugt von `scripts/report_explain.py` (`make explain`). Modelle: Teacher von Station 2 "
+        "(bester ViT und bestes CNN nach Validation) und das zweite CNN, jeweils Seed 1.",
+        "",
+        "> **Vorlesungsbezug:** Attention und Attention-Visualisierung (Vorlesung 03), „Was lernt das Modell "
+        "wirklich?“ und „hohe Accuracy beweist nicht, dass das Richtige gelernt wurde“ (Vorlesung 04). Die "
+        "Kopf-Analyse nutzt die Annotationen des Datensatzes, die Deletion-Kurve prüft, ob eine Erklärung stimmt.",
+    ]
+    lines += section_contrastive(out, findings)
+    lines += section_faithfulness(out, findings, areas)
+    lines += section_head_focus(out, findings, areas)
+    lines += section_agreement(out, findings)
 
     lines += [
         "",
