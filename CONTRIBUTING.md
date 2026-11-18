@@ -69,8 +69,9 @@ Regeln:
 4. **Modellauswahl nur auf `validation`.** Das Testset wird pro finaler Konfiguration genau einmal
    ausgewertet und **nie** zum Tunen benutzt.
 5. Berichte immer **Accuracy und Macro-F1**. Der Testsplit ist unbalanciert.
-6. Läufe mit `make analysis` auswerten und mit `make summary` zusammenfassen. `results/summary.md`
-   und verwendete Abbildungen (`results/figures/`) committen. **Keine Checkpoints, keine `runs/`.**
+6. Läufe mit den Report-Zielen auswerten (`make report-ms1`, `make why`, `make explain`) und mit
+   `make summary` zusammenfassen. Reports, Tabellen und Abbildungen in `results/` committen (Bilder über
+   Git LFS). **Keine Checkpoints, keine `runs/`.**
 7. Zahlen in die Gliederung des Meilensteins (`docs/milestones/`) und in die Folien übertragen.
 
 ## 5. Was nicht ins Repository gehört

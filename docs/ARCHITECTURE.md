@@ -23,7 +23,9 @@ flowchart LR
 - **Läufe sind die Schnittstelle.** Jeder Trainingslauf schreibt einen Ordner `runs/<name>_s<seed>/`.
   Alle Auswertungen lesen nur diese Ordner, nie interne Zustände.
 - **Reports erzeugen Zahlen und Text.** `scripts/report_*.py` schreiben `results/<station>/REPORT.md`
-  mit Tabellen, Abbildungen, geprüften Hypothesen und Befunden. Das Paper bindet `results/` ein.
+  mit Tabellen, Abbildungen, geprüften Hypothesen und Befunden. Jeder Abschnitt des Reports ist eine eigene
+  Funktion (`section_*` bzw. `check_*`), gemeinsame Hilfen liegen in `report_tools`. Das Paper bindet
+  `results/` ein.
 - **`make` orchestriert alles** und überspringt fertige Läufe (`scripts/train_if_missing.sh`), damit
   abgebrochene GPU-Sitzungen einfach neu gestartet werden können.
 
@@ -120,12 +122,12 @@ kleinerer Validation-Loss) und schreibt `results/ms1/best_models.json`; `explain
 | ein anderes Modell | `model.checkpoint` in der YAML (jeder HF-Bildklassifikator) |
 | eine neue Anpassungsmethode | `src/animal_vit/` (wie `lora.py`) + Feld in `config.py` + Test |
 | eine neue Auswertung pro Lauf | Skript in `scripts/`, liest `runs/<name>/` über `load_run` |
-| eine neue Aussage im Report | `scripts/report_ms*.py`, Signifikanz über `report_tools.paired_delta` |
+| eine neue Aussage im Report | passende `section_*`/`check_*`-Funktion in `scripts/report_*.py` (ein Abschnitt = eine Funktion), Signifikanz über `report_tools.paired_delta` |
 | Text oder Zahlen im Paper | `paper/ms*/sec/*.tex`; Tabellen kommen aus `results/ms*/tables.tex` |
 
 ## 7. Qualität
 
-- `make test`: 70+ Tests auf der CPU, inklusive End-to-End-Lauf mit Mini-ViT und Ordner-Datensatz.
+- `make test`: 62 Tests auf der CPU, inklusive End-to-End-Lauf mit Mini-ViT und Ordner-Datensatz.
 - `make lint`: `ruff` (Stil, Importe, Bugbear), Zeilenlänge 120.
 - GitHub Actions (`.github/workflows/ci.yml`) führt beides bei jedem Push aus.
 - `make smoke`: die komplette Pipeline auf einer Mini-Teilmenge in Minuten.

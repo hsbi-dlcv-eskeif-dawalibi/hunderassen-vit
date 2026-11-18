@@ -268,7 +268,7 @@ tensorboard --logdir runs   # Live-Kurven
 ## 10. Tests und Codequalität
 
 ```bash
-make test     # 46 Tests, CPU, wenige Sekunden, ohne Downloads
+make test     # 62 Tests, CPU, unter einer Minute, ohne Downloads
 make lint     # ruff check + format --check
 ```
 
