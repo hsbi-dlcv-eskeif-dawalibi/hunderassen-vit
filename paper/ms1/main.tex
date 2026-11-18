@@ -35,6 +35,7 @@
 % German paper (allowed by the module): babel for hyphenation and "Abbildung/Tabelle/Literatur",
 % German names for \cref (cleveref is loaded by cvpr.sty at the end of the preamble; this hook runs later).
 \usepackage[ngerman]{babel}
+\usepackage{flushend}  % balance the two columns on the last page
 \AtEndPreamble{%
   \crefname{section}{Abschn.}{Abschn.}\Crefname{section}{Abschnitt}{Abschnitte}%
   \crefname{figure}{Abb.}{Abb.}\Crefname{figure}{Abbildung}{Abbildungen}%

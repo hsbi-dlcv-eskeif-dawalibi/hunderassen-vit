@@ -243,20 +243,29 @@ def head_examples(src: Path, out: Path, rows=HEAD_ROWS) -> None:
     plt.close(fig)
 
 
-#: Rows of ``results/explain/contrastive_convnext_t.png`` shown in the paper: one per confused pair, each a
-#: wrong prediction of ConvNeXt-T. (row index, breed A, breed B) as written above the row in the source figure.
+#: Rows of ``results/explain/contrastive_convnext_t.png`` as written above each row there:
+#: (row index, breed A, breed B, predicted breed). Three test images for each of the three most frequent confusions.
+PIT, STAFF, BULLDOG = "American Pit Bull Terrier", "Staffordshire Bull Terrier", "American Bulldog"
 CONTRASTIVE_ROWS = (
-    (1, "American Pit Bull Terrier", "Staffordshire Bull Terrier"),
-    (4, "Staffordshire Bull Terrier", "American Pit Bull Terrier"),
-    (7, "American Pit Bull Terrier", "American Bulldog"),
+    (0, PIT, STAFF, STAFF),
+    (1, PIT, STAFF, STAFF),
+    (2, PIT, STAFF, PIT),
+    (3, STAFF, PIT, PIT),
+    (4, STAFF, PIT, PIT),
+    (5, STAFF, PIT, STAFF),
+    (6, PIT, BULLDOG, BULLDOG),
+    (7, PIT, BULLDOG, BULLDOG),
+    (8, PIT, BULLDOG, PIT),
 )
+#: Short German breed names for the row labels.
+SHORT = {PIT: "Am. Pit Bull T.", STAFF: "Staffordsh. B. T.", BULLDOG: "Am. Bulldog"}
 
 
 def contrastive(src: Path, out: Path, rows=CONTRASTIVE_ROWS) -> None:
-    """Few rows of the contrastive figure of ``scripts/explain.py``, redrawn with readable German labels.
+    """Contrastive maps of ``scripts/explain.py`` (ConvNeXt-T), redrawn with labels readable at column width.
 
-    The source figure has 9 rows of 5 panels whose labels are unreadable at column width. The panels are cut
-    out of the rendered PNG: ``scripts/explain.py`` draws every row with the same layout (first image at
+    The labels of the source figure are unreadable when printed at column width. The panels are cut out of
+    the rendered PNG: ``scripts/explain.py`` draws every row with the same layout (first image at
     y = 104 px, 279 px per row, 216 px panels starting at the x positions below).
     """
     import matplotlib.pyplot as plt
@@ -265,8 +274,8 @@ def contrastive(src: Path, out: Path, rows=CONTRASTIVE_ROWS) -> None:
     image = Image.open(src).convert("RGB")
     xs, top, step, size = (36, 306, 575, 844, 1113), 104, 279, 216
     titles = ("Testbild", "Grad-CAM\nfür A", "Grad-CAM\nfür B", "kontrastiv\nA − B", "Occlusion\nfür A")
-    fig, axes = plt.subplots(len(rows), 5, figsize=(COLUMN, 0.5 * len(rows) + 0.3), squeeze=False)
-    for i, (row, breed_a, breed_b) in enumerate(rows):
+    fig, axes = plt.subplots(len(rows), 5, figsize=(COLUMN, 0.56 * len(rows) + 0.3), squeeze=False)
+    for i, (row, breed_a, breed_b, predicted) in enumerate(rows):
         y = top + step * row
         for j, x in enumerate(xs):
             ax = axes[i, j]
@@ -275,8 +284,18 @@ def contrastive(src: Path, out: Path, rows=CONTRASTIVE_ROWS) -> None:
             ax.set_yticks([])
             if i == 0:
                 ax.set_title(titles[j], fontsize=5.5, pad=2)
-        axes[i, 0].set_ylabel(f"A: {breed_a}\nB: {breed_b}", fontsize=5, rotation=0, ha="right", va="center")
-    fig.subplots_adjust(left=0.30, right=0.995, top=0.85, bottom=0.01, wspace=0.04, hspace=0.06)
+        verdict = "richtig" if predicted == breed_a else "falsch (als B)"
+        axes[i, 0].set_ylabel(
+            f"A: {SHORT[breed_a]}\nB: {SHORT[breed_b]}\n{verdict}",
+            fontsize=5,
+            rotation=0,
+            ha="right",
+            va="center",
+            color="black" if predicted == breed_a else "#b03a2e",
+        )
+    fig.subplots_adjust(
+        left=0.235, right=0.995, top=1 - 0.3 / (0.56 * len(rows) + 0.3), bottom=0.005, wspace=0.04, hspace=0.06
+    )
     fig.savefig(out, dpi=400)
     plt.close(fig)
 
