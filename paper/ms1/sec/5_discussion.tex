@@ -57,8 +57,9 @@ Rückstand verkleinern oder umkehren.
   \centering
   \resultfigure{paper/gradcam.png}{\linewidth}{Kopf-Box und Grad-CAM}
   \caption{Grad-CAM-Karten dreier Modelle (Zeilen) auf denselben sechs Validierungsbildern. Rot: Bereiche, die
-  die Entscheidung stark beeinflussen; weißer Rahmen: annotierte Kopf-Box. ResNet-50 und ConvNeXt-T
-  konzentrieren sich meist auf den Kopf, die Karte des ViT ist verrauscht (Anhang~\ref{sec:explain}).}
+  die Entscheidung stark beeinflussen; weißer Rahmen: annotierte Kopf-Box. Beim ViT ist Grad-CAM die am
+  wenigsten treue Methode (Deletion-Test, Anhang~\ref{sec:explain}); mit Occlusion liegt sein Kopf-Fokus
+  wie bei den CNNs beim Drei- bis Vierfachen des Flächenanteils.}
   \label{fig:head}
 \end{figure}
 
@@ -93,7 +94,8 @@ aus. Wir haben die acht sichersten der 71 in allen Seeds falschen Testbilder ang
 Bei mindestens dreien ist das Label zweifelhaft (zwei Beagles mit Label Basset Hound, ein Boxer mit
 Label American Bulldog), die übrigen sind Verwechslungen ähnlicher Rassen. Ein Teil der Restfehler ist also vermutlich
 Label-Rauschen und kein Modellfehler; alle 71 Bilder haben wir nicht geprüft. Die Erklärungskarten (\cref{fig:head}) zeigen, dass ResNet-50 und
-ConvNeXt-T meist auf den Kopf achten, beim ViT ist Grad-CAM verrauscht (Anhang~\ref{sec:explain}).
+ConvNeXt-T meist auf den Kopf achten; beim ViT ist Grad-CAM verrauscht, die treuere Occlusion zeigt aber
+denselben Kopf-Fokus (Anhang~\ref{sec:explain}).
 
 \paragraph{Limitationen.}
 Der Datensatz liegt nah an ImageNet; der Vorteil von Linear Probing muss sich nicht auf andere Domänen

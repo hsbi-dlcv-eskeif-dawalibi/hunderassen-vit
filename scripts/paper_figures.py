@@ -215,21 +215,70 @@ def per_breed(runs_dir: Path, out: Path) -> None:
     plt.close(fig)
 
 
-def crop_title(src: Path, out: Path, top: int, pad: int = 8, blank: tuple[int, int, int, int] | None = None) -> None:
-    """Drop the English title line of a rendered figure (the caption explains it in German) and trim white margins."""
-    from PIL import Image, ImageChops
+#: Models of ``results/explain/head_examples.png``, top to bottom (as written above each row there).
+HEAD_ROWS = ("ViT\nLoRA r=4", "ConvNeXt-T", "ResNet-50")
+
+
+def head_examples(src: Path, out: Path, rows=HEAD_ROWS) -> None:
+    """Grad-CAM with annotated head box (``scripts/explain.py``), redrawn with model names readable in print.
+
+    The source figure labels each row in a tiny font. Its panels are cut out of the rendered PNG
+    (237 px panels, rows starting at y = 72, 335, 598 and columns at the x positions below).
+    """
+    import matplotlib.pyplot as plt
+    from PIL import Image
 
     image = Image.open(src).convert("RGB")
-    image = image.crop((0, top, image.width, image.height))
-    if blank:
-        image.paste((255, 255, 255), blank)
-    bbox = ImageChops.difference(image, Image.new("RGB", image.size, (255, 255, 255))).getbbox()
-    if bbox:
-        left, upper, right, lower = bbox
-        image = image.crop(
-            (max(left - pad, 0), max(upper - pad, 0), min(right + pad, image.width), min(lower + pad, image.height))
-        )
-    image.save(out)
+    xs, ys, size = (20, 276, 533, 790, 1046, 1303), (72, 335, 598), 237
+    fig, axes = plt.subplots(len(rows), len(xs), figsize=(COLUMN, 0.5 * len(rows) + 0.05), squeeze=False)
+    for i, (y, model) in enumerate(zip(ys, rows)):
+        for j, x in enumerate(xs):
+            ax = axes[i, j]
+            ax.imshow(image.crop((x, y, x + size, y + size)))
+            ax.set_xticks([])
+            ax.set_yticks([])
+        axes[i, 0].set_ylabel(model, fontsize=5.5)
+    fig.subplots_adjust(left=0.08, right=0.995, top=0.99, bottom=0.01, wspace=0.04, hspace=0.06)
+    fig.savefig(out, dpi=400)
+    plt.close(fig)
+
+
+#: Rows of ``results/explain/contrastive_convnext_t.png`` shown in the paper: one per confused pair, each a
+#: wrong prediction of ConvNeXt-T. (row index, breed A, breed B) as written above the row in the source figure.
+CONTRASTIVE_ROWS = (
+    (1, "American Pit Bull Terrier", "Staffordshire Bull Terrier"),
+    (4, "Staffordshire Bull Terrier", "American Pit Bull Terrier"),
+    (7, "American Pit Bull Terrier", "American Bulldog"),
+)
+
+
+def contrastive(src: Path, out: Path, rows=CONTRASTIVE_ROWS) -> None:
+    """Few rows of the contrastive figure of ``scripts/explain.py``, redrawn with readable German labels.
+
+    The source figure has 9 rows of 5 panels whose labels are unreadable at column width. The panels are cut
+    out of the rendered PNG: ``scripts/explain.py`` draws every row with the same layout (first image at
+    y = 104 px, 279 px per row, 216 px panels starting at the x positions below).
+    """
+    import matplotlib.pyplot as plt
+    from PIL import Image
+
+    image = Image.open(src).convert("RGB")
+    xs, top, step, size = (36, 306, 575, 844, 1113), 104, 279, 216
+    titles = ("Testbild", "Grad-CAM\nfür A", "Grad-CAM\nfür B", "kontrastiv\nA − B", "Occlusion\nfür A")
+    fig, axes = plt.subplots(len(rows), 5, figsize=(COLUMN, 0.5 * len(rows) + 0.3), squeeze=False)
+    for i, (row, breed_a, breed_b) in enumerate(rows):
+        y = top + step * row
+        for j, x in enumerate(xs):
+            ax = axes[i, j]
+            ax.imshow(image.crop((x, y, x + size, y + size)))
+            ax.set_xticks([])
+            ax.set_yticks([])
+            if i == 0:
+                ax.set_title(titles[j], fontsize=5.5, pad=2)
+        axes[i, 0].set_ylabel(f"A: {breed_a}\nB: {breed_b}", fontsize=5, rotation=0, ha="right", va="center")
+    fig.subplots_adjust(left=0.30, right=0.995, top=0.85, bottom=0.01, wspace=0.04, hspace=0.06)
+    fig.savefig(out, dpi=400)
+    plt.close(fig)
 
 
 def main() -> None:
@@ -245,13 +294,8 @@ def main() -> None:
     fewshot(RESULTS_DIR / "why" / "fewshot_backbones.csv", args.out / "fewshot.png")
     per_breed(args.runs, args.out / "f1_je_rasse.png")
     examples(args.out / "beispiele.png")
-    crop_title(RESULTS_DIR / "explain" / "head_examples.png", args.out / "gradcam.png", top=52)
-    crop_title(
-        RESULTS_DIR / "explain" / "contrastive_convnext_t.png",
-        args.out / "kontrastiv.png",
-        top=0,
-        blank=(240, 0, 1365, 72),
-    )
+    head_examples(RESULTS_DIR / "explain" / "head_examples.png", args.out / "gradcam.png")
+    contrastive(RESULTS_DIR / "explain" / "contrastive_convnext_t.png", args.out / "kontrastiv.png")
     print("figures written to", args.out)
 
 

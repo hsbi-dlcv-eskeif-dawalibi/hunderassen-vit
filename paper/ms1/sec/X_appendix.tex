@@ -121,9 +121,9 @@ Beispiele: \cref{fig:head} (Hauptteil) und \cref{fig:contrastive}.
 \begin{figure}[t]
   \centering
   \resultfigure{paper/kontrastiv.png}{\linewidth}{Kontrastive Karten}
-  \caption{Warum Rasse $A$ und nicht $B$? Jede Zeile zeigt ein Testbild der Rasse $A$, das mit $B$ verwechselt
-  wird (Rassen über dem Bild). Spalten: Grad-CAM für $A$, Grad-CAM für $B$, Differenz $A-B$ (rot: spricht für
-  $A$ und gegen $B$) und Occlusion für $A$ (ConvNeXt-T).}
+  \caption{Warum Rasse $A$ und nicht $B$? Drei Testbilder, die ConvNeXt-T fälschlich als $B$ einordnet, je
+  eines der drei häufigsten Verwechslungen. Spalten: Grad-CAM für $A$ und für $B$, kontrastive Karte $A-B$
+  (rot: spricht für $A$ und gegen $B$) und Occlusion für $A$.}
   \label{fig:contrastive}
 \end{figure}
 
