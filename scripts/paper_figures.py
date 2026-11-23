@@ -131,7 +131,7 @@ def fewshot(csv_path: Path, out: Path) -> None:
     import pandas as pd
 
     df = pd.read_csv(csv_path)
-    fig, ax = plt.subplots(figsize=(COLUMN, 2.3))
+    fig, ax = plt.subplots(figsize=(COLUMN, 1.95))
     series = (
         ("ViT-B/16 (ImageNet)", "ViT-B/16", "#1f4e79", "o"),
         ("ResNet-50 (ImageNet)", "ResNet-50", "#c0392b", "s"),
