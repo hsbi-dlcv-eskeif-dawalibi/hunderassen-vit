@@ -7,7 +7,7 @@ Der ViT~\cite{dosovitskiy2021vit} zerlegt ein Bild in $16\times16$-Patches und v
 Transformer-Encoder~\cite{vaswani2017attention}. ViTs brauchen ein großes Pretraining; Steiner \etal~\cite{steiner2022augreg} zeigen, dass Augmentierung und
 Regularisierung zusammen mit mehr Rechenaufwand eine Größenordnung mehr Trainingsdaten ersetzen können.
 ResNet~\cite{he2016resnet} führte Residual-Blöcke ein; ConvNeXt~\cite{liu2022convnext} modernisiert
-ResNet mit Designentscheidungen der Transformer und erreicht eine vergleichbare Accuracy.
+ResNet mit Designentscheidungen der Transformer und erreicht eine mit ihnen vergleichbare Accuracy.
 Faltungen bringen Lokalität und Translationsäquivarianz mit, eine induktive Verzerrung, die bei wenigen
 Daten hilft; globale Self-Attention muss die räumliche Struktur erst aus den Daten lernen, weshalb ViTs
 stärker auf großes Pretraining angewiesen sind~\cite{dosovitskiy2021vit,steiner2022augreg}.
@@ -19,7 +19,7 @@ vergleichen auf zwölf Datensätzen, darunter Oxford-IIIT Pet, logistische Regre
 Merkmalen, volles Fine-Tuning und Training von Grund auf. Fine-Tuning ist meist besser; bei sehr wenigen
 Trainingsbildern (47--800 insgesamt) ist die logistische Regression aber gleichwertig oder besser. Der Nutzen
 des ImageNet-Pretrainings ist gering, wenn die Klassen in ImageNet kaum vertreten sind (Stanford Cars,
-FGVC Aircraft); die meisten Hunde- und Katzenrassen von Oxford-IIIT Pet entsprechen dagegen direkt ImageNet-Klassen. Kumar \etal~\cite{kumar2022finetuning} zeigen, dass volles Fine-Tuning
+FGVC Aircraft); 22 unserer 25 Hunderassen entsprechen dagegen direkt ImageNet-1k-Klassen~\cite{russakovsky2015imagenet}. Kumar \etal~\cite{kumar2022finetuning} zeigen, dass volles Fine-Tuning
 vortrainierte Merkmale verzerren kann, was vor allem außerhalb der Trainingsverteilung schadet, während
 Linear Probing sie erhält.
 
@@ -28,15 +28,15 @@ LoRA~\cite{hu2022lora} friert die vortrainierten Gewichte ein und lernt Änderun
 $\Delta W = BA$ ausgewählter Gewichtsmatrizen; nach dem Training wird die Änderung in $W$ eingerechnet,
 sodass die Inferenz nichts zusätzlich kostet. Adapter~\cite{houlsby2019adapter} fügen dagegen zusätzliche
 Module ein, die auch zur Inferenz berechnet werden, und Visual Prompt Tuning~\cite{jia2022vpt} lernt
-zusätzliche Eingabe-Token für ViTs. Hu \etal\ passen nur Attention-Gewichte an; bei gleicher Parameterzahl ist die Anpassung von Query und
-Value am besten, schon ein sehr kleiner Rang genügt, und mehrere Gewichtsarten mit kleinerem Rang sind
+zusätzliche Eingabe-Token für ViTs. Hu \etal~\cite{hu2022lora} passen nur Attention-Gewichte an; bei gleicher Parameterzahl gehört die Anpassung von Query und
+Value zu den besten, schon ein sehr kleiner Rang genügt, und mehrere Gewichtsarten mit kleinerem Rang sind
 besser als eine einzige mit größerem Rang.
 
 \paragraph{Feinkörnige Klassifikation von Hunderassen.}
 Oxford-IIIT Pet~\cite{parkhi2012pets} (37 Katzen- und Hunderassen mit Segmentierungsmasken) und Stanford
 Dogs~\cite{khosla2011dogs} (120 Rassen) sind Standard-Benchmarks für die Rassenerkennung, bei der sich
 Klassen in feinen Details von Form und Fell unterscheiden. Die Bilder beider Datensätze stammen aus dem
-Web; Stanford Dogs wurde aus ImageNet~\cite{deng2009imagenet} zusammengestellt, ImageNet-Pretraining hat
+Web~\cite{parkhi2012pets,khosla2011dogs}; Stanford Dogs wurde aus ImageNet~\cite{deng2009imagenet} zusammengestellt~\cite{khosla2011dogs}, ImageNet-Pretraining hat
 Hunderassen also bereits gesehen.
 
 \paragraph{Abgrenzung.}

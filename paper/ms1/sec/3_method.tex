@@ -50,9 +50,9 @@ Erasing~\cite{zhong2020erasing} (zufällig maskierte Bildbereiche), \emph{none} 
 
 \subsection{Modelle und Training}
 Alle Modelle sind auf ImageNet~\cite{deng2009imagenet,russakovsky2015imagenet} vortrainiert und werden mit Hugging Face
-Transformers~\cite{wolf2020transformers} auf PyTorch~\cite{paszke2019pytorch} geladen: ViT-B/16
-(\texttt{google/vit-base-patch16-224}, auf ImageNet-21k vortrainiert und auf ImageNet-1k feinjustiert; 86\,M Parameter mit unserem Kopf für 25 Klassen), ResNet-50
-(\texttt{microsoft/resnet-50}, 24\,M) und ConvNeXt-T (\texttt{facebook/convnext-tiny-224}, 28\,M). Wir
+Transformers~\cite{wolf2020transformers} auf PyTorch~\cite{paszke2019pytorch} geladen: ViT-B/16~\cite{dosovitskiy2021vit}
+(\texttt{google/vit-base-patch16-224}, auf ImageNet-21k vortrainiert und auf ImageNet-1k feinjustiert; 86\,M Parameter mit unserem Kopf für 25 Klassen), ResNet-50~\cite{he2016resnet}
+(\texttt{microsoft/resnet-50}, 24\,M) und ConvNeXt-T~\cite{liu2022convnext} (\texttt{facebook/convnext-tiny-224}, 28\,M). Wir
 trainieren mit AdamW~\cite{loshchilov2019adamw} (Weight Decay 0,05) und Cosine-Schedule~\cite{loshchilov2017sgdr}
 mit 10\,\% Warm-up, bis zu 10 Epochen mit
 Early Stopping, Batchgröße 32 und $224\times224$ Pixeln Eingabe. Jede Konfiguration läuft mit drei Seeds;

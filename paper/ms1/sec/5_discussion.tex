@@ -39,8 +39,8 @@ unseres Trainingssatzes gesehen zu haben. Die Anpassung muss also vor allem vorh
 Klassen abbilden, und das leistet ein linearer Kopf; das passt dazu, dass vortrainierte Merkmale weitgehend
 übertragbar sind und vor allem späte Schichten aufgabenspezifisch sind~\cite{yosinski2014transferable}. Volles
 Fine-Tuning aktualisiert dagegen 86\,M Parameter mit 2\,242 Bildern und liegt darunter, was dazu passt,
-dass es gute Merkmale verzerren kann~\cite{kumar2022finetuning}. Einschränkung: Kornblith \etal\ finden, dass Fine-Tuning ab einigen hundert Bildern meist besser
-ist (bei abgestimmten Hyperparametern). Unsere Lernrate für volles Fine-Tuning ($5\cdot10^{-5}$) wurde nicht
+dass es gute Merkmale verzerren kann~\cite{kumar2022finetuning}. Einschränkung: Bei Kornblith \etal~\cite{kornblith2019transfer} ist die logistische Regression nur bei sehr wenigen
+Bildern (47--800 insgesamt) gleichauf, darüber gewinnt Fine-Tuning; wir haben 2\,242 Trainingsbilder. Unsere Lernrate für volles Fine-Tuning ($5\cdot10^{-5}$) wurde nicht
 optimiert, die der CNNs schon; ein besser abgestimmtes Fine-Tuning könnte den Rückstand verkleinern oder umkehren.
 
 \begin{figure}[t]
@@ -89,11 +89,11 @@ zieht aber andere Bully-Rassen an (Precision 83,8\,\%). Weitere häufige Verwech
 in drei Seeds): Miniature Pinscher und Chihuahua, Basset Hound $\rightarrow$ Beagle, Wheaten Terrier $\rightarrow$ Havanese. Eine fehlende ImageNet-Klasse erklärt die Schwäche nicht: Havanese und Shiba Inu (ebenfalls keine) sind mit Linear Probing leicht (97 und 99\,\%), nur der American Bulldog nicht (86\,\%).
 
 \paragraph{Worauf schauen die Modelle?}
-\Cref{fig:head} zeigt Grad-CAM für sechs Validierungsbilder: zwei American Bulldogs (Spalten 1 und 4), Havanese,
+\Cref{fig:head} zeigt Grad-CAM~\cite{selvaraju2017gradcam} für sechs Validierungsbilder: zwei American Bulldogs (Spalten 1 und 4), Havanese,
 Saint Bernard, English Cocker Spaniel und Newfoundland. ResNet-50 und ConvNeXt-T heben meist den Kopf hervor, auch bei
 den beiden American Bulldogs, also bei der Rasse mit den meisten Verwechslungen. Die Karte des ViT streut bei den
 American Bulldogs und beim Newfoundland über Hintergrund und Körper, bei den anderen drei liegt sie auf dem Kopf. Das belegt nicht, dass der ViT den Kopf ignoriert: Es sind sechs Einzelbeispiele, Grad-CAM gilt bei
-ViTs als unzuverlässig~\cite{chefer2021transformer}, und Occlusion findet den Kopf auch beim ViT (3,4$\times$ Flächenanteil, Anhang~\ref{sec:explain}).
+ViTs als unzuverlässig~\cite{chefer2021transformer}, und Occlusion~\cite{zeiler2014visualizing} findet den Kopf auch beim ViT (3,4$\times$ Flächenanteil, Anhang~\ref{sec:explain}).
 
 \paragraph{Datenqualität.}
 8,6\,\% der Testbilder haben ein sehr ähnliches Trainingsbild; ohne sie sinkt die Accuracy nur um 0,34\,pp. Bei mindestens
