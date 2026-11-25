@@ -9,7 +9,7 @@ authors:
     given-names: Mohammad Tarek
 repository-code: "https://github.com/hsbi-dlcv-eskeif-dawalibi/hunderassen-vit"
 license: MIT
-version: ms1-v2
+version: ms1
 date-released: 2026-11-25
 keywords:
   - vision transformer
