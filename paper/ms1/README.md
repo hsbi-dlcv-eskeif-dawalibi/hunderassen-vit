@@ -3,6 +3,8 @@
 `cvpr.sty`, `ieeenat_fullname.bst` und `preamble.tex` sind unverändert aus dem Author Kit
 [CVPR2026-v1(latex)](https://github.com/cvpr-org/author-kit/releases/tag/CVPR2026-v1(latex)),
 identisch mit der Version im Projektordner `author-kit-CVPR2026-v1-latex-`.
+`ieeenat_fullname_unsrt.bst` ist eine Kopie des Kit-Stils ohne Sortierung: Quellen werden in der
+Reihenfolge ihrer ersten Zitierung nummeriert.
 
 ```bash
 make paper          # -> paper/ms1/main.pdf (oder: cd paper/ms1 && latexmk -pdf main.tex)
