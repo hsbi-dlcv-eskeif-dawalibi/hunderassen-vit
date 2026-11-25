@@ -85,17 +85,17 @@ Bully-Verwechslungen oder ein Beagle-ähnliches Bild mit Label Basset Hound. Das
 Vorschaubildern, keine Rassenprüfung durch Fachleute.
 
 
-\section{Fehler je Rasse}
-\label{sec:perbreed}
-\Cref{fig:perbreed} zeigt den F1-Wert jeder Rasse für LoRA $r=4$. Die vier Bully-Rassen (rot) liegen am
-unteren Ende.
+\section{Lernkurven}
+\label{sec:curves}
+\Cref{fig:curves} zeigt die Validation-Accuracy je Epoche für alle Methoden.
 
 \begin{figure}[t]
   \centering
-  \resultfigure{paper/f1_je_rasse.png}{\linewidth}{F1 je Rasse}
-  \caption{F1-Wert je Rasse auf dem Testsplit (LoRA $r=4$, Mittelwert über 3 Seeds). Rot: die vier
-  Bully-Rassen, die 59\,\% der Fehler verursachen. Die x-Achse beginnt bei 70\,\%.}
-  \label{fig:perbreed}
+  \resultfigure{paper/lernkurven.png}{\linewidth}{Lernkurven}
+  \caption{Validation-Accuracy je Epoche (Mittelwert über 3 Seeds; die y-Achse beginnt bei 68\,\%). Linear
+  Probing liegt schon nach einer Epoche bei 94\,\%. Die CNNs starten niedriger (ResNet-50: 70\,\%) und
+  bleiben nach dem Aufholen unter den LoRA-Varianten.}
+  \label{fig:curves}
 \end{figure}
 
 \section{Warum diese Rasse und nicht die andere?}

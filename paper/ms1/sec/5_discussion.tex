@@ -64,11 +64,10 @@ optimiert, die der CNNs schon; ein besser abgestimmtes Fine-Tuning könnte den R
 \end{figure}
 
 \paragraph{LoRA, Rang und Layer (Q1--Q3).}
-LoRA mit weniger als 1\,\% trainierbaren Parametern ist nie schlechter als volles Fine-Tuning; der Vorsprung
-von $r=8$ liegt nur knapp über der Schwelle. Linear Probing trainiert
-16-mal weniger Parameter als LoRA $r=8$ bei vergleichbarer Accuracy und lernt am schnellsten: Nach einer Epoche
-liegt es auf Validation schon bei 94\,\%, ResNet-50 bei 70\,\% (\cref{fig:curves}).
-Mehr Rang und mehr Layer bringen keinen messbaren Gewinn; zusätzliche Kapazität bleibt vermutlich ungenutzt.
+Mehr Rang und mehr Layer bringen keinen messbaren Gewinn (\cref{tab:hyp}). Wenn schon ein linearer Kopf
+genügt, bleibt zusätzliche Kapazität vermutlich ungenutzt. Linear Probing ist dabei am günstigsten: 16-mal
+weniger Parameter als LoRA $r=8$, und nach einer Epoche liegt es auf Validation schon bei 94\,\%
+(ResNet-50: 70\,\%, \cref{fig:curves} im Anhang).
 
 \paragraph{ViT gegen CNN (Q4).}
 Der Abstand von 1,42\,pp zwischen bestem ViT und ConvNeXt-T ist klein, aber größer als die Schwelle. Er
@@ -79,7 +78,7 @@ scheint also beim Fine-Tuning der CNNs zu entstehen und nicht durch besseres Pre
 Lernkurven bleiben die CNNs unter den LoRA-Varianten. Die CNN-Lernrate wurde auf Validation gewählt (\cref{tab:lr}).
 
 \paragraph{Welche Rassen gelingen, welche nicht?}
-Die Accuracy verteilt sich sehr ungleich über die 25 Rassen (LoRA $r=4$, Test; \cref{fig:perbreed} im Anhang).
+Die Accuracy verteilt sich sehr ungleich über die 25 Rassen (LoRA $r=4$, Test; \cref{fig:perbreed}).
 14 Rassen erreichen einen F1-Wert von mindestens 98,5\,\%, darunter Scottish Terrier (100\,\%), Leonberger,
 English Setter und Newfoundland (99,7--99,8\,\%). Sie fallen durch Fell, Größe oder Gesichtsform auf und haben
 keinen ähnlichen Nachbarn (\cref{fig:examples}); das erklärt vermutlich, warum sie leicht sind.

@@ -46,15 +46,14 @@ der Seed-Streuung.
 
 \paragraph{Trainingsverlauf.}
 Die beste Validation-Accuracy erreicht Linear Probing nach $3{,}7\pm1{,}2$ Epochen, die übrigen Methoden
-nach 5--7 (\cref{fig:curves}).
+nach 5--7 (Lernkurven in \cref{fig:curves} im Anhang).
 
-\begin{figure}[h]
+\begin{figure}[t]
   \centering
-  \resultfigure{paper/lernkurven.png}{\linewidth}{Lernkurven}
-  \caption{Validation-Accuracy je Epoche (Mittelwert über 3 Seeds; die y-Achse beginnt bei 68\,\%). Linear
-  Probing liegt schon nach einer Epoche bei 94\,\%. Die CNNs starten niedriger (ResNet-50: 70\,\%) und
-  bleiben nach dem Aufholen unter den LoRA-Varianten.}
-  \label{fig:curves}
+  \resultfigure{paper/f1_je_rasse.png}{\linewidth}{F1 je Rasse}
+  \caption{F1-Wert je Rasse auf dem Testsplit (LoRA $r=4$, Mittelwert über 3 Seeds). Rot: die vier
+  Bully-Rassen, die 59\,\% der Fehler verursachen. Die x-Achse beginnt bei 70\,\%.}
+  \label{fig:perbreed}
 \end{figure}
 
 \paragraph{Augmentierung.}
