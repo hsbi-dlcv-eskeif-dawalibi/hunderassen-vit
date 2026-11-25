@@ -12,3 +12,5 @@ matplotlib>=3.8
 tensorboard>=2.15
 pillow>=10.0
 pyyaml>=6.0
+grad-cam>=1.5
+captum>=0.7

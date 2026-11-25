@@ -30,7 +30,7 @@ Wie effizient lässt sich ein auf ImageNet vortrainierter **Vision Transformer**
 mit wenigen Daten anpassen? Wir untersuchen das auf den **25 Hunderassen von
 [Oxford-IIIT Pet](https://www.robots.ox.ac.uk/~vgg/data/pets/)** (≈ 2 250 Trainingsbilder, Segmentierungsmasken).
 
-**Station 1 „Adaptation“** (dieser Stand, Tag `ms1`): Linear Probing · LoRA (Rang 4/8/16, Query/Value vs.
+**Station 1 „Adaptation“** (dieser Stand, Tag `ms1-v2`): Linear Probing · LoRA (Rang 4/8/16, Query/Value vs.
 alle Layer) · volles Fine-Tuning des ViT-B/16 im Vergleich mit vortrainierten CNNs (ResNet-50, ConvNeXt-T).
 Zusätzlich: Warum liegen alle Modelle über 90 %? (`make why`) und welche Bildteile tragen die Entscheidung?
 (`make explain`). Die weiteren Stationen folgen in späteren Ständen dieses Repositories.
@@ -178,7 +178,7 @@ Metadaten in [`CITATION.cff`](CITATION.cff) (GitHub zeigt dafür „Cite this re
   author  = {Eskeif, Wael and Dawalibi, Mohammad Tarek},
   title   = {Hunderassen-ViT: adapting Vision Transformers to 25 dog breeds},
   year    = {2026},
-  version = {ms1},
+  version = {ms1-v2},
   url     = {https://github.com/hsbi-dlcv-eskeif-dawalibi/hunderassen-vit},
   license = {MIT}
 }
