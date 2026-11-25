@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="docs/assets/banner.png" alt="Hunderassen-ViT: Vision Transformer auf 25 Hunderassen" width="100%">
+
 # 🐕 Hunderassen-ViT
 
 **Vision Transformer auf 25 Hunderassen: anpassen und erklären**
